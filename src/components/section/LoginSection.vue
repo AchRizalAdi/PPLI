@@ -31,10 +31,10 @@
                                 <router-link to="/forgot-password" class="btn-link form-forget-password">Forgot Password</router-link>
                             </div>
                             <button class="btn btn-dark w-100" type="submit">{{ SectionData.loginData.btnText }}</button>
-                            <span class="d-block my-4">— or login with —</span>
+                            <!-- <span class="d-block my-4">— or login with —</span>
                             <ul class="btns-group d-flex">
                                 <li class="flex-grow-1" v-for="(list, i) in SectionData.loginData.btns" :key="i"><router-link :to="list.path" class="btn d-block" :class="list.btnClass"><em class="ni" :class="list.icon"></em> {{ list.title }} </router-link></li>
-                            </ul>
+                            </ul> -->
                             <p class="mt-3 form-text">{{ SectionData.loginData.haveAccountText }} <router-link :to="SectionData.loginData.btnTextLink" class="btn-link">{{ SectionData.loginData.btnTextTwo }}</router-link></p>
                         </form>
                     </div><!-- end col-lg-6 -->

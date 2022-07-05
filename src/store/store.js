@@ -480,393 +480,768 @@ let SectionData = {
       },
       {
         id: 5,
-        img: require('@/images/thumb/nft6.jpg'),
-        imgLg: require('@/images/thumb/nft-lg5.jpg'),
-        title: 'Divine Opulence',
+        img: require('@/images/thumb/nft5.jpg'),
+        imgLg: require('@/images/thumb/nft-lg4.jpg'),
+        title: 'Rendering by the Water',
         content: 'Limited Edition *digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
-        author: 'DvisionNetwork',
-        authorLink: '/author',
-        price: 12.00,
-        priceTwo: 1.44,
-        metaText: 'Not for sale',
-        metaTextTwo: '200 editions',
-        metaTextThree: 'Highest bid <span class="text-primary fw-semibold">2.072 ETH</span>',
-        avatar:  require('@/images/thumb/avatar-5.jpg'),
-        userName: '@dvison_network',
-        followersText: '2.4k Followers',
-        authorName: 'Dvision Network',
-        desc: 'Complete account of the system, and expound the actual things.',
-        name: 'art',
-        category: 'art',
-        itemToShow: 'show',
-        avatars: [
-            {
-            id: 1,
-            img: require('@/images/thumb/avatar.jpg'),
-            path: '/author'
-            },
-            {
-            id: 2,
-            img: require('@/images/thumb/avatar-2.jpg'),
-            path: '/author'
-            },
-            {
-            id: 3,
-            img: require('@/images/thumb/avatar-3.jpg'),
-            path: '/author'
-            },
-            {
-            id: 4,
-            img: require('@/images/thumb/avatar-4.jpg'),
-            path: '/author'
-            },
-            {
-            id: 5,
-            img: require('@/images/thumb/avatar-5.jpg'),
-            path: '/author'
-            },
-        ],
-      },
-      {
-        id: 6,
-        img: require('@/images/thumb/nft7.jpg'),
-        imgLg: require('@/images/thumb/nft-lg6.jpg'),
-        title: 'Sacral Metatron Cube',
-        content: 'Limited Edition *digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
-        author: 'KamranMedia',
+        author: 'RukiStudio',
         authorLink: '/author',
         price: 11.00,
-        priceTwo: 2.33,
+        priceTwo: 0.32,
+        metaText: 'Not for sale',
+        metaTextTwo: '300 editions',
+        metaTextThree: 'Highest bid <span class="text-primary fw-semibold">1.072 ETH</span>',
+        avatar:  require('@/images/thumb/avatar-4.jpg'),
+        userName: '@ruki_studio',
+        followersText: '1.3k Followers',
+        authorName: 'Ruki Studio',
+        desc: 'Complete account of the system, and expound the actual things.',
+        name: 'music',
+        category: 'music',
+        itemToShow: 'show',
+        itemToShowSingle: 'show',
+        avatars: [
+        {
+            id: 1,
+            img: require('@/images/thumb/avatar.jpg'),
+            path: '/author'
+        },
+        {
+            id: 2,
+            img: require('@/images/thumb/avatar-2.jpg'),
+            path: '/author'
+        },
+        {
+            id: 3,
+            img: require('@/images/thumb/avatar-3.jpg'),
+            path: '/author'
+        },
+        {
+            id: 4,
+            img: require('@/images/thumb/avatar-4.jpg'),
+            path: '/author'
+        },
+        {
+            id: 5,
+            img: require('@/images/thumb/avatar-5.jpg'),
+            path: '/author'
+        },
+        ],
+    },
+    ],
+  },
+    // Product data
+  productData1: {
+    products: [
+      {
+          id: 1,
+          img: require('@/images/thumb/nft-2.jpg'),
+          imgLg: require('@/images/thumb/nft-lg.jpg'),
+          title: 'KKARAOKE',
+          content: 'Digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
+          author: 'ZeniconStudio',
+          authorLink: '/author',
+          price: 14,
+          priceTwo: 1.32,
+          metaText: 'Not for sale',
+          metaTextTwo: '500 editions',
+          metaTextThree: 'Highest bid <span class="text-primary fw-semibold">0.072 ETH</span>',
+          avatar:  require('@/images/thumb/avatar.jpg'),
+          userName: '@zenicon_studio',
+          followersText: '1.3k Followers',
+          authorName: 'Zenicon Studio',
+          desc: 'Complete account of the system, and expound the actual things.',
+          name: 'art',
+          category: 'art',
+          itemToShow: 'show',
+          itemToShowTwo: 'show',
+          avatars: [
+          {
+              id: 1,
+              img: require('@/images/thumb/avatar.jpg'),
+              path: '/author'
+          },
+          {
+              id: 2,
+              img: require('@/images/thumb/avatar-2.jpg'),
+              path: '/author'
+          },
+          {
+              id: 3,
+              img: require('@/images/thumb/avatar-3.jpg'),
+              path: '/author'
+          },
+          {
+              id: 4,
+              img: require('@/images/thumb/avatar-4.jpg'),
+              path: '/author'
+          },
+          {
+              id: 5,
+              img: require('@/images/thumb/avatar-5.jpg'),
+              path: '/author'
+          },
+          ],
+      },
+      {
+          id: 2,
+          img: require('@/images/thumb/nft3.jpg'),
+          imgLg: require('@/images/thumb/nft-lg2.jpg'),
+          title: 'Operation Jade Fury',
+          content: 'Bazzors is a tiny buzzing, electrifying and irascible Elfin. Bazzors appear intermittently during thunderstorms in the Elfin Kingdom ',
+          author: 'CanvaNetwork',
+          authorLink: '/author',
+          price: 10,
+          priceTwo: 0.32,
+          metaText: 'Not for sale',
+          metaTextTwo: '200 editions',
+          metaTextThree: 'Highest bid <span class="text-primary fw-semibold">1.072 ETH</span>',
+          avatar:  require('@/images/thumb/avatar-2.jpg'),
+          userName: '@canva_network',
+          followersText: '1.3k Followers',
+          authorName: 'Canva Network',
+          desc: 'Complete account of the system, and expound the actual things.',
+          name: 'music',
+          category: 'music',
+          itemToShow: 'show',
+          itemToShowTwo: 'show',
+          avatars: [
+          {
+              id: 1,
+              img: require('@/images/thumb/avatar.jpg'),
+              path: '/author'
+          },
+          {
+              id: 2,
+              img: require('@/images/thumb/avatar-2.jpg'),
+              path: '/author'
+          },
+          {
+              id: 3,
+              img: require('@/images/thumb/avatar-3.jpg'),
+              path: '/author'
+          },
+          {
+              id: 4,
+              img: require('@/images/thumb/avatar-4.jpg'),
+              path: '/author'
+          },
+          {
+              id: 5,
+              img: require('@/images/thumb/avatar-5.jpg'),
+              path: '/author'
+          },
+          ],
+      },
+      {
+          id: 3,
+          img: require('@/images/thumb/nft4.jpg'),
+          imgLg: require('@/images/thumb/nft-lg3.jpg'),
+          title: 'Unboxing The Compass',
+          content: 'According to our idea, REAL BORED APE would look exactly like this. Have you ever seen this tough guy on the streets of your city?',
+          author: 'MoveNetwork',
+          authorLink: '/author',
+          price: 8.00,
+          priceTwo: 0.32,
+          metaText: 'Not for sale',
+          metaTextTwo: '200 editions',
+          metaTextThree: 'Highest bid <span class="text-primary fw-semibold">1.072 ETH</span>',
+          avatar:  require('@/images/thumb/avatar-3.jpg'),
+          userName: '@move_network',
+          followersText: '1.3k Followers',
+          authorName: 'Move Network',
+          desc: 'Complete account of the system, and expound the actual things.',
+          name: 'music',
+          category: 'music',
+          itemToShow: 'show',
+          avatars: [
+          {
+              id: 1,
+              img: require('@/images/thumb/avatar.jpg'),
+              path: '/author'
+          },
+          {
+              id: 2,
+              img: require('@/images/thumb/avatar-2.jpg'),
+              path: '/author'
+          },
+          {
+              id: 3,
+              img: require('@/images/thumb/avatar-3.jpg'),
+              path: '/author'
+          },
+          {
+              id: 4,
+              img: require('@/images/thumb/avatar-4.jpg'),
+              path: '/author'
+          },
+          {
+              id: 5,
+              img: require('@/images/thumb/avatar-5.jpg'),
+              path: '/author'
+          },
+          ],
+      },
+      {
+          id: 4,
+          img: require('@/images/thumb/nft5.jpg'),
+          imgLg: require('@/images/thumb/nft-lg4.jpg'),
+          title: 'Rendering by the Water',
+          content: 'Limited Edition *digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
+          author: 'RukiStudio',
+          authorLink: '/author',
+          price: 11.00,
+          priceTwo: 0.32,
+          metaText: 'Not for sale',
+          metaTextTwo: '300 editions',
+          metaTextThree: 'Highest bid <span class="text-primary fw-semibold">1.072 ETH</span>',
+          avatar:  require('@/images/thumb/avatar-4.jpg'),
+          userName: '@ruki_studio',
+          followersText: '1.3k Followers',
+          authorName: 'Ruki Studio',
+          desc: 'Complete account of the system, and expound the actual things.',
+          name: 'music',
+          category: 'music',
+          itemToShow: 'show',
+          itemToShowSingle: 'show',
+          avatars: [
+          {
+              id: 1,
+              img: require('@/images/thumb/avatar.jpg'),
+              path: '/author'
+          },
+          {
+              id: 2,
+              img: require('@/images/thumb/avatar-2.jpg'),
+              path: '/author'
+          },
+          {
+              id: 3,
+              img: require('@/images/thumb/avatar-3.jpg'),
+              path: '/author'
+          },
+          {
+              id: 4,
+              img: require('@/images/thumb/avatar-4.jpg'),
+              path: '/author'
+          },
+          {
+              id: 5,
+              img: require('@/images/thumb/avatar-5.jpg'),
+              path: '/author'
+          },
+          ],
+      },
+      {
+        id: 5,
+        img: require('@/images/thumb/nft5.jpg'),
+        imgLg: require('@/images/thumb/nft-lg4.jpg'),
+        title: 'Rendering by the Water',
+        content: 'Limited Edition *digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
+        author: 'RukiStudio',
+        authorLink: '/author',
+        price: 11.00,
+        priceTwo: 0.32,
+        metaText: 'Not for sale',
+        metaTextTwo: '300 editions',
+        metaTextThree: 'Highest bid <span class="text-primary fw-semibold">1.072 ETH</span>',
+        avatar:  require('@/images/thumb/avatar-4.jpg'),
+        userName: '@ruki_studio',
+        followersText: '1.3k Followers',
+        authorName: 'Ruki Studio',
+        desc: 'Complete account of the system, and expound the actual things.',
+        name: 'music',
+        category: 'music',
+        itemToShow: 'show',
+        itemToShowSingle: 'show',
+        avatars: [
+        {
+            id: 1,
+            img: require('@/images/thumb/avatar.jpg'),
+            path: '/author'
+        },
+        {
+            id: 2,
+            img: require('@/images/thumb/avatar-2.jpg'),
+            path: '/author'
+        },
+        {
+            id: 3,
+            img: require('@/images/thumb/avatar-3.jpg'),
+            path: '/author'
+        },
+        {
+            id: 4,
+            img: require('@/images/thumb/avatar-4.jpg'),
+            path: '/author'
+        },
+        {
+            id: 5,
+            img: require('@/images/thumb/avatar-5.jpg'),
+            path: '/author'
+        },
+        ],
+    },
+    ],
+  },
+  // Product data
+productData2: {
+  products: [
+    {
+        id: 1,
+        img: require('@/images/thumb/nft-2.jpg'),
+        imgLg: require('@/images/thumb/nft-lg.jpg'),
+        title: 'SEMAR MESEM',
+        content: 'Digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
+        author: 'ZeniconStudio',
+        authorLink: '/author',
+        price: 14,
+        priceTwo: 1.32,
+        metaText: 'Not for sale',
+        metaTextTwo: '500 editions',
+        metaTextThree: 'Highest bid <span class="text-primary fw-semibold">0.072 ETH</span>',
+        avatar:  require('@/images/thumb/avatar.jpg'),
+        userName: '@zenicon_studio',
+        followersText: '1.3k Followers',
+        authorName: 'Zenicon Studio',
+        desc: 'Complete account of the system, and expound the actual things.',
+        name: 'art',
+        category: 'art',
+        itemToShow: 'show',
+        itemToShowTwo: 'show',
+        avatars: [
+        {
+            id: 1,
+            img: require('@/images/thumb/avatar.jpg'),
+            path: '/author'
+        },
+        {
+            id: 2,
+            img: require('@/images/thumb/avatar-2.jpg'),
+            path: '/author'
+        },
+        {
+            id: 3,
+            img: require('@/images/thumb/avatar-3.jpg'),
+            path: '/author'
+        },
+        {
+            id: 4,
+            img: require('@/images/thumb/avatar-4.jpg'),
+            path: '/author'
+        },
+        {
+            id: 5,
+            img: require('@/images/thumb/avatar-5.jpg'),
+            path: '/author'
+        },
+        ],
+    },
+    {
+        id: 2,
+        img: require('@/images/thumb/nft3.jpg'),
+        imgLg: require('@/images/thumb/nft-lg2.jpg'),
+        title: 'Operation Jade Fury',
+        content: 'Bazzors is a tiny buzzing, electrifying and irascible Elfin. Bazzors appear intermittently during thunderstorms in the Elfin Kingdom ',
+        author: 'CanvaNetwork',
+        authorLink: '/author',
+        price: 10,
+        priceTwo: 0.32,
         metaText: 'Not for sale',
         metaTextTwo: '200 editions',
         metaTextThree: 'Highest bid <span class="text-primary fw-semibold">1.072 ETH</span>',
-        avatar:  require('@/images/thumb/avatar-6.jpg'),
-        userName: '@kamran_media',
-        followersText: '2.4k Followers',
-        authorName: 'Kamran Media',
+        avatar:  require('@/images/thumb/avatar-2.jpg'),
+        userName: '@canva_network',
+        followersText: '1.3k Followers',
+        authorName: 'Canva Network',
         desc: 'Complete account of the system, and expound the actual things.',
-        name: 'art',
-        category: 'art',
+        name: 'music',
+        category: 'music',
         itemToShow: 'show',
+        itemToShowTwo: 'show',
         avatars: [
-            {
+        {
             id: 1,
             img: require('@/images/thumb/avatar.jpg'),
             path: '/author'
-            },
-            {
+        },
+        {
             id: 2,
             img: require('@/images/thumb/avatar-2.jpg'),
             path: '/author'
-            },
-            {
+        },
+        {
             id: 3,
             img: require('@/images/thumb/avatar-3.jpg'),
             path: '/author'
-            },
-            {
+        },
+        {
             id: 4,
             img: require('@/images/thumb/avatar-4.jpg'),
             path: '/author'
-            },
-            {
+        },
+        {
             id: 5,
             img: require('@/images/thumb/avatar-5.jpg'),
             path: '/author'
-            },
+        },
         ],
-      },
-      {
-        id: 7,
-        img: require('@/images/thumb/nft8.jpg'),
-        imgLg: require('@/images/thumb/nft-lg7.jpg'),
-        title: 'Girl warming up to a bed acrobat',
-        content: 'Limited Edition *digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
-        author: 'JisanMedia',
+    },
+    {
+        id: 3,
+        img: require('@/images/thumb/nft4.jpg'),
+        imgLg: require('@/images/thumb/nft-lg3.jpg'),
+        title: 'Unboxing The Compass',
+        content: 'According to our idea, REAL BORED APE would look exactly like this. Have you ever seen this tough guy on the streets of your city?',
+        author: 'MoveNetwork',
         authorLink: '/author',
         price: 8.00,
-        priceTwo: 0.33,
+        priceTwo: 0.32,
         metaText: 'Not for sale',
-        metaTextTwo: '100 editions',
+        metaTextTwo: '200 editions',
         metaTextThree: 'Highest bid <span class="text-primary fw-semibold">1.072 ETH</span>',
-        avatar:  require('@/images/thumb/avatar-7.jpg'),
-        userName: '@jisan_media',
-        followersText: '2.4k Followers',
-        authorName: 'Jisan Media',
+        avatar:  require('@/images/thumb/avatar-3.jpg'),
+        userName: '@move_network',
+        followersText: '1.3k Followers',
+        authorName: 'Move Network',
         desc: 'Complete account of the system, and expound the actual things.',
-        name: 'art',
-        category: 'art',
+        name: 'music',
+        category: 'music',
         itemToShow: 'show',
         avatars: [
-            {
+        {
             id: 1,
             img: require('@/images/thumb/avatar.jpg'),
             path: '/author'
-            },
-            {
+        },
+        {
             id: 2,
             img: require('@/images/thumb/avatar-2.jpg'),
             path: '/author'
-            },
-            {
+        },
+        {
             id: 3,
             img: require('@/images/thumb/avatar-3.jpg'),
             path: '/author'
-            },
-            {
+        },
+        {
             id: 4,
             img: require('@/images/thumb/avatar-4.jpg'),
             path: '/author'
-            },
-            {
+        },
+        {
             id: 5,
             img: require('@/images/thumb/avatar-5.jpg'),
             path: '/author'
-            },
+        },
         ],
+    },
+    {
+        id: 4,
+        img: require('@/images/thumb/nft5.jpg'),
+        imgLg: require('@/images/thumb/nft-lg4.jpg'),
+        title: 'Rendering by the Water',
+        content: 'Limited Edition *digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
+        author: 'RukiStudio',
+        authorLink: '/author',
+        price: 11.00,
+        priceTwo: 0.32,
+        metaText: 'Not for sale',
+        metaTextTwo: '300 editions',
+        metaTextThree: 'Highest bid <span class="text-primary fw-semibold">1.072 ETH</span>',
+        avatar:  require('@/images/thumb/avatar-4.jpg'),
+        userName: '@ruki_studio',
+        followersText: '1.3k Followers',
+        authorName: 'Ruki Studio',
+        desc: 'Complete account of the system, and expound the actual things.',
+        name: 'music',
+        category: 'music',
+        itemToShow: 'show',
+        itemToShowSingle: 'show',
+        avatars: [
+        {
+            id: 1,
+            img: require('@/images/thumb/avatar.jpg'),
+            path: '/author'
+        },
+        {
+            id: 2,
+            img: require('@/images/thumb/avatar-2.jpg'),
+            path: '/author'
+        },
+        {
+            id: 3,
+            img: require('@/images/thumb/avatar-3.jpg'),
+            path: '/author'
+        },
+        {
+            id: 4,
+            img: require('@/images/thumb/avatar-4.jpg'),
+            path: '/author'
+        },
+        {
+            id: 5,
+            img: require('@/images/thumb/avatar-5.jpg'),
+            path: '/author'
+        },
+        ],
+    },
+    
+  ],
+},
+// Product data
+productData3: {
+products: [
+  {
+      id: 1,
+      img: require('@/images/thumb/nft-2.jpg'),
+      imgLg: require('@/images/thumb/nft-lg.jpg'),
+      title: 'makan ayam',
+      content: 'Digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
+      author: 'ZeniconStudio',
+      authorLink: '/author',
+      price: 14,
+      priceTwo: 1.32,
+      metaText: 'Not for sale',
+      metaTextTwo: '500 editions',
+      metaTextThree: 'Highest bid <span class="text-primary fw-semibold">0.072 ETH</span>',
+      avatar:  require('@/images/thumb/avatar.jpg'),
+      userName: '@zenicon_studio',
+      followersText: '1.3k Followers',
+      authorName: 'Zenicon Studio',
+      desc: 'Complete account of the system, and expound the actual things.',
+      name: 'art',
+      category: 'art',
+      itemToShow: 'show',
+      itemToShowTwo: 'show',
+      avatars: [
+      {
+          id: 1,
+          img: require('@/images/thumb/avatar.jpg'),
+          path: '/author'
       },
       {
-      id: 8,
-      img: require('@/images/thumb/nft9.jpg'),
-      imgLg: require('@/images/thumb/nft-lg8.jpg'),
-      title: 'Women Eyes Modern Art',
-      content: 'Limited Edition *digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
-      author: 'RifiUnited',
+          id: 2,
+          img: require('@/images/thumb/avatar-2.jpg'),
+          path: '/author'
+      },
+      {
+          id: 3,
+          img: require('@/images/thumb/avatar-3.jpg'),
+          path: '/author'
+      },
+      {
+          id: 4,
+          img: require('@/images/thumb/avatar-4.jpg'),
+          path: '/author'
+      },
+      {
+          id: 5,
+          img: require('@/images/thumb/avatar-5.jpg'),
+          path: '/author'
+      },
+      ],
+  },
+  {
+      id: 2,
+      img: require('@/images/thumb/nft3.jpg'),
+      imgLg: require('@/images/thumb/nft-lg2.jpg'),
+      title: 'Operation Jade Fury',
+      content: 'Bazzors is a tiny buzzing, electrifying and irascible Elfin. Bazzors appear intermittently during thunderstorms in the Elfin Kingdom ',
+      author: 'CanvaNetwork',
       authorLink: '/author',
-      price: 8.00,
-      priceTwo: 0.33,
+      price: 10,
+      priceTwo: 0.32,
       metaText: 'Not for sale',
       metaTextTwo: '200 editions',
       metaTextThree: 'Highest bid <span class="text-primary fw-semibold">1.072 ETH</span>',
-      avatar:  require('@/images/thumb/avatar-8.jpg'),
-      userName: '@rifi_united',
-      followersText: '1.4k Followers',
-      authorName: 'Rifi United',
+      avatar:  require('@/images/thumb/avatar-2.jpg'),
+      userName: '@canva_network',
+      followersText: '1.3k Followers',
+      authorName: 'Canva Network',
       desc: 'Complete account of the system, and expound the actual things.',
-      name: 'collectibles',
-      category: 'collectibles',
+      name: 'music',
+      category: 'music',
+      itemToShow: 'show',
+      itemToShowTwo: 'show',
+      avatars: [
+      {
+          id: 1,
+          img: require('@/images/thumb/avatar.jpg'),
+          path: '/author'
+      },
+      {
+          id: 2,
+          img: require('@/images/thumb/avatar-2.jpg'),
+          path: '/author'
+      },
+      {
+          id: 3,
+          img: require('@/images/thumb/avatar-3.jpg'),
+          path: '/author'
+      },
+      {
+          id: 4,
+          img: require('@/images/thumb/avatar-4.jpg'),
+          path: '/author'
+      },
+      {
+          id: 5,
+          img: require('@/images/thumb/avatar-5.jpg'),
+          path: '/author'
+      },
+      ],
+  },
+  {
+      id: 3,
+      img: require('@/images/thumb/nft4.jpg'),
+      imgLg: require('@/images/thumb/nft-lg3.jpg'),
+      title: 'Unboxing The Compass',
+      content: 'According to our idea, REAL BORED APE would look exactly like this. Have you ever seen this tough guy on the streets of your city?',
+      author: 'MoveNetwork',
+      authorLink: '/author',
+      price: 8.00,
+      priceTwo: 0.32,
+      metaText: 'Not for sale',
+      metaTextTwo: '200 editions',
+      metaTextThree: 'Highest bid <span class="text-primary fw-semibold">1.072 ETH</span>',
+      avatar:  require('@/images/thumb/avatar-3.jpg'),
+      userName: '@move_network',
+      followersText: '1.3k Followers',
+      authorName: 'Move Network',
+      desc: 'Complete account of the system, and expound the actual things.',
+      name: 'music',
+      category: 'music',
       itemToShow: 'show',
       avatars: [
-          {
-            id: 1,
-            img: require('@/images/thumb/avatar.jpg'),
-            path: '/author'
-          },
-          {
-            id: 2,
-            img: require('@/images/thumb/avatar-2.jpg'),
-            path: '/author'
-          },
-          {
-            id: 3,
-            img: require('@/images/thumb/avatar-3.jpg'),
-            path: '/author'
-          },
-          {
-            id: 4,
-            img: require('@/images/thumb/avatar-4.jpg'),
-            path: '/author'
-          },
-          {
-            id: 5,
-            img: require('@/images/thumb/avatar-5.jpg'),
-            path: '/author'
-          },
+      {
+          id: 1,
+          img: require('@/images/thumb/avatar.jpg'),
+          path: '/author'
+      },
+      {
+          id: 2,
+          img: require('@/images/thumb/avatar-2.jpg'),
+          path: '/author'
+      },
+      {
+          id: 3,
+          img: require('@/images/thumb/avatar-3.jpg'),
+          path: '/author'
+      },
+      {
+          id: 4,
+          img: require('@/images/thumb/avatar-4.jpg'),
+          path: '/author'
+      },
+      {
+          id: 5,
+          img: require('@/images/thumb/avatar-5.jpg'),
+          path: '/author'
+      },
       ],
+  },
+  {
+      id: 4,
+      img: require('@/images/thumb/nft5.jpg'),
+      imgLg: require('@/images/thumb/nft-lg4.jpg'),
+      title: 'Rendering by the Water',
+      content: 'Limited Edition *digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
+      author: 'RukiStudio',
+      authorLink: '/author',
+      price: 11.00,
+      priceTwo: 0.32,
+      metaText: 'Not for sale',
+      metaTextTwo: '300 editions',
+      metaTextThree: 'Highest bid <span class="text-primary fw-semibold">1.072 ETH</span>',
+      avatar:  require('@/images/thumb/avatar-4.jpg'),
+      userName: '@ruki_studio',
+      followersText: '1.3k Followers',
+      authorName: 'Ruki Studio',
+      desc: 'Complete account of the system, and expound the actual things.',
+      name: 'music',
+      category: 'music',
+      itemToShow: 'show',
+      itemToShowSingle: 'show',
+      avatars: [
+      {
+          id: 1,
+          img: require('@/images/thumb/avatar.jpg'),
+          path: '/author'
       },
       {
-        id: 9,
-        img: require('@/images/thumb/nft16.jpg'),
-        imgLg: require('@/images/thumb/nft-lg9.jpg'),
-        title: 'Puffy Baby Bird #151',
-        content: 'Limited Edition *digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
-        author: 'RadioCaca',
-        authorLink: '/author',
-        price: 12.00,
-        priceTwo: 1.33,
-        metaText: 'Not for sale',
-        metaTextTwo: '200 editions',
-        metaTextThree: 'Highest bid <span class="text-primary fw-semibold">1.072 ETH</span>',
-        avatar:  require('@/images/thumb/avatar-9.jpg'),
-        userName: '@radio_caca',
-        followersText: '1.4k Followers',
-        authorName: 'Radio Caca',
-        desc: 'Complete account of the system, and expound the actual things.',
-        name: 'collectibles',
-        category: 'collectibles',
-        avatars: [
-            {
-            id: 1,
-            img: require('@/images/thumb/avatar.jpg'),
-            path: '/author'
-            },
-            {
-            id: 2,
-            img: require('@/images/thumb/avatar-2.jpg'),
-            path: '/author'
-            },
-            {
-            id: 3,
-            img: require('@/images/thumb/avatar-3.jpg'),
-            path: '/author'
-            },
-            {
-            id: 4,
-            img: require('@/images/thumb/avatar-4.jpg'),
-            path: '/author'
-            },
-            {
-            id: 5,
-            img: require('@/images/thumb/avatar-5.jpg'),
-            path: '/author'
-            },
-        ],
+          id: 2,
+          img: require('@/images/thumb/avatar-2.jpg'),
+          path: '/author'
       },
       {
-          id: 10,
-          img: require('@/images/thumb/nft17.jpg'),
-          imgLg: require('@/images/thumb/nft-lg10.jpg'),
-          title: 'Wave1 - Titanium Ticket',
-          content: 'Limited Edition *digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
-          author: 'InfinityArt',
-          authorLink: '/author',
-          price: 10.00,
-          priceTwo: 0.33,
-          metaText: 'Not for sale',
-          metaTextTwo: '200 editions',
-          metaTextThree: 'Highest bid <span class="text-primary fw-semibold">1.072 ETH</span>',
-          avatar:  require('@/images/thumb/avatar-10.jpg'),
-          userName: '@infinity_art',
-          followersText: '1.4k Followers',
-          authorName: 'Infinity Art',
-          desc: 'Complete account of the system, and expound the actual things.',
-          name: 'collectibles',
-          category: 'collectibles',
-          avatars: [
-              {
-                  id: 1,
-                  img: require('@/images/thumb/avatar.jpg'),
-                  path: '/author'
-              },
-              {
-                  id: 2,
-                  img: require('@/images/thumb/avatar-2.jpg'),
-                  path: '/author'
-              },
-              {
-                  id: 3,
-                  img: require('@/images/thumb/avatar-3.jpg'),
-                  path: '/author'
-              },
-              {
-                  id: 4,
-                  img: require('@/images/thumb/avatar-4.jpg'),
-                  path: '/author'
-              },
-              {
-                  id: 5,
-                  img: require('@/images/thumb/avatar-5.jpg'),
-                  path: '/author'
-              },
-          ],
+          id: 3,
+          img: require('@/images/thumb/avatar-3.jpg'),
+          path: '/author'
       },
       {
-          id: 11,
-          img: require('@/images/thumb/nft18.jpg'),
-          imgLg: require('@/images/thumb/nft-lg11.jpg'),
-          title: 'Saggezza 2/4. Cartier Edition',
-          content: 'Limited Edition *digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
-          author: 'InfinityArt',
-          authorLink: '/author',
-          price: 5.00,
-          priceTwo: 1.33,
-          metaText: 'Not for sale',
-          metaTextTwo: '200 editions',
-          metaTextThree: 'Highest bid <span class="text-primary fw-semibold">2.072 ETH</span>',
-          avatar:  require('@/images/thumb/avatar-11.jpg'),
-          userName: '@infinity_art',
-          followersText: '1.4k Followers',
-          authorName: 'Infinity Art',
-          desc: 'Complete account of the system, and expound the actual things.',
-          name: 'games',
-          category: 'games',
-          avatars: [
-              {
-                  id: 1,
-                  img: require('@/images/thumb/avatar.jpg'),
-                  path: '/author'
-              },
-              {
-                  id: 2,
-                  img: require('@/images/thumb/avatar-2.jpg'),
-                  path: '/author'
-              },
-              {
-                  id: 3,
-                  img: require('@/images/thumb/avatar-3.jpg'),
-                  path: '/author'
-              },
-              {
-                  id: 4,
-                  img: require('@/images/thumb/avatar-4.jpg'),
-                  path: '/author'
-              },
-              {
-                  id: 5,
-                  img: require('@/images/thumb/avatar-5.jpg'),
-                  path: '/author'
-              },
-          ],
+          id: 4,
+          img: require('@/images/thumb/avatar-4.jpg'),
+          path: '/author'
       },
       {
-          id: 12,
-          img: require('@/images/thumb/nft19.jpg'),
-          imgLg: require('@/images/thumb/nft-lg12.jpg'),
-          title: 'Venus (Viktoria Veisbrut & SoldArt)',
-          content: 'Limited Edition *digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
-          author: 'Viktoria',
-          authorLink: '/author',
-          price: 12.00,
-          priceTwo: 1.33,
-          metaText: 'Not for sale',
-          metaTextTwo: '200 editions',
-          metaTextThree: 'Highest bid <span class="text-primary fw-semibold">1.072 ETH</span>',
-          avatar:  require('@/images/thumb/avatar-12.jpg'),
-          userName: '@viktoria',
-          followersText: '1.4k Followers',
-          authorName: 'Viktoria',
-          desc: 'Complete account of the system, and expound the actual things.',
-          name: 'games',
-          category: 'games',
-          avatars: [
-              {
-                  id: 1,
-                  img: require('@/images/thumb/avatar.jpg'),
-                  path: '/author'
-              },
-              {
-                  id: 2,
-                  img: require('@/images/thumb/avatar-2.jpg'),
-                  path: '/author'
-              },
-              {
-                  id: 3,
-                  img: require('@/images/thumb/avatar-3.jpg'),
-                  path: '/author'
-              },
-              {
-                  id: 4,
-                  img: require('@/images/thumb/avatar-4.jpg'),
-                  path: '/author'
-              },
-              {
-                  id: 5,
-                  img: require('@/images/thumb/avatar-5.jpg'),
-                  path: '/author'
-              },
-          ],
+          id: 5,
+          img: require('@/images/thumb/avatar-5.jpg'),
+          path: '/author'
       },
+      ],
+  },
+  {
+    id: 5,
+    img: require('@/images/thumb/nft5.jpg'),
+    imgLg: require('@/images/thumb/nft-lg4.jpg'),
+    title: 'Rendering by the Water',
+    content: 'Limited Edition *digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
+    author: 'RukiStudio',
+    authorLink: '/author',
+    price: 11.00,
+    priceTwo: 0.32,
+    metaText: 'Not for sale',
+    metaTextTwo: '300 editions',
+    metaTextThree: 'Highest bid <span class="text-primary fw-semibold">1.072 ETH</span>',
+    avatar:  require('@/images/thumb/avatar-4.jpg'),
+    userName: '@ruki_studio',
+    followersText: '1.3k Followers',
+    authorName: 'Ruki Studio',
+    desc: 'Complete account of the system, and expound the actual things.',
+    name: 'music',
+    category: 'music',
+    itemToShow: 'show',
+    itemToShowSingle: 'show',
+    avatars: [
+    {
+        id: 1,
+        img: require('@/images/thumb/avatar.jpg'),
+        path: '/author'
+    },
+    {
+        id: 2,
+        img: require('@/images/thumb/avatar-2.jpg'),
+        path: '/author'
+    },
+    {
+        id: 3,
+        img: require('@/images/thumb/avatar-3.jpg'),
+        path: '/author'
+    },
+    {
+        id: 4,
+        img: require('@/images/thumb/avatar-4.jpg'),
+        path: '/author'
+    },
+    {
+        id: 5,
+        img: require('@/images/thumb/avatar-5.jpg'),
+        path: '/author'
+    },
     ],
+},
+],
     onSaleList: [
       {
         id: 1,
@@ -1574,6 +1949,21 @@ let SectionData = {
     title: 'Air Freight',
     content: 'This is just a simple text made for this unique and awesome template, you can replace it with any text. It is a long established fact.',
   },
+  // Recent item data 1
+  recentItemData1: {
+    title: 'Truck',
+    content: 'This is just a simple text made for this unique and awesome template, you can replace it with any text. It is a long established fact.',
+  },
+  // Recent item data 1
+  recentItemData2: {
+    title: 'Sea Freight',
+    content: 'This is just a simple text made for this unique and awesome template, you can replace it with any text. It is a long established fact.',
+  },
+  // Recent item data 1
+  recentItemData3: {
+    title: 'Warehouse',
+    content: 'This is just a simple text made for this unique and awesome template, you can replace it with any text. It is a long established fact.',
+  },
   // how It Work Data
   howItWorkData: {
     title: 'Create and sell your NFTs',
@@ -1799,7 +2189,7 @@ let SectionData = {
         id: 2,
         icon: require('@/images/thumb/icon-employees.svg'),
         title: '68',
-        subTitle: 'Employees'
+        subTitle: 'Total Members'
       },
       {
         id: 3,
@@ -1813,6 +2203,10 @@ let SectionData = {
   // Newsletter Data
   newsletterData: {
     title: 'Join Our Newsletter'
+  },
+  // termletter Data
+  termletterData: {
+    title: 'Mau bergabung menjadi Anggota?'
   },
   // news data
   blogData: {
@@ -2889,37 +3283,125 @@ let SectionData = {
     navList: [
       {
         id: 1,
-        icon: 'ni-edit',
-        title: 'Edit Profile',
-        path: 'account'
+        icon: 'ni-user',
+        title: 'About Us',
+        path: '/about-us'
       },
       {
         id: 2,
-        icon: 'ni-money',
-        title: 'Payment Methods',
-        path: 'payment-methods'
+        icon: 'ni-edit',
+        title: 'FAQs',
+        path: '/faq'
       },
       {
         id: 3,
-        icon: 'ni-user',
-        title: 'Seller Settings',
-        path: 'seller-settings'
+        icon: 'ni-notes-alt',
+        title: 'Terms and Condition',
+        path: '/terms'
       },
       {
         id: 4,
-        icon: 'ni-bell',
-        title: 'Notifications',
-        path: 'notifications'
-      },
-      {
-        id: 5,
-        class: 'active',
         icon: 'ni-lock',
-        title: 'Security',
-        path: 'security'
-      }
+        title: 'Privacy policy',
+        path: '/privacy'
+      },
     ]
   },
+  // terms sidebar
+  termSidebarData: {
+    title: 'Terms',
+    navList: [
+      {
+        id: 1,
+        icon: 'ni-user',
+        title: 'About Us',
+        path: '/about-us'
+      },
+      {
+        id: 2,
+        icon: 'ni-edit',
+        title: 'FAQs',
+        path: '/faq'
+      },
+      {
+        id: 3,
+        class: 'active',
+        icon: 'ni-notes-alt',
+        title: 'Terms and Condition',
+        path: '/terms'
+      },
+      {
+        id: 4,
+        icon: 'ni-lock',
+        title: 'Privacy policy',
+        path: '/privacy'
+      },
+    ]
+  },
+
+// privacy sidebar
+privacySidebarData: {
+  title: 'Privacy',
+  navList: [
+    {
+      id: 1,
+      icon: 'ni-user',
+      title: 'About Us',
+      path: '/about-us'
+    },
+    {
+      id: 2,
+      icon: 'ni-edit',
+      title: 'FAQs',
+      path: '/faq'
+    },
+    {
+      id: 3,
+      icon: 'ni-notes-alt',
+      title: 'Terms and Condition',
+      path: '/terms'
+    },
+    {
+      id: 4,
+      class: 'active',
+      icon: 'ni-lock',
+      title: 'Privacy policy',
+      path: '/privacy'
+    },
+  ]
+},
+
+// Faq sidebar
+faqSidebarData: {
+  title: 'Faq',
+  navList: [
+    {
+      id: 1,
+      icon: 'ni-user',
+      title: 'About Us',
+      path: '/about-us'
+    },
+    {
+      id: 2,
+      class: 'active',
+      icon: 'ni-edit',
+      title: 'FAQs',
+      path: '/faq'
+    },
+    {
+      id: 3,
+      icon: 'ni-notes-alt',
+      title: 'Terms and Condition',
+      path: '/terms'
+    },
+    {
+      id: 4,
+      icon: 'ni-lock',
+      title: 'Privacy policy',
+      path: '/privacy'
+    },
+  ]
+},
   sellerSettingData: {
     title: 'Seller Settings',
     content: 'Current <strong>Authorized Seller </strong> Status: <strong class="text-warning">Restricted</strong>',
@@ -4459,7 +4941,7 @@ let SectionData = {
   forgot: {
     img: require('@/images/thumb/remote.png'),
     title: 'Forgot Password',
-    subTitle: 'Enter email to reset password',
+    subTitle: 'Enter Username to reset password',
     btnText: 'Submit',
     haveAccountText: "Don't have an account",
     btnTextTwo: 'Sign Up',
@@ -5562,6 +6044,7 @@ let SectionData = {
       }
     ],
   },
+  copyTitle: 'Copyright © 2022 Pilar Media.'
 }
 
 

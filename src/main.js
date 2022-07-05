@@ -5,6 +5,7 @@ import router from './router'
 // vue app
 const app = createApp(App);
 
+
 // bootstrap
 import "bootstrap"
 
@@ -66,10 +67,19 @@ import HowItWorkFour from './components/section/HowItWorkFour.vue';
 import HowItWorkSlider from './components/common/HowItWorkSlider.vue';
 import Category from './components/section/Category.vue';
 import Newsletter from './components/section/Newsletter.vue';
+import Termletter from './components/section/Termletter.vue';
+import Privacyletter from './components/section/Privacyletter.vue';
+import Faqletter from './components/section/Faqletter.vue';
 import FeaturedCreatorSlider from './components/common/FeaturedCreatorSlider.vue';
 import FeaturedItemSlider from './components/common/FeaturedItemSlider.vue';
 import RecentItemSection from './components/section/RecentItemSection.vue';
 import RecentItemSlider from './components/common/RecentItemSlider.vue';
+import RecentItemSection1 from './components/section/RecentItemSection1.vue';
+import RecentItemSlider1 from './components/common/RecentItemSlider1.vue';
+import RecentItemSection2 from './components/section/RecentItemSection2.vue';
+import RecentItemSlider2 from './components/common/RecentItemSlider2.vue';
+import RecentItemSection3 from './components/section/RecentItemSection3.vue';
+import RecentItemSlider3 from './components/common/RecentItemSlider3.vue';
 import FullScreenSlider from './components/common/FullScreenSlider.vue';
 import FunFactSection from './components/section/FunFactSection.vue';
 import ExploreSection from './components/section/ExploreSection.vue';
@@ -135,6 +145,10 @@ import SecuritySection from './components/section/SecuritySection.vue';
 import SellBuy from './components/section/SellBuy.vue';
 import ThemeSwitcher from './components/common/ThemeSwitcher.vue';
 import ModalSection1 from './components/section/ModalSection1.vue';
+import TermSection from './components/section/TermSection.vue';
+import PrivacySection from './components/section/PrivacySection.vue';
+import FaqSection from './components/section/FaqSection.vue';
+
 
 
 // Global page components register
@@ -163,10 +177,19 @@ app.component('HowItWorkFour', HowItWorkFour)
 app.component('HowItWorkSlider', HowItWorkSlider)
 app.component('Category', Category)
 app.component('Newsletter', Newsletter)
+app.component('Termletter', Termletter)
+app.component('Privacyletter', Privacyletter)
+app.component('Faqletter', Faqletter)
 app.component('FeaturedCreatorSlider', FeaturedCreatorSlider)
 app.component('FeaturedItemSlider', FeaturedItemSlider)
 app.component('RecentItemSection', RecentItemSection)
 app.component('RecentItemSlider', RecentItemSlider)
+app.component('RecentItemSection1', RecentItemSection1)
+app.component('RecentItemSlider1', RecentItemSlider1)
+app.component('RecentItemSection2', RecentItemSection2)
+app.component('RecentItemSlider2', RecentItemSlider2)
+app.component('RecentItemSection3', RecentItemSection3)
+app.component('RecentItemSlider3', RecentItemSlider3)
 app.component('FullScreenSlider', FullScreenSlider)
 app.component('FunFactSection', FunFactSection)
 app.component('ExploreSection', ExploreSection)
@@ -232,6 +255,9 @@ app.component('SecuritySection', SecuritySection)
 app.component('SellBuy', SellBuy)
 app.component('ThemeSwitcher', ThemeSwitcher)
 app.component('ModalSection1', ModalSection1)
+app.component('TermSection', TermSection)
+app.component('PrivacySection', PrivacySection)
+app.component('FaqSection', FaqSection)
 
 // vue app
 app.use(router).mount('#app')

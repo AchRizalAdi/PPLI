@@ -223,6 +223,16 @@ const routes = [
     path: '/terms',
     name: 'terms',
     component: () => import('../pages/Terms.vue')
+  },
+  {
+    path: '/privacy',
+    name: 'privacy',
+    component: () => import('../pages/Privacy.vue')
+  },
+  {
+    path: '/faq',
+    name: 'faqs',
+    component: () => import('../pages/Faqs.vue')
   }
 ];
 

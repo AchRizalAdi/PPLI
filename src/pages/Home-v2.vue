@@ -13,23 +13,31 @@
         <Category classname="section-space-b"></Category>
         <!-- Recent Item Section  -->
         <RecentItemSection></RecentItemSection>
-        <!-- product  -->
+        
         <section class="section-space trending-section bg-gray">
             <div class="container">
-                <!-- section heading -->
-                <SectionHeading classname="text-center" :text="SectionData.productData.title" :content="SectionData.productData.content" isMargin="mb-3"></SectionHeading>
-                
-                <!-- product -->
-                <ProductsContainer></ProductsContainer>
-                <div class="text-center mt-4 mt-md-5">
-                    <ButtonLink :text="SectionData.productData.btnText" :link="SectionData.productData.btnLink" classname="btn-link btn-link-s1"></ButtonLink>
-                </div>
+                <!-- Recent Item Section  -->
+        <RecentItemSection1></RecentItemSection1>
             </div><!-- .container -->
         </section><!-- trending-section -->
+
+        <section class="section-space trending-section bg-white">
+            <div class="container">
+                <!-- Recent Item Section  -->
+        <RecentItemSection2></RecentItemSection2>
+            </div><!-- .container -->
+        </section><!-- trending-section -->
+
+        <section class="section-space trending-section bg-gray">
+            <div class="container">
+                <!-- Recent Item Section  -->
+        <RecentItemSection3></RecentItemSection3>
+            </div><!-- .container -->
+        </section><!-- trending-section -->
+
         <!-- HowItWork  -->
         <HowItWork classname="col-lg-3" :title="SectionData.howItWorkData.titleTwo" :subtitle="SectionData.howItWorkData.content" gutterBottom="mb-3"></HowItWork>
-        <!-- funFact  -->
-        <funFactSection :isBg="true" class="section-space" classname="col-lg-4 col-sm-6" :items="SectionData.funfactData.funfactList"></funFactSection>
+        
         <!-- Newsletter  -->
         <Newsletter></Newsletter>
         <!-- Footer  -->

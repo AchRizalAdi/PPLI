@@ -24,7 +24,7 @@
                             <ul class="btns-group d-flex ">
                                 <li class="flex-grow-1" v-for="(list, i) in SectionData.reset.btns" :key="i"><router-link :to="list.path" class="btn d-block" :class="list.btnClass"><em class="ni" :class="list.icon"></em> {{ list.title }} </router-link></li>
                             </ul>
-                            <p class="mt-4 form-text">{{ SectionData.reset.haveAccountText }} <router-link :to="SectionData.reset.btnTextLink" class="btn-link">{{ SectionData.reset.btnTextTwo }}</router-link></p>
+                            <!-- <p class="mt-4 form-text">{{ SectionData.reset.haveAccountText }} <router-link :to="SectionData.reset.btnTextLink" class="btn-link">{{ SectionData.reset.btnTextTwo }}</router-link></p> -->
                         </form>
                     </div><!-- end col-lg-6 -->
                 </div><!-- end row -->

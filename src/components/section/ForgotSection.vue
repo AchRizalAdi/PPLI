@@ -12,8 +12,8 @@
                         </div>
                         <form action="#">
                             <div class="form-floating mb-4 mt-4">
-                                <input type="email" class="form-control" id="emailAddress" placeholder="name@example.com">
-                                <label for="emailAddress">Email address</label>
+                                <input type="text" class="form-control" id="username" placeholder="Username">
+                                <label for="username">Username</label>
                             </div><!-- end form-floating -->
                            
                             <button class="btn btn-dark w-100" type="submit">{{ SectionData.forgot.btnText }}</button>
