@@ -14,19 +14,6 @@
             <div class="row g-gs">
               <div class="col-lg-4 col-md-6" v-for="item of displayedRecords" :key="item.id">
                         <div class="card card-full card-blog">
-                            <div class="d-block card-image">
-                                <img :src="item.img" class="card-img-top" alt="">
-                                <div class="bg-dark-transparent card-overlay">
-                                    <div class="d-flex align-items-center card-author">
-                                        <div class="flex-shrink-0 avatar avatar-2">
-                                            <img :src="item.avatar" alt="" class="rounded-circle">
-                                        </div>
-                                        <div class="flex-grow-1 ms-2 text-white">
-                                            <span>{{ item.userName }}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="card-body card-body-s1">
                                 <h4 class="card-title mb-3">{{ item.title }}</h4>
                                 <p class="card-text">{{ item.desc }}</p>
@@ -34,27 +21,25 @@
                             <hr class="my-0">
                             <div class="card-body card-body-s1 py-3">
                                 <div class="card-action-info">
-                                    <span><em class="ni ni-calender-date me-1"></em>{{ item.date}}</span>
                                     <span>
-                                        <span class="me-3"><em class="ni ni-comments me-1"></em>{{ item.numberText }}</span>
-                                        <span><em class="ni ni-heart me-1"></em>{{ item.numberTextTwo }}</span>
+                                        <span><em class="ni ni-call me-1"></em>{{ item.nohp }}</span>
+                                        <span class="me-1"><em class="ni ni-mail me-1"></em>{{ item.email }}</span>
                                     </span>
                                 </div><!-- end card-action-info -->
                             </div><!-- end card-body -->
-                            <router-link
+                            <!-- <router-link
                             class="details"
                             :to="{
                                 name: 'NewsDetail',
                                 params: {
                                 id: item.id,
                                 title: item.title,
-                                img: item.img,
                                 avatar: item.avatar,
                                 userName: item.userName,
                                 }
                             }"
                           >
-                          </router-link>
+                          </router-link> -->
                         </div><!-- end card -->
                     </div><!-- end col -->
             </div>

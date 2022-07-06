@@ -1,7 +1,7 @@
 <template>
-    <section class="recent-section section-space-b">
+    <section class="recent-section ">
             <div class="container">
-                <SectionHeading classname="text-center" :text="SectionData.recentItemData2.title" :content="SectionData.recentItemData2.content" isMargin="mb-3"></SectionHeading>
+                <SectionHeading classname="text-center" :text="SectionData.recentItemData2.title" :content="SectionData.recentItemData2.content" isMargin="mb-1"></SectionHeading>
                 <!-- Recent item slider -->
                 <RecentItemSlider2></RecentItemSlider2>
             </div>

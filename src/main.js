@@ -50,6 +50,8 @@ import ProductsContainer from './components/section/ProductsContainer.vue';
 import FeaturedCreators from './components/section/FeaturedCreators.vue';
 import BlogSection from './components/section/BlogSection.vue';
 import BlogSectionSlider from './components/section/BlogSectionSlider.vue';
+import PengurusSection from './components/section/PengurusSection.vue';
+import PengurusSectionSlider from './components/section/PengurusSectionSlider.vue';
 import Cta from './pages/Cta.vue';
 import CtaSection from './components/section/CtaSection.vue';
 import Footer from './pages/Footer.vue';
@@ -118,6 +120,7 @@ import WalletSection from './components/section/WalletSection.vue';
 import WalletSectionTwo from './components/section/WalletSectionTwo.vue';
 import Pagination from './components/common/Pagination.vue';
 import BlogDetailSection from './components/section/BlogDetailSection.vue';
+import PengurusDetailSection from './components/section/PengurusDetailSection.vue';
 import Comments from './components/common/Comments.vue';
 import Form from './components/common/Form.vue';
 import Sidebar from './components/common/Sidebar.vue';
@@ -160,6 +163,8 @@ app.component('ProductsContainer', ProductsContainer);
 app.component('FeaturedCreators', FeaturedCreators);
 app.component('BlogSection', BlogSection)
 app.component('BlogSectionSlider', BlogSectionSlider)
+app.component('PengurusSection', PengurusSection)
+app.component('PengurusSectionSlider', PengurusSectionSlider)
 app.component('Cta', Cta)
 app.component('CtaSection', CtaSection)
 app.component('Footer', Footer)
@@ -228,6 +233,7 @@ app.component('WalletSection', WalletSection)
 app.component('WalletSectionTwo', WalletSectionTwo)
 app.component('Pagination', Pagination)
 app.component('BlogDetailSection', BlogDetailSection)
+app.component('PengurusDetailSection', PengurusDetailSection)
 app.component('Comments', Comments)
 app.component('Form', Form)
 app.component('Sidebar', Sidebar)

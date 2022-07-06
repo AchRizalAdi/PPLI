@@ -12,6 +12,25 @@ let SectionData = {
       path: '/home'
     }
   ],
+  // Faq Data
+  faqData: [
+    {
+      id: 1,
+      heading: 'headingOne',
+      nama: 'satu',
+      target: '#satu',
+      title: 'Question Number 1',
+      text: 'lipsumdk abdksadj sdasjdasdjasdkjasjkkk kwkwkwkkwkq lq q'
+    },
+    {
+      id: 2,
+      heading: 'headingTwo',
+      nama: 'dua',
+      target: '#dua',
+      title: 'QddddE 2',
+      text: 'sadahsd sdjasdjaskldjkl jasdkljaskldqwoeqwoeh qwesdbhbh'
+    },
+  ],
   // Hero data
   heroData: {
     time: '2022-5-30 23:30:00',
@@ -104,10 +123,10 @@ let SectionData = {
       ]
     },
     breadcrumbListFive: {
-      title: 'News',
+      title: 'Pengurus',
       navList: [
         {
-          title: 'News'
+          title: 'Pengurus'
         }
       ]
     },
@@ -188,7 +207,7 @@ let SectionData = {
   headerData: {
     abText: 'About Us',
     logText: 'Login',
-    btnText: 'Join Community',
+    btnText: 'Daftar Anggota Baru',
     inputPlaceholderText: 'Search item here...',
     menuList: {
       title: 'Explore',
@@ -227,40 +246,42 @@ let SectionData = {
       navList: [
         {
           id: 1,
+          title: 'Contact',
+          path: '/contact',
+          
+        },
+        {
+          id: 2,
           title: 'F A Q',
           path: '/faq',
           
         },
         {
-          id: 2,
-          title: 'Partner Program',
-          path: '/partnerprogram'
+          id: 3,
+          title: 'Term and Condition',
+          path: '/terms'
         },
         {
-          id: 3,
-          title: 'Advertising',
-          path: '/advertising'
+          id: 4,
+          title: 'Privacy & Policy',
+          path: '/privacy'
         },
       ]
     },
     menuList3: {
-      title: 'Support',
+      title: 'PPLI',
       navList: [
         {
           id: 1,
-          title: 'F A Q',
-          path: '/faq',
+          title: 'Tentang PPLI',
+          path: '/about-us',
           
         },
         {
           id: 2,
-          title: 'Partner Program',
-          path: '/partnerprogram'
-        },
-        {
-          id: 3,
-          title: 'Advertising',
-          path: '/advertising'
+          title: 'Kepengurusan',
+          path: '/pengurus',
+          
         },
       ]
     },
@@ -2206,7 +2227,7 @@ products: [
   },
   // termletter Data
   termletterData: {
-    title: 'Mau bergabung menjadi Anggota?'
+    title: 'Are you Interesting?'
   },
   // news data
   blogData: {
@@ -2342,201 +2363,94 @@ products: [
     blogListThree: [
       {
         id: 1,
-        img: require('@/images/thumb/blog-img.jpg'),
-        avatar: require('@/images/thumb/avatar.jpg'),
-        title: "Enter Linda Dounia's Cyber Baat World",
-        userName: 'Alex Smith',
-        desc: 'Predictions for how secondary NFT sales will revolutionize industries.',
-        date: '25 Apr 2022',
-        numberText: '25',
-        numberTextTwo: '38',
+        title: "DPC Surabaya",
+        desc: 'Jl. Rungkut Mapan Tengah I Blok FB/14, Central Rungkut, Rungkut, Surabaya City, East Java 60293',
+        nohp: '087878646567  ',
+        email: 'orangutan@orangutan.com',
       },
       {
         id: 2,
-        img: require('@/images/thumb/blog-img-2.jpg'),
-        avatar: require('@/images/thumb/avatar-2.jpg'),
-        title: 'Artist Invite: Yung Jake and Lucien Smith',
-        userName: 'Kevin Martin',
-        desc: 'Art world friends and confidants share their thoughts on championing',
-        date: '10 May 2022',
-        numberText: '26',
-        numberTextTwo: '39',
+        title: "DPC Surabaya",
+        desc: 'Jl. Rungkut Mapan Tengah I Blok FB/14, Central Rungkut, Rungkut, Surabaya City, East Java 60293',
+        nohp: '087878646567  ',
+        email: 'orangutan@orangutan.com',
       },
       {
         id: 3,
-        img: require('@/images/thumb/blog-img-3.jpg'),
-        avatar: require('@/images/thumb/avatar-3.jpg'),
-        title: 'Visual storytelling with Alejandro Cartagena.',
-        userName: 'Kamran Ahmed',
-        desc: 'You want to succeed, surround yourself with the right kind of people.',
-        date: '12 May 2022',
-        numberText: '27',
-        numberTextTwo: '12',
+        title: "DPC Surabaya",
+        desc: 'Jl. Rungkut Mapan Tengah I Blok FB/14, Central Rungkut, Rungkut, Surabaya City, East Java 60293',
+        nohp: '087878646567  ',
+        email: 'orangutan@orangutan.com',
       },
       {
         id: 4,
-        img: require('@/images/thumb/blog-img-4.jpg'),
-        avatar: require('@/images/thumb/avatar-4.jpg'),
-        title: 'Announcing Our $100m Raise, Led By A1Studio',
-        userName: 'Alex Smith',
-        desc: 'Predictions for how secondary NFT sales will revolutionize industries.',
-        date: '14 May 2022',
-        numberText: '13',
-        numberTextTwo: '23',
+        title: "DPC Surabaya",
+        desc: 'Jl. Rungkut Mapan Tengah I Blok FB/14, Central Rungkut, Rungkut, Surabaya City, East Java 60293',
+        nohp: '087878646567  ',
+        email: 'orangutan@orangutan.com',
       },
       {
         id: 5,
-        img: require('@/images/thumb/blog-img-5.jpg'),
-        avatar: require('@/images/thumb/avatar-5.jpg'),
-        title: 'The Biggest Drop In Times Square Since New Year',
-        userName: 'Kevin Martin',
-        desc: 'Art world friends and confidants share their thoughts on championing',
-        date: '16 May 2022',
-        numberText: '14',
-        numberTextTwo: '14',
+        title: "DPC Surabaya",
+        desc: 'Jl. Rungkut Mapan Tengah I Blok FB/14, Central Rungkut, Rungkut, Surabaya City, East Java 60293',
+        nohp: '087878646567  ',
+        email: 'orangutan@orangutan.com',
       },
       {
         id: 6,
-        img: require('@/images/thumb/blog-img-6.jpg'),
-        avatar: require('@/images/thumb/avatar-5.jpg'),
-        title: 'Daz 3d, The Digitals And Ground breaking',
-        userName: 'David Martin',
-        desc: 'Nora Khan gets experimental with artists.',
-        date: '19 May 2022',
-        numberText: '11',
-        numberTextTwo: '23',
+        title: "DPC Surabaya",
+        desc: 'Jl. Rungkut Mapan Tengah I Blok FB/14, Central Rungkut, Rungkut, Surabaya City, East Java 60293',
+        nohp: '087878646567  ',
+        email: 'orangutan@orangutan.com',
       },
       {
         id: 7,
-        img: require('@/images/thumb/blog-img-6.jpg'),
-        avatar: require('@/images/thumb/avatar-3.jpg'),
-        title: 'Daz 3d, The Digitals And Ground breaking',
-        userName: 'Kamran Ahmed',
-        desc: 'Sarah Meyohas on bringing femininity into crypto.',
-        date: '20 May 2022',
-        numberText: '12',
-        numberTextTwo: '34',
+        title: "DPC Surabaya",
+        desc: 'Jl. Rungkut Mapan Tengah I Blok FB/14, Central Rungkut, Rungkut, Surabaya City, East Java 60293',
+        nohp: '087878646567  ',
+        email: 'orangutan@orangutan.com',
       },
       {
         id: 8,
-        img: require('@/images/thumb/blog-img-5.jpg'),
-        avatar: require('@/images/thumb/avatar-5.jpg'),
-        title: 'The Digitals And Ground breaking',
-        userName: 'Smith Martin',
-        desc: 'David Horvitz on a baby born in the back of an Uber.',
-        date: '21 May 2022',
-        numberText: '34',
-        numberTextTwo: '12',
+        title: "DPC Surabaya",
+        desc: 'Jl. Rungkut Mapan Tengah I Blok FB/14, Central Rungkut, Rungkut, Surabaya City, East Java 60293',
+        nohp: '087878646567  ',
+        email: 'orangutan@orangutan.com',
       },
       {
         id: 9,
-        img: require('@/images/thumb/blog-img-4.jpg'),
-        avatar: require('@/images/thumb/avatar.jpg'),
-        title: 'Brian Calvin on his imaginary portraits.',
-        userName: 'Alex Smith',
-        desc: 'Visual storytelling with Alejandro Cartagena.',
-        date: '22 May 2022',
-        numberText: '22',
-        numberTextTwo: '39',
+        title: "DPC Surabaya",
+        desc: 'Jl. Rungkut Mapan Tengah I Blok FB/14, Central Rungkut, Rungkut, Surabaya City, East Java 60293',
+        nohp: '087878646567  ',
+        email: 'orangutan@orangutan.com',
       },
       {
         id: 10,
-        img: require('@/images/thumb/blog-img-3.jpg'),
-        avatar: require('@/images/thumb/avatar-5.jpg'),
-        title: 'Everything you need to know about DAOs.',
-        userName: 'David Martin',
-        desc: 'Tyler Givens on making fantasies a reality.',
-        date: '23 May 2022',
-        numberText: '27',
-        numberTextTwo: '36',
+        title: "DPC Surabaya",
+        desc: 'Jl. Rungkut Mapan Tengah I Blok FB/14, Central Rungkut, Rungkut, Surabaya City, East Java 60293',
+        nohp: '087878646567  ',
+        email: 'orangutan@orangutan.com',
       },
       {
         id: 11,
-        img: require('@/images/thumb/blog-img-2.jpg'),
-        avatar: require('@/images/thumb/avatar-4.jpg'),
-        title: 'Exonemo on communicating love and hate for NFTs. ',
-        userName: 'Alex Martin',
-        desc: 'Auriea Harvey Splits with bitforms gallery.',
-        date: '24 May 2022',
-        numberText: '25',
-        numberTextTwo: '34',
+        title: "DPC Surabaya",
+        desc: 'Jl. Rungkut Mapan Tengah I Blok FB/14, Central Rungkut, Rungkut, Surabaya City, East Java 60293',
+        nohp: '087878646567  ',
+        email: 'orangutan@orangutan.com',
       },
       {
         id: 12,
-        img: require('@/images/thumb/blog-img.jpg'),
-        avatar: require('@/images/thumb/avatar-5.jpg'),
-        title: 'Miya Folick on becoming very good at living.',
-        userName: 'David Martin',
-        desc: 'Auriea Harvey Splits with bitforms gallery.',
-        date: '25 May 2022',
-        numberText: '22',
-        numberTextTwo: '31',
+        title: "DPC Surabaya",
+        desc: 'Jl. Rungkut Mapan Tengah I Blok FB/14, Central Rungkut, Rungkut, Surabaya City, East Java 60293',
+        nohp: '087878646567  ',
+        email: 'orangutan@orangutan.com',
       },
       {
         id: 13,
-        img: require('@/images/thumb/blog-img-2.jpg'),
-        avatar: require('@/images/thumb/avatar-5.jpg'),
-        title: 'Reuben Wu is photographing the future. ',
-        userName: 'David Martin',
-        desc: 'Idil Dursun is constructing new worlds.',
-        date: '26 May 2022',
-        numberText: '23',
-        numberTextTwo: '34',
-      },
-      {
-        id: 14,
-        img: require('@/images/thumb/blog-img-3.jpg'),
-        avatar: require('@/images/thumb/avatar.jpg'),
-        title: 'Jon Rafman on standing in an open field.',
-        userName: 'Alex David',
-        desc: 'Artist Invite: Archan Nair & Iannocent',
-        date: '27 May 2022',
-        numberText: '22',
-        numberTextTwo: '18',
-      },
-      {
-        id: 15,
-        img: require('@/images/thumb/blog-img.jpg'),
-        avatar: require('@/images/thumb/avatar-5.jpg'),
-        title: 'Daylen Seu on tapping into dreams and nightmares. ',
-        userName: 'David Martin',
-        desc: 'Paper Rad on setting the precedent for Internet culture.',
-        date: '28 May 2022',
-        numberText: '23',
-        numberTextTwo: '38',
-      },
-      {
-        id: 16,
-        img: require('@/images/thumb/blog-img-5.jpg'),
-        avatar: require('@/images/thumb/avatar-2.jpg'),
-        title: 'The Digitals And Ground breaking Daz 3d',
-        userName: 'Kamran Ahamed',
-        desc: 'Chris Torres on building the Meme Economy.',
-        date: '29 May 2022',
-        numberText: '25',
-        numberTextTwo: '34',
-      },
-      {
-        id: 17,
-        img: require('@/images/thumb/blog-img-6.jpg'),
-        avatar: require('@/images/thumb/avatar-5.jpg'),
-        title: 'Artist Invite: Yung Jake and Lucien Smith',
-        userName: 'David Martin',
-        desc: 'Chris Torres on building the Meme Economy.',
-        date: '30 May 2022',
-        numberText: '27',
-        numberTextTwo: '12',
-      },
-      {
-        id: 18,
-        img: require('@/images/thumb/blog-img-4.jpg'),
-        avatar: require('@/images/thumb/avatar-4.jpg'),
-        title: 'Enter Linda Dounias Cyber Baat World',
-        userName: 'Alex Smith',
-        desc: 'Diana Sinclair on curating The Digital Diaspora.',
-        date: '12 Jun 2022',
-        numberText: '28',
-        numberTextTwo: '41',
+        title: "DPC Surabaya",
+        desc: 'Jl. Rungkut Mapan Tengah I Blok FB/14, Central Rungkut, Rungkut, Surabaya City, East Java 60293',
+        nohp: '087878646567  ',
+        email: 'orangutan@orangutan.com',
       },
       ]
   },
@@ -3284,8 +3198,8 @@ products: [
       {
         id: 1,
         icon: 'ni-user',
-        title: 'About Us',
-        path: '/about-us'
+        title: 'Contact',
+        path: '/contact'
       },
       {
         id: 2,
@@ -3314,8 +3228,8 @@ products: [
       {
         id: 1,
         icon: 'ni-user',
-        title: 'About Us',
-        path: '/about-us'
+        title: 'Contact',
+        path: '/contact'
       },
       {
         id: 2,
@@ -3346,8 +3260,8 @@ privacySidebarData: {
     {
       id: 1,
       icon: 'ni-user',
-      title: 'About Us',
-      path: '/about-us'
+      title: 'Contact',
+      path: '/contact'
     },
     {
       id: 2,
@@ -3378,8 +3292,8 @@ faqSidebarData: {
     {
       id: 1,
       icon: 'ni-user',
-      title: 'About Us',
-      path: '/about-us'
+      title: 'Contact',
+      path: '/contact'
     },
     {
       id: 2,
@@ -5047,10 +4961,10 @@ faqSidebarData: {
   // contact data
   contactData: {
     title: 'Contact Us',
-    titleTwo: 'Find Us There',
-    subTitle: "Have a question? Need help? Don't hesitate, drop us a line",
+    titleTwo: 'Temukan Kami Di Sini',
+    subTitle: "Punya pertanyaan? Butuh bantuan? Jangan ragu, hubungi kami",
     btnText: 'Send Message',
-    content: 'Collaboratively administrate channels whereas virtual. Objectively seize scalable metrics whereas proactive e-services.',
+    content: '',
     contactList: [
       {
         id: 1,
@@ -6013,32 +5927,6 @@ faqSidebarData: {
           {
             title: 'Trucks',
             path: 'activity'
-          },
-        ]
-      },
-      {
-        id: 4,
-        title: 'Kontak Kami',
-        navList: [
-          {
-            title: 'Kantor',
-            text: 'jl jonggol barat no 50 suroboyo',
-            path: 'kantor'
-          },
-          {
-            title: 'Call Center',
-            text: 'ssssdsdsds',
-            path: 'callcenter'
-          },
-          {
-            title: 'Mobile (Whatsapp)',
-            text: 'sdsdsd',
-            path: 'mobilewa'
-          },
-          {
-            title: 'Email',
-            text: 'sdsdsdsd',
-            path: 'email'
           },
         ]
       }

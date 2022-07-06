@@ -100,6 +100,11 @@ const routes = [
     component: () => import('../pages/Blog.vue')
   },
   {
+    path: '/pengurus',
+    name: 'pengurus',
+    component: () => import('../pages/Pengurus.vue')
+  },
+  {
     path: '/blog-detail-:id',
     name:'NewsDetail',
     component: () => import('../pages/NewsDetail.vue'),
