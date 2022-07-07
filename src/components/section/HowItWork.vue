@@ -1,5 +1,5 @@
 <template>
-  <section class="section-space how-it-work-section">
+  <section class="how-it-work-section" style="padding-bottom:100px">
       <div class="container">
           <!-- section heading -->
           <SectionHeading classname="text-center" :text="title" :content="subtitle" :isMargin="gutterBottom"></SectionHeading>

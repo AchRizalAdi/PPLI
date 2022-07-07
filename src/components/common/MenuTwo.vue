@@ -1,10 +1,10 @@
 <template>
   <nav class="header-menu menu nav">
       <!-- menu list -->
-      <MenuList></MenuList>
+      <!-- <MenuList></MenuList> -->
       <!-- header btn -->
-      <ul class="menu-btns menu-btns-2">
-            <li class="d-none d-lg-inline-block"><router-link to="wallet" class="icon-btn icon-btn-s1" title="Wallet"><em class="ni ni-wallet"></em></router-link></li>
+      <ul class="menu-btns menu-btns-2 ms-lg-auto "> 
+            <!-- <li class="d-none d-lg-inline-block"><router-link to="wallet" class="icon-btn icon-btn-s1" title="Wallet"><em class="ni ni-wallet"></em></router-link></li> -->
             <li class="d-none d-lg-inline-block dropdown">
                 <button type="button" class="icon-btn icon-btn-s1" data-bs-toggle="dropdown"><em class="ni ni-user"></em></button>
                 <ul class="dropdown-menu card-generic card-generic-s3 dropdown-menu-end mt-2">
@@ -25,14 +25,14 @@
 import SectionData from '@/store/store.js'
 
 // @ is an alias to /src
-import MenuList from '@/components/common/MenuList.vue'
+// import MenuList from '@/components/common/MenuList.vue'
 
 export default {
   name: 'MenuTwo',
   props: ['classname'],
-  components: {
-    MenuList
-  },
+  // components: {
+  //   MenuList
+  // },
   data () {
     return {
       SectionData

@@ -238,6 +238,11 @@ const routes = [
     path: '/faq',
     name: 'faqs',
     component: () => import('../pages/Faqs.vue')
+  },
+  {
+    path: '/pendaftaran-anggota',
+    name: 'pendaftaran-anggota',
+    component: () => import('../pages/Pendaftar.vue')
   }
 ];
 

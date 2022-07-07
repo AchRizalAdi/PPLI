@@ -12,7 +12,7 @@
         <div class="col-lg-6 col-sm-6" v-for="img in SectionData.blogDetail.imgList" :key="img.id">
             <img :src="img" class="w-100 rounded" alt="">
         </div>
-    </div><!-- end row -->
+    </div><!-- end row -->  
     <p class="single-entry-text mb-3">{{ SectionData.blogDetail.contentFour }}</p>
     <h4 class="mb-2">{{ SectionData.blogDetail.title }}</h4>
     <p class="single-entry-text mb-2">{{ SectionData.blogDetail.contentFive }}</p>

@@ -43,9 +43,9 @@ let SectionData = {
   },
   // Hero data two
   heroDataTwo: {
-    title: 'Create, sell or collect digital items',
+    title: 'Perkumpulan Pelaku Logistik Indonesia',
     content: 'Complete account of the system, and expound the actual teachings of the great explorer of human happiness.',
-    img: require('@/images/thumb/nft-img.png')
+    img: require('@/images/banner1.png')
   },
   // Hero data three Main
   heroDataThree: {
@@ -91,10 +91,10 @@ let SectionData = {
   // Breadcrumb data
   breadcrumbData: {
     breadcrumbList: {
-      title: 'Explore',
+      title: 'Layanan',
       navList: [
         {
-          title: 'Explore'
+          title: 'Layanan'
         }
       ]
     },
@@ -181,13 +181,13 @@ let SectionData = {
   btnDataThree: [
     {
       btnClass: 'btn-lg btn-dark',
-      title: 'Explore',
-      path: '/explore'
+      title: 'Gabung jadi Anggota PPLI',
+      path: '/register'
     },
     {
       btnClass: 'btn-lg btn-outline-dark',
-      title: 'Create',
-      path: '/create'
+      title: 'Jalin Kemitraan',
+      path: '/mitra'
     }
   ],
   // Hero btn data
@@ -286,7 +286,7 @@ let SectionData = {
       ]
     },
   },
-  // Product data
+  // Product data Explorrrrr
   productData: {
     title: 'Trending Auctions',
     content: 'This is just a simple text made for this unique and awesome template, you can replace it with any text. It is a long established fact.',
@@ -304,24 +304,24 @@ let SectionData = {
           id: 1,
           img: require('@/images/thumb/nft-2.jpg'),
           imgLg: require('@/images/thumb/nft-lg.jpg'),
-          title: 'One Tribe Black Edition',
-          content: 'Digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
-          author: 'ZeniconStudio',
-          authorLink: '/author',
+          title: 'PT. One Tribe Black Edition',
+          // content: 'Digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
+          // author: 'ZeniconStudio',
+          // authorLink: '/author',
           price: 14,
-          priceTwo: 1.32,
-          metaText: 'Not for sale',
-          metaTextTwo: '500 editions',
-          metaTextThree: 'Highest bid <span class="text-primary fw-semibold">0.072 ETH</span>',
+          // priceTwo: 1.32,
+          // metaText: 'Not for sale',
+          // metaTextTwo: '500 editions',
+          // metaTextThree: 'Highest bid <span class="text-primary fw-semibold">0.072 ETH</span>',
           avatar:  require('@/images/thumb/avatar.jpg'),
-          userName: '@zenicon_studio',
-          followersText: '1.3k Followers',
-          authorName: 'Zenicon Studio',
-          desc: 'Complete account of the system, and expound the actual things.',
+          // userName: '@zenicon_studio',
+          // followersText: '1.3k Followers',
+          // authorName: 'Zenicon Studio',
+          // desc: 'Complete account of the system, and expound the actual things.',
           name: 'art',
-          category: 'art',
-          itemToShow: 'show',
-          itemToShowTwo: 'show',
+          category: 'trucking',
+          // itemToShow: 'show',
+          // itemToShowTwo: 'show',
           avatars: [
           {
               id: 1,
@@ -1968,28 +1968,28 @@ products: [
   // Recent item data
   recentItemData: {
     title: 'Air Freight',
-    content: 'This is just a simple text made for this unique and awesome template, you can replace it with any text. It is a long established fact.',
+    content: '',
   },
   // Recent item data 1
   recentItemData1: {
     title: 'Truck',
-    content: 'This is just a simple text made for this unique and awesome template, you can replace it with any text. It is a long established fact.',
+    content: '',
   },
   // Recent item data 1
   recentItemData2: {
     title: 'Sea Freight',
-    content: 'This is just a simple text made for this unique and awesome template, you can replace it with any text. It is a long established fact.',
+    content: '',
   },
   // Recent item data 1
   recentItemData3: {
     title: 'Warehouse',
-    content: 'This is just a simple text made for this unique and awesome template, you can replace it with any text. It is a long established fact.',
+    content: '',
   },
   // how It Work Data
   howItWorkData: {
     title: 'Create and sell your NFTs',
     content: 'This is just a simple text made for this unique and awesome template, you can replace it with any text. It is a long established fact.',
-    titleTwo: 'Mint, Buy and Sell or Just Launch <br> Your Own NFT Store',
+    titleTwo: 'VISI & MISI',
     titleThree: 'Get Started in 3 simple steps',
     btnText: 'Create Store',
     howItWorkList: [
@@ -2713,8 +2713,8 @@ products: [
       {
         id: 1,
         class: 'active',
-        icon: 'ni-gift',
-        title: 'My Offers',
+        icon: 'ni-home',
+        title: 'Home',
         path: 'offers'
       },
       {
@@ -2752,7 +2752,13 @@ products: [
         icon: 'ni-download-cloud',
         title: 'Deposit Enfties',
         path: 'deposit-enfties'
-      }
+      },
+      {
+        id: 8,
+        icon: 'ni-file-text',
+        title: 'Activity',
+        path: 'activity-v2'
+      },
     ]
   },
   activitySidebarData: {
@@ -4930,7 +4936,7 @@ faqSidebarData: {
   // register data
   registerData: {
     img: require('@/images/thumb/remote-2.png'),
-    title: 'Sign Up to <span class="text-blue">Direktori Logistik</span>',
+    title: 'Pendaftaran Anggota <span class="text-primary">PPLI</span>',
     subTitle: 'Fill up the below fields to create an account',
     termText: 'By signing up, you agree to our',
     btnText: 'Create an Account',

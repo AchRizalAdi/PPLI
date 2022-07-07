@@ -5,41 +5,43 @@
           <!-- Header main -->
           <HeaderMain isTransparent="is-transparent"></HeaderMain>
           <!-- hero -->
-          <heroThree></heroThree>
+          <heroTwo></heroTwo>
         </header>
         <!-- funFact  -->
       <funFactSection classname="col-xl-4 col-sm-2 col-4" :items="SectionData.funfactData.funfactListTwo"></funFactSection>
-        <!-- Category  -->
-        <Category classname="section-space-b"></Category>
+       <!-- HowItWork  -->
+        <HowItWork classname="col-lg-3" :title="SectionData.howItWorkData.titleTwo" :subtitle="SectionData.howItWorkData.content" gutterBottom="mb-3"></HowItWork>
+        <section class="trending-section bg-gray " style="padding-top:30px; padding-bottom:30px;">
+            <div class="container">
         <!-- Recent Item Section  -->
         <RecentItemSection></RecentItemSection>
-        
-        <section class="section-space trending-section bg-gray">
+            </div>
+        </section>
+        <section class="trending-section bg-white  " style="padding-top:30px; padding-bottom:30px;">
             <div class="container">
                 <!-- Recent Item Section  -->
         <RecentItemSection1></RecentItemSection1>
             </div><!-- .container -->
         </section><!-- trending-section -->
 
-        <section class="section-space trending-section bg-white">
+        <section class="trending-section bg-gray " style="padding-top:30px; padding-bottom:30px;">
             <div class="container">
                 <!-- Recent Item Section  -->
         <RecentItemSection2></RecentItemSection2>
             </div><!-- .container -->
         </section><!-- trending-section -->
 
-        <section class="section-space trending-section bg-gray">
+        <section class="trending-section bg-white" style="padding-top:30px; padding-bottom:30px;">
             <div class="container">
                 <!-- Recent Item Section  -->
         <RecentItemSection3></RecentItemSection3>
             </div><!-- .container -->
         </section><!-- trending-section -->
-
-        <!-- HowItWork  -->
-        <HowItWork classname="col-lg-3" :title="SectionData.howItWorkData.titleTwo" :subtitle="SectionData.howItWorkData.content" gutterBottom="mb-3"></HowItWork>
-        
+        <!-- Category  -->
+        <Category classname="section-space-b"></Category>
+       
         <!-- Newsletter  -->
-        <Newsletter></Newsletter>
+        <Termletter></Termletter>
         <!-- Footer  -->
         <Footer classname="bg-dark on-dark"></Footer>
   </div><!-- end page-wrap -->
@@ -48,12 +50,12 @@
 <script>
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from '@/store/store.js'
-import heroThree from '@/components/section/HeroThree.vue'
+import heroTwo from '@/components/section/HeroTwo.vue'
 
 export default {
   name: 'Home-v2',
   components: {
-    heroThree
+    heroTwo
   },
   data () {
     return {

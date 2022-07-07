@@ -37,46 +37,56 @@ export default {
             class: 'active',
             options: [
                 {
-                    category: 'art'
+                    category: 'freight_forwarding'
                 },
                 {
-                    category: 'music'
+                    category: 'trucking'
                 },
                 {
-                    category: 'collectibles'
+                    category: 'warehouse'
                 },
                 {
-                    category: 'games'
+                    category: 'more'
                 },
             ]
         },
         {
             id: 2,
-            title: 'Artworks',
+            title: 'Freight Forwarding',
             class: '',
             options: [
                 {
-                    category: 'art'
+                    category: 'freight_forwarding'
                 }
             ]
         },
         {
             id: 3,
-            title: 'Music',
+            title: 'Trucking',
             class: '',
             options: [
                 {
-                    category: 'music'
+                    category: 'trucking'
                 }
             ]
         },
         {
             id: 4,
-            title: 'Collectibles',
+            title: 'Warehouse',
             class: '',
             options: [
                 {
-                    category: 'collectibles'
+                    category: 'warehouse'
+                }
+            ]
+        },
+        {
+            id: 5,
+            title: 'More',
+            class: '',
+            options: [
+                {
+                    category: 'more'
                 }
             ]
         },

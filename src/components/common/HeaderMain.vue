@@ -6,8 +6,12 @@
                 <Logo></Logo>
                 <!-- mobile action -->
                 <MobileAction></MobileAction>
+
+                <div class="ms-2">
+                  <router-link to="/"><h3>Perkumpulan Pelaku Logistik Indonesia</h3></router-link>
+                </div>
                 <!-- heder search -->
-                <HeaderSearch></HeaderSearch>
+                <!-- <HeaderSearch></HeaderSearch> -->
                 <!-- Menu -->
                 <Menu classname="btn-dark"></Menu>
                 <div class="header-overlay"></div>
@@ -19,7 +23,7 @@
 // @ is an alias to /src
 import Logo from '@/components/common/Logo.vue'
 import MobileAction from '@/components/common/MobileAction.vue'
-import HeaderSearch from '@/components/common/HeaderSearch.vue'
+// import HeaderSearch from '@/components/common/HeaderSearch.vue'
 import Menu from '@/components/common/Menu.vue'
 
 export default {
@@ -28,7 +32,7 @@ export default {
   components: {
     Logo,
     MobileAction,
-    HeaderSearch,
+    // HeaderSearch,
     Menu
   }
 }
