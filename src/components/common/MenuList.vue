@@ -25,7 +25,7 @@
               </div>
           </li>
           <li class="menu-item">
-              <a href="" ><router-link class="router-link-active router-link-exact-active menu-link text-black" to="/login">{{ SectionData.headerData.logText }}</router-link></a>
+             <router-link class="btn btn-lg btn-outline-dark " to="/login">{{ SectionData.headerData.logText }}</router-link>
           </li>
 
      </ul>

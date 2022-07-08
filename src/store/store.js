@@ -44,7 +44,7 @@ let SectionData = {
   // Hero data two
   heroDataTwo: {
     title: 'Perkumpulan Pelaku Logistik Indonesia',
-    content: 'Complete account of the system, and expound the actual teachings of the great explorer of human happiness.',
+    content: 'Bergabunglah Bersama Kami Perkumpulan Pelaku Logistik Indonesia',
     img: require('@/images/banner1.png')
   },
   // Hero data three Main
@@ -2004,9 +2004,9 @@ products: [
   // how It Work Data
   howItWorkData: {
     title: 'Create and sell your NFTs',
-    content: 'This is just a simple text made for this unique and awesome template, you can replace it with any text. It is a long established fact.',
-    titleTwo: 'VISI & MISI',
-    titleThree: 'Get Started in 3 simple steps',
+    content: 'Kami Membawa hal-hal terbaik untuk Anda',
+    titleTwo: 'Solusi & unsur Kekuatan Logistics Indonesia',
+    titleThree: 'Kami Membawa hal-hal terbaik untuk Anda',
     btnText: 'Create Store',
     howItWorkList: [
       {

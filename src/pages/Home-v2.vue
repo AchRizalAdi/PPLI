@@ -10,7 +10,10 @@
         <!-- funFact  -->
       <funFactSection classname="col-xl-4 col-sm-2 col-4" :items="SectionData.funfactData.funfactListTwo"></funFactSection>
        <!-- HowItWork  -->
-        <HowItWork classname="col-lg-3" :title="SectionData.howItWorkData.titleTwo" :subtitle="SectionData.howItWorkData.content" gutterBottom="mb-3"></HowItWork>
+        <HowItWork classname="col-lg-3" :title="SectionData.howItWorkData.titleTwo" :subtitle="SectionData.howItWorkData.titleThree" gutterBottom="mb-3"></HowItWork>
+       <!-- HowItWork  -->
+        <HowItWork classname="col-lg-3" :subtitle="SectionData.howItWorkData.content" gutterBottom="mb-3"></HowItWork>
+        
         <section class="trending-section bg-gray " style="padding-top:30px; padding-bottom:30px;">
             <div class="container">
         <!-- Recent Item Section  -->
