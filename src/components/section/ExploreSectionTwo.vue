@@ -4,19 +4,19 @@
             <!-- filter -->
             <div class="filter-box pb-5">
                 <div class="filter-box-filter justify-content-between align-items-center">
-                    <div class="filter-box-filter-item">
-                        <v-select class="generic-select generic-select-s3" v-model="category" :options="options" :clearable = false></v-select>
-                     </div><!-- end filter-box-filter-item -->
+                    <!-- <div class="filter-box-filter-item">
+                        <v-select class="generic-select generic-select-s3" v-model="category" :options="options" :clearable = false></v-select> -->
+                     <!-- </div>end filter-box-filter-item -->
                     <div class="filter-box-filter-item quicksearch-wrap">
                          <input type="text" v-model="name" placeholder="Search By Name" class="form-control form-control-s1"/>
                      </div><!-- end filter-box-filter-item -->
-                    <div class="filter-box-filter-item ms-lg-auto filter-btn-wrap">
+                    <!-- <div class="filter-box-filter-item ms-lg-auto filter-btn-wrap">
                          <div class="filter-btn-group">
                               <a href="#" class="btn filter-btn" :class="getActiveClass('recent')" @click.prevent="recent(); activeId = 'recent'">Recent</a>
                               <a href="#" class="btn filter-btn" :class="getActiveClass('low')" @click.prevent="lowToHigh(); activeId = 'low'">Price: Low</a>
                               <a href="#" class="btn filter-btn" :class="getActiveClass('high')" @click.prevent="highToLow(); activeId = 'high'">Price: High</a>
-                          </div>
-                     </div><!-- end filter-box-filter-item -->
+                          </div> -->
+                     <!-- </div>end filter-box-filter-item -->
                      <div class="filter-box-filter-item filter-mobile-action ms-lg-auto">
                           <div class="filter-box-search-mobile dropdown me-2">
                               <a class="icon-btn" href="#" data-bs-toggle="dropdown">

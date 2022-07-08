@@ -1,11 +1,12 @@
 <template>
     <section class="explore-section pt-4">
-        <div class="container">
+        <div class="container mb-4">
             <!-- filter -->
             <div class="filter-box pb-5">
                 <h3 class="mb-4">Filter by</h3>
                 <div class="filter-btn-group">
                     <a href="#" class="btn btn-sm filter-btn" :class="tab.class" v-for="tab in filterMenu" @click.prevent="setTab(tab, tab.id)"  :key="tab.id">{{ tab.title }}</a>
+                    <input type="text" v-model="name" placeholder="Search By Name" class="form-control form-control-s1 w-25"/>
                 </div>
             </div><!-- end filter-box -->
             <div class="row g-gs">

@@ -20,12 +20,12 @@
                     <img :src="product.img" alt="" class="card-img-top">
                 </div>
                 <div class="card-body d-flex align-items-center">
-                    <div class="avatar flex-shrink-0 me-2">
+                    <!-- <div class="avatar flex-shrink-0 me-2">
                         <img :src="product.avatar" alt="">
-                    </div>
+                    </div> -->
                     <div class="text-truncate">
-                        <h6 class="card-title text-truncate mb-0">{{ product.title }}</h6>
-                       <router-link :to="product.authorLink" class="small text-secondary author-link">{{ product.author }}</router-link>
+                        <h6 class="card-title text-truncate mb-2">{{ product.title }}</h6>
+                       <div class="btn btn-sm btn-dark ">Detail</div>
                     </div>
                 </div><!-- end card-body -->
                 <router-link

@@ -305,23 +305,24 @@ let SectionData = {
           img: require('@/images/thumb/nft-2.jpg'),
           imgLg: require('@/images/thumb/nft-lg.jpg'),
           title: 'PT. One Tribe Black Edition',
-          // content: 'Digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
-          // author: 'ZeniconStudio',
-          // authorLink: '/author',
+          content: 'Digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
+          alamat: 'Jl. Rungkut Mapan Tengah I Blok FB/14, Central Rungkut, Rungkut, Surabaya City, East Java 60293',
+          author: 'ZeniconStudio',
+          authorLink: '/author',
           price: 14,
-          // priceTwo: 1.32,
-          // metaText: 'Not for sale',
-          // metaTextTwo: '500 editions',
-          // metaTextThree: 'Highest bid <span class="text-primary fw-semibold">0.072 ETH</span>',
+          priceTwo: 1.32,
+          metaText: 'Not for sale',
+          metaTextTwo: '500 editions',
+          metaTextThree: 'Highest bid <span class="text-primary fw-semibold">0.072 ETH</span>',
           avatar:  require('@/images/thumb/avatar.jpg'),
-          // userName: '@zenicon_studio',
-          // followersText: '1.3k Followers',
-          // authorName: 'Zenicon Studio',
-          // desc: 'Complete account of the system, and expound the actual things.',
+          userName: '@zenicon_studio',
+          followersText: '1.3k Followers',
+          authorName: 'Zenicon Studio',
+          desc: 'Complete account of the system, and expound the actual things.',
           name: 'art',
           category: 'trucking',
-          // itemToShow: 'show',
-          // itemToShowTwo: 'show',
+          itemToShow: 'show',
+          itemToShowTwo: 'show',
           avatars: [
           {
               id: 1,
@@ -356,6 +357,7 @@ let SectionData = {
           imgLg: require('@/images/thumb/nft-lg2.jpg'),
           title: 'Operation Jade Fury',
           content: 'Bazzors is a tiny buzzing, electrifying and irascible Elfin. Bazzors appear intermittently during thunderstorms in the Elfin Kingdom ',
+          alamat: 'Jl. Rungkut Mapan Tengah I Blok FB/14, Central Rungkut, Rungkut, Surabaya City, East Java 60293',
           author: 'CanvaNetwork',
           authorLink: '/author',
           price: 10,
@@ -369,7 +371,7 @@ let SectionData = {
           authorName: 'Canva Network',
           desc: 'Complete account of the system, and expound the actual things.',
           name: 'music',
-          category: 'music',
+          category: 'trucking',
           itemToShow: 'show',
           itemToShowTwo: 'show',
           avatars: [
@@ -406,6 +408,7 @@ let SectionData = {
           imgLg: require('@/images/thumb/nft-lg3.jpg'),
           title: 'Unboxing The Compass',
           content: 'According to our idea, REAL BORED APE would look exactly like this. Have you ever seen this tough guy on the streets of your city?',
+          alamat: 'Jl. Rungkut Mapan Tengah I Blok FB/14, Central Rungkut, Rungkut, Surabaya City, East Java 60293',
           author: 'MoveNetwork',
           authorLink: '/author',
           price: 8.00,
@@ -419,7 +422,7 @@ let SectionData = {
           authorName: 'Move Network',
           desc: 'Complete account of the system, and expound the actual things.',
           name: 'music',
-          category: 'music',
+          category: 'trucking',
           itemToShow: 'show',
           avatars: [
           {
@@ -455,6 +458,7 @@ let SectionData = {
           imgLg: require('@/images/thumb/nft-lg4.jpg'),
           title: 'Rendering by the Water',
           content: 'Limited Edition *digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
+          alamat: 'Jl. Rungkut Mapan Tengah I Blok FB/14, Central Rungkut, Rungkut, Surabaya City, East Java 60293',
           author: 'RukiStudio',
           authorLink: '/author',
           price: 11.00,
@@ -468,7 +472,7 @@ let SectionData = {
           authorName: 'Ruki Studio',
           desc: 'Complete account of the system, and expound the actual things.',
           name: 'music',
-          category: 'music',
+          category: 'trucking',
           itemToShow: 'show',
           itemToShowSingle: 'show',
           avatars: [
@@ -505,6 +509,7 @@ let SectionData = {
         imgLg: require('@/images/thumb/nft-lg4.jpg'),
         title: 'Rendering by the Water',
         content: 'Limited Edition *digital-only* "CB Galaxy" style Coke Boys LA sneakers wearable in the Decentraland metaverse',
+        alamat: 'Jl. Rungkut Mapan Tengah I Blok FB/14, Central Rungkut, Rungkut, Surabaya City, East Java 60293',
         author: 'RukiStudio',
         authorLink: '/author',
         price: 11.00,
@@ -518,7 +523,7 @@ let SectionData = {
         authorName: 'Ruki Studio',
         desc: 'Complete account of the system, and expound the actual things.',
         name: 'music',
-        category: 'music',
+          category: 'warehouse',
         itemToShow: 'show',
         itemToShowSingle: 'show',
         avatars: [
@@ -1967,22 +1972,22 @@ products: [
   ],
   // Recent item data
   recentItemData: {
-    title: 'Air Freight',
+    title: 'Freight Forwarder',
     content: '',
   },
   // Recent item data 1
   recentItemData1: {
-    title: 'Truck',
+    title: 'Trucking',
     content: '',
   },
   // Recent item data 1
   recentItemData2: {
-    title: 'Sea Freight',
+    title: 'Warehouse',
     content: '',
   },
   // Recent item data 1
   recentItemData3: {
-    title: 'Warehouse',
+    title: 'More',
     content: '',
   },
   // how It Work Data
@@ -2117,30 +2122,30 @@ products: [
   },
   // Category Data
   categoryData: {
-    title: 'Lihat berdasar Kategori Logistik',
+    title: 'Kategori',
     content: 'Lihat dan cari perusahaan logistik yang sesuai dengan kebutuhan layanan yang anda cari.',
     categoryList: [
       {
         id: 1,
-        class: 'text-purple',
-        icon: 'icon ni ni-telegram mb-3 mx-auto icon-circle icon-wbg icon-lg',
-        title: 'Air Freight',
+        class: 'text-green',
+        icon: 'icon fa-solid fa-plane mb-3 mx-auto icon-circle icon-wbg icon-lg',
+        title: 'Freight Forwarder',
         path: '/explore'
       },
       {
         id: 2,
         class: 'text-pink',   
         icon: 'icon ni ni-truck mb-3 mx-auto icon-circle icon-wbg icon-lg',
-        title: 'Truck',
+        title: 'Trucks',
         path: '/explore'
       },
-      {
-        id: 3,
-        class: 'text-blue',
-        icon: 'icon fa-solid fa-water mb-3 mx-auto icon-circle icon-wbg icon-lg',
-        title: 'Sea Freight',
-        path: '/explore'
-      },
+      // {
+      //   id: 3,
+      //   class: 'text-blue',
+      //   icon: 'icon fa-solid fa-water mb-3 mx-auto icon-circle icon-wbg icon-lg',
+      //   title: 'Sea Freight',
+      //   path: '/explore'
+      // },
       {
         id: 4,
         class: 'text-orange',
@@ -2148,27 +2153,27 @@ products: [
         title: 'Warehouse',
         path: '/explore'
       },
-      {
-        id: 5,
-        class: 'text-yellow',
-        icon: 'icon fa fa-truck-fast mb-3 mx-auto icon-circle icon-wbg icon-lg',
-        title: 'Express Service',
-        path: '/explore'
-      },
-      {
-        id: 6,
-        class: 'text-green',
-        icon: 'icon ni ni-opt-alt-fill mb-3 mx-auto icon-circle icon-wbg icon-lg',
-        title: 'Custom Clearance',
-        path: '/explore'
-      },
-      {
-        id: 7,
-        class: 'text-teal',
-        icon: 'icon fa-solid fa-shield mb-3 mx-auto icon-circle icon-wbg icon-lg',
-        title: 'Cargo insurance',
-        path: '/explore'
-      },
+      // {
+      //   id: 5,
+      //   class: 'text-yellow',
+      //   icon: 'icon fa fa-truck-fast mb-3 mx-auto icon-circle icon-wbg icon-lg',
+      //   title: 'Express Service',
+      //   path: '/explore'
+      // },
+      // {
+      //   id: 6,
+      //   class: 'text-green',
+      //   icon: 'icon ni ni-opt-alt-fill mb-3 mx-auto icon-circle icon-wbg icon-lg',
+      //   title: 'Custom Clearance',
+      //   path: '/explore'
+      // },
+      // {
+      //   id: 7,
+      //   class: 'text-teal',
+      //   icon: 'icon fa-solid fa-shield mb-3 mx-auto icon-circle icon-wbg icon-lg',
+      //   title: 'Cargo insurance',
+      //   path: '/explore'
+      // },
       {
         id: 8,
         class: 'text-cyan',

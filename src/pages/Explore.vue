@@ -10,9 +10,9 @@
     <!-- Explore section  -->
     <ExploreSection></ExploreSection>
     <!-- top creators -->
-    <TopCreators classname="section-space-t"></TopCreators>
+    <!-- <TopCreators classname="section-space-t"></TopCreators> -->
     <!-- Collections -->
-    <Collections></Collections>
+    <!-- <Collections></Collections> -->
     <!-- Footer  -->
     <Footer classname="bg-dark on-dark"></Footer>
 </div><!-- end page-wrap -->
