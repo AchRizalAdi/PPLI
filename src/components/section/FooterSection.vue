@@ -5,13 +5,14 @@
                         <div class="col-lg-3 col-md-9 me-auto">
                             <div class="footer-item mb-4 mb-lg-0">
                                 <div class="copyright-wrap d-flex flex-wrap py-3 align-items-center justify-content-between">
+                                    <H6 class="mb-2">Sosial Media Kami</H6>
                                 <ul class="styled-icon">
                                     <li><a href="#"><em class="icon ni ni-twitter"></em></a></li>
                                     <li><a href="#"><em class="icon ni ni-facebook-f"></em></a></li>
                                     <li><a href="#"><em class="icon ni ni-instagram"></em></a></li>
                                     <li><a href="#"><em class="icon ni ni-pinterest"></em></a></li>
                                 </ul>
-                    <p class="footer-copy-text py-2" v-html="SectionData.copyTitle"></p>
+                    <p class="footer-copy-text py-2 mt-4" v-html="SectionData.copyTitle"></p>
                    <ul class="list-item list-item-s1 list-item-inline">
                         <li v-for="(list, i) in SectionData.footerData.footerListTwo" :key="i"><router-link :to="list.path">{{ list.title }}</router-link></li>
                     </ul>
