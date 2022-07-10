@@ -240,9 +240,9 @@ const routes = [
     component: () => import('../pages/Faqs.vue')
   },
   {
-    path: '/pendaftaran-anggota',
-    name: 'pendaftaran-anggota',
-    component: () => import('../pages/Pendaftar.vue')
+    path: '/mitra',
+    name: 'mitra',
+    component: () => import('../pages/Mitra.vue')
   }
 ];
 

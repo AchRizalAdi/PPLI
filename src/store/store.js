@@ -2011,26 +2011,40 @@ products: [
     howItWorkList: [
       {
         id: 1,
-        icon: 'icon ni ni-wallet icon-lg icon-circle shadow-sm icon-wbg mx-auto mb-4 text-primary',
-        title: 'Set up your wallet',
+        icon: 'icon fa-solid fa-shopping-cart icon-lg icon-circle shadow-sm icon-wbg mx-auto mb-4 text-primary',
+        title: 'UKM Logistics Marketplace',
         content: 'Once you’ve set up your wallet of choice, connect it to EnftyMart by clicking the'
       },
       {
         id: 2,
         icon: 'icon ni ni-file-text icon-lg icon-circle shadow-sm icon-wbg mx-auto mb-4 text-danger',
-        title: 'Create collection',
+        title: 'Regulasi dan Legalitas',
         content: 'Click <a href="profile" class="btn-link">My Collections</a> and set up your collection. Add social links, a description'
       },
       {
         id: 3,
         icon: 'icon ni ni-camera icon-lg icon-circle shadow-sm icon-wbg mx-auto mb-4 text-info',
-        title: 'Add your NFTs',
+        title: 'Inovasi Technologi',
         content: 'Upload your work (image, video, audio, or 3D art), add a title and description'
       },
+    ],
+    howItWorkList2: [
       {
-        id: 4,
-        icon: 'icon ni ni-money icon-lg icon-circle shadow-sm icon-wbg mx-auto mb-4 text-success',
-        title: 'List them for sale',
+        id: 1,
+        icon: 'icon fa fa-file-signature icon-lg icon-circle shadow-sm icon-wbg mx-auto mb-4 text-warning',
+        title: 'Contract Logistics',
+        content: 'Choose between auctions, fixed-price listings, and declining-price listings.'
+      },
+      {
+        id: 2,
+        icon: 'icon fa fa-users icon-lg icon-circle shadow-sm icon-wbg mx-auto mb-4 text-success',
+        title: 'Networking',
+        content: 'Choose between auctions, fixed-price listings, and declining-price listings.'
+      },
+      {
+        id: 3,
+        icon: 'icon fa fa-graduation-cap icon-lg icon-circle shadow-sm icon-wbg mx-auto mb-4 text-pink',
+        title: 'Educational solutions',
         content: 'Choose between auctions, fixed-price listings, and declining-price listings.'
       }
     ],
@@ -2219,20 +2233,20 @@ products: [
       {
         id: 1,
         icon: require('@/images/thumb/icon-timeline.svg'),
-        title: '2015',
-        subTitle: 'Founded'
+        title: '15+',
+        subTitle: 'Company'
       },
       {
         id: 2,
         icon: require('@/images/thumb/icon-employees.svg'),
-        title: '68',
-        subTitle: 'Total Members'
+        title: '68+',
+        subTitle: 'Members'
       },
       {
         id: 3,
         icon: require('@/images/thumb/icon-users.svg'),
-        title: '400K+',
-        subTitle: 'Users'
+        title: '400+',
+        subTitle: 'Mitra'
       },
     ]
 

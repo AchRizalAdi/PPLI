@@ -1,5 +1,5 @@
 <template>
-  <section class="how-it-work-section" style="padding-bottom:100px">
+  <section class="how-it-work-section" style="padding-bottom:50px">
       <div class="container">
           <!-- section heading -->
           <SectionHeading classname="text-center" :text="title" :content="subtitle" :isMargin="gutterBottom"></SectionHeading>
@@ -8,7 +8,7 @@
                   <div class="card-htw text-center" :class="classnameTwo">
                       <span :class="item.icon"></span>
                       <h4 class="mb-3">{{ item.title }}</h4>
-                      <p class="card-text-s1" v-html="item.content"></p>
+                      <!-- <p class="card-text-s1" v-html="item.content"></p> -->
                   </div>
               </div><!-- end col -->
           </div><!-- end row -->

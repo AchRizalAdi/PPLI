@@ -12,7 +12,7 @@
        <!-- HowItWork  -->
         <HowItWork classname="col-lg-3" :title="SectionData.howItWorkData.titleTwo" :subtitle="SectionData.howItWorkData.titleThree" gutterBottom="mb-3"></HowItWork>
        <!-- HowItWork  -->
-        <HowItWork classname="col-lg-3" :subtitle="SectionData.howItWorkData.content" gutterBottom="mb-3"></HowItWork>
+        <HowItWork2 classname="col-lg-3" :subtitle="SectionData.howItWorkData.content" gutterBottom="mb-3"></HowItWork2>
         
         <section class="trending-section bg-gray " style="padding-top:30px; padding-bottom:30px;">
             <div class="container">

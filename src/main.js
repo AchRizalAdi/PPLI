@@ -62,6 +62,7 @@ import LogoLink from './components/common/LogoLink.vue';
 import Tab from './components/common/Tab.vue';
 import Featured from './components/section/Featured.vue';
 import HowItWork from './components/section/HowItWork.vue';
+import HowItWork2 from './components/section/HowItWork2.vue';
 import HowItWorkTwo from './components/section/HowItWorkTwo.vue';
 import HowItWorkThree from './components/section/HowItWorkThree.vue';
 import HowItWorkItem from './components/common/HowItWorkItem.vue';
@@ -175,6 +176,7 @@ app.component('LogoLink', LogoLink)
 app.component('Tab', Tab)
 app.component('Featured', Featured)
 app.component('HowItWork', HowItWork)
+app.component('HowItWork2', HowItWork2)
 app.component('HowItWorkTwo', HowItWorkTwo)
 app.component('HowItWorkThree', HowItWorkThree)
 app.component('HowItWorkItem', HowItWorkItem)
