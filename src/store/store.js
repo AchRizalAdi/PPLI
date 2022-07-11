@@ -2796,8 +2796,8 @@ products: [
     navList: [
       {
         id: 1,
-        icon: 'ni-gift',
-        title: 'My Offers',
+        icon: 'ni-home',
+        title: 'Home',
         path: 'offers'
       },
       {
@@ -2844,8 +2844,8 @@ products: [
     navList: [
       {
         id: 1,
-        icon: 'ni-gift',
-        title: 'My Offers',
+        icon: 'ni-home',
+        title: 'Home',
         path: 'offers'
       },
       {
@@ -2892,8 +2892,8 @@ products: [
     navList: [
       {
         id: 1,
-        icon: 'ni-gift',
-        title: 'My Offers',
+        icon: 'ni-home',
+        title: 'Home',
         path: 'offers'
       },
       {
@@ -2940,8 +2940,8 @@ products: [
     navList: [
       {
         id: 1,
-        icon: 'ni-gift',
-        title: 'My Offers',
+        icon: 'ni-home',
+        title: 'Home',
         path: 'offers'
       },
       {
@@ -2988,8 +2988,8 @@ products: [
     navList: [
       {
         id: 1,
-        icon: 'ni-gift',
-        title: 'My Offers',
+        icon: 'ni-home',
+        title: 'Home',
         path: 'offers'
       },
       {
@@ -3036,8 +3036,8 @@ products: [
     navList: [
       {
         id: 1,
-        icon: 'ni-gift',
-        title: 'My Offers',
+        icon: 'ni-home',
+        title: 'Home',
         path: 'offers'
       },
       {
@@ -3085,31 +3085,37 @@ products: [
     navList: [
       {
         id: 1,
+        icon: 'ni-home',
+        title: 'Home',
+        path: 'offers'
+      },
+      {
+        id: 2,
         class: 'active',
         icon: 'ni-edit',
         title: 'Edit Profile',
         path: 'account'
       },
       {
-        id: 2,
+        id: 3,
         icon: 'ni-money',
         title: 'Payment Methods',
         path: 'payment-methods'
       },
       {
-        id: 3,
+        id: 4,
         icon: 'ni-user',
         title: 'Seller Settings',
         path: 'seller-settings'
       },
       {
-        id: 4,
+        id: 5,
         icon: 'ni-bell',
         title: 'Notifications',
         path: 'notifications'
       },
       {
-        id: 5,
+        id: 6,
         icon: 'ni-lock',
         title: 'Security',
         path: 'security'
@@ -3383,9 +3389,9 @@ faqSidebarData: {
   },
   // offer data
   offerData: {
-    mainTitle: 'Enfty Dashboard',
-    title: 'Your Received Offers:',
-    titleTwo: "Offers You've Made:",
+    mainTitle: 'Registration List',
+    title: 'Need admin approval:',
+    titleTwo: "History:",
     subTitle: 'Showing 1 to 6 of 30 entries',
     subTitleTwo: 'Showing 1 to 6 of 10 entries',
     alertText: 'In order to sell NFTs on EnftyMart, you must <a href="seller-settings" class="btn-link">become an authorized seller.</a> It only takes a few minutes!',
@@ -3399,7 +3405,7 @@ faqSidebarData: {
       },
       {
         id: 2,
-        title: 'Offers Made (10)',
+        title: 'Registration Status History (10)',
         slug: 'offers-made-tab',
         bsTarget: '#offers-made'
       },

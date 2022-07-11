@@ -12,12 +12,12 @@
                             <div class="tab-content mt-4" id="myTabContent">
                                 <div class="tab-pane fade show active" id="offers-receive" role="tabpanel" aria-labelledby="offers-receive-tab">
                                     <div class="profile-setting-panel">
-                                        <div class="alert alert-danger d-flex mb-4" role="alert">
+                                        <!-- <div class="alert alert-danger d-flex mb-4" role="alert">
                                             <svg class="flex-shrink-0 me-3" width="30" height="30" viewBox="0 0 24 24" fill="#ff6a8e">
                                                 <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"></path>
                                             </svg>
                                             <p class="fs-14" v-html="SectionData.offerData.alertText"></p>
-                                        </div><!-- end alert -->
+                                        </div>end alert -->
                                         <h3 class="mb-1">{{ SectionData.offerData.title }}</h3>
                                         <p class="mb-4 fs-14">{{ SectionData.offerData.subTitle }}</p>
                                         <div class="row g-gs">

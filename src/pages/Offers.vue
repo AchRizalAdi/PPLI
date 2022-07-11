@@ -14,7 +14,7 @@
                     <!-- user sidebar -->
                     <UserSidebar :title="SectionData.offerSidebarData.title" :lists="SectionData.offerSidebarData.navList" :navs="SectionData.offerTabNavMobile"></UserSidebar>
                     <!-- offer -->
-                    <!-- <OfferSection></OfferSection> -->
+                    <OfferSection></OfferSection>
                 </div><!-- end row -->
             </div><!-- end container -->
     </section><!-- end user-panel-section -->

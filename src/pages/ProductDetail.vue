@@ -27,9 +27,7 @@
                             <strong>Email : </strong><em>{{ email }}</em>
                             <br>
                             <strong>Website : </strong><router-link to="">{{ website }}</router-link>
-                            <br>
-                            <h5 class="mt-2">Jam Kerja</h5>
-                            <p>Hari : {{ hariKerja }} <br> Jam : {{ jamKerja }}</p>
+                    
                         </div><!-- end item-detail-content -->
                     </div><!-- end col -->
                 </div><!-- end row -->
@@ -37,7 +35,7 @@
     </section><!-- end item-detail-section -->
     <!-- Related product -->
     <!-- <RelatedProduct></RelatedProduct> -->
-    <Termletter></Termletter>
+  
     <!-- Footer  -->
     <Footer classname="bg-dark on-dark"></Footer>
 </div><!-- end page-wrap -->
@@ -46,7 +44,7 @@
 <script>
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from '@/store/store.js'
-import Termletter from '../components/section/Termletter.vue';
+
 
 export default {
     name: "ProductDetail",
@@ -91,7 +89,6 @@ export default {
                 this.hariKerja = element.hariKerja;
             }
         });
-    },
-    components: { Termletter }
+    }
 }
 </script>

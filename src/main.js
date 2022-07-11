@@ -130,6 +130,7 @@ import ResetSection from './components/section/ResetSection.vue';
 import LoginSection from './components/section/LoginSection.vue';
 import LoginSectionTwo from './components/section/LoginSectionTwo.vue';
 import RegisterSection from './components/section/RegisterSection.vue';
+import MitraSection from './components/section/MitraSection.vue';
 import ContactSection from './components/section/ContactSection.vue';
 import GoogleMap from './components/common/GoogleMap.vue';
 import UserSidebar from './components/common/UserSidebar.vue';
@@ -244,6 +245,7 @@ app.component('ResetSection', ResetSection)
 app.component('LoginSection', LoginSection)
 app.component('LoginSectionTwo', LoginSectionTwo)
 app.component('RegisterSection', RegisterSection)
+app.component('MitraSection', MitraSection)
 app.component('ContactSection', ContactSection)
 app.component('GoogleMap', GoogleMap)
 app.component('UserSidebar', UserSidebar)
