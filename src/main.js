@@ -44,6 +44,7 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 // Global page components imported
 import HeaderMain from './components/common/HeaderMain.vue';
 import HeaderDashboard from './components/common/HeaderDashboard.vue';
+import HeaderAdminDashboard from './components/common/HeaderAdminDashboard.vue';
 import SectionHeading from './components/common/SectionHeading.vue';
 import SectionHeadingTwo from './components/common/SectionHeadingTwo.vue';
 import ProductsContainer from './components/section/ProductsContainer.vue';
@@ -135,6 +136,7 @@ import ContactSection from './components/section/ContactSection.vue';
 import GoogleMap from './components/common/GoogleMap.vue';
 import UserSidebar from './components/common/UserSidebar.vue';
 import OfferSection from './components/section/OfferSection.vue';
+import AdminSection from './components/section/AdminSection.vue';
 import UserActivitySection from './components/section/UserActivitySection.vue'
 import PurchasesSaleSection from './components/section/PurchasesSaleSection.vue';
 import TransactionsSection from './components/section/TransactionsSection.vue';
@@ -143,6 +145,7 @@ import RedeemSection from './components/section/RedeemSection.vue';
 import DepositSection from './components/section/DepositSection.vue';
 import ProfileSection from './components/section/ProfileSection.vue';
 import AccountSection from './components/section/AccountSection.vue';
+import PengaturanSection from './components/section/PengaturanSection.vue';
 import PaymentMethodSection from './components/section/PaymentMethodSection.vue';
 import SellerSettingSection from './components/section/SellerSettingSection.vue';
 import NotificationSection from './components/section/NotificationSection.vue';
@@ -153,12 +156,14 @@ import ModalSection1 from './components/section/ModalSection1.vue';
 import TermSection from './components/section/TermSection.vue';
 import PrivacySection from './components/section/PrivacySection.vue';
 import FaqSection from './components/section/FaqSection.vue';
+import MembersSection from './components/section/MembersSection.vue';
 
 
 
 // Global page components register
 app.component('HeaderMain', HeaderMain);
 app.component('HeaderDashboard', HeaderDashboard);
+app.component('HeaderAdminDashboard', HeaderAdminDashboard);
 app.component('SectionHeading', SectionHeading);
 app.component('SectionHeadingTwo', SectionHeadingTwo);
 app.component('ProductsContainer', ProductsContainer);
@@ -250,6 +255,7 @@ app.component('ContactSection', ContactSection)
 app.component('GoogleMap', GoogleMap)
 app.component('UserSidebar', UserSidebar)
 app.component('OfferSection', OfferSection)
+app.component('AdminSection', AdminSection)
 app.component('UserActivitySection', UserActivitySection)
 app.component('PurchasesSaleSection', PurchasesSaleSection)
 app.component('TransactionsSection', TransactionsSection)
@@ -258,6 +264,7 @@ app.component('RedeemSection', RedeemSection)
 app.component('DepositSection', DepositSection)
 app.component('ProfileSection', ProfileSection)
 app.component('AccountSection', AccountSection)
+app.component('PengaturanSection', PengaturanSection)
 app.component('PaymentMethodSection', PaymentMethodSection)
 app.component('SellerSettingSection', SellerSettingSection)
 app.component('NotificationSection', NotificationSection)
@@ -268,6 +275,7 @@ app.component('ModalSection1', ModalSection1)
 app.component('TermSection', TermSection)
 app.component('PrivacySection', PrivacySection)
 app.component('FaqSection', FaqSection)
+app.component('MembersSection', MembersSection)
 
 // vue app
 app.use(router).mount('#app')

@@ -2750,45 +2750,157 @@ products: [
       {
         id: 2,
         icon: 'ni-file-text',
+        title: 'Pengaturan',
+        path: 'pengaturan'
+      },
+      {
+        id: 3,
+        icon: 'ni-file-text',
         title: 'Activity',
         path: 'activity-v2'
       },
       {
-        id: 3,
+        id: 4,
         icon: 'ni-money',
         title: 'Sales / Purchase',
         path: 'purchases-sales'
       },
       {
-        id: 4,
-        icon: 'ni-exchange',
-        title: 'Transactions',
+        id: 5,
+        icon: 'ni-user',
+        title: 'Contacts',
         path: 'transactions'
       },
       {
-        id: 5,
-        icon: 'ni-camera',
-        title: 'Display',
-        path: 'display'
+        id: 6,
+        icon: 'ni-user-round',
+        title: 'Members',
+        path: 'members'
       },
       {
-        id: 6,
+        id: 7,
         icon: 'ni-puzzle',
         title: 'Redeem',
         path: 'redeem'
       },
       {
-        id: 7,
+        id: 8,
         icon: 'ni-download-cloud',
         title: 'Deposit Enfties',
         path: 'deposit-enfties'
       },
+      
+    ]
+  },
+  // member sidebar data
+  memberSidebarData: {
+    title: 'Enfty Dashboard',
+    navList: [
       {
-        id: 8,
+        id: 1,
+        icon: 'ni-home',
+        title: 'Home',
+        path: 'offers'
+      },
+      {
+        id: 2,
+        icon: 'ni-file-text',
+        title: 'Pengaturan',
+        path: 'pengaturan'
+      },
+      {
+        id: 3,
         icon: 'ni-file-text',
         title: 'Activity',
         path: 'activity-v2'
       },
+      {
+        id: 4,
+        icon: 'ni-money',
+        title: 'Sales / Purchase',
+        path: 'purchases-sales'
+      },
+      {
+        id: 5,
+        icon: 'ni-user',
+        title: 'Contacts',
+        path: 'transactions'
+      },
+      {
+        id: 6,
+        class: 'active',
+        icon: 'ni-user-round',
+        title: 'Members',
+        path: 'members'
+      },
+      {
+        id: 7,
+        icon: 'ni-puzzle',
+        title: 'Redeem',
+        path: 'redeem'
+      },
+      {
+        id: 8,
+        icon: 'ni-download-cloud',
+        title: 'Deposit Enfties',
+        path: 'deposit-enfties'
+      },
+      
+    ]
+  },
+  pengaturanSidebarData: {
+    title: 'Enfty Dashboard',
+    navList: [
+      {
+        id: 1,
+        icon: 'ni-home',
+        title: 'Home',
+        path: 'offers'
+      },
+      {
+        id: 2,
+        class: 'active',
+        icon: 'ni-file-text',
+        title: 'Pengaturan',
+        path: 'pengaturan'
+      },
+      {
+        id: 3,
+        icon: 'ni-file-text',
+        title: 'Activity',
+        path: 'activity-v2'
+      },
+      {
+        id: 4,
+        icon: 'ni-money',
+        title: 'Sales / Purchase',
+        path: 'purchases-sales'
+      },
+      {
+        id: 5,
+        icon: 'ni-user',
+        title: 'Contacts',
+        path: 'transactions'
+      },
+      {
+        id: 6,
+        icon: 'ni-camera',
+        title: 'Display',
+        path: 'display'
+      },
+      {
+        id: 7,
+        icon: 'ni-puzzle',
+        title: 'Redeem',
+        path: 'redeem'
+      },
+      {
+        id: 8,
+        icon: 'ni-download-cloud',
+        title: 'Deposit Enfties',
+        path: 'deposit-enfties'
+      },
+      
     ]
   },
   activitySidebarData: {
@@ -2815,8 +2927,8 @@ products: [
       },
       {
         id: 4,
-        icon: 'ni-exchange',
-        title: 'Transactions',
+        icon: 'ni-user',
+        title: 'Contacts',
         path: 'transactions'
       },
       {
@@ -2863,8 +2975,8 @@ products: [
       },
       {
         id: 4,
-        icon: 'ni-exchange',
-        title: 'Transactions',
+        icon: 'ni-user',
+        title: 'Contacts',
         path: 'transactions'
       },
       {
@@ -2911,8 +3023,8 @@ products: [
       {
         id: 4,
         class: 'active',
-        icon: 'ni-exchange',
-        title: 'Transactions',
+        icon: 'ni-user',
+        title: 'Contacts',
         path: 'transactions'
       },
       {
@@ -2958,8 +3070,8 @@ products: [
       },
       {
         id: 4,
-        icon: 'ni-exchange',
-        title: 'Transactions',
+        icon: 'ni-user',
+        title: 'Contacts',
         path: 'transactions'
       },
       {
@@ -3006,8 +3118,8 @@ products: [
       },
       {
         id: 4,
-        icon: 'ni-exchange',
-        title: 'Transactions',
+        icon: 'ni-user',
+        title: 'Contacts',
         path: 'transactions'
       },
       {
@@ -3054,8 +3166,8 @@ products: [
       },
       {
         id: 4,
-        icon: 'ni-exchange',
-        title: 'Transactions',
+        icon: 'ni-user',
+        title: 'Contacts',
         path: 'transactions'
       },
       {
@@ -3105,8 +3217,8 @@ products: [
       {
         id: 4,
         icon: 'ni-user',
-        title: 'Seller Settings',
-        path: 'seller-settings'
+        title: 'Contacts',
+        path: 'transactions'
       },
       {
         id: 5,
@@ -3414,33 +3526,20 @@ faqSidebarData: {
       {
         id: 1,
         timeText: 'Offer received 13m ago',
-        title: 'Eternal Zen',
+        title: 'PT Eternal Zen',
         path: '/product-details-v1-1',
         img: require('@/images/thumb/small-img.jpg'),
-        addressText: 'Contact Address',
-        addressTextTwo: '08 W 36th St, New York, NY 10001',
-        actionList: [
-          {
-            id: 1,
-            title: 'Get Offer',
-            subTitle: '$1,800.00'
-          },
-          {
-            id: 2,
-            title: 'Payment Methods',
-            subTitle: 'Visa ending in 9720'
-          }
-        ],
+        name: 'RijolAdi',
         btns: [
           {
             id: 1,
-            title: 'Accept Offer',
+            title: 'Accept Member',
             btnClass: 'text-success',
             path: '#'
           },
           {
             id: 2,
-            title: 'Cancel Offer',
+            title: 'Cancel Member',
             btnClass: 'text-danger',
             path: '#'
           }
@@ -3449,33 +3548,20 @@ faqSidebarData: {
       {
         id: 2,
         timeText: 'Offer received 17m ago',
-        title: 'Somnium Rubram',
+        title: 'PT Somnium Rubram',
         path: '/product-details-v1-1',
         img: require('@/images/thumb/small-img-2.jpg'),
-        addressText: 'Contact Address',
-        addressTextTwo: '08 W 36th St, New York, NY 10001',
-        actionList: [
-          {
-            id: 1,
-            title: 'Get Offer',
-            subTitle: '$2,300.00'
-          },
-          {
-            id: 2,
-            title: 'Payment Methods',
-            subTitle: 'Visa ending in 9720'
-          }
-        ],
+        name: 'RijolAdi',
         btns: [
           {
             id: 1,
-            title: 'Accept Offer',
+            title: 'Accept Member',
             btnClass: 'text-success',
             path: '#'
           },
           {
             id: 2,
-            title: 'Cancel Offer',
+            title: 'Cancel Member',
             btnClass: 'text-danger',
             path: '#'
           }
@@ -3484,11 +3570,10 @@ faqSidebarData: {
       {
         id: 3,
         timeText: 'Offer received 1h ago',
-        title: 'Dance or Die',
+        title: 'CV Dance or Die',
         path: '/product-details-v1-1',
         img: require('@/images/thumb/small-img-3.jpg'),
-        addressText: 'Contact Address',
-        addressTextTwo: '08 W 36th St, New York, NY 10001',
+        name: 'RijolAdi',
         actionList: [
           {
             id: 1,
@@ -3504,13 +3589,13 @@ faqSidebarData: {
         btns: [
           {
             id: 1,
-            title: 'Accept Offer',
+            title: 'Accept Member',
             btnClass: 'text-success',
             path: '#'
           },
           {
             id: 2,
-            title: 'Cancel Offer',
+            title: 'Cancel Member',
             btnClass: 'text-danger',
             path: '#'
           }
@@ -3519,103 +3604,20 @@ faqSidebarData: {
       {
         id: 4,
         timeText: 'Offer received 1 week ago',
-        title: 'Genesis.001',
+        title: 'CV Genesis.001',
         path: '/product-details-v1-1',
         img: require('@/images/thumb/small-img-4.jpg'),
-        addressText: 'Contact Address',
-        addressTextTwo: '08 W 36th St, New York, NY 10001',
-        actionList: [
-          {
-            id: 1,
-            title: 'Get Offer',
-            subTitle: '$1,800.00'
-          },
-          {
-            id: 2,
-            title: 'Payment Methods',
-            subTitle: 'Visa ending in 9720'
-          }
-        ],
+        name: 'RijolAdi',
         btns: [
           {
             id: 1,
-            title: 'Accept Offer',
+            title: 'Accept Member',
             btnClass: 'text-success',
             path: '#'
           },
           {
             id: 2,
-            title: 'Cancel Offer',
-            btnClass: 'text-danger',
-            path: '#'
-          }
-        ]
-      },
-      {
-        id: 5,
-        timeText: 'Offer received 9h 30m ago',
-        title: 'Karma Chameleon',
-        path: '/product-details-v1-1',
-        img: require('@/images/thumb/small-img-5.jpg'),
-        addressText: 'Contact Address',
-        addressTextTwo: '08 W 36th St, New York, NY 10001',
-        actionList: [
-          {
-            id: 1,
-            title: 'Get Offer',
-            subTitle: '$1,800.00'
-          },
-          {
-            id: 2,
-            title: 'Payment Methods',
-            subTitle: 'Visa ending in 9720'
-          }
-        ],
-        btns: [
-          {
-            id: 1,
-            title: 'Accept Offer',
-            btnClass: 'text-success',
-            path: '#'
-          },
-          {
-            id: 2,
-            title: 'Cancel Offer',
-            btnClass: 'text-danger',
-            path: '#'
-          }
-        ]
-      },
-      {
-        id: 6,
-        timeText: 'Offer received 1 week ago',
-        title: 'Detritus #17',
-        path: '/product-details-v1-1',
-        img: require('@/images/thumb/small-img-6.jpg'),
-        addressText: 'Contact Address',
-        addressTextTwo: '08 W 36th St, New York, NY 10001',
-        actionList: [
-          {
-            id: 1,
-            title: 'Get Offer',
-            subTitle: '$2,300.00'
-          },
-          {
-            id: 2,
-            title: 'Payment Methods',
-            subTitle: 'Visa ending in 9720'
-          }
-        ],
-        btns: [
-          {
-            id: 1,
-            title: 'Accept Offer',
-            btnClass: 'text-success',
-            path: '#'
-          },
-          {
-            id: 2,
-            title: 'Cancel Offer',
+            title: 'Cancel Member',
             btnClass: 'text-danger',
             path: '#'
           }
@@ -3629,23 +3631,9 @@ faqSidebarData: {
         title: 'Eternal Zen',
         path: '/product-details-v1-1',
         img: require('@/images/thumb/small-img.jpg'),
-        addressText: 'Contact Address',
-        addressTextTwo: '08 W 36th St, New York, NY 10001',
-        actionList: [
-          {
-            id: 1,
-            title: 'Get Offer',
-            subTitle: '$1,800.00'
-          },
-          {
-            id: 2,
-            title: 'Payment Methods',
-            subTitle: 'Visa ending in 9720'
-          }
-        ],
-        badgeClass: 'bg-info',
-        badgeText: 'Pending',
-        btnText: 'Cancel Offer'
+        name: 'RijolAdi',        
+        badgeClass: 'bg-success',
+        badgeText: 'Success',
       },
       {
         id: 2,
@@ -3653,23 +3641,9 @@ faqSidebarData: {
         title: 'Somnium Rubram',
         path: '/product-details-v1-1',
         img: require('@/images/thumb/small-img-2.jpg'),
-        addressText: 'Contact Address',
-        addressTextTwo: '08 W 36th St, New York, NY 10001',
-        actionList: [
-          {
-            id: 1,
-            title: 'Get Offer',
-            subTitle: '$2,300.00'
-          },
-          {
-            id: 2,
-            title: 'Payment Methods',
-            subTitle: 'Visa ending in 9720'
-          }
-        ],
-        badgeClass: 'bg-info',
-        badgeText: 'Pending',
-        btnText: 'Cancel Offer'
+        name: 'RijolAdi',
+        badgeClass: 'bg-success',
+        badgeText: 'Success',
       },
       {
         id: 3,
@@ -3678,19 +3652,8 @@ faqSidebarData: {
         path: '/product-details-v1-1',
         img: require('@/images/thumb/small-img-3.jpg'),
         addressText: 'Contact Address',
-        addressTextTwo: '08 W 36th St, New York, NY 10001',
-        actionList: [
-          {
-            id: 1,
-            title: 'Get Offer',
-            subTitle: '$3,200.00'
-          },
-          {
-            id: 2,
-            title: 'Payment Methods',
-            subTitle: 'Visa ending in 9720'
-          }
-        ],
+        addressTextTwo: '08 W 36th St, New York, NY 10001', 
+        name: 'RijolAdi',
         badgeClass: 'bg-danger',
         badgeText: 'Declined'
       },
@@ -3702,68 +3665,9 @@ faqSidebarData: {
         img: require('@/images/thumb/small-img-4.jpg'),
         addressText: 'Contact Address',
         addressTextTwo: '08 W 36th St, New York, NY 10001',
-        actionList: [
-          {
-            id: 1,
-            title: 'Get Offer',
-            subTitle: '$1,800.00'
-          },
-          {
-            id: 2,
-            title: 'Payment Methods',
-            subTitle: 'Visa ending in 9720'
-          }
-        ],
+        name: 'RijolAdi',
         badgeClass: 'bg-danger',
         badgeText: 'Declined'
-      },
-      {
-        id: 5,
-        timeText: 'Offer received 9h 30m ago',
-        title: 'Karma Chameleon',
-        path: '/product-details-v1-1',
-        img: require('@/images/thumb/small-img-5.jpg'),
-        addressText: 'Contact Address',
-        addressTextTwo: '08 W 36th St, New York, NY 10001',
-        actionList: [
-          {
-            id: 1,
-            title: 'Get Offer',
-            subTitle: '$1,800.00'
-          },
-          {
-            id: 2,
-            title: 'Payment Methods',
-            subTitle: 'Visa ending in 9720'
-          }
-        ],
-        badgeClass: 'bg-info',
-        badgeText: 'Pending',
-        btnText: 'Cancel Offer'
-      },
-      {
-        id: 6,
-        timeText: 'Offer received 1 week ago',
-        title: 'Detritus #17',
-        path: '/product-details-v1-1',
-        img: require('@/images/thumb/small-img-6.jpg'),
-        addressText: 'Contact Address',
-        addressTextTwo: '08 W 36th St, New York, NY 10001',
-        actionList: [
-          {
-            id: 1,
-            title: 'Get Offer',
-            subTitle: '$2,300.00'
-          },
-          {
-            id: 2,
-            title: 'Payment Methods',
-            subTitle: 'Visa ending in 9720'
-          }
-        ],
-        badgeClass: 'bg-info',
-        badgeText: 'Pending',
-        btnText: 'Cancel Offer'
       }
     ]
   },
@@ -4142,25 +4046,28 @@ faqSidebarData: {
     ],
   },
   // transactions data
-  transactionsData: {
-    mainTitle: 'Transactions',
-    transactionsTableHead: [
+  membersData: {
+    mainTitle: 'Member',
+    membersTableHead: [
       '#',
-      'Customer',
-      'Issue Date',
-      'Total',
-      'Type',
+      'Nama',
+      'Alamat',
+      'No Hp',
+      'Email',
+      'Perusahaan',
       'Status',
-      'Action'
+      ''
     ],
-    transactionsTableBody: [
+    membersTableBody: [
       {
         id: 4947,
         title: 'Patternlicious',
         timeText: '10-05-2019',
         price: '$599.00',
         img: require('@/images/brand/visa.png'),
-        badgeText: 'Approved',
+        email: 'sadasdj@jfahfjkah.com',
+        perusahaan: 'bojong',
+        badgeText: 'Member',
         badgeClass: 'bg-success'
       },
       {
@@ -4169,7 +4076,9 @@ faqSidebarData: {
         timeText: '10-05-2019',
         price: '$599.00',
         img: require('@/images/brand/paypal.png'),
-        badgeText: 'Approved',
+        email: 'ddd',
+        perusahaan: 'ss',
+        badgeText: 'Member',
         badgeClass: 'bg-success'
       },
       {
@@ -4178,6 +4087,8 @@ faqSidebarData: {
         timeText: '10-05-2019',
         price: '$99.00',
         img: require('@/images/brand/a-express.png'),
+        email: 'ff',
+        perusahaan: 'aa',
         badgeText: 'Declined',
         badgeClass: 'bg-danger'
       },
@@ -4187,7 +4098,9 @@ faqSidebarData: {
         timeText: '10-05-2019',
         price: '$599.00',
         img: require('@/images/brand/visa.png'),
-        badgeText: 'Approved',
+        email: 'ffas',
+        perusahaan: 'sdsad',
+        badgeText: 'Member',
         badgeClass: 'bg-success'
       },
       {
@@ -4196,7 +4109,9 @@ faqSidebarData: {
         timeText: '10-05-2019',
         price: '$599.00',
         img: require('@/images/brand/paypal.png'),
-        badgeText: 'Approved',
+        email: 'fasf',
+        perusahaan: 'afsaf',
+        badgeText: 'Member',
         badgeClass: 'bg-success'
       },
       {
@@ -4205,6 +4120,90 @@ faqSidebarData: {
         timeText: '10-05-2019',
         price: '$599.00',
         img: require('@/images/brand/a-express.png'),
+        email: 'sfa',
+        perusahaan: 'fsaf',
+        badgeText: 'Declined',
+        badgeClass: 'bg-danger'
+      }
+    ],
+  },
+  // transactions data
+  transactionsData: {
+    mainTitle: 'Contact',
+    transactionsTableHead: [
+      '#',
+      'Nama',
+      'Alamat',
+      'No Hp',
+      'Email',
+      'Perusahaan',
+      'Status',
+      ''
+    ],
+    transactionsTableBody: [
+      {
+        id: 4947,
+        title: 'Patternlicious',
+        timeText: '10-05-2019',
+        price: '$599.00',
+        img: require('@/images/brand/visa.png'),
+        email: 'sadasdj@jfahfjkah.com',
+        perusahaan: 'bojong',
+        badgeText: 'Member',
+        badgeClass: 'bg-success'
+      },
+      {
+        id: 4904,
+        title: 'Alex Smith',
+        timeText: '10-05-2019',
+        price: '$599.00',
+        img: require('@/images/brand/paypal.png'),
+        email: 'ddd',
+        perusahaan: 'ss',
+        badgeText: 'Member',
+        badgeClass: 'bg-success'
+      },
+      {
+        id: 4840,
+        title: 'Alex Smith',
+        timeText: '10-05-2019',
+        price: '$99.00',
+        img: require('@/images/brand/a-express.png'),
+        email: 'ff',
+        perusahaan: 'aa',
+        badgeText: 'Declined',
+        badgeClass: 'bg-danger'
+      },
+      {
+        id: 4740,
+        title: 'Patternlicious',
+        timeText: '10-05-2019',
+        price: '$599.00',
+        img: require('@/images/brand/visa.png'),
+        email: 'ffas',
+        perusahaan: 'sdsad',
+        badgeText: 'Member',
+        badgeClass: 'bg-success'
+      },
+      {
+        id: 4444,
+        title: 'Patternlicious',
+        timeText: '10-05-2019',
+        price: '$599.00',
+        img: require('@/images/brand/paypal.png'),
+        email: 'fasf',
+        perusahaan: 'afsaf',
+        badgeText: 'Member',
+        badgeClass: 'bg-success'
+      },
+      {
+        id: 4144,
+        title: 'Patternlicious',
+        timeText: '10-05-2019',
+        price: '$599.00',
+        img: require('@/images/brand/a-express.png'),
+        email: 'sfa',
+        perusahaan: 'fsaf',
         badgeText: 'Declined',
         badgeClass: 'bg-danger'
       }
@@ -4257,6 +4256,53 @@ faqSidebarData: {
       }
     ],
    },
+   // pengaturan profile data
+   pengaturanProfileData: {
+    title: 'Settings & Parameter',
+    pengaturanProfileTabNav: [
+     {
+       id: 1,
+       isActive: 'active',
+       title: 'Pengaturan Umum',
+       slug: 'pengaturan-umum-tab',
+       bsTarget: '#pengaturan-umum'
+     },
+     {
+       id: 2,
+       title: 'Password',
+       slug: 'change-password-tab',
+       bsTarget: '#change-password'
+     },
+     {
+       id: 3,
+       title: 'Verify Profile',
+       slug: 'validate-profile-tab',
+       bsTarget: '#validate-profile'
+     }
+   ],
+   // pengaturan profile tab mobile
+    pengaturanProfileTabNavMobile: [
+     {
+       id: 1,
+       isActive: 'active',
+       title: 'Account Information',
+       slug: 'account-information-tab-mobile',
+       bsTarget: '#account-information-mobile'
+     },
+     {
+       id: 2,
+       title: 'Change Password',
+       slug: 'change-password-tab-mobile',
+       bsTarget: '#change-password-mobile'
+     },
+     {
+       id: 3,
+       title: 'Validate Profile',
+       slug: 'validate-profile-tab-mobile',
+       bsTarget: '#validate-profile-mobile'
+     }
+   ],
+  },
   // payment method data
   paymentMethodData: {
     title: 'Payment Methods',

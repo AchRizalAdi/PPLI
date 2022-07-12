@@ -1,8 +1,16 @@
 <template>
-    <div class="col-lg-8">
+    <div class="col-lg-9">
                         <div class="user-panel-title-box">
                             <h3>{{SectionData.transactionsData.mainTitle }}</h3>
                         </div><!-- end user-panel-title-box -->
+                        <div class="d-grid gap-2 d-md-block">
+                            <button type="button" class="btn btn-primary btn-sm mb-2"><route-link class="ni ni-plus" to=""> Add Contact</route-link></button>
+                            <button type="button" class="btn btn-primary btn-sm mb-2 ms-2"><route-link class="ni ni-reload-alt" to=""></route-link></button>
+                            <button type="button" class="btn btn-primary btn-sm mb-2 ms-2"><route-link class="ni ni-user-c" to=""> Card Name</route-link></button>
+                            <button type="button" class="btn btn-primary btn-sm mb-2 ms-2"><route-link class="ni ni-map" to=""> Maps</route-link></button>
+                            
+                        </div>
+                        
                         <div class="profile-setting-panel-wrap">
                             <div class="table-responsive">
                                 <table class="table mb-0 table-s2">
@@ -17,9 +25,11 @@
                                             <td>{{ item.title }}</td>
                                             <td>{{ item.timeText }}</td>
                                             <td>{{ item.price }}</td>
-                                            <td><img :src="item.img" alt=""></td>
-                                            <td><span class="badge fw-medium" :class="item.badgeClass">{{ item.badgeText }}</span></td>
-                                            <td><a href="#" class="icon-btn ms-auto" title="Remore"><em class="ni ni-trash"></em></a></td>
+                                            <td>{{ item.email }}</td>
+                                            <td>{{ item.perusahaan }}</td>
+                                            <td><span class="badge fw-medium" :class="item.badgeClass">{{ item.badgeText }}</span></td> 
+                                            <td><a href="#" class="icon-btn ms-auto" title="Show"><em class="ni ni-file"></em></a></td>
+                                            <td><a href="#" class="icon-btn ms-auto" title="Remove"><em class="ni ni-trash"></em></a></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -54,7 +64,9 @@ export default {
             timeText: '10-05-2019',
             price: '$599.00',
             img: require('@/images/brand/visa.png'),
-            badgeText: 'Approved',
+            email: 'sadasdj@jfahfjkah.com',
+            perusahaan: 'bojong',
+            badgeText: 'Member',
             badgeClass: 'bg-success'
         },
         {
@@ -63,7 +75,9 @@ export default {
             timeText: '10-05-2019',
             price: '$599.00',
             img: require('@/images/brand/paypal.png'),
-            badgeText: 'Approved',
+            email: 'sadasdj@jfahfjkah.com',
+            perusahaan: 'bojong',
+            badgeText: 'Member',
             badgeClass: 'bg-success'
         },
         {
@@ -72,6 +86,8 @@ export default {
             timeText: '10-05-2019',
             price: '$99.00',
             img: require('@/images/brand/a-express.png'),
+            email: 'sadasdj@jfahfjkah.com',
+            perusahaan: 'bojong',
             badgeText: 'Declined',
             badgeClass: 'bg-danger'
         },
@@ -81,7 +97,9 @@ export default {
             timeText: '10-05-2019',
             price: '$599.00',
             img: require('@/images/brand/visa.png'),
-            badgeText: 'Approved',
+            email: 'sadasdj@jfahfjkah.com',
+            perusahaan: 'bojong',
+            badgeText: 'Member',
             badgeClass: 'bg-success'
         },
         {
@@ -90,7 +108,9 @@ export default {
             timeText: '10-05-2019',
             price: '$599.00',
             img: require('@/images/brand/paypal.png'),
-            badgeText: 'Approved',
+            email: 'sadasdj@jfahfjkah.com',
+            perusahaan: 'bojong',
+            badgeText: 'Member',
             badgeClass: 'bg-success'
         },
         {
@@ -99,6 +119,8 @@ export default {
             timeText: '10-05-2019',
             price: '$599.00',
             img: require('@/images/brand/a-express.png'),
+            email: 'sadasdj@jfahfjkah.com',
+            perusahaan: 'bojong',
             badgeText: 'Declined',
             badgeClass: 'bg-danger'
         },
@@ -108,6 +130,8 @@ export default {
             timeText: '10-05-2019',
             price: '$599.00',
             img: require('@/images/brand/paypal.png'),
+            email: 'sadasdj@jfahfjkah.com',
+            perusahaan: 'bojong',
             badgeText: 'Declined',
             badgeClass: 'bg-danger'
         },
@@ -117,6 +141,8 @@ export default {
             timeText: '10-05-2019',
             price: '$599.00',
             img: require('@/images/brand/paypal.png'),
+            email: 'sadasdj@jfahfjkah.com',
+            perusahaan: 'bojong',
             badgeText: 'Declined',
             badgeClass: 'bg-danger'
         },
@@ -126,6 +152,8 @@ export default {
             timeText: '10-05-2019',
             price: '$599.00',
             img: require('@/images/brand/paypal.png'),
+            email: 'sadasdj@jfahfjkah.com',
+        perusahaan: 'bojong',
             badgeText: 'Declined',
             badgeClass: 'bg-danger'
         },
@@ -135,7 +163,9 @@ export default {
             timeText: '10-05-2019',
             price: '$599.00',
             img: require('@/images/brand/a-express.png'),
-            badgeText: 'Approved',
+            email: 'sadasdj@jfahfjkah.com',
+        perusahaan: 'bojong',
+            badgeText: 'Member',
             badgeClass: 'bg-success'
         },
         {
@@ -144,7 +174,9 @@ export default {
             timeText: '10-05-2019',
             price: '$599.00',
             img: require('@/images/brand/a-express.png'),
-            badgeText: 'Approved',
+            email: 'sadasdj@jfahfjkah.com',
+        perusahaan: 'bojong',
+            badgeText: 'Member',
             badgeClass: 'bg-success'
         },
         {
@@ -153,7 +185,9 @@ export default {
             timeText: '10-05-2019',
             price: '$599.00',
             img: require('@/images/brand/a-express.png'),
-            badgeText: 'Approved',
+            email: 'sadasdj@jfahfjkah.com',
+        perusahaan: 'bojong',
+            badgeText: 'Member',
             badgeClass: 'bg-success'
         },
       ],

@@ -7,6 +7,11 @@ const routes = [
     component: () => import('../pages/Home-v2.vue')
   },
   {
+    path: '/admin',
+    name: 'Admin',
+    component: () => import('../pages/Admin.vue')
+  },
+  {
     path:'/product-details-v1-:id',
     name:'ProductDetail',
     component: () => import('../pages/ProductDetail.vue'),
@@ -243,6 +248,16 @@ const routes = [
     path: '/mitra',
     name: 'mitra',
     component: () => import('../pages/Mitra.vue')
+  },
+  {
+    path: '/pengaturan',
+    name: 'pengaturan',
+    component: () => import('../pages/Pengaturan.vue')
+  },
+  {
+    path: '/members',
+    name: 'members',
+    component: () => import('../pages/Members.vue')
   }
 ];
 

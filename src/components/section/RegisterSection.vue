@@ -40,9 +40,8 @@
                                 <input type="number" class="form-control" id="phone" placeholder="Phone">
                                 <label for="phone">Phone</label>
                             </div><!-- end form-floating -->
-                            <div class="form-floating mb-3">
-                                <input type="number" class="form-control" id="company_industry_id" placeholder="Company Industri id">
-                                <label for="company_industry_id">Company Industri id</label>
+                            <div class="mb-3">
+                                <v-select type="number" class="form-control" id="company_industri_id" placeholder="Company Industri" />
                             </div><!-- end form-floating -->
                             <div class="mb-3">
                                 <v-select type="number" class="form-control" id="wilayah_id" placeholder="Wilayah" />
@@ -58,10 +57,10 @@
                                 <input type="text" class="form-control" id="bentuk_badan_usaha" placeholder="Bentuk Badan Usaha">
                                 <label for="bentuk_badan_usaha">Bentuk Badan Usaha</label>
                             </div><!-- end form-floating -->
-                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="alasan_untuk_bergabung" placeholder="Alasan Untuk Bergabung">
-                                <label for="alasan_untuk_bergabung">Alasan Untuk Bergabung</label>
-                            </div><!-- end form-floating -->
+                             <div class="mb-4">
+                                <label class="mb-2 form-label">Pesan</label>
+                                <textarea name="pesan" class="form-control form-control-s1" placeholder="Alasan Untuk Bergabung"></textarea>
+                            </div>
                             <!-- form checkbox  -->
                             <div class="form-check mb-2">
                                 <input id="agree" type="checkbox" value="agree" v-model="checked">
@@ -79,7 +78,7 @@
                 </div><!-- end row -->
             </div><!-- end container -->
         </section><!-- end register-section -->
-    <ModalSection1></ModalSection1>
+    <!-- <ModalSection1></ModalSection1> -->
 </template>
 
 <script>
