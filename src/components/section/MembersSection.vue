@@ -3,12 +3,9 @@
                         <div class="user-panel-title-box">
                             <h3>{{SectionData.membersData.mainTitle }}</h3>
                         </div><!-- end user-panel-title-box -->
-                        <div class="d-grid gap-2 d-md-block">
-                            <button type="button" class="btn btn-primary btn-sm mb-2"><route-link class="ni ni-plus" to=""> Add Contact</route-link></button>
-                            <button type="button" class="btn btn-primary btn-sm mb-2 ms-2"><route-link class="ni ni-reload-alt" to=""></route-link></button>
-                            <button type="button" class="btn btn-primary btn-sm mb-2 ms-2"><route-link class="ni ni-user-c" to=""> Card Name</route-link></button>
-                            <button type="button" class="btn btn-primary btn-sm mb-2 ms-2"><route-link class="ni ni-map" to=""> Maps</route-link></button>
-                        </div>
+                             <div class="mb-3 w-25">
+                                <v-select type="number" class="form-control" id="wilayah_id" placeholder="Wilayah" />
+                            </div><!-- end form-floating -->
                         <div class="profile-setting-panel-wrap">
                             <div class="table-responsive">
                                 <table class="table mb-0 table-s2">

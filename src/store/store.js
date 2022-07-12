@@ -2145,6 +2145,133 @@ products: [
       },
     ],
   },
+  // Setting Umum Data
+  settingUmumData: {
+    title: 'Umum',
+    content: 'Lihat dan cari perusahaan logistik yang sesuai dengan kebutuhan layanan yang anda cari.',
+    settingUmumList: [
+      {
+        id: 1,
+        class: 'text-green',
+        icon: 'icon fa-solid fa-plane mb-3 mx-auto icon-circle icon-wbg icon-lg',
+        title: 'Wilayah',
+        path: '/explore'
+      },
+      {
+        id: 2,
+        class: 'text-pink',   
+        icon: 'icon ni ni-truck mb-3 mx-auto icon-circle icon-wbg icon-lg',
+        title: 'Tipe Mitra',
+        path: '/tipe-mitra'
+      },
+      // {
+      //   id: 3,
+      //   class: 'text-blue',
+      //   icon: 'icon fa-solid fa-water mb-3 mx-auto icon-circle icon-wbg icon-lg',
+      //   title: 'Sea Freight',
+      //   path: '/explore'
+      // },
+      // {
+      //   id: 4,
+      //   class: 'text-orange',
+      //   icon: 'icon fa-solid fa-warehouse mx-auto icon-circle icon-wbg icon-lg',
+      //   title: 'Warehouse',
+      //   path: '/explore'
+      // },
+      // {
+      //   id: 5,
+      //   class: 'text-yellow',
+      //   icon: 'icon fa fa-truck-fast mb-3 mx-auto icon-circle icon-wbg icon-lg',
+      //   title: 'Express Service',
+      //   path: '/explore'
+      // },
+      // {
+      //   id: 6,
+      //   class: 'text-green',
+      //   icon: 'icon ni ni-opt-alt-fill mb-3 mx-auto icon-circle icon-wbg icon-lg',
+      //   title: 'Custom Clearance',
+      //   path: '/explore'
+      // },
+      // {
+      //   id: 7,
+      //   class: 'text-teal',
+      //   icon: 'icon fa-solid fa-shield mb-3 mx-auto icon-circle icon-wbg icon-lg',
+      //   title: 'Cargo insurance',
+      //   path: '/explore'
+      // },
+      // {
+      //   id: 8,
+      //   class: 'text-cyan',
+      //   icon: 'icon ni ni-setting mb-3 mx-auto icon-circle icon-wbg icon-lg',
+      //   title: 'Others',
+      //   path: '/explore'
+      // }
+    ]
+  },
+  // Setting Umum Data
+  settingOrgData: {
+    title: 'Organization',
+    content: 'Lihat dan cari perusahaan logistik yang sesuai dengan kebutuhan layanan yang anda cari.',
+    settingOrgList: [
+      {
+        id: 1,
+        class: 'text-green',
+        icon: 'icon fa-solid fa-plane mb-3 mx-auto icon-circle icon-wbg icon-lg',
+        title: 'Pengurus',
+        path: '/explore'
+      },
+      // {
+      //   id: 2,
+      //   class: 'text-pink',   
+      //   icon: 'icon ni ni-truck mb-3 mx-auto icon-circle icon-wbg icon-lg',
+      //   title: 'Tipe Mitra',
+      //   path: '/explore'
+      // },
+      // {
+      //   id: 3,
+      //   class: 'text-blue',
+      //   icon: 'icon fa-solid fa-water mb-3 mx-auto icon-circle icon-wbg icon-lg',
+      //   title: 'Sea Freight',
+      //   path: '/explore'
+      // },
+      // {
+      //   id: 4,
+      //   class: 'text-orange',
+      //   icon: 'icon fa-solid fa-warehouse mx-auto icon-circle icon-wbg icon-lg',
+      //   title: 'Warehouse',
+      //   path: '/explore'
+      // },
+      // {
+      //   id: 5,
+      //   class: 'text-yellow',
+      //   icon: 'icon fa fa-truck-fast mb-3 mx-auto icon-circle icon-wbg icon-lg',
+      //   title: 'Express Service',
+      //   path: '/explore'
+      // },
+      // {
+      //   id: 6,
+      //   class: 'text-green',
+      //   icon: 'icon ni ni-opt-alt-fill mb-3 mx-auto icon-circle icon-wbg icon-lg',
+      //   title: 'Custom Clearance',
+      //   path: '/explore'
+      // },
+      // {
+      //   id: 7,
+      //   class: 'text-teal',
+      //   icon: 'icon fa-solid fa-shield mb-3 mx-auto icon-circle icon-wbg icon-lg',
+      //   title: 'Cargo insurance',
+      //   path: '/explore'
+      // },
+      // {
+      //   id: 8,
+      //   class: 'text-cyan',
+      //   icon: 'icon ni ni-setting mb-3 mx-auto icon-circle icon-wbg icon-lg',
+      //   title: 'Others',
+      //   path: '/explore'
+      // }
+    ]
+  },
+  
   // Category Data
   categoryData: {
     title: 'Kategori',
@@ -4059,6 +4186,88 @@ faqSidebarData: {
       ''
     ],
     membersTableBody: [
+      {
+        id: 4947,
+        title: 'Patternlicious',
+        timeText: '10-05-2019',
+        price: '$599.00',
+        img: require('@/images/brand/visa.png'),
+        email: 'sadasdj@jfahfjkah.com',
+        perusahaan: 'bojong',
+        badgeText: 'Member',
+        badgeClass: 'bg-success'
+      },
+      {
+        id: 4904,
+        title: 'Alex Smith',
+        timeText: '10-05-2019',
+        price: '$599.00',
+        img: require('@/images/brand/paypal.png'),
+        email: 'ddd',
+        perusahaan: 'ss',
+        badgeText: 'Member',
+        badgeClass: 'bg-success'
+      },
+      {
+        id: 4840,
+        title: 'Alex Smith',
+        timeText: '10-05-2019',
+        price: '$99.00',
+        img: require('@/images/brand/a-express.png'),
+        email: 'ff',
+        perusahaan: 'aa',
+        badgeText: 'Declined',
+        badgeClass: 'bg-danger'
+      },
+      {
+        id: 4740,
+        title: 'Patternlicious',
+        timeText: '10-05-2019',
+        price: '$599.00',
+        img: require('@/images/brand/visa.png'),
+        email: 'ffas',
+        perusahaan: 'sdsad',
+        badgeText: 'Member',
+        badgeClass: 'bg-success'
+      },
+      {
+        id: 4444,
+        title: 'Patternlicious',
+        timeText: '10-05-2019',
+        price: '$599.00',
+        img: require('@/images/brand/paypal.png'),
+        email: 'fasf',
+        perusahaan: 'afsaf',
+        badgeText: 'Member',
+        badgeClass: 'bg-success'
+      },
+      {
+        id: 4144,
+        title: 'Patternlicious',
+        timeText: '10-05-2019',
+        price: '$599.00',
+        img: require('@/images/brand/a-express.png'),
+        email: 'sfa',
+        perusahaan: 'fsaf',
+        badgeText: 'Declined',
+        badgeClass: 'bg-danger'
+      }
+    ],
+  },
+  // transactions data
+  tipemitraData: {
+    mainTitle: 'Tipe Mitra',
+    tipemitraTableHead: [
+      'id',
+      'Nama',
+      // 'Alamat',
+      // 'No Hp',
+      // 'Email',
+      // 'Perusahaan',
+      // 'Status',
+      // ''
+    ],
+    tipemitraTableBody: [
       {
         id: 4947,
         title: 'Patternlicious',

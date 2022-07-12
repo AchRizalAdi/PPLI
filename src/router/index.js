@@ -12,6 +12,11 @@ const routes = [
     component: () => import('../pages/Admin.vue')
   },
   {
+    path: '/tipe-mitra',
+    name: 'tipe-mitra',
+    component: () => import('../pages/TipeMitra.vue')
+  },
+  {
     path:'/product-details-v1-:id',
     name:'ProductDetail',
     component: () => import('../pages/ProductDetail.vue'),

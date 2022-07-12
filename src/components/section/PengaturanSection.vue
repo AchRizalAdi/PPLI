@@ -12,50 +12,44 @@
             <div class="tab-content mt-4" id="myTabContent">
                 <div class="tab-pane fade show active" id="pengaturan-umum" role="tabpanel" aria-labelledby="pengaturan-umum-tab">
                     <div class="profile-setting-panel">
-                        <h5 class="mb-4">Umum</h5>
-                        <div class="d-flex align-items-center">
-                            
-                            
-                        </div><!-- end d-flex -->
-                        <div class="row mt-4">
-                            <div class="col-lg-6 mb-3">
-                                <label for="displayName" class="form-label">Dispaly Name</label>
-                                <input type="text" id="displayName" class="form-control form-control-s1" value="Kamran Ahmed">
-                            </div><!-- end col -->
-                            <div class="col-lg-6 mb-3">
-                                <label for="displayUserName" class="form-label">Username</label>
-                                <input type="text" id="displayUserName" class="form-control form-control-s1" value="kamran_ahmed">
-                            </div><!-- end col -->
-                        </div><!-- end row -->
-                        <div class="mb-3">
-                            <label for="bio" class="form-label">Bio</label>
-                            <textarea class="form-control form-control-s1" placeholder="Leave a comment here" id="bio">I make art with the simple goal of giving you something pleasing to look at for a few seconds.</textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="emailAddress" class="form-label">Email</label>
-                            <input type="email" id="emailAddress" class="form-control form-control-s1" value="kamran@gmail.com">
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 mb-3">
-                                <label for="facebookLink" class="form-label">Facebook Link</label>
-                                <input type="text" id="facebookLink" class="form-control form-control-s1" value="https://facebook.com/">
-                            </div><!-- end col -->
-                            <div class="col-lg-6 mb-3">
-                                <label for="twitterLink" class="form-label">Twiiter Link</label>
-                                <input type="text" id="twitterLink" class="form-control form-control-s1" value="https://twitter.com/">
-                            </div><!-- end col -->
-                            <div class="col-lg-6 mb-3">
-                                <label for="instagramLink" class="form-label">Instagram Link</label>
-                                <input type="text" id="instagramLink" class="form-control form-control-s1" value="https://facebook.com/">
-                            </div><!-- end col -->
-                            <div class="col-lg-6 mb-3">
-                                <label for="webLink" class="form-label">Web Link</label>
-                                <input type="text" id="webLink" class="form-control form-control-s1" value="https://kamran.bd.com/">
-                            </div><!-- end col -->
-                        </div><!-- end row -->
-                        <button class="btn btn-dark mt-3" type="button">Update Profile</button>
-                    </div><!-- end profile-setting-panel -->
-                </div><!-- end tab-pane -->
+                        <!-- <h5 class="mb-4">Umum</h5> -->
+                        
+                        <section class="category-section" :class="classname">
+                                    <div class="container mb-5">
+                                        <!-- section heading -->
+                                        <SectionHeading classname="" :text="SectionData.settingUmumData.title" :content="SectionData.settingUmumData.content" isMargin=""></SectionHeading>
+                                        <div class="row g-gs">
+                                            <div class="col-lg-3 col-6" v-for="item in SectionData.settingUmumData.settingUmumList" :key="item.id">
+                                                <router-link :to="item.path" class="card card-cat text-center h-100" :class="item.class">
+                                                    <div class="card-body card-body-s1">
+                                                        <span :class="item.icon"></span>
+                                                        <h5 class="card-cat-title">{{ item.title }}</h5>
+                                                    </div>
+                                                </router-link>
+                                            </div><!-- end col -->
+                                        </div><!-- end row -->
+                                    </div><!-- end container -->
+                                </section><!-- end category-section -->
+                               
+                                <section class="category-section" :class="classname">
+                                    <div class="container">
+                                        <!-- section heading -->
+                                        <SectionHeading classname="" :text="SectionData.settingOrgData.title" :content="SectionData.settingOrgData.content" isMargin=""></SectionHeading>
+                                        <div class="row g-gs">
+                                            <div class="col-lg-3 col-6" v-for="item in SectionData.settingOrgData.settingOrgList" :key="item.id">
+                                                <router-link :to="item.path" class="card card-cat text-center h-100" :class="item.class">
+                                                    <div class="card-body card-body-s1">
+                                                        <span :class="item.icon"></span>
+                                                        <h5 class="card-cat-title">{{ item.title }}</h5>
+                                                    </div>
+                                                </router-link>
+                                            </div><!-- end col -->
+                                        </div><!-- end row -->
+                                    </div><!-- end container -->
+                                </section><!-- end category-section -->
+                            </div><!-- end profile-setting-panel -->
+                        </div><!-- end tab-pane -->
+                        
                 <div class="tab-pane fade" id="change-password" role="tabpanel" aria-labelledby="change-password-tab">
                     <div class="profile-setting-panel">
                         <h5 class="mb-4">Change Password</h5>
@@ -110,6 +104,7 @@
                     </div><!-- end profile-setting-panel -->
                 </div><!-- end tab-pane -->
             </div><!-- end tab-content -->
+            
         </div><!-- end profile-setting-panel-wrap-->
     </div><!-- end col-lg-8 -->
 </template>

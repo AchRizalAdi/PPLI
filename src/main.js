@@ -157,6 +157,7 @@ import TermSection from './components/section/TermSection.vue';
 import PrivacySection from './components/section/PrivacySection.vue';
 import FaqSection from './components/section/FaqSection.vue';
 import MembersSection from './components/section/MembersSection.vue';
+import TipeMitraSection from './components/section/TipeMitraSection.vue';
 
 
 
@@ -276,6 +277,7 @@ app.component('TermSection', TermSection)
 app.component('PrivacySection', PrivacySection)
 app.component('FaqSection', FaqSection)
 app.component('MembersSection', MembersSection)
+app.component('TipeMitraSection', TipeMitraSection)
 
 // vue app
 app.use(router).mount('#app')
