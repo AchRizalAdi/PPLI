@@ -91,10 +91,10 @@ let SectionData = {
   // Breadcrumb data
   breadcrumbData: {
     breadcrumbList: {
-      title: 'Layanan',
+      title: 'Kartu Nama',
       navList: [
         {
-          title: 'Layanan'
+          title: 'Kartu Nama'
         }
       ]
     },
@@ -2153,16 +2153,46 @@ products: [
       {
         id: 1,
         class: 'text-green',
-        icon: 'icon fa-solid fa-plane mb-3 mx-auto icon-circle icon-wbg icon-lg',
+        icon: 'icon fa fa-map-o mb-3 mx-auto icon-circle icon-wbg icon-lg',
         title: 'Wilayah',
-        path: '/explore'
+        path: '/wilayah',
+        if: "",
+      },
+      {
+        id: 3,
+        class: 'text-blue',
+        icon: 'icon fa fa-building-o mb-3 mx-auto icon-circle icon-wbg icon-lg',
+        title: 'City',
+        path: '/city'
+      },
+      {
+        id: 4,
+        class: 'text-orange',
+        icon: 'icon fa fa-map-signs mb-3 mx-auto icon-circle icon-wbg icon-lg',
+        title: 'Provinsi',
+        path: '/provinsi',
+        if: "checkPrivilege('provinsi-index')",
+      },
+    ]
+  },
+  // Setting Umum Data
+  settingOrgData: {
+    title: 'Organization',
+    content: 'Lihat dan cari perusahaan logistik yang sesuai dengan kebutuhan layanan yang anda cari.',
+    settingOrgList: [
+      {
+        id: 1,
+        class: 'text-green',
+        icon: 'icon fa fa-user-circle mb-3 mx-auto icon-circle icon-wbg icon-lg',
+        title: 'Pengurus',
+        path: '/pengurusdata'
       },
       {
         id: 2,
         class: 'text-pink',   
-        icon: 'icon ni ni-truck mb-3 mx-auto icon-circle icon-wbg icon-lg',
-        title: 'Tipe Mitra',
-        path: '/tipe-mitra'
+        icon: 'icon fa fa-address-card-o mb-3 mx-auto icon-circle icon-wbg icon-lg',
+        title: 'Jabatan',
+        path: '/jabatan'
       },
       // {
       //   id: 3,
@@ -2209,24 +2239,24 @@ products: [
     ]
   },
   // Setting Umum Data
-  settingOrgData: {
+  homeAdminData: {
     title: 'Organization',
     content: 'Lihat dan cari perusahaan logistik yang sesuai dengan kebutuhan layanan yang anda cari.',
-    settingOrgList: [
+    homeAdminList: [
       {
         id: 1,
         class: 'text-green',
-        icon: 'icon fa-solid fa-plane mb-3 mx-auto icon-circle icon-wbg icon-lg',
+        icon: 'icon fa fa-user-circle mb-3 mx-auto icon-circle icon-wbg icon-lg',
         title: 'Pengurus',
-        path: '/explore'
+        path: '/pengurusdata'
       },
-      // {
-      //   id: 2,
-      //   class: 'text-pink',   
-      //   icon: 'icon ni ni-truck mb-3 mx-auto icon-circle icon-wbg icon-lg',
-      //   title: 'Tipe Mitra',
-      //   path: '/explore'
-      // },
+      {
+        id: 2,
+        class: 'text-pink',   
+        icon: 'icon fa fa-address-card-o mb-3 mx-auto icon-circle icon-wbg icon-lg',
+        title: 'Jabatan',
+        path: '/jabatan'
+      },
       // {
       //   id: 3,
       //   class: 'text-blue',
@@ -2669,7 +2699,6 @@ products: [
     btnText: 'Follow',
     btnLink: '',
     img: require('@/images/thumb/avatar-8.jpg'),
-    coverImg: require('@/images/thumb/bread-bg-2.jpg')
   },
   authorSidebarData: {
     authorTabNav: [
@@ -2731,7 +2760,7 @@ products: [
       btnText: 'View All'
     },
     sidebarWidgetTwo: {
-      title: 'Links',
+      title: 'Sosial Media Perusahaan',
       links: [
         {
           class: 'ni-globe',
@@ -2838,90 +2867,188 @@ products: [
   },
   // author nav
   authorNav: [
-    {
-      id: 1,
-      title: 'Profile',
-      path: 'profile',
-      icon: 'ni-user'
-    },
+    // {
+    //   id: 1,
+    //   title: 'Profile',
+    //   path: 'profile',
+    //   icon: 'ni-user'
+    // },
     {
       id: 2,
       title: 'Dashboard',
-      path: 'offers',
+      path: 'homeadmin',
       icon: 'ni-dashboard'
     },
-    {
-      id: 3,
-      title: 'Account Settings',
-      path: 'account',
-      icon: 'ni-setting'
-    },
-    {
-      id: 4,
-      title: 'Help center',
-      path: 'contact',
-      icon: 'ni-question-alt'
-    }
+    // {
+    //   id: 3,
+    //   title: 'Account Settings',
+    //   path: 'account',
+    //   icon: 'ni-setting'
+    // },
+    // {
+    //   id: 4,
+    //   title: 'Help center',
+    //   path: 'contact',
+    //   icon: 'ni-question-alt'
+    // }
   ],
-  // offer sidebar data
-  offerSidebarData: {
-    title: 'Enfty Dashboard',
+  // home sidebar data
+  homeSidebarData: {
+    title: 'Register',
     navList: [
       {
         id: 1,
         class: 'active',
         icon: 'ni-home',
         title: 'Home',
-        path: 'offers'
+        path: 'homeadmin',
+        if: "checkPrivilege('home')"
       },
       {
         id: 2,
-        icon: 'ni-file-text',
+        icon: 'ni-share',
         title: 'Pengaturan',
-        path: 'pengaturan'
+        path: 'pengaturan',
+        if: "checkPrivilege('pengaturan')"
       },
       {
         id: 3,
-        icon: 'ni-file-text',
-        title: 'Activity',
-        path: 'activity-v2'
+        icon: 'ni-user',
+        title: 'Register',
+        path: 'offers'
+      },
+      {
+        id: 3,
+        icon: 'ni-users',
+        title: 'DPW',
+        path: 'dpw',
+        if: "checkPrivilege('dpw-index')"
       },
       {
         id: 4,
-        icon: 'ni-money',
-        title: 'Sales / Purchase',
-        path: 'purchases-sales'
-      },
-      {
-        id: 5,
-        icon: 'ni-user',
+        icon: 'ni-user-list',
         title: 'Contacts',
         path: 'transactions'
       },
       {
-        id: 6,
-        icon: 'ni-user-round',
-        title: 'Members',
-        path: 'members'
+        id: 5,
+        icon: 'ni-calendar',
+        title: 'Kegiatan',
+        path: 'kegiatan',
+        if: "checkPrivilege('kegiatan-index')"
+      },
+    ]
+  },
+    // kegiatan sidebar data
+    kegiatanSidebarData: {
+      title: 'Register',
+      navList: [
+        {
+          id: 1,
+          icon: 'ni-home',
+          title: 'Home',
+          path: 'homeadmin',
+          if: "checkPrivilege('home')"
+        },
+        {
+          id: 2,
+          icon: 'ni-share',
+          title: 'Pengaturan',
+          path: 'pengaturan',
+          if: "checkPrivilege('pengaturan')"
+        },
+        {
+          id: 3,
+          icon: 'ni-user',
+          title: 'Register',
+          path: 'offers',
+          
+        },
+        {
+          id: 3,
+          icon: 'ni-users',
+          title: 'DPW',
+          path: 'dpw',
+          if: "checkPrivilege('dpw-index')"
+        },
+        {
+          id: 4,
+          icon: 'ni-user-list',
+          title: 'Contacts',
+          path: 'transactions',
+          if: "checkPrivilege('kontak-index')"
+        },
+        {
+          id: 5,
+          class: 'active',
+          icon: 'ni-calendar',
+          title: 'Kegiatan',
+          path: 'kegiatan',
+          if: "checkPrivilege('kegiatan-index')"
+        },
+      ]
+    },
+  // offer sidebar data
+  offerSidebarData: {
+    title: 'Register',
+    navList: [
+      {
+        id: 1,
+        icon: 'ni-home',
+        title: 'Home',
+        path: 'homeadmin',
+        if: "checkPrivilege('home')"
       },
       {
-        id: 7,
-        icon: 'ni-puzzle',
-        title: 'Redeem',
-        path: 'redeem'
+        id: 2,
+        icon: 'ni-share',
+        title: 'Pengaturan',
+        path: 'pengaturan',
+        if: "checkPrivilege('pengaturan')"
       },
       {
-        id: 8,
-        icon: 'ni-download-cloud',
-        title: 'Deposit Enfties',
-        path: 'deposit-enfties'
+        id: 3,
+        class: 'active',
+        icon: 'ni-user',
+        title: 'Register',
+        path: 'offers'
       },
-      
+      {
+        id: 3,
+        icon: 'ni-users',
+        title: 'DPW',
+        path: 'dpw',
+        if: "checkPrivilege('dpw-index')"
+      },
+      // {
+      //   id: 3,
+      //   icon: 'ni-file-text',
+      //   title: 'Activity',
+      //   path: 'activity-v2'
+      // },
+      // {
+      //   id: 4,
+      //   icon: 'ni-money',
+      //   title: 'Sales / Purchase',
+      //   path: 'purchases-sales'
+      // },
+      {
+        id: 4,
+        icon: 'ni-user-list',
+        title: 'Contacts',
+        path: 'transactions'
+      },
+      {
+        id: 5,
+        icon: 'ni-calendar',
+        title: 'Kegiatan',
+        path: 'kegiatan'
+      },
     ]
   },
   // member sidebar data
   memberSidebarData: {
-    title: 'Enfty Dashboard',
+    title: 'Member',
     navList: [
       {
         id: 1,
@@ -2937,95 +3064,144 @@ products: [
       },
       {
         id: 3,
-        icon: 'ni-file-text',
-        title: 'Activity',
-        path: 'activity-v2'
+        icon: 'ni-users',
+        title: 'DPW',
+        path: 'dpw'
       },
-      {
-        id: 4,
-        icon: 'ni-money',
-        title: 'Sales / Purchase',
-        path: 'purchases-sales'
-      },
+      // {
+      //   id: 3,
+      //   icon: 'ni-user',
+      //   title: 'Users',
+      //   path: 'users'
+      // },
+      // {
+      //   id: 3,
+      //   icon: 'ni-file-text',
+      //   title: 'Activity',
+      //   path: 'activity-v2'
+      // },
+      // {
+      //   id: 4,
+      //   icon: 'ni-money',
+      //   title: 'Sales / Purchase',
+      //   path: 'purchases-sales'
+      // },
       {
         id: 5,
         icon: 'ni-user',
         title: 'Contacts',
         path: 'transactions'
       },
+      // {
+      //   id: 6,
+      //   icon: 'ni-user-round',
+      //   class: 'active',
+      //   title: 'Members',
+      //   path: 'members'
+      // },
+      // {
+      //   id: 7,
+      //   icon: 'ni-puzzle',
+      //   title: 'Redeem',
+      //   path: 'redeem'
+      // },
+      // {
+      //   id: 8,
+      //   icon: 'ni-download-cloud',
+      //   title: 'Deposit Enfties',
+      //   path: 'deposit-enfties'
+      // },
+    ]
+  },
+  pengaturanSidebarData: {
+    title: 'Settings & Parameter',
+    navList: [
       {
-        id: 6,
+        id: 1,
+        icon: 'ni-home',
+        title: 'Home',
+        path: 'homeadmin',
+        if: "checkPrivilege('home')"
+      },
+      {
+        id: 2,
         class: 'active',
-        icon: 'ni-user-round',
-        title: 'Members',
-        path: 'members'
+        icon: 'ni-share',
+        title: 'Pengaturan',
+        path: 'pengaturan',
+        if: "checkPrivilege('pengaturan')"
       },
       {
-        id: 7,
-        icon: 'ni-puzzle',
-        title: 'Redeem',
-        path: 'redeem'
+        id: 3,
+        icon: 'ni-user',
+        title: 'Register',
+        path: 'offers'
       },
       {
-        id: 8,
-        icon: 'ni-download-cloud',
-        title: 'Deposit Enfties',
-        path: 'deposit-enfties'
+        id: 3,
+        icon: 'ni-users',
+        title: 'DPW',
+        path: 'dpw',
+        if: "checkPrivilege('dpw-index')"
+      },
+      // {
+      //   id: 3,
+      //   icon: 'ni-file-text',
+      //   title: 'Activity',
+      //   path: 'activity-v2'
+      // },
+      // {
+      //   id: 4,
+      //   icon: 'ni-money',
+      //   title: 'Sales / Purchase',
+      //   path: 'purchases-sales'
+      // },
+      {
+        id: 4,
+        icon: 'ni-user-list',
+        title: 'Contacts',
+        path: 'transactions'
+      },
+      {
+        id: 5,
+        icon: 'ni-calendar',
+        title: 'Kegiatan',
+        path: 'kegiatan'
+      },
+    ]
+  },
+  editAccSidebarData: {
+    navList: [
+      {
+        id: 1,
+        icon: 'ni-home',
+        title: 'Edit Perusahaan',
+        path: '/edit-company1'
+      },
+      {
+        id: 2,
+        class: 'active',
+        icon: 'ni-user-circle',
+        title: 'Edit Akun',
+        path: '/edit-acc'
       },
       
     ]
   },
-  pengaturanSidebarData: {
-    title: 'Enfty Dashboard',
+  editCom1SidebarData: {
     navList: [
       {
         id: 1,
         icon: 'ni-home',
-        title: 'Home',
-        path: 'offers'
+        class: 'active',
+        title: 'Edit Perusahaan',
+        path: 'edit-company1'
       },
       {
         id: 2,
-        class: 'active',
-        icon: 'ni-file-text',
-        title: 'Pengaturan',
-        path: 'pengaturan'
-      },
-      {
-        id: 3,
-        icon: 'ni-file-text',
-        title: 'Activity',
-        path: 'activity-v2'
-      },
-      {
-        id: 4,
-        icon: 'ni-money',
-        title: 'Sales / Purchase',
-        path: 'purchases-sales'
-      },
-      {
-        id: 5,
-        icon: 'ni-user',
-        title: 'Contacts',
-        path: 'transactions'
-      },
-      {
-        id: 6,
-        icon: 'ni-camera',
-        title: 'Display',
-        path: 'display'
-      },
-      {
-        id: 7,
-        icon: 'ni-puzzle',
-        title: 'Redeem',
-        path: 'redeem'
-      },
-      {
-        id: 8,
-        icon: 'ni-download-cloud',
-        title: 'Deposit Enfties',
-        path: 'deposit-enfties'
+        icon: 'ni-user-circle',
+        title: 'Edit Akun',
+        path: 'edit-acc'
       },
       
     ]
@@ -3041,41 +3217,47 @@ products: [
       },
       {
         id: 2,
+        icon: 'ni-file-text',
+        title: 'Pengaturan',
+        path: 'pengaturan'
+      },
+      {
+        id: 3,
         class: 'active',
         icon: 'ni-file-text',
         title: 'Activity',
         path: 'activity-v2'
       },
-      {
-        id: 3,
-        icon: 'ni-money',
-        title: 'Sales / Purchase',
-        path: 'purchases-sales'
-      },
-      {
-        id: 4,
-        icon: 'ni-user',
-        title: 'Contacts',
-        path: 'transactions'
-      },
-      {
-        id: 5,
-        icon: 'ni-camera',
-        title: 'Display',
-        path: 'display'
-      },
-      {
-        id: 6,
-        icon: 'ni-puzzle',
-        title: 'Redeem',
-        path: 'redeem'
-      },
-      {
-        id: 7,
-        icon: 'ni-download-cloud',
-        title: 'Deposit Enfties',
-        path: 'deposit-enfties'
-      }
+      // {
+      //   id: 4,
+      //   icon: 'ni-money',
+      //   title: 'Sales / Purchase',
+      //   path: 'purchases-sales'
+      // },
+      // {
+      //   id: 5,
+      //   icon: 'ni-user',
+      //   title: 'Contacts',
+      //   path: 'transactions'
+      // },
+      // {
+      //   id: 6,
+      //   icon: 'ni-user-round',
+      //   title: 'Members',
+      //   path: 'members'
+      // },
+      // {
+      //   id: 7,
+      //   icon: 'ni-puzzle',
+      //   title: 'Redeem',
+      //   path: 'redeem'
+      // },
+      // {
+      //   id: 8,
+      //   icon: 'ni-download-cloud',
+      //   title: 'Deposit Enfties',
+      //   path: 'deposit-enfties'
+      // },
     ]
   },
   salePurchaseSidebarData: {
@@ -3093,19 +3275,19 @@ products: [
         title: 'Activity',
         path: 'activity-v2'
       },
-      {
-        id: 3,
-        class: 'active',
-        icon: 'ni-money',
-        title: 'Sales / Purchase',
-        path: 'purchases-sales'
-      },
-      {
-        id: 4,
-        icon: 'ni-user',
-        title: 'Contacts',
-        path: 'transactions'
-      },
+      // {
+      //   id: 3,
+      //   class: 'active',
+      //   icon: 'ni-money',
+      //   title: 'Sales / Purchase',
+      //   path: 'purchases-sales'
+      // },
+      // {
+      //   id: 4,
+      //   icon: 'ni-user',
+      //   title: 'Contacts',
+      //   path: 'transactions'
+      // },
       {
         id: 5,
         icon: 'ni-camera',
@@ -3133,45 +3315,147 @@ products: [
         id: 1,
         icon: 'ni-home',
         title: 'Home',
-        path: 'offers'
+        path: 'homeadmin',
+        if: "checkPrivilege('home')"
       },
       {
         id: 2,
-        icon: 'ni-file-text',
-        title: 'Activity',
-        path: 'activity-v2'
+        icon: 'ni-share',
+        title: 'Pengaturan',
+        path: 'pengaturan',
+        if: "checkPrivilege('pengaturan')"
       },
       {
         id: 3,
-        icon: 'ni-money',
-        title: 'Sales / Purchase',
-        path: 'purchases-sales'
+        icon: 'ni-user',
+        title: 'Register',
+        path: 'offers'
       },
+      {
+        id: 3,
+        icon: 'ni-users',
+        title: 'DPW',
+        path: 'dpw',
+        if: "checkPrivilege('dpw-index')"
+      },
+      // {
+      //   id: 3,
+      //   icon: 'ni-file-text',
+      //   title: 'Activity',
+      //   path: 'activity-v2'
+      // },
+      // {
+      //   id: 4,
+      //   icon: 'ni-money',
+      //   title: 'Sales / Purchase',
+      //   path: 'purchases-sales'
+      // },
       {
         id: 4,
         class: 'active',
-        icon: 'ni-user',
+        icon: 'ni-user-list',
         title: 'Contacts',
         path: 'transactions'
       },
       {
         id: 5,
-        icon: 'ni-camera',
-        title: 'Display',
-        path: 'display'
+        icon: 'ni-calendar',
+        title: 'Kegiatan',
+        path: 'kegiatan'
+      },
+      // {
+      //   id: 6,
+      //   icon: 'ni-user-round',
+      //   title: 'Members',
+      //   path: 'members'
+      // },
+      // {
+      //   id: 7,
+      //   icon: 'ni-puzzle',
+      //   title: 'Redeem',
+      //   path: 'redeem'
+      // },
+      // {
+      //   id: 8,
+      //   icon: 'ni-download-cloud',
+      //   title: 'Deposit Enfties',
+      //   path: 'deposit-enfties'
+      // },
+    ]
+  },
+  DPWSidebarData: {
+    title: 'Transactions',
+    navList: [
+      {
+        id: 1,
+        icon: 'ni-home',
+        title: 'Home',
+        path: 'homeadmin',
+        if: "checkPrivilege('home')"
       },
       {
-        id: 6,
-        icon: 'ni-puzzle',
-        title: 'Redeem',
-        path: 'redeem'
+        id: 2,
+        icon: 'ni-share',
+        title: 'Pengaturan',
+        path: 'pengaturan',
+        if: "checkPrivilege('pengaturan')"
       },
       {
-        id: 7,
-        icon: 'ni-download-cloud',
-        title: 'Deposit Enfties',
-        path: 'deposit-enfties'
-      }
+        id: 3,
+        icon: 'ni-user',
+        title: 'Register',
+        path: 'offers'
+      },
+      {
+        id: 3,
+        class: 'active',
+        icon: 'ni-users',
+        title: 'DPW',
+        path: 'dpw',
+        if: "checkPrivilege('dpw-index')"
+      },
+      // {
+      //   id: 3,
+      //   icon: 'ni-file-text',
+      //   title: 'Activity',
+      //   path: 'activity-v2'
+      // },
+      // {
+      //   id: 4,
+      //   icon: 'ni-money',
+      //   title: 'Sales / Purchase',
+      //   path: 'purchases-sales'
+      // },
+      {
+        id: 4,
+        icon: 'ni-user-list',
+        title: 'Contacts',
+        path: 'transactions'
+      },
+      {
+        id: 5,
+        icon: 'ni-calendar',
+        title: 'Kegiatan',
+        path: 'kegiatan'
+      },
+      // {
+      //   id: 6,
+      //   icon: 'ni-user-round',
+      //   title: 'Members',
+      //   path: 'members'
+      // },
+      // {
+      //   id: 7,
+      //   icon: 'ni-puzzle',
+      //   title: 'Redeem',
+      //   path: 'redeem'
+      // },
+      // {
+      //   id: 8,
+      //   icon: 'ni-download-cloud',
+      //   title: 'Deposit Enfties',
+      //   path: 'deposit-enfties'
+      // },
     ]
   },
   displaySidebarData: {
@@ -3189,12 +3473,12 @@ products: [
         title: 'Activity',
         path: 'activity-v2'
       },
-      {
-        id: 3,
-        icon: 'ni-money',
-        title: 'Sales / Purchase',
-        path: 'purchases-sales'
-      },
+      // {
+      //   id: 3,
+      //   icon: 'ni-money',
+      //   title: 'Sales / Purchase',
+      //   path: 'purchases-sales'
+      // },
       {
         id: 4,
         icon: 'ni-user',
@@ -3237,12 +3521,12 @@ products: [
         title: 'Activity',
         path: 'activity-v2'
       },
-      {
-        id: 3,
-        icon: 'ni-money',
-        title: 'Sales / Purchase',
-        path: 'purchases-sales'
-      },
+      // {
+      //   id: 3,
+      //   icon: 'ni-money',
+      //   title: 'Sales / Purchase',
+      //   path: 'purchases-sales'
+      // },
       {
         id: 4,
         icon: 'ni-user',
@@ -3633,7 +3917,7 @@ faqSidebarData: {
     titleTwo: "History:",
     subTitle: 'Showing 1 to 6 of 30 entries',
     subTitleTwo: 'Showing 1 to 6 of 10 entries',
-    alertText: 'In order to sell NFTs on EnftyMart, you must <a href="seller-settings" class="btn-link">become an authorized seller.</a> It only takes a few minutes!',
+    alertText: 'Silahkan Lengkapi Data Diri Anda<router-link to="" type="button" class="btn-text"> Disini!</router-link>',
     tabNav: [
       {
         id: 1,
@@ -4173,17 +4457,103 @@ faqSidebarData: {
     ],
   },
   // transactions data
+  // membersData: {
+  //   mainTitle: 'Member',
+  //   membersTableHead: [
+  //     '#',
+  //     'Nama',
+  //     'Alamat',
+  //     'No Hp',
+  //     'Email',
+  //     'Perusahaan',
+  //     'Status',
+  //     ''
+  //   ],
+  //   membersTableBody: [
+  //     {
+  //       id: 4947,
+  //       title: 'Patternlicious',
+  //       timeText: '10-05-2019',
+  //       price: '$599.00',
+  //       img: require('@/images/brand/visa.png'),
+  //       email: 'sadasdj@jfahfjkah.com',
+  //       perusahaan: 'bojong',
+  //       badgeText: 'Member',
+  //       badgeClass: 'bg-success'
+  //     },
+  //     {
+  //       id: 4904,
+  //       title: 'Alex Smith',
+  //       timeText: '10-05-2019',
+  //       price: '$599.00',
+  //       img: require('@/images/brand/paypal.png'),
+  //       email: 'ddd',
+  //       perusahaan: 'ss',
+  //       badgeText: 'Member',
+  //       badgeClass: 'bg-success'
+  //     },
+  //     {
+  //       id: 4840,
+  //       title: 'Alex Smith',
+  //       timeText: '10-05-2019',
+  //       price: '$99.00',
+  //       img: require('@/images/brand/a-express.png'),
+  //       email: 'ff',
+  //       perusahaan: 'aa',
+  //       badgeText: 'Declined',
+  //       badgeClass: 'bg-danger'
+  //     },
+  //     {
+  //       id: 4740,
+  //       title: 'Patternlicious',
+  //       timeText: '10-05-2019',
+  //       price: '$599.00',
+  //       img: require('@/images/brand/visa.png'),
+  //       email: 'ffas',
+  //       perusahaan: 'sdsad',
+  //       badgeText: 'Member',
+  //       badgeClass: 'bg-success'
+  //     },
+  //     {
+  //       id: 4444,
+  //       title: 'Patternlicious',
+  //       timeText: '10-05-2019',
+  //       price: '$599.00',
+  //       img: require('@/images/brand/paypal.png'),
+  //       email: 'fasf',
+  //       perusahaan: 'afsaf',
+  //       badgeText: 'Member',
+  //       badgeClass: 'bg-success'
+  //     },
+  //     {
+  //       id: 4144,
+  //       title: 'Patternlicious',
+  //       timeText: '10-05-2019',
+  //       price: '$599.00',
+  //       img: require('@/images/brand/a-express.png'),
+  //       email: 'sfa',
+  //       perusahaan: 'fsaf',
+  //       badgeText: 'Declined',
+  //       badgeClass: 'bg-danger'
+  //     }
+  //   ],
+  // },
+  // transactions data
   membersData: {
     mainTitle: 'Member',
     membersTableHead: [
       '#',
-      'Nama',
-      'Alamat',
-      'No Hp',
+      'Name',
       'Email',
-      'Perusahaan',
+      'Username',
+      'Nama Perusahaan',
+      'Phone Number',
+      'Company Industri',
+      'Wilayah',
+      'Kota',
+      'Bentuk Badan Usaha',
+      'Alasan Bergabung',
       'Status',
-      ''
     ],
     membersTableBody: [
       {
@@ -4336,6 +4706,182 @@ faqSidebarData: {
       }
     ],
   },
+  // offer register data
+  registersData: {
+    mainTitle: 'Registers',
+    registersTableHead: [
+      '#',
+      'Name',
+      // 'Email',
+      // 'Username',
+      'Nama Perusahaan',
+      // 'Phone Number',
+      // 'Company Industri',
+      'Wilayah',
+      // 'Kota',
+      // 'Bentuk Badan Usaha',
+      // 'Alasan Bergabung',
+      'Status',
+      'Pesan',
+      'Action',
+    ],
+  },
+  // User Management data
+  userMData: {
+    mainTitle: 'userM',
+    userMTableHead: [
+      '#',
+      'Name',
+      'Email',
+      'Nomor Handphone',
+      'Status',
+      'Roles',
+      'Action',
+    ],
+  },
+  // provinsi data
+  provinsisData: {
+    mainTitle: 'Provinsis',
+    provinsisTableHead: [
+      'ID',
+      'Provinsi',
+      'Action',
+    ],
+  }, 
+    // industry data
+    industrysData: {
+      mainTitle: 'Industri',
+      industrysTableHead: [
+        '#',
+        'Name',
+        'Action',
+      ],
+    },
+  // DPW data
+  DPWData: {
+    mainTitle: 'DPW',
+    DPWTableHead: [
+      '#',
+      'Kode',
+      'Nama',
+      'Alamat Kantor',
+      'Email',
+      'Nomor',
+      'Action',
+    ],
+  }, 
+  // Group data
+  groupData: {
+    mainTitle: 'Group',
+    groupTableHead: [
+      'Nama Group',
+      'Action',
+    ],
+    
+  },
+  // Group data
+  privilegeData: {
+    mainTitle: 'Privilege',
+    privilegeTableHead: [
+      'Nama Privilege',
+      'Action',
+    ],
+    
+  },
+  // city data
+  cityData: {
+    mainTitle: 'City',
+    cityTableHead: [
+      'ID',
+      'Nama',
+      'City',
+      'Action',
+    ],
+    
+  },
+     // kegiatan data
+     kegiatanData: {
+      mainTitle: 'kegiatan',
+      kegiatanTableHead: [
+        '#',
+        'Nama Kegiatan',
+        'Sifat Kegiatan',
+        'Lokasi Kegiatan',
+        'Tanggal Rencana',
+        'Tanggal Realisasi',
+        'Keterangan',
+        'Action',
+      ],
+      
+    },
+   // contact data
+   contactsData: {
+    mainTitle: 'Contact',
+    contactsTableHead: [
+      'ID',
+      'Nama',
+      'Alamat',
+      'Email',
+      'Nomor',
+      'Status',
+      'Action',
+    ],
+    
+  },
+   // users data
+   usersData: {
+    mainTitle: 'Users',
+    usersTableHead: [
+      'ID',
+      'Name',
+      'Email',
+      'Username',
+      'Nama Perusahaan',
+      'Nomor Handphone',
+      'Company Industri',
+      'Wilayah',
+      'Provinsi',
+      'Kota',
+      'Bentuk Badan Usaha',
+      'Alasan Bergabung',
+    ],
+    
+  },
+  // pengurus data
+  pengurusData: {
+    mainTitle: 'Pengurus',
+    pengurusTableHead: [
+      '#',
+      'Jabatan',
+      'Member',
+      'Username',
+      'Status',
+      'Action',
+    ],
+    
+  },
+  // wilayah data
+  wilayahData: {
+    mainTitle: 'Wilayah',
+    wilayahTableHead: [
+      'ID',
+      'Name',
+      'Email',
+      'Kota',
+      'Alamat',
+      'Nomor',
+      'Action',
+    ],
+  },
+  jabatanData: {
+    mainTitle: 'Jabatan',
+    jabatanTableHead: [
+      'ID',
+      'Name',
+      'Level',
+      'Action'
+    ],
+  },
   // transactions data
   transactionsData: {
     mainTitle: 'Contact',
@@ -4348,75 +4894,7 @@ faqSidebarData: {
       'Perusahaan',
       'Status',
       ''
-    ],
-    transactionsTableBody: [
-      {
-        id: 4947,
-        title: 'Patternlicious',
-        timeText: '10-05-2019',
-        price: '$599.00',
-        img: require('@/images/brand/visa.png'),
-        email: 'sadasdj@jfahfjkah.com',
-        perusahaan: 'bojong',
-        badgeText: 'Member',
-        badgeClass: 'bg-success'
-      },
-      {
-        id: 4904,
-        title: 'Alex Smith',
-        timeText: '10-05-2019',
-        price: '$599.00',
-        img: require('@/images/brand/paypal.png'),
-        email: 'ddd',
-        perusahaan: 'ss',
-        badgeText: 'Member',
-        badgeClass: 'bg-success'
-      },
-      {
-        id: 4840,
-        title: 'Alex Smith',
-        timeText: '10-05-2019',
-        price: '$99.00',
-        img: require('@/images/brand/a-express.png'),
-        email: 'ff',
-        perusahaan: 'aa',
-        badgeText: 'Declined',
-        badgeClass: 'bg-danger'
-      },
-      {
-        id: 4740,
-        title: 'Patternlicious',
-        timeText: '10-05-2019',
-        price: '$599.00',
-        img: require('@/images/brand/visa.png'),
-        email: 'ffas',
-        perusahaan: 'sdsad',
-        badgeText: 'Member',
-        badgeClass: 'bg-success'
-      },
-      {
-        id: 4444,
-        title: 'Patternlicious',
-        timeText: '10-05-2019',
-        price: '$599.00',
-        img: require('@/images/brand/paypal.png'),
-        email: 'fasf',
-        perusahaan: 'afsaf',
-        badgeText: 'Member',
-        badgeClass: 'bg-success'
-      },
-      {
-        id: 4144,
-        title: 'Patternlicious',
-        timeText: '10-05-2019',
-        price: '$599.00',
-        img: require('@/images/brand/a-express.png'),
-        email: 'sfa',
-        perusahaan: 'fsaf',
-        badgeText: 'Declined',
-        badgeClass: 'bg-danger'
-      }
-    ],
+    ],  
   },
    // edit profile data
    editProfileData: {
@@ -4478,40 +4956,62 @@ faqSidebarData: {
      },
      {
        id: 2,
-       title: 'Password',
+       title: 'User Management',
        slug: 'change-password-tab',
        bsTarget: '#change-password'
      },
-     {
-       id: 3,
-       title: 'Verify Profile',
-       slug: 'validate-profile-tab',
-       bsTarget: '#validate-profile'
-     }
    ],
-   // pengaturan profile tab mobile
-    pengaturanProfileTabNavMobile: [
-     {
-       id: 1,
-       isActive: 'active',
-       title: 'Account Information',
-       slug: 'account-information-tab-mobile',
-       bsTarget: '#account-information-mobile'
-     },
-     {
-       id: 2,
-       title: 'Change Password',
-       slug: 'change-password-tab-mobile',
-       bsTarget: '#change-password-mobile'
-     },
-     {
-       id: 3,
-       title: 'Validate Profile',
-       slug: 'validate-profile-tab-mobile',
-       bsTarget: '#validate-profile-mobile'
-     }
-   ],
+  //  // pengaturan profile tab mobile
+  //   pengaturanProfileTabNavMobile: [
+  //    {
+  //      id: 1,
+  //      isActive: 'active',
+  //      title: 'Pengaturan Umum',
+  //      slug: 'account-information-tab-mobile',
+  //      bsTarget: '#account-information-mobile'
+  //    },
+  //    {
+  //      id: 2,
+  //      title: 'Change Password',
+  //      slug: 'change-password-tab-mobile',
+  //      bsTarget: '#change-password-mobile'
+  //    },
+  //  ],
   },
+    // pengaturan profile data
+    // userManaData: {
+    //   userManaTabNav: [
+    //    {
+    //      id: 1,
+    //      isActive: 'active',
+    //      title: 'Add User',
+    //      slug: 'user-tab',
+    //      bsTarget: '#user-tab'
+    //    },
+    //    {
+    //      id: 2,
+    //      title: 'Group',
+    //      slug: 'group-tab',
+    //      bsTarget: '#group-tab'
+    //    },
+    //  ],
+     // pengaturan profile tab mobile
+    //   userManaTabNavMobile: [
+    //    {
+    //      id: 1,
+    //      isActive: 'active',
+    //      title: 'Add User',
+    //      slug: 'account-information-tab-mobile',
+    //      bsTarget: '#account-information-mobile'
+    //    },
+    //    {
+    //      id: 2,
+    //      title: 'Change Password',
+    //      slug: 'change-password-tab-mobile',
+    //      bsTarget: '#change-password-mobile'
+    //    },
+    //  ],
+    // },
   // payment method data
   paymentMethodData: {
     title: 'Payment Methods',
@@ -4519,35 +5019,29 @@ faqSidebarData: {
     {
       id: 1,
       isActive: 'active',
-      title: 'Balances',
+      title: 'Home',
       slug: 'balances-tab',
       bsTarget: '#balances'
     },
     {
       id: 2,
-      title: 'Credit Cards',
+      title: 'Review',
       slug: 'credit-cards-tab',
       bsTarget: '#credit-cards'
     },
-    {
-      id: 3,
-      title: 'Prepaid ETH',
-      slug: 'prepaid-eth-tab',
-      bsTarget: '#prepaid-eth'
-    }
   ],
   // edit profile tab mobile
    paymentMethodTabNavMobile: [
     {
       id: 1,
       isActive: 'active',
-      title: 'Balances',
+      title: 'Home',
       slug: 'balances-tab-mobile',
       bsTarget: '#balances-mobile'
     },
     {
       id: 2,
-      title: 'Credit Cards',
+      title: 'Review',
       slug: 'credit-cards-tab-mobile',
       bsTarget: '#credit-cards-mobile'
     },
@@ -4599,19 +5093,27 @@ faqSidebarData: {
   creditCardList: [
     {
       id: 1,
-      title: 'Visa ending in 8203',
+      title: 'Reza from PT. BUSUR PANAH',
       timeText: '08/11/2022',
       img: require('@/images/thumb/visa.png'),
-      titleTwo: 'Billing address',
-      addressText: '123 Fake Sreet, 3rd Floor, San Francisco, California, 94105, United States',
+      titleTwo: 'Bintang ++ ',
+      addressText: 'isi pesan yang aman aman saja klo mau makan ya makan klo ngantuk ya tidur awkoawoawko',
     },
     {
       id: 2,
-      title: 'Mastercard ending in 4720',
+      title: 'Kijang from PT. AMBURADULL',
       timeText: '02/9/2022',
       img: require('@/images/thumb/master-card.png'),
-      titleTwo: 'Billing address',
-      addressText: '240 Descano Drive, Level 5, San Francisco, California, 34105, United States',
+      titleTwo: 'Bintang ++ ',
+      addressText: 'isi pesan yang aman aman saja klo mau makan ya makan klo ngantuk ya tidur awkoawoawko',
+    },
+    {
+      id: 3,
+      title: 'Kijang from PT. AMBURADULL',
+      timeText: '02/9/2022',
+      img: require('@/images/thumb/master-card.png'),
+      titleTwo: 'Bintang ++ ',
+      addressText: 'isi pesan yang aman aman saja klo mau makan ya makan klo ngantuk ya tidur awkoawoawko',
     }
   ],
   // credit card data
@@ -5152,7 +5654,7 @@ faqSidebarData: {
   forgot: {
     img: require('@/images/thumb/remote.png'),
     title: 'Forgot Password',
-    subTitle: 'Enter Username to reset password',
+    subTitle: 'Enter Email to reset password',
     btnText: 'Submit',
     haveAccountText: "Don't have an account",
     btnTextTwo: 'Sign Up',
@@ -5610,6 +6112,13 @@ faqSidebarData: {
     btnLink: 'wallet'
   },
   reportModalData: {
+    title: 'Why are you reporting?',
+    content: "If you believe there's been a violation of EnftyMart's Terms of Service or Community Guidelines, please complete this report.",
+    contentTwo: "For all cases related to potential copyright infringement, please email <a href=\"mailto:trust@enftymart.com\">trust@enftymart.com</a> directly with a formal DMCA Takedown Request.",
+    placeholderText: 'Describe why you think this page should be removed from EnftyMart.',
+    btnText: 'Submit'
+  },
+  messageModalData: {
     title: 'Why are you reporting?',
     content: "If you believe there's been a violation of EnftyMart's Terms of Service or Community Guidelines, please complete this report.",
     contentTwo: "For all cases related to potential copyright infringement, please email <a href=\"mailto:trust@enftymart.com\">trust@enftymart.com</a> directly with a formal DMCA Takedown Request.",
@@ -6159,6 +6668,7 @@ faqSidebarData: {
   // footer data
   footerData: {
     title: "Follow Us",
+    content: "Social Media Kami",
     footerList: [
       {
         id: 1,

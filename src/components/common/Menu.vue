@@ -4,6 +4,7 @@
       <MenuList></MenuList>
       <!-- header btn -->
       <ul class="menu-btns">
+         <li><ButtonLink :text="SectionData.headerData.logText" link="/login" classname="btn" class="btn btn-outline-dark"></ButtonLink></li>
           <li><ButtonLink :text="SectionData.headerData.btnText" link="/register" classname="btn" :class="classname"></ButtonLink></li>
           
           <li>

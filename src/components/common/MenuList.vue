@@ -24,9 +24,9 @@
                  </ul>
               </div>
           </li>
-          <li class="menu-item">
+          <!-- <li class="menu-item">
              <router-link class="btn btn-lg btn-outline-dark " to="/login">{{ SectionData.headerData.logText }}</router-link>
-          </li>
+          </li> -->
 
      </ul>
 </template>

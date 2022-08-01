@@ -4,8 +4,8 @@
                     <div class="row">
                         <div class="col-lg-3 col-md-9 me-auto">
                             <div class="footer-item mb-4 mb-lg-0">
-                                <div class="copyright-wrap d-flex flex-wrap py-3 align-items-center justify-content-between">
-                                    <H6 class="mb-2">Sosial Media Kami</H6>
+                                <!-- <div class="copyright-wrap d-flex flex-wrap py-3 align-items-center justify-content-between"> -->
+                               <p class="my-4 footer-para" v-if="SectionData.footerData.content">{{ SectionData.footerData.content }}</p>
                                 <ul class="styled-icon">
                                     <li><a href="#"><em class="icon ni ni-twitter"></em></a></li>
                                     <li><a href="#"><em class="icon ni ni-facebook-f"></em></a></li>
@@ -39,7 +39,7 @@
                 </div>
                 <hr class="bg-white-slim my-0">
                 
-            </div><!-- .container -->
+            <!-- </div>.container -->
 </template>
 <script>
 // Import component data. You can change the data in the store to reflect in all component

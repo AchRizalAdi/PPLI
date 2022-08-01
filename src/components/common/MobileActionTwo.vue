@@ -2,48 +2,70 @@
 /* eslint-disable no-unused-expressions */
 <template>
     <div class="header-mobile-action">
-        <div class="header-search-mobile dropdown me-2">
-            <a class="icon-btn" href="#" data-bs-toggle="dropdown">
+        <!-- <div class="header-search-mobile dropdown me-2"> -->
+            <!-- <a class="icon-btn" href="#" data-bs-toggle="dropdown">
                 <em class="ni ni-search"></em>
-             </a>
-            <div class="dropdown-menu dropdown-menu-end card-generic">
+             </a> -->
+            <!-- <div class="dropdown-menu dropdown-menu-end card-generic">
                 <div class="input-group">
                     <input type="search" class="form-control form-control-s1" placeholder="Search item here...">
                     <a href="#" class="btn btn-sm btn-outline-secondary"><em class="ni ni-search"></em></a>
                  </div>
-            </div>
-        </div><!-- end header-search-mobile -->
+            </div> -->
+        <!-- </div>end header-search-mobile -->
         <div class="header-mobile-user-menu me-2">
             <button type="button" class="icon-btn" data-bs-toggle="dropdown"><em class="ni ni-user"></em></button>
               <ul class="dropdown-menu card-generic card-generic-s3 dropdown-menu-end mt-2">
-                    <li><h6 class="dropdown-header">Hello kamran!</h6></li>
+                    <li><h6 class="dropdown-header">{{data.name}}</h6></li>
                     <li v-for="list in SectionData.authorNav" :key="list.id"><router-link class="dropdown-item card-generic-item" :to="list.path"><em class="ni me-2" :class="list.icon"></em>{{ list.title }}</router-link></li>
                     <li><a href="#" class="dropdown-item card-generic-item theme-toggler" title="Toggle Dark/Light mode"><em class="ni ni-moon me-2"></em> Dark Mode</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><router-link class="dropdown-item card-generic-item" to="/"><em class="ni ni-power me-2"></em>Logout</router-link></li>
+                    <li><a class="btn dropdown-item card-generic-item" @click="logout"><em class="ni ni-power me-2"></em>Logout</a></li>
               </ul>
         </div><!-- end hheader-mobile-user-menu -->
-        <div class="header-toggle">
+        <!-- <div class="header-toggle">
             <button class="menu-toggler">
                 <em class="menu-on menu-icon ni ni-menu"></em>
                 <em class="menu-off menu-icon ni ni-cross"></em>
             </button>
-        </div><!-- .header-toggle -->
+        </div>.header-toggle -->
      </div><!-- end header-mobile-action -->
 </template>
 
 <script>
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from '@/store/store.js'
-
+import axios from 'axios'
 export default {
   name: 'MobileAction',
   data () {
     return {
-      SectionData
+      SectionData,
+      data: '',
+      // loginType: '',
+      user: null,
+      isLoggedIn: false
     }
   },
+  created() {
+      axios.defaults.headers.common['Content-Type'] = 'application/json'
+      axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token') 
+
+      axios.get(`http://127.0.0.1:8000/api/me`)
+        .then(response => {
+          this.data = response.data
+          // this.loginType = response.data.roles[0].name
+        })
+        .catch(error => {
+          if (error.response.status === 401) {
+            localStorage.clear();
+            this.$router.push('/login')
+          }
+          console.error(error);
+        })
+    },
   mounted () {
+    this.setUser()
     // slideUp
     let slideUp = (target, duration = 500) => {
       target.style.transitionProperty = 'height, margin, padding'
@@ -255,6 +277,21 @@ export default {
     }
     stickyMenu('.is-sticky')
     
-  }
+  },
+  methods: {
+      setUser() {
+          this.user = JSON.parse(localStorage.getItem('user'))
+          this.isLoggedIn = localStorage.getItem('token') != null
+
+        },
+        logout() {
+          localStorage.removeItem('token')
+          localStorage.removeItem('user')
+          localStorage.removeItem('permission')
+          this.setUser()
+
+          this.$router.push('/login')
+        }
+    }
 }
 </script>

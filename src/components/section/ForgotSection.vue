@@ -10,17 +10,12 @@
                             <h2 class="mb-1">{{ SectionData.forgot.title }}</h2>
                             <p>{{ SectionData.forgot.subTitle }}</p>
                         </div>
-                        <form action="#">
+                        <form @submit.prevent="forget()">
                             <div class="form-floating mb-4 mt-4">
-                                <input type="text" class="form-control" id="username" placeholder="Username">
-                                <label for="username">Username</label>
+                                <input v-model="email" type="text" class="form-control" id="email" placeholder="Email">
+                                <label for="email">Email</label>
                             </div><!-- end form-floating -->
-                           
-                            <button class="btn btn-dark w-100" type="submit">{{ SectionData.forgot.btnText }}</button>
-                            <ul class="btns-group d-flex ">
-                                <li class="flex-grow-1" v-for="(list, i) in SectionData.forgot.btns" :key="i"><router-link :to="list.path" class="btn d-block" :class="list.btnClass"><em class="ni" :class="list.icon"></em> {{ list.title }} </router-link></li>
-                            </ul>
-                            <p class="mt-4 form-text">{{ SectionData.forgot.haveAccountText }} <router-link :to="SectionData.forgot.btnTextLink" class="btn-link">{{ SectionData.forgot.btnTextTwo }}</router-link></p>
+                            <button class="btn btn-dark w-100" type="submit">kirim</button>
                         </form>
                     </div><!-- end col-lg-6 -->
                 </div><!-- end row -->
@@ -28,14 +23,38 @@
     </section>
 </template>
 <script>
-// Import component data. You can change the data in the store to reflect in all component
+
 import SectionData from '@/store/store.js'
+import axios from 'axios';
 export default {
   name: 'ForgotSection',
   data () {
     return {
-      SectionData
+      SectionData,
+      email:[],
     }
+  },
+  methods:{
+     makeToast(append = false) {
+        this.toastCount++
+        this._vm.$bvToast(`This is toast number ${this.toastCount}`, {
+          title: 'BootstrapVue Toast',
+          autoHideDelay: 5000,
+          appendToast: append
+        })
+      },
+        reset(){
+            this.email=null;
+        },
+        forget(){
+            // alert('a');
+            axios.post('http://127.0.0.1:8000/api/forgot',{
+                email:this.email,
+            }).then(function (response) {
+                this.reset()
+                this.$toast.show(response.data.message);
+            }.bind(this));
+        }
   },
   mounted () {
     /*  ======== Show/Hide passoword ======== */

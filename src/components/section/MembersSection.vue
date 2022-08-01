@@ -3,9 +3,7 @@
                         <div class="user-panel-title-box">
                             <h3>{{SectionData.membersData.mainTitle }}</h3>
                         </div><!-- end user-panel-title-box -->
-                             <div class="mb-3 w-25">
-                                <v-select type="number" class="form-control" id="wilayah_id" placeholder="Wilayah" />
-                            </div><!-- end form-floating -->
+                            <form >
                         <div class="profile-setting-panel-wrap">
                             <div class="table-responsive">
                                 <table class="table mb-0 table-s2">
@@ -15,13 +13,18 @@
                                         </tr>
                                     </thead>
                                     <tbody class="fs-13">
-                                        <tr v-for="item in displayedRecords" :key="item.id">
+                                        <tr v-for="item in registers.data" :key="item.id">
                                             <th scope="row"><a href="#">{{ item.id }}</a></th>
-                                            <td>{{ item.title }}</td>
-                                            <td>{{ item.timeText }}</td>
-                                            <td>{{ item.price }}</td>
+                                            <td>{{ item.name }}</td>
                                             <td>{{ item.email }}</td>
-                                            <td>{{ item.perusahaan }}</td>
+                                            <td>{{ item.username }}</td>
+                                            <td>{{ item.NamaPerushaan }}</td>
+                                            <td>{{ item.PhoneNumber }}</td>
+                                            <td>{{ item.CompanyIndustryId }}</td>
+                                            <td>{{ item.WilayahId }}</td>
+                                            <td>{{ item.KotaId }}</td>
+                                            <td>{{ item.BentukBadanUsaha }}</td>
+                                            <td>{{ item.AlasanBergabung }}</td>
                                             <td><span class="badge fw-medium" :class="item.badgeClass">{{ item.badgeText }}</span></td> 
                                             <td><a href="#" class="icon-btn ms-auto" title="Show"><em class="ni ni-file"></em></a></td>
                                             <td><a href="#" class="icon-btn ms-auto" title="Remove"><em class="ni ni-trash"></em></a></td>
@@ -34,6 +37,7 @@
                                 <Pagination :records="records.length" v-model="page" :per-page="perPage"></Pagination>
                             </div>
                         </div><!-- end profile-setting-panel-wrap-->
+                        </form>
                     </div><!-- end col-lg-8 -->
 </template>
 
@@ -41,9 +45,26 @@
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from '@/store/store.js'
 import Pagination from 'v-pagination-3';
+import axios from 'axios';
+import { onMounted, ref } from 'vue';
 
 export default {
-  name: 'TransactionsSection',
+    setup (){
+        let registers= ref([]);
+
+        onMounted(() => {
+            axios.get('http://127.0.0.1:8000/api/userRegister')
+            .then((result) => {
+                registers.value = result.data
+            }).catch((err)=>{
+                console.log(err.response)
+            });
+        });
+        return {
+            registers
+        }
+    },
+  name: 'MembersSection',
    components: {
     Pagination
   },
@@ -53,138 +74,7 @@ export default {
       page: 1,
       perPage: 6,
       records: [
-        {
-            id: 4947,
-            title: 'Patternlicious',
-            timeText: '10-05-2019',
-            price: '$599.00',
-            img: require('@/images/brand/visa.png'),
-            email: 'sadasdj@jfahfjkah.com',
-            perusahaan: 'bojong',
-            badgeText: 'Member',
-            badgeClass: 'bg-success'
-        },
-        {
-            id: 4904,
-            title: 'Alex Smith',
-            timeText: '10-05-2019',
-            price: '$599.00',
-            img: require('@/images/brand/paypal.png'),
-            email: 'sadasdj@jfahfjkah.com',
-            perusahaan: 'bojong',
-            badgeText: 'Member',
-            badgeClass: 'bg-success'
-        },
-        {
-            id: 4840,
-            title: 'Alex Smith',
-            timeText: '10-05-2019',
-            price: '$99.00',
-            img: require('@/images/brand/a-express.png'),
-            email: 'sadasdj@jfahfjkah.com',
-            perusahaan: 'bojong',
-            badgeText: 'Declined',
-            badgeClass: 'bg-danger'
-        },
-        {
-            id: 4740,
-            title: 'Patternlicious',
-            timeText: '10-05-2019',
-            price: '$599.00',
-            img: require('@/images/brand/visa.png'),
-            email: 'sadasdj@jfahfjkah.com',
-            perusahaan: 'bojong',
-            badgeText: 'Member',
-            badgeClass: 'bg-success'
-        },
-        {
-            id: 4444,
-            title: 'Kamran Media',
-            timeText: '10-05-2019',
-            price: '$599.00',
-            img: require('@/images/brand/paypal.png'),
-            email: 'sadasdj@jfahfjkah.com',
-            perusahaan: 'bojong',
-            badgeText: 'Member',
-            badgeClass: 'bg-success'
-        },
-        {
-            id: 4144,
-            title: 'Jisan Media',
-            timeText: '10-05-2019',
-            price: '$599.00',
-            img: require('@/images/brand/a-express.png'),
-            email: 'sadasdj@jfahfjkah.com',
-            perusahaan: 'bojong',
-            badgeText: 'Declined',
-            badgeClass: 'bg-danger'
-        },
-        {
-            id: 4145,
-            title: 'Alok Kamali',
-            timeText: '10-05-2019',
-            price: '$599.00',
-            img: require('@/images/brand/paypal.png'),
-            email: 'sadasdj@jfahfjkah.com',
-            perusahaan: 'bojong',
-            badgeText: 'Declined',
-            badgeClass: 'bg-danger'
-        },
-        {
-            id: 4146,
-            title: 'Patternlicious',
-            timeText: '10-05-2019',
-            price: '$599.00',
-            img: require('@/images/brand/paypal.png'),
-            email: 'sadasdj@jfahfjkah.com',
-            perusahaan: 'bojong',
-            badgeText: 'Declined',
-            badgeClass: 'bg-danger'
-        },
-        {
-            id: 4147,
-            title: 'KhanTech',
-            timeText: '10-05-2019',
-            price: '$599.00',
-            img: require('@/images/brand/paypal.png'),
-            email: 'sadasdj@jfahfjkah.com',
-        perusahaan: 'bojong',
-            badgeText: 'Declined',
-            badgeClass: 'bg-danger'
-        },
-        {
-            id: 4148,
-            title: 'Jhonatan Doe',
-            timeText: '10-05-2019',
-            price: '$599.00',
-            img: require('@/images/brand/a-express.png'),
-            email: 'sadasdj@jfahfjkah.com',
-        perusahaan: 'bojong',
-            badgeText: 'Member',
-            badgeClass: 'bg-success'
-        },
-        {
-            id: 4149,
-            title: 'John Doe',
-            timeText: '10-05-2019',
-            price: '$599.00',
-            img: require('@/images/brand/a-express.png'),
-            email: 'sadasdj@jfahfjkah.com',
-        perusahaan: 'bojong',
-            badgeText: 'Member',
-            badgeClass: 'bg-success'
-        },
-        {
-            id: 4150,
-            title: 'Petter',
-            timeText: '10-05-2019',
-            price: '$599.00',
-            img: require('@/images/brand/a-express.png'),
-            email: 'sadasdj@jfahfjkah.com',
-        perusahaan: 'bojong',
-            badgeText: 'Member',
-            badgeClass: 'bg-success'
-        },
+
       ],
     }
   },

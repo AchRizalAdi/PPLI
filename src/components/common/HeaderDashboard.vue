@@ -4,12 +4,12 @@
             <div class="header-wrap">
                 <!-- logo -->
                 <Logo></Logo>
-                <!-- mobile action -->
-                <MobileActionTwo></MobileActionTwo>
                 <!-- Judul samping logo -->
                 <div class="ms-2">
-                  <router-link to="/"><h3>Perkumpulan Pelaku Logistik Indonesia</h3></router-link>
+                  <span><h3>Perkumpulan Pelaku Logistik Indonesia</h3></span>
                 </div>
+                  <!-- mobile action -->
+                  <MobileActionTwo></MobileActionTwo>
                 <!-- heder search -->
                 <!-- <HeaderSearch class="header-search-form-s2"></HeaderSearch> -->
                 <!-- Menu -->

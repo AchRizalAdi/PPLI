@@ -5,11 +5,10 @@
                 <!-- logo -->
                 <Logo></Logo>
                 <!-- mobile action -->
-                <MobileAction></MobileAction>
-
                 <div class="ms-2">
                   <router-link to="/"><h3>Perkumpulan Pelaku Logistik Indonesia</h3></router-link>
                 </div>
+                <MobileAction></MobileAction>
                 <!-- heder search -->
                 <!-- <HeaderSearch></HeaderSearch> -->
                 <!-- Menu -->

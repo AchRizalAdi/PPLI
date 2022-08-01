@@ -7,6 +7,97 @@ const routes = [
     component: () => import('../pages/Home-v2.vue')
   },
   {
+    path: '/homeadmin',
+    name: 'homeadmin',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/HomeAdmin.vue')
+  },
+  {
+    path: '/dpw',
+    name: 'dpw',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/DPW.vue')
+  },
+  {
+    path: '/industry',
+    name: 'industry',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/Industry.vue')
+  },
+  {
+    path: '/kegiatan',
+    name: 'kegiatan',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/Kegiatan.vue')
+  },
+  {
+    path: '/show-contact/:id',
+    name: 'show-contact',
+    component: () => import('../pages/ShowContact.vue')
+  },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    meta: {
+      requiresAuth: true,
+      isUser: true
+    }, 
+    component: () => import('../pages/Dashboard.vue')
+  },
+  {
+    path: '/users',
+    name: 'users',
+    component: () => import('../pages/Users.vue')
+  },
+  {
+    path: '/city',
+    name: 'city',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/City.vue')
+  },
+  {
+    path: '/provinsi',
+    name: 'provinsi',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/Prov.vue')
+  },
+  {
+    path: '/jabatan',
+    name: 'jabatan',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/Jabatan.vue')
+  },
+  {
+    path: '/wilayah',
+    name: 'wilayah',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/Wilayah.vue')
+  },
+  {
     path: '/admin',
     name: 'Admin',
     component: () => import('../pages/Admin.vue')
@@ -112,7 +203,16 @@ const routes = [
   {
     path: '/pengurus',
     name: 'pengurus',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
     component: () => import('../pages/Pengurus.vue')
+  },
+  {
+    path: '/pengurusdata',
+    name: 'pengurusdata',
+    component: () => import('../pages/PengurusData.vue')
   },
   {
     path: '/blog-detail-:id',
@@ -142,6 +242,10 @@ const routes = [
   {
     path: '/offers',
     name: 'Offer',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
     component: () => import('../pages/Offers.vue')
   },
   {
@@ -155,8 +259,21 @@ const routes = [
     component: () => import('../pages/PurchasesSales.vue')
   },
   {
+    path: '/virtual-card',
+    name: 'virtual-card',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/VirtualCard.vue')
+  },
+  {
     path: '/transactions',
     name: 'transactions',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
     component: () => import('../pages/Transactions.vue')
   },
   {
@@ -257,13 +374,80 @@ const routes = [
   {
     path: '/pengaturan',
     name: 'pengaturan',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
     component: () => import('../pages/Pengaturan.vue')
   },
   {
     path: '/members',
     name: 'members',
     component: () => import('../pages/Members.vue')
-  }
+  },
+  {
+    path: '/baru',
+    name: 'baru',
+    component: () => import('../pages/Baru.vue')
+  },
+  {
+    path: '/user-mana',
+    name: 'user-mana',
+    component: () => import('../pages/UserMana.vue')
+  },  
+  {
+    path: '/group',
+    name: 'group',
+    component: () => import('../pages/Group.vue')
+  },
+  {
+    path: '/add-contact',
+    name: 'add-contact',
+    component: () => import('../pages/AddContact.vue')
+  },
+  {
+    path: '/add-kegiatan',
+    name: 'add-kegiatan',
+    component: () => import('../pages/AddKegiatan.vue')
+  },
+  {
+    path: '/edit-kegiatan/:id',
+    name: 'edit-kegiatan',
+    component: () => import('../pages/EditKegiatan.vue')
+  },
+  {
+    path: '/privilage/:id',
+    name: 'privilage',
+    component: () => import('../pages/Privilage.vue')
+  },
+  {
+    path: '/privilege/:id',
+    name: 'privilege',
+    component: () => import('../pages/Privilege.vue')
+  },
+  {
+    path: '/edit-acc/',
+    name: 'edit-acc',
+    meta: {
+      requiresAuth: true,
+      isUser: true
+    }, 
+    component: () => import('../pages/EditAcc.vue')
+  },
+  {
+    path: '/edit-company1/',
+    name: 'edit-company1',
+    meta: {
+      requiresAuth: true,
+      isUser: true
+    }, 
+    component: () => import('../pages/EditCompany1.vue')
+  },
+  {
+    path: '/edit-contact/:id',
+    name: 'edit-contact',
+    component: () => import('../pages/EditContact.vue')
+  },
 ];
 
 const router = createRouter({
@@ -280,5 +464,49 @@ const router = createRouter({
     }
   }
 });
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    let token = localStorage.getItem('token') != null;
+    if (!token) {
+      next({
+        path: '/login',
+        query: {
+          redirect: to.fullPath
+        }
+      })
+    } else {
+        
+      let user = JSON.parse(localStorage.getItem('user'))
+      let roles = user.roles
+      console.log(roles);
+      if (to.matched.some(record => record.meta.isUser)) {
+        if (roles.includes('member')) next()
+        else if (roles !== 'member') {
+          next({
+            // name: 'admin'
+          })
+        } else next({
+          name: 'home'
+        })
+      } else if (to.matched.some(record => record.meta.isAdmin)) {
+        if (!roles.includes('member')) next()
+          else if (roles === 'member') {
+          next({
+            name: 'member'
+          })
+        } else next({
+          name: 'home'
+        })
+        
+      } else {
+        next()
+      }
+    }
+  } else {
+    next()
+  }
+});
+
 
 export default router;

@@ -7,7 +7,7 @@
                         <!-- mobile action -->
                         <MobileAction></MobileAction>
                         <!-- heder search -->
-                        <HeaderSearch></HeaderSearch>
+                        <!-- <HeaderSearch></HeaderSearch> -->
                         <!-- menu -->
                         <Menu classname="btn-primary"></Menu>
                         <div class="header-overlay"></div>

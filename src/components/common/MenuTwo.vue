@@ -1,5 +1,5 @@
 <template>
-  <nav class="header-menu menu nav">
+  <nav class="header-menu menu nav" @loggedIn="setUser">
       <!-- menu list -->
       <!-- <MenuList></MenuList> -->
       <!-- header btn -->
@@ -8,14 +8,14 @@
             <li class="d-none d-lg-inline-block dropdown">
                 <button type="button" class="icon-btn icon-btn-s1" data-bs-toggle="dropdown"><em class="ni ni-user"></em></button>
                 <ul class="dropdown-menu card-generic card-generic-s3 dropdown-menu-end mt-2">
-                    <li><h6 class="dropdown-header">Hello kamran!</h6></li>
+                    <li><h6 class="dropdown-header">{{ data.name }}</h6></li>
                     <li v-for="list in SectionData.authorNav" :key="list.id"><router-link class="dropdown-item card-generic-item" :to="list.path"><em class="ni me-2" :class="list.icon"></em>{{ list.title }}</router-link></li>
                     <li><a href="#" class="dropdown-item card-generic-item theme-toggler" title="Toggle Dark/Light mode"><em class="ni ni-moon me-2"></em> Dark Mode</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><router-link class="dropdown-item card-generic-item" to="/"><em class="ni ni-power me-2"></em>Logout</router-link></li>
+                    <li><a class="dropdown-item card-generic-item" href="#" @click="logout()"><em class="ni ni-power me-2"></em>Logout</a></li>
                 </ul>
             </li>
-          <li class="d-lg-none"><ButtonLink :text="SectionData.headerData.btnText" link="/wallet" classname="btn btn-lg" :class="classname"></ButtonLink></li>
+          <!-- <li class="d-lg-none"><ButtonLink :text="SectionData.headerData.btnText" link="/wallet" classname="btn btn-lg" :class="classname"></ButtonLink></li> -->
       </ul>
   </nav><!-- .header-menu -->
 </template>
@@ -23,6 +23,7 @@
 <script>
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from '@/store/store.js'
+import axios from 'axios'
 
 // @ is an alias to /src
 // import MenuList from '@/components/common/MenuList.vue'
@@ -35,10 +36,35 @@ export default {
   // },
   data () {
     return {
-      SectionData
+      SectionData,
+      data: '',
+      // loginType: ''
+      user: null,
+      isLoggedIn: false
     }
   },
+  created() {
+      axios.defaults.headers.common['Content-Type'] = 'application/json'
+      axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token') 
+      // axios.defaults.headers.common['Permission'] = 'Bearer ' + localStorage.getItem('permission')
+      
+
+      axios.get(`http://127.0.0.1:8000/api/me`)
+        .then(response => {
+          this.data = response.data
+          // this.loginType = response.data.roles[0].name
+        })
+        .catch(error => {
+          if (error.response.status === 401) {
+            localStorage.clear();
+            
+            this.$router.push('/login')
+          }
+          console.error(error);
+        })
+    },
   mounted () {
+    this.setUser()
     /*  ==========================================
       Dark/Light mode configaration
     ========================================== */
@@ -76,6 +102,22 @@ export default {
     }
 
     themeSwitcher('.theme-toggler')
-  }
+  },
+  methods: {
+      setUser() {
+          this.user = JSON.parse(localStorage.getItem('user'))
+          this.isLoggedIn = localStorage.getItem('token') != null
+
+        },
+        logout() {
+          localStorage.removeItem('token')
+          localStorage.removeItem('user')
+          localStorage.removeItem('permission')
+          // localStorage.clear();
+          this.setUser()
+
+          this.$router.push('/login')
+        }
+    }
 }
 </script>

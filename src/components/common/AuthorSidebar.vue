@@ -2,29 +2,26 @@
 <div>
     <div class="sidebar mb-5 mb-xl-0 row">
         <div class="col-md-6 col-lg-6 col-xl-12 sidebar-widget">
-            <h3 class="mb-3">{{ SectionData.authorSidebarData.sidebarWidget.title }}</h3>
-            <p class="sidebar-text mb-3">{{ content }}</p>
-            <p class="sidebar-text text-dark-gray">
-                <span class="me-4"><strong class="text-black">{{ followingnum }}</strong> {{ followingtext }}</span>
-                <span><strong class="text-black">{{ followernum }}</strong> {{ followertext }} </span>
-            </p>
-            <div class="follow-wrap mt-3">
-                <p class="mb-1 text-black fw-semibold">{{ SectionData.authorSidebarData.sidebarWidget.followText }}</p>
-                <div class="avatar-group mb-3">
-                    <a :href="item.path" v-for="(item, i) in avatars" :key="i"><img :src="item.avatar" alt=""></a>
-                </div>
-                <a href="#" class="btn-link sidebar-btn-link" data-bs-toggle="modal" data-bs-target="#followersModal">{{ SectionData.authorSidebarData.sidebarWidget.btnText  }}</a>
-            </div>
+            <h4 class="mb-3">Informasi Perusahaan</h4>
+            <h6 class="mb-1">Perusahaan Didirikan</h6>
+            <p class="sidebar-text mb-2">1999</p>
+            <h6 class="mb-1">Pekerja</h6>
+            <p class="sidebar-text mb-4">1-20 orang</p>
+            <h4 class="mb-1">Kantor Utama</h4>
+            <p class="sidebar-text mb-1">Alamat Lengkap Kantor Utama Perusahaan dengan Kota Provinsi</p>
         </div><!-- end col -->
         <div class="col-md-6 col-lg-6 col-xl-12 sidebar-widget">
-            <h3 class="mb-3">{{ SectionData.authorSidebarData.sidebarWidgetTwo.title }}</h3>
+            <h4 class="mb-3">Sosial Media Perusahaan</h4>
+            <!-- <ul class="sosmed">
+                <li class="btn"></li>
+            </ul> -->
             <ul class="social-links">
                 <li v-for="(link, i) in links" :key="i"><router-link :to="link.path"><span class="ni icon" :class="link.class"></span>{{ link.title }}</router-link></li>
             </ul>
         </div><!-- end col -->
         <div class="col-md-6 col-lg-6 col-xl-12 sidebar-widget">
-            <h3 class="mb-2">{{ SectionData.authorSidebarData.sidebarWidgetThree.title }}</h3>
-            <p class="sidebar-text">{{ datetext }}</p>
+            <h5 class="mb-2">Bergabung Sejak</h5>
+            <p class="sidebar-text">2022</p>
         </div><!-- end col -->
      </div><!-- end sidebar -->
     <!-- Modal -->

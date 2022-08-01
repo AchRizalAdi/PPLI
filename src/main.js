@@ -1,10 +1,30 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+// import Axios from 'Axios'
 
 // vue app
 const app = createApp(App);
 
+// datatable
+import "jquery/dist/jquery.min.js";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "datatables.net-dt/js/dataTables.dataTables";
+import "datatables.net-dt/css/jquery.dataTables.min.css";
+
+// toaster
+import Toaster from "@meforma/vue-toaster";
+app.use(Toaster)
+
+// import Select2Component
+import Select2 from 'vue3-select2-component';
+
+// Define a new global component called button-counter
+app.component('Select2', Select2)
+
+// vue lodash
+import VueLodash from 'vue-lodash'
+app.use(VueLodash)
 
 // bootstrap
 import "bootstrap"
@@ -43,6 +63,17 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 
 // Global page components imported
 import HeaderMain from './components/common/HeaderMain.vue';
+import UsersSection from './components/section/UsersSection.vue';
+import KegiatanSection from './components/section/KegiatanSection.vue';
+import HomeAdminSection from './components/section/HomeAdminSection.vue';
+import UserManaSection from './components/section/UserManaSection.vue';
+import EditAccSection from './components/section/EditAccSection.vue';
+import GroupSection from './components/section/GroupSection.vue';
+import PrivilageSection from './components/section/PrivilageSection.vue';
+import PrivilegeSection from './components/section/PrivilegeSection.vue';
+import AddContactSection from './components/section/AddContactSection.vue';
+import AddKegiatanSection from './components/section/AddKegiatanSection.vue';
+import HeaderMainSec from './components/common/HeaderMainSec.vue';
 import HeaderDashboard from './components/common/HeaderDashboard.vue';
 import HeaderAdminDashboard from './components/common/HeaderAdminDashboard.vue';
 import SectionHeading from './components/common/SectionHeading.vue';
@@ -52,6 +83,7 @@ import FeaturedCreators from './components/section/FeaturedCreators.vue';
 import BlogSection from './components/section/BlogSection.vue';
 import BlogSectionSlider from './components/section/BlogSectionSlider.vue';
 import PengurusSection from './components/section/PengurusSection.vue';
+import DashboardSection from './components/section/DashboardSection.vue';
 import PengurusSectionSlider from './components/section/PengurusSectionSlider.vue';
 import Cta from './pages/Cta.vue';
 import CtaSection from './components/section/CtaSection.vue';
@@ -110,7 +142,10 @@ import ProductsContainerFour from './components/section/ProductsContainerFour.vu
 import ProductsContainerFive from './components/section/ProductsContainerFive.vue';
 import ProductsContainerSix from './components/section/ProductsContainerSix.vue';
 import AuthorHero from './components/section/AuthorHero.vue';
+import AuthorHeroSec from './components/section/AuthorHeroSec.vue';
+import PengurusDataSection  from './components/section/PengurusDataSection.vue';
 import AuthorSection  from './components/section/AuthorSection.vue';
+import AuthorSectionSec  from './components/section/AuthorSectionSec.vue';
 import AuthorSidebar from './components/common/AuthorSidebar.vue';
 import AboutSection from './components/section/AboutSection.vue';
 import BrandSection from './components/section/BrandSection.vue';
@@ -118,6 +153,7 @@ import BrandSectionTwo from './components/section/BrandSectionTwo.vue';
 import TeamSection from './components/section/TeamSection.vue';
 import ActivitySection  from './components/section/ActivitySection.vue';
 import RankingSection from './components/section/RankingSection.vue';
+import WilayahSection from './components/section/WilayahSection.vue';
 import WalletSection from './components/section/WalletSection.vue';
 import WalletSectionTwo from './components/section/WalletSectionTwo.vue';
 import Pagination from './components/common/Pagination.vue';
@@ -136,6 +172,9 @@ import ContactSection from './components/section/ContactSection.vue';
 import GoogleMap from './components/common/GoogleMap.vue';
 import UserSidebar from './components/common/UserSidebar.vue';
 import OfferSection from './components/section/OfferSection.vue';
+import JabatanSection from './components/section/JabatanSection.vue';
+import CitySection from './components/section/CitySection.vue';
+import ProvSection from './components/section/ProvSection.vue';
 import AdminSection from './components/section/AdminSection.vue';
 import UserActivitySection from './components/section/UserActivitySection.vue'
 import PurchasesSaleSection from './components/section/PurchasesSaleSection.vue';
@@ -157,12 +196,37 @@ import TermSection from './components/section/TermSection.vue';
 import PrivacySection from './components/section/PrivacySection.vue';
 import FaqSection from './components/section/FaqSection.vue';
 import MembersSection from './components/section/MembersSection.vue';
+import DPWSection from './components/section/DPWSection.vue';
+import EditCompany1Section from './components/section/EditCompany1Section.vue';
 import TipeMitraSection from './components/section/TipeMitraSection.vue';
+import IndustrySection from './components/section/IndustrySection.vue';
+import EditKegiatanSection from './components/section/EditKegiatanSection.vue';
+import EditContactSection from './components/section/EditContactSection.vue';
+import ShowContactSection from './components/section/ShowContactSection.vue';
+import VirtualCardSection from './components/section/VirtualCardSection.vue';
 
 
 
 // Global page components register
 app.component('HeaderMain', HeaderMain);
+app.component('UsersSection', UsersSection);
+app.component('EditKegiatanSection', EditKegiatanSection);
+app.component('IndustrySection', IndustrySection);
+app.component('DPWSection', DPWSection);
+app.component('KegiatanSection', KegiatanSection);
+app.component('HomeAdminSection', HomeAdminSection);
+app.component('VirtualCardSection', VirtualCardSection);
+app.component('EditContactSection', EditContactSection);
+app.component('ShowContactSection', ShowContactSection);
+app.component('UserManaSection', UserManaSection);
+app.component('EditCompany1Section', EditCompany1Section);
+app.component('EditAccSection', EditAccSection);
+app.component('GroupSection', GroupSection);
+app.component('PrivilageSection', PrivilageSection);
+app.component('PrivilegeSection', PrivilegeSection);
+app.component('AddContactSection', AddContactSection);
+app.component('AddKegiatanSection', AddKegiatanSection);
+app.component('HeaderMainSec', HeaderMainSec);
 app.component('HeaderDashboard', HeaderDashboard);
 app.component('HeaderAdminDashboard', HeaderAdminDashboard);
 app.component('SectionHeading', SectionHeading);
@@ -172,6 +236,7 @@ app.component('FeaturedCreators', FeaturedCreators);
 app.component('BlogSection', BlogSection)
 app.component('BlogSectionSlider', BlogSectionSlider)
 app.component('PengurusSection', PengurusSection)
+app.component('DashboardSection', DashboardSection)
 app.component('PengurusSectionSlider', PengurusSectionSlider)
 app.component('Cta', Cta)
 app.component('CtaSection', CtaSection)
@@ -230,7 +295,10 @@ app.component('ProductsContainerFour', ProductsContainerFour)
 app.component('ProductsContainerFive', ProductsContainerFive)
 app.component('ProductsContainerSix', ProductsContainerSix)
 app.component('AuthorHero', AuthorHero)
+app.component('AuthorHeroSec', AuthorHeroSec)
 app.component('AuthorSection', AuthorSection)
+app.component('PengurusDataSection', PengurusDataSection)
+app.component('AuthorSectionSec', AuthorSectionSec)
 app.component('AuthorSidebar', AuthorSidebar)
 app.component('AboutSection', AboutSection)
 app.component('BrandSection', BrandSection)
@@ -238,6 +306,7 @@ app.component('BrandSectionTwo', BrandSectionTwo)
 app.component('TeamSection', TeamSection)
 app.component('ActivitySection', ActivitySection)
 app.component('RankingSection', RankingSection)
+app.component('WilayahSection', WilayahSection)
 app.component('WalletSection', WalletSection)
 app.component('WalletSectionTwo', WalletSectionTwo)
 app.component('Pagination', Pagination)
@@ -256,6 +325,9 @@ app.component('ContactSection', ContactSection)
 app.component('GoogleMap', GoogleMap)
 app.component('UserSidebar', UserSidebar)
 app.component('OfferSection', OfferSection)
+app.component('CitySection', CitySection)
+app.component('ProvSection', ProvSection)
+app.component('JabatanSection', JabatanSection)
 app.component('AdminSection', AdminSection)
 app.component('UserActivitySection', UserActivitySection)
 app.component('PurchasesSaleSection', PurchasesSaleSection)

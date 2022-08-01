@@ -1,92 +1,312 @@
 <template>
-   <div class="col-lg-9 ps-xl-5">
-                        <div class="user-panel-title-box">
-                            <h3>{{SectionData.offerData.mainTitle }}</h3>
-                        </div><!-- end user-panel-title-box -->
-                        <div class="profile-setting-panel-wrap">
-                            <ul class="nav nav-tabs nav-tabs-s1 nav-tabs-mobile-size" id="myTab" role="tablist">
-                                <li class="nav-item" role="presentation" v-for="list in SectionData.offerData.tabNav" :key="list.id">
-                                    <button class="nav-link" :class="list.isActive" :id="list.slug" data-bs-toggle="tab" :data-bs-target="list.bsTarget" type="button">{{ list.title }} </button>
-                                </li>
-                            </ul>
-                            <div class="tab-content mt-4" id="myTabContent">
-                                <div class="tab-pane fade show active" id="offers-receive" role="tabpanel" aria-labelledby="offers-receive-tab">
-                                    <div class="profile-setting-panel">
-                                        <!-- <div class="alert alert-danger d-flex mb-4" role="alert">
-                                            <svg class="flex-shrink-0 me-3" width="30" height="30" viewBox="0 0 24 24" fill="#ff6a8e">
-                                                <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"></path>
-                                            </svg>
-                                            <p class="fs-14" v-html="SectionData.offerData.alertText"></p>
-                                        </div>end alert -->
-                                        <h3 class="mb-1">{{ SectionData.offerData.title }}</h3>
-                                        <p class="mb-4 fs-14">{{ SectionData.offerData.subTitle }}</p>
-                                        <div class="row g-gs">
-                                            <div class="col-xl-6" v-for="item in SectionData.offerData.receiveItems" :key="item.id">
-                                                <div class="card card-full">
-                                                    <div class="card-body card-body-s1">
-                                                        <p class="mb-3 fs-13 mb-4">{{ item.timeText }}</p>
-                                                        <div class="card-media mb-3">
-                                                            <div class="card-media-img flex-shrink-0">
-                                                                <img :src="item.img" alt="media image">
-                                                            </div><!-- card-media-img -->
-                                                            <div class="card-media-body">
-                                                                <h4><router-link :to="item.path">{{ item.title }}</router-link></h4>
-                                                                <p class="fw-medium fs-14">----</p>
-                                                                <p class="fs-15">{{ item.name }}</p>
-                                                            </div><!-- end card-media-body -->
-                                                        </div><!-- end card-media -->
-                                                        <ul class="btns-group">
-                                                            <li v-for="list in item.btns" :key="list.id"><a :href="list.path" class="btn-link flex-grow-1 fw-medium fs-13" :class="list.btnClass">{{ list.title }}</a></li>
-                                                        </ul>
-                                                    </div><!-- end card-body -->
-                                                </div><!-- end card -->
-                                            </div><!-- end col -->
-                                        </div><!-- end row -->  
-                                    </div><!-- end profile-setting-panel -->
-                                </div><!-- end tab-pane -->
-                                <div class="tab-pane fade" id="offers-made" role="tabpanel" aria-labelledby="offers-made-tab">
-                                    <div class="profile-setting-panel">
-                                        <h3 class="mb-1">{{ SectionData.offerData.titleTwo }}</h3>
-                                        <p class="mb-4 fs-14">{{ SectionData.offerData.subTitleTwo }}</p>
-                                        <div class="row g-gs">
-                                            <div class="col-xl-6" v-for="item in SectionData.offerData.madeItems" :key="item.id">
-                                                <div class="card card-full">
-                                                    <div class="card-body card-body-s1">
-                                                        <p class="mb-3 fs-13 mb-4">{{ item.timeText }}</p>
-                                                        <div class="card-media mb-3">
-                                                            <div class="card-media-img flex-shrink-0">
-                                                                <img :src="item.img" alt="media image">
-                                                            </div><!-- card-media-img -->
-                                                            <div class="card-media-body">
-                                                                <h4><router-link :to="item.path">{{ item.title }}</router-link></h4>
-                                                                <p class="fw-medium fs-14">----</p>
-                                                                <p class="fs-15">{{ item.name }}</p>
-                                                            </div><!-- end card-media-body -->
-                                                        </div><!-- end card-media -->
-                                                        
-                                                        <ul class="btns-group">
-                                                            <li><span class="badge fw-medium" :class="item.badgeClass">{{ item.badgeText }}</span></li>
-                                                        </ul>
-                                                    </div><!-- end card-body -->
-                                                </div><!-- end card -->
-                                            </div><!-- end col -->
-                                        </div><!-- end row -->
-                                    </div><!-- end profile-setting-panel -->
-                                </div><!-- end tab-pane -->
-                            </div><!-- end tab-content -->
-                        </div><!-- end profile-setting-panel-wrap-->
-                    </div><!-- end col-lg-8 -->
+  <div class="col-lg-9 ps-xl-5">
+    <div class="user-panel-title-box">
+      <h3>{{ SectionData.registersData.mainTitle }}</h3>
+    </div>
+    <!-- end user-panel-title-box -->
+    <div class="profile-setting-panel-wrap">
+      <div class="table">
+        <table class="table mb-0 table-s2" id="dataTable">
+          <thead class="fs-14">
+            <tr>
+              <th
+                scope="col" class="bg-dark text-white"
+                v-for="(list, i) in SectionData.registersData
+                  .registersTableHead"
+                :key="i"
+              >
+                {{ list }}
+              </th>
+            </tr>
+          </thead>
+          <!-- {{ registers }} -->
+          <tbody class="">
+            <tr
+              v-for="(item, index) in registers.data"
+              :value="item.id"
+              :key="item.id"
+            >
+              <th scope="row" id="id">
+                <a href="#">{{ index + 1 }}</a>
+              </th>
+              <td>{{ item.name }}</td>
+              <!-- <td>{{ item.email }}</td> -->
+              <!-- <td>{{ item.username }}</td> -->
+              <td>{{ item.NamaPerushaan }}</td>
+              <!-- <td>{{ item.PhoneNumber }}</td> -->
+              <!-- <td><span v-for="items in item.company_industry" :key="items.id">{{items.name}}<br></span></td> -->
+              <td>{{ item.wilayah.name }}</td>
+              <!-- <td>{{ item.cities.name }}</td> -->
+              <!-- <td>{{ item.BentukBadanUsaha }}</td> -->
+              <!-- <td>{{ item.AlasanBergabung }}</td> -->
+              <td>
+                <a
+                  class="btn btn-warning btn-sm"
+                  @click="update(item.id)"
+                  id="statusss"
+                  data-bs-toggle="modal"
+                  data-bs-target="#statussModal"
+                  >{{ item.status }}</a
+                >
+              </td>
+              <td>
+                <a
+                  class="btn btn-primary btn-sm"
+                  @click="sendEmail(item.id)"
+                  id="pesan"
+                  data-bs-toggle="modal"
+                  data-bs-target="#pesanModal"
+                  >Kirim Pesan</a
+                >
+              </td>
+              <td class="row">
+                <a
+                  type="button"
+                  class="col- btn icon-btn p-0 m-0"
+                  title="Show"
+                  @click="deleteRegisters(item.id)"
+                  ><em class="ni ni-eye"></em
+                ></a>
+                <a
+                  type="button"
+                  class="col- btn icon-btn ms-1 p-0 m-0"
+                  title="Delete"
+                  @click="deleteRegisters(item.id)"
+                  ><em class="ni ni-trash"></em
+                ></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- end table-responsive -->
+      <!-- pagination -->
+      <div class="text-center mt-4 mt-md-2">
+        <Pagination
+          :records="records.length"
+          v-model="page"
+          :per-page="perPage"
+        ></Pagination>
+      </div>
+      <!-- Modal store -->
+      <form @submit.prevent="updateStatus(id)">
+        <div
+          class="modal fade"
+          id="statussModal"
+          tabindex="-1"
+          aria-labelledby="reportModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="reportModalLabel">Permission</h4>
+                <button
+                  type="button"
+                  class="btn-close icon-btn"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <em class="ni ni-cross"></em>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group mb-2">
+                  <label>status </label>
+                  <select v-model="status" class="form-control" required>
+                    <option
+                      v-for="data in status_register.data"
+                      :value="data.name"
+                      :key="data.id"
+                    >
+                      {{ data.name }}
+                    </option>
+                  </select>
+                </div>
+                <button
+                  class="btn btn-dark w-100"
+                  data-bs-dismiss="modal"
+                  type="submit"
+                >
+                  Select
+                </button>
+              </div>
+              <!-- end modal-body -->
+            </div>
+            <!-- end modal-content -->
+          </div>
+          <!-- end modal-dialog -->
+        </div>
+        <!-- end modal-->
+      </form>
+      <!-- Modal Pesan -->
+      <form @submit.prevent="pesan(id)">
+        <div
+          class="modal fade"
+          id="pesanModal"
+          tabindex="-1"
+          aria-labelledby="reportModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="reportModalLabel">Mail</h4>
+                <button
+                  type="button"
+                  class="btn-close icon-btn"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <em class="ni ni-cross"></em>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="form-group mb-4">
+                  <label>Isi Pesan DIbawah</label>
+                  <div class="form-floating mb-3">
+                    <textarea
+                      type="input"
+                      class="form-control"
+                      id="nama"
+                      v-model="isi_pesan"
+                      required
+                    ></textarea>
+                  </div>
+                  <!-- end form-floating -->
+                </div>
+                <button class="btn btn-dark w-100" type="submit">Send</button>
+              </div>
+              <!-- end modal-body -->
+            </div>
+            <!-- end modal-content -->
+          </div>
+          <!-- end modal-dialog -->
+        </div>
+        <!-- end modal-->
+      </form>
+    </div>
+    <!-- end profile-setting-panel-wrap-->
+  </div>
+  <!-- end col-lg-8 -->
 </template>
 
 <script>
 // Import component data. You can change the data in the store to reflect in all component
-import SectionData from '@/store/store.js'
+import SectionData from "@/store/store.js";
+import Pagination from "v-pagination-3";
+import axios from "axios";
+import $ from "jquery";
+
 export default {
-  name: 'OfferSection',
-  data () {
+  components: {
+    Pagination,
+  },
+
+  data() {
     return {
-      SectionData
-    }
-  }
-}
+      name: "OfferSection",
+      SectionData,
+      page: 1,
+      perPage: 6,
+      records: [],
+      id: [],
+      status_register: [],
+      registers: [],
+      isi_pesan: [],
+      data: [],
+    };
+  },
+
+  methods: {
+    update(id) {
+      // alert(document.getElementById('registers').value)
+      axios.get("http://127.0.0.1:8000/api/statusRegister").then(
+        function (response) {
+          this.id = id;
+          this.status_register = response.data;
+        }.bind(this)
+      );
+    },
+    getRegisters: function () {
+      axios.get("http://127.0.0.1:8000/api/userRegister").then(
+        function (response) {
+          this.registers = response.data;
+          // this.data=response.da;
+          $(document).ready(function () {
+            $("#dataTable").DataTable();
+          });
+        }.bind(this)
+      );
+    },
+    updateStatus(id) {
+      // alert(id)
+      axios
+        .post("http://127.0.0.1:8000/api/update/member/" + id, {
+          status: this.status,
+        })
+        .then((response) => {
+          this.getRegisters();
+          console.log(response);
+          this.$toast.show(response.data.status);
+        })
+        .catch((error) => {
+          this.$toast.show("gagal update");
+          console.log(error);
+        });
+      this.status = "";
+    },
+    deleteRegisters(id) {
+      // alert(id);
+      if (confirm("Apakah Kamu Yakin?")) {
+        axios.delete("http://127.0.0.1:8000/api/register/delete/" + id).then(
+          function () {
+            this.getRegisters();
+            this.$toast.show("berhasil delete");
+          }.bind(this)
+        );
+      }
+    },
+    sendEmail(id) {
+      this.id = id;
+    },
+    pesan(id) {
+      axios
+        .post("http://127.0.0.1:8000/api/register/email/" + id, {
+          pesan: this.isi_pesan,
+        })
+        .then((response) => {
+          this.getRegisters();
+          this.$toast.show("pesan terkirim");
+          console.log(response);
+        })
+        .catch((error) => {
+          this.$toast.show("gagal mengirim pesan");
+          console.log(error);
+        });
+      this.isi_pesan = "";
+    },
+  },
+  created: function () {
+    this.getRegisters();
+  },
+  computed: {
+    displayedRecords() {
+      const startIndex = this.perPage * (this.page - 1);
+      const endIndex = startIndex + this.perPage;
+      return this.records.slice(startIndex, endIndex);
+    },
+  },
+};
 </script>
+//
+<!-- <select v-model="status" id="statusss" class='form-control w-100' @change="postStatus(item.id, $event)" >
+//                                                 <option :value="null" disabled>Mail Verified</option>
+//                                                 <option value="Approved by DPP">Approved by DPP</option>
+//                                                 <option value="Approved by DPW">Approved by DPW</option>
+//                                                 <option value="Rejected by DPP">Rejected by DPP</option>
+//                                                 <option value="Rejected by DPW">Rejected by DPW</option>
+//                                             </select> -->
+
+//
+<!-- <td><button class="icon-btn ms-auto" title="Accept" for="status" ><em class="ni ni-check"></em></button></td> -->
