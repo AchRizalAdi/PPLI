@@ -5,7 +5,7 @@
     </div>
     <!-- end user-panel-title-box -->
     <div class="profile-setting-panel-wrap">
-      <div class="table">
+      <div class="table-responsive">
         <table class="table mb-0 table-s2" id="dataTable">
           <thead class="fs-14">
             <tr>
@@ -20,7 +20,7 @@
             </tr>
           </thead>
           <!-- {{ registers }} -->
-          <tbody class="">
+          <tbody class="fs-13">
             <tr
               v-for="(item, index) in registers.data"
               :value="item.id"
