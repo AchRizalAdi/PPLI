@@ -17,6 +17,7 @@
         Add Wilayah
       </button>
     </div>
+    <!-- {{cities }} -->
     <div class="profile-setting-panel-wrap">
       <div class="table">
         <table class="table mb-0 table-s2" id="dataTable">
@@ -127,7 +128,7 @@
                 <label>Kota </label>
                 <select v-model="kota" class="form-control" required>
                   <option
-                    v-for="data in cities.data"
+                    v-for="data in cities"
                     :value="data.name"
                     :key="data.id"
                   >
@@ -237,7 +238,7 @@
                 <label>Kota </label>
                 <select v-model="kota" class="form-control" required>
                   <option
-                    v-for="data in cities.data"
+                    v-for="data in cities"
                     :value="data.name"
                     :key="data.id"
                   >
@@ -430,7 +431,7 @@ export default {
       this.provinsi = "";
     },
     getCities: function () {
-      axios.get("http://127.0.0.1:8000/api/cities").then(
+      axios.get("http://127.0.0.1:8000/api/select/city2").then(
         function (response) {
           this.cities = response.data;
         }.bind(this)
@@ -474,7 +475,8 @@ export default {
     },
   },
   created: function () {
-    this.getWilayah(), this.getCities();
+    this.getWilayah(), 
+    this.getCities();
   },
   computed: {
     displayedRecords() {

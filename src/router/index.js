@@ -25,6 +25,15 @@ const routes = [
     component: () => import('../pages/DPW.vue')
   },
   {
+    path: '/member',
+    name: 'member',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/Member.vue')
+  },
+  {
     path: '/industry',
     name: 'industry',
     meta: {
@@ -46,6 +55,16 @@ const routes = [
     path: '/show-contact/:id',
     name: 'show-contact',
     component: () => import('../pages/ShowContact.vue')
+  },
+  {
+    path: '/show-register/:id',
+    name: 'show-register',
+    component: () => import('../pages/ShowRegister.vue')
+  },
+  {
+    path: '/show-member/:id',
+    name: 'show-member',
+    component: () => import('../pages/ShowMember.vue')
   },
   {
     path: '/dashboard',
@@ -78,6 +97,24 @@ const routes = [
       isAdmin: true
    },
     component: () => import('../pages/Prov.vue')
+  },
+  {
+    path: '/bank',
+    name: 'bank',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/Bank.vue')
+  },
+  {
+    path: '/kategori-akun',
+    name: 'kategori-akun',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/KategoriAkun.vue')
   },
   {
     path: '/jabatan',

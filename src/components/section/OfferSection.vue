@@ -10,7 +10,8 @@
           <thead class="fs-14">
             <tr>
               <th
-                scope="col" class="bg-dark text-white"
+                scope="col"
+                class="bg-dark text-white"
                 v-for="(list, i) in SectionData.registersData
                   .registersTableHead"
                 :key="i"
@@ -19,10 +20,9 @@
               </th>
             </tr>
           </thead>
-          <!-- {{ registers }} -->
           <tbody class="fs-13">
             <tr
-              v-for="(item, index) in registers.data"
+              v-for="(item, index) in registers"
               :value="item.id"
               :key="item.id"
             >
@@ -30,50 +30,53 @@
                 <a href="#">{{ index + 1 }}</a>
               </th>
               <td>{{ item.name }}</td>
-              <!-- <td>{{ item.email }}</td> -->
-              <!-- <td>{{ item.username }}</td> -->
-              <td>{{ item.NamaPerushaan }}</td>
+              <td>{{ item.nama_perusahaan }}</td>
               <!-- <td>{{ item.PhoneNumber }}</td> -->
               <!-- <td><span v-for="items in item.company_industry" :key="items.id">{{items.name}}<br></span></td> -->
-              <td>{{ item.wilayah.name }}</td>
+              <td>{{ item.wilayah }}</td>
               <!-- <td>{{ item.cities.name }}</td> -->
               <!-- <td>{{ item.BentukBadanUsaha }}</td> -->
-              <!-- <td>{{ item.AlasanBergabung }}</td> -->
+              <!-- <td>{{ item.cekWilayah }}</td> -->
               <td>
-                <a
+                <button
+                  :disabled=item.cekWilayah 
                   class="btn btn-warning btn-sm"
                   @click="update(item.id)"
                   id="statusss"
                   data-bs-toggle="modal"
                   data-bs-target="#statussModal"
-                  >{{ item.status }}</a
                 >
+                  {{ item.status }}
+                </button>
               </td>
               <td>
-                <a
+                <button
+                  :disabled=item.cekWilayah 
                   class="btn btn-primary btn-sm"
                   @click="sendEmail(item.id)"
                   id="pesan"
                   data-bs-toggle="modal"
                   data-bs-target="#pesanModal"
-                  >Kirim Pesan</a
+                  >Kirim Pesan</button
                 >
               </td>
               <td class="row">
-                <a
+                <!-- v-if="checkPrivilege('kontak-update')" -->
+                <router-link
+                  :to="{ name: 'show-register', params: { id: item.id } }"
+                  class="col- p-0 m-0 icon-btn btn-sm"
+                  title="Edit"
+                  ><em class="fa fa-eye"></em
+                ></router-link>
+                <button
+                  :disabled=item.cekWilayah 
                   type="button"
-                  class="col- btn icon-btn p-0 m-0"
-                  title="Show"
-                  @click="deleteRegisters(item.id)"
-                  ><em class="ni ni-eye"></em
-                ></a>
-                <a
-                  type="button"
-                  class="col- btn icon-btn ms-1 p-0 m-0"
+                  class="col- p-0 m-0 icon-btn btn-sm"
                   title="Delete"
                   @click="deleteRegisters(item.id)"
-                  ><em class="ni ni-trash"></em
-                ></a>
+                >
+                  <em class="ni ni-trash"></em>
+                </button>
               </td>
             </tr>
           </tbody>
@@ -205,6 +208,7 @@ export default {
 
   data() {
     return {
+      // checked: false,
       name: "OfferSection",
       SectionData,
       page: 1,
@@ -215,10 +219,19 @@ export default {
       registers: [],
       isi_pesan: [],
       data: [],
+      cekWilayah: [],
     };
   },
 
   methods: {
+    // checkWilayah(){
+    //   axios.get("http://127.0.0.1:8000/api/userRegister").then(
+    //     function (response) {
+    //       this.cekWilayah = response.data.data;
+    //       // this.checked = cekWilayah.cekWilayah;
+    //     }.bind(this)
+    //   );
+    // },
     update(id) {
       // alert(document.getElementById('registers').value)
       axios.get("http://127.0.0.1:8000/api/statusRegister").then(
@@ -231,8 +244,8 @@ export default {
     getRegisters: function () {
       axios.get("http://127.0.0.1:8000/api/userRegister").then(
         function (response) {
-          this.registers = response.data;
-          // this.data=response.da;
+          this.registers = response.data.data;
+          // this.checked = response.data.data;
           $(document).ready(function () {
             $("#dataTable").DataTable();
           });
@@ -289,6 +302,7 @@ export default {
   },
   created: function () {
     this.getRegisters();
+    // this.checkWilayah();
   },
   computed: {
     displayedRecords() {

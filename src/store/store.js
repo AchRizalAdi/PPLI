@@ -2909,7 +2909,7 @@ products: [
         icon: 'ni-share',
         title: 'Pengaturan',
         path: 'pengaturan',
-        if: "checkPrivilege('pengaturan')"
+        if: "checkPrivilege('Pengaturan')"
       },
       {
         id: 3,
@@ -2920,15 +2920,16 @@ products: [
       {
         id: 3,
         icon: 'ni-users',
-        title: 'DPW',
-        path: 'dpw',
-        if: "checkPrivilege('dpw-index')"
+        title: 'Member',
+        path: 'member',
       },
       {
         id: 4,
         icon: 'ni-user-list',
         title: 'Contacts',
-        path: 'transactions'
+        path: 'transactions',
+        // if: "checkPrivilege('kontak-index')"
+        
       },
       {
         id: 5,
@@ -2967,8 +2968,8 @@ products: [
         {
           id: 3,
           icon: 'ni-users',
-          title: 'DPW',
-          path: 'dpw',
+          title: 'Member',
+          path: 'member',
           if: "checkPrivilege('dpw-index')"
         },
         {
@@ -3016,8 +3017,8 @@ products: [
       {
         id: 3,
         icon: 'ni-users',
-        title: 'DPW',
-        path: 'dpw',
+        title: 'Member',
+        path: 'member',
         if: "checkPrivilege('dpw-index')"
       },
       // {
@@ -3065,8 +3066,8 @@ products: [
       {
         id: 3,
         icon: 'ni-users',
-        title: 'DPW',
-        path: 'dpw'
+        title: 'Member',
+        path: 'member'
       },
       // {
       //   id: 3,
@@ -3140,27 +3141,16 @@ products: [
       {
         id: 3,
         icon: 'ni-users',
-        title: 'DPW',
-        path: 'dpw',
-        if: "checkPrivilege('dpw-index')"
+        title: 'Member',
+        path: 'member',
+        // if: "checkPrivilege('dpw-index')"
       },
-      // {
-      //   id: 3,
-      //   icon: 'ni-file-text',
-      //   title: 'Activity',
-      //   path: 'activity-v2'
-      // },
-      // {
-      //   id: 4,
-      //   icon: 'ni-money',
-      //   title: 'Sales / Purchase',
-      //   path: 'purchases-sales'
-      // },
       {
         id: 4,
         icon: 'ni-user-list',
         title: 'Contacts',
-        path: 'transactions'
+        path: 'transactions',
+        if: "checkPrivilege('kontak-index')"
       },
       {
         id: 5,
@@ -3334,8 +3324,8 @@ products: [
       {
         id: 3,
         icon: 'ni-users',
-        title: 'DPW',
-        path: 'dpw',
+        title: 'Member',
+        path: 'member',
         if: "checkPrivilege('dpw-index')"
       },
       // {
@@ -3410,8 +3400,8 @@ products: [
         id: 3,
         class: 'active',
         icon: 'ni-users',
-        title: 'DPW',
-        path: 'dpw',
+        title: 'Member',
+        path: 'member',
         if: "checkPrivilege('dpw-index')"
       },
       // {
@@ -4748,6 +4738,15 @@ faqSidebarData: {
       'Action',
     ],
   }, 
+    // Bank data
+    BanksData: {
+      mainTitle: 'Banks',
+      BanksTableHead: [
+        '#',
+        'Bank',
+        'Action',
+      ],
+    }, 
     // industry data
     industrysData: {
       mainTitle: 'Industri',
@@ -4767,6 +4766,28 @@ faqSidebarData: {
       'Alamat Kantor',
       'Email',
       'Nomor',
+      'Action',
+    ],
+  }, 
+   // DPW data
+  UserMemberData: {
+    mainTitle: 'Member',
+    UserMemberTableHead: [
+      '#',
+      'Nama',
+      'Wilayah',
+      'Kota',
+      'Telephone',
+      'Email',
+      'Action',
+    ],
+  }, 
+     // data
+  KategoriAkunData: {
+    mainTitle: 'Member',
+    KategoriAkunTableHead: [
+      'Kode',
+      'Nama Kategori',
       'Action',
     ],
   }, 

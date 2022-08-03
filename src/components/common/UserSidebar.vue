@@ -22,7 +22,7 @@
       <div class="sidebar-widget">
         <ul class="user-nav">
           <li v-for="(list, i) in lists" :key="i" :class="list.class">
-            <router-link  :to="list.path"
+            <router-link v-if="list.if" :to="list.path"
               ><em class="ni me-2" :class="list.icon"></em
               >{{ list.title }}</router-link
             >
@@ -46,6 +46,18 @@ export default {
     return {
       SectionData,
     };
+  },
+  methods: {
+    checkPrivilege(privilege) {
+      const permission = localStorage.getItem("permission");
+      let status = false;
+      JSON.parse(permission).forEach((data) => {
+        if (data === privilege) {
+          status = true;
+        }
+      });
+      return status;
+    },
   },
   mounted() {
     /*  =======================================================

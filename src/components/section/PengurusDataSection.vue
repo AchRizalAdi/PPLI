@@ -17,7 +17,7 @@
         Tambah Pengurus
       </button>
     </div>
-    <!-- {{ pengurus }} -->
+    <!-- {{ members }} -->
     <div class="profile-setting-panel-wrap">
       <div class="table">
         <table class="table mb-0 table-s2" id="dataTable">
@@ -336,11 +336,11 @@ export default {
       );
     },
     getMember: function () {
-      axios.get("http://127.0.0.1:8000/api/userRegister").then(
+      axios.get("http://127.0.0.1:8000/api/member").then(
         function (response) {
           this.members = response.data.data.map((members) => ({
             value: members.id,
-            text: members.name,
+            text: members.name+" - "+members.cities.name,
           }));
         }.bind(this)
       );
@@ -360,7 +360,7 @@ export default {
         function (response) {
           this.jabatans = response.data.data.map((jabatans) => ({
             value: jabatans.id,
-            text: jabatans.name +"-"+jabatans.level ,
+            text: jabatans.name +" - "+jabatans.level ,
 
           }));
         }.bind(this)

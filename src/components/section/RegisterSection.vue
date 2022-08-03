@@ -158,7 +158,6 @@
             <!-- {{ provinsiId }}  -->
             <!-- <div class="form-group mb-3"> -->
               <!-- {{cities}} -->
-              <label>Kota </label>
               <!-- <v-select
                 v-model="KotaId"
                 :options="cities"
@@ -166,7 +165,9 @@
                 label="text"
               ></v-select>
             </div> -->
+              <label>Kota </label>
             <select class="form-control" v-model="KotaId" required>
+              <!-- <option value="dadar">dadar</option> -->
                 <option
                   v-for="item in cities"
                   :value="item.id"

@@ -23,7 +23,7 @@
 
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="dataTable">
+        <table class="table mb-0 table-s2" id="example">
           <thead class="fs-14">
             <tr>
               <th

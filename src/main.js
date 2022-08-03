@@ -197,6 +197,7 @@ import PrivacySection from './components/section/PrivacySection.vue';
 import FaqSection from './components/section/FaqSection.vue';
 import MembersSection from './components/section/MembersSection.vue';
 import DPWSection from './components/section/DPWSection.vue';
+import MemberSection from './components/section/MemberSection.vue';
 import EditCompany1Section from './components/section/EditCompany1Section.vue';
 import TipeMitraSection from './components/section/TipeMitraSection.vue';
 import IndustrySection from './components/section/IndustrySection.vue';
@@ -204,20 +205,29 @@ import EditKegiatanSection from './components/section/EditKegiatanSection.vue';
 import EditContactSection from './components/section/EditContactSection.vue';
 import ShowContactSection from './components/section/ShowContactSection.vue';
 import VirtualCardSection from './components/section/VirtualCardSection.vue';
+import ShowRegisterSection from './components/section/ShowRegisterSection.vue';
+import ShowMemberSection from './components/section/ShowMemberSection.vue';
+import BankSection from './components/section/BankSection.vue';
+import KategoriAkunSection from './components/section/KategoriAkunSection.vue';
 
 
 
 // Global page components register
 app.component('HeaderMain', HeaderMain);
 app.component('UsersSection', UsersSection);
+app.component('BankSection', BankSection);
+app.component('KategoriAkunSection', KategoriAkunSection);
 app.component('EditKegiatanSection', EditKegiatanSection);
 app.component('IndustrySection', IndustrySection);
 app.component('DPWSection', DPWSection);
+app.component('MemberSection', MemberSection);
 app.component('KegiatanSection', KegiatanSection);
 app.component('HomeAdminSection', HomeAdminSection);
 app.component('VirtualCardSection', VirtualCardSection);
 app.component('EditContactSection', EditContactSection);
 app.component('ShowContactSection', ShowContactSection);
+app.component('ShowRegisterSection', ShowRegisterSection);
+app.component('ShowMemberSection', ShowMemberSection);
 app.component('UserManaSection', UserManaSection);
 app.component('EditCompany1Section', EditCompany1Section);
 app.component('EditAccSection', EditAccSection);

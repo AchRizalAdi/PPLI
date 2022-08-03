@@ -1,12 +1,12 @@
 <template>
    <div class="col-lg-9 ps-xl-5">
                         <div class="user-panel-title-box">
-                            <h3>Edit Contact</h3>
+                            <h3>Detail Kontak</h3>
                         </div><!-- end user-panel-title-box -->
-                        
+                        <!-- {{kontaks }} -->
                         <div class="profile-setting-panel-wrap">
                             <div class="table-responsive">
-                                <form @submit.prevent="updateKontaks">
+                                <!-- <form @submit.prevent="updateKontaks"> -->
 
                              <div class="form-floating mb-3">
                                 <input v-model="kontaks.nama" type="text" class="form-control" id="name" placeholder="Nama" disabled>
@@ -47,7 +47,7 @@
                             <!-- BUTTON -->
                              <router-link to="/transactions" type="button" class="btn btn-sm btn-dark " >Kembali</router-link>
                             <!-- <button class="btn btn-sm btn-dark w-20 ms-2" type="submit" >Simpan Contact</button> -->
-                            </form>
+                            <!-- </form> -->
                             </div><!-- end table-responsive -->
                         </div><!-- end profile-setting-panel-wrap-->
             <!-- Modal store -->
