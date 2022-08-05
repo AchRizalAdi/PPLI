@@ -6,6 +6,21 @@ import router from './router'
 // vue app
 const app = createApp(App);
 
+  // Require Froala Editor js file.
+  require('froala-editor/js/froala_editor.pkgd.min.js')
+  
+  // Require Froala Editor css files.
+  require('froala-editor/css/froala_editor.pkgd.min.css')
+  require('froala-editor/css/froala_style.min.css')
+  
+import VueFroala from 'vue-froala-wysiwyg'
+app.use(VueFroala)
+
+//VueQuill
+import { QuillEditor } from '@vueup/vue-quill'
+import '@vueup/vue-quill/dist/vue-quill.snow.css';
+app.component('QuillEditor', QuillEditor)
+
 // datatable
 import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -64,6 +79,9 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 // Global page components imported
 import HeaderMain from './components/common/HeaderMain.vue';
 import UsersSection from './components/section/UsersSection.vue';
+import KhasSection from './components/section/KhasSection.vue';
+import AddTransaksiSection from './components/section/AddTransaksiSection.vue';
+import DaftarMitraSection from './components/section/DaftarMitraSection.vue';
 import KegiatanSection from './components/section/KegiatanSection.vue';
 import HomeAdminSection from './components/section/HomeAdminSection.vue';
 import UserManaSection from './components/section/UserManaSection.vue';
@@ -163,6 +181,7 @@ import Comments from './components/common/Comments.vue';
 import Form from './components/common/Form.vue';
 import Sidebar from './components/common/Sidebar.vue';
 import ForgotSection from './components/section/ForgotSection.vue';
+import TransaksiSection from './components/section/TransaksiSection.vue';
 import ResetSection from './components/section/ResetSection.vue';
 import LoginSection from './components/section/LoginSection.vue';
 import LoginSectionTwo from './components/section/LoginSectionTwo.vue';
@@ -208,6 +227,7 @@ import VirtualCardSection from './components/section/VirtualCardSection.vue';
 import ShowRegisterSection from './components/section/ShowRegisterSection.vue';
 import ShowMemberSection from './components/section/ShowMemberSection.vue';
 import BankSection from './components/section/BankSection.vue';
+import PengumumanSection from './components/section/PengumumanSection.vue';
 import KategoriAkunSection from './components/section/KategoriAkunSection.vue';
 
 
@@ -216,6 +236,11 @@ import KategoriAkunSection from './components/section/KategoriAkunSection.vue';
 app.component('HeaderMain', HeaderMain);
 app.component('UsersSection', UsersSection);
 app.component('BankSection', BankSection);
+app.component('TransaksiSection', TransaksiSection);
+app.component('KhasSection', KhasSection);
+app.component('AddTransaksiSection', AddTransaksiSection);
+app.component('DaftarMitraSection', DaftarMitraSection);
+app.component('PengumumanSection', PengumumanSection);
 app.component('KategoriAkunSection', KategoriAkunSection);
 app.component('EditKegiatanSection', EditKegiatanSection);
 app.component('IndustrySection', IndustrySection);

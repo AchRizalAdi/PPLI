@@ -10,7 +10,7 @@
       <button
         @click="resetnama()"
         type="button"
-        class="btn btn-primary btn-sm mb-2"
+        class="btn btn-dark btn-sm mb-2"
         data-bs-toggle="modal"
         data-bs-target="#addModal"
       >
@@ -132,7 +132,6 @@
                 />
                 <label for="username">Username</label>
               </div>
-                <label for="status">Status</label>
               <!-- <div class="form-floating mb-3 mt-4"> -->
                 <!-- <input
                   type="text"
@@ -142,6 +141,7 @@
                   v-model="status"
                   required
                 /> -->
+                <label for="status">Status</label>
                  <select class="form-select mb-3" v-model="status" aria-label="Default select example">
                                 <label>I am i</label>
                                 <option value="Aktif">Aktif</option>

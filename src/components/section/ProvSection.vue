@@ -13,7 +13,7 @@
       <button
         @click="resetnama()"
         type="button"
-        class="btn btn-primary btn-sm mb-2"
+        class="btn btn-dark btn-sm mb-2"
         data-bs-toggle="modal"
         data-bs-target="#messageModal"
       >
@@ -23,7 +23,7 @@
 
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="example">
+        <table class="table mb-0 table-s2" id="dataProvinsi">
           <thead class="fs-14">
             <tr>
               <th
@@ -112,7 +112,13 @@
                 <label for="nama">Nama</label>
               </div>
               <!-- end form-floating -->
-              <button class="btn btn-dark w-100" type="submit">Add</button>
+              <button
+                class="btn btn-dark w-100"
+                data-bs-dismiss="modal"
+                type="submit"
+              >
+                Add
+              </button>
             </div>
             <!-- end modal-body -->
           </div>
@@ -156,7 +162,13 @@
                 <!-- <label for="nama">{{edit.data.name}}</label> -->
               </div>
               <!-- end form-floating -->
-              <button class="btn btn-dark w-100" data-bs-dismiss="modal" type="submit">update</button>
+              <button
+                class="btn btn-dark w-100"
+                data-bs-dismiss="modal"
+                type="submit"
+              >
+                update
+              </button>
             </div>
             <!-- end modal-body -->
           </div>
@@ -230,9 +242,11 @@ export default {
       axios.get("http://127.0.0.1:8000/api/provinsi").then(
         function (response) {
           this.provinsis = response.data;
-          $(document).ready(function () {
-            $("#dataTable").DataTable();
-          });
+          setTimeout(() => {
+
+              $("#dataProvinsi").DataTable();
+  
+          }, 3000);
         }.bind(this)
       );
     },

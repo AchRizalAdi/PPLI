@@ -128,6 +128,22 @@
                       </div>
                     </router-link>
                   </div>
+                   <div
+                    v-if="checkPrivilege('indutry-index')"
+                    class="col-lg-3 col-6"
+                  >
+                    <router-link
+                      to="tipe-mitra"
+                      class="card card-cat text-center h-100 text-pink"
+                    >
+                      <div class="card-body card-body-s1">
+                        <span
+                          class="icon fa fa-handshake-o mb-3 mx-auto icon-circle icon-wbg icon-lg"
+                        ></span>
+                        <h5 class="card-cat-title">Tipe Mitra</h5>
+                      </div>
+                    </router-link>
+                  </div>
                 </div>
               </div>
             </section>
@@ -198,7 +214,7 @@
                     class="col-lg-3 col-6"
                   >
                     <router-link
-                      to="/jabatan"
+                      to="/khas"
                       class="card card-cat text-center h-100 text-cyan"
                     >
                       <div class="card-body card-body-s1">

@@ -10,7 +10,7 @@
       <button
         @click="resetnama()"
         type="button"
-        class="btn btn-primary btn-sm mb-2"
+        class="btn btn-dark btn-sm mb-2"
         data-bs-toggle="modal"
         data-bs-target="#addModal"
       >
@@ -96,18 +96,18 @@
               </button>
             </div>
             <div class="modal-body">
-             <div class="form-group mb-2">
-              <label>Provinsi </label>
-              <v-select
-                v-model="provinsiId"
-                required
-                :options="provinsis"
-                :reduce="(provinsis) => provinsis.value"
-                label="text"
-              >
-              </v-select>
-            </div>
-            <!-- {{ provinsiId }} -->
+              <div class="form-group mb-2">
+                <label>Provinsi </label>
+                <v-select
+                  v-model="provinsiId"
+                  required
+                  :options="provinsis"
+                  :reduce="(provinsis) => provinsis.value"
+                  label="text"
+                >
+                </v-select>
+              </div>
+              <!-- {{ provinsiId }} -->
               <div class="form-floating mb-3 mt-4">
                 <input
                   type="text"
@@ -120,7 +120,13 @@
                 <label for="nama">city</label>
               </div>
               <!-- end form-floating -->
-              <button class="btn btn-dark w-100" type="submit">Add</button>
+              <button
+                class="btn btn-dark w-100"
+                data-bs-dismiss="modal"
+                type="submit"
+              >
+                Add
+              </button>
             </div>
             <!-- end modal-body -->
           </div>
@@ -152,18 +158,18 @@
               </button>
             </div>
             <div class="modal-body">
-                 <div class="form-group mb-2">
-              <label>Provinsi </label>
-              <v-select
-                v-model="provinsiId"
-                required
-                :options="provinsis"
-                :reduce="(provinsis) => provinsis.value"
-                label="text"
-              >
-              </v-select>
-            </div>
-            <!-- {{ provinsiId }} -->
+              <div class="form-group mb-2">
+                <label>Provinsi </label>
+                <v-select
+                  v-model="provinsiId"
+                  required
+                  :options="provinsis"
+                  :reduce="(provinsis) => provinsis.value"
+                  label="text"
+                >
+                </v-select>
+              </div>
+              <!-- {{ provinsiId }} -->
               <!-- <div class="form-group mb-2">
                 <label>Provinsi </label>
                 <select v-model="provinsiId" class="form-control" required>
@@ -233,6 +239,7 @@ export default {
       cities: [],
       provinsi: [],
       provinsiId: [],
+      getCitiess: "",
     };
   },
 
@@ -329,7 +336,7 @@ export default {
         function (response) {
           // console.log(response.data.data.id);
           this.id = response.data.data.id;
-          this.provinsiId = response.data.data.provinsi.name;
+          this.provinsiId = response.data.data.provinsi.id;
           this.name = response.data.data.name;
         }.bind(this)
       );
@@ -337,10 +344,10 @@ export default {
     getCities: function () {
       axios.get("http://127.0.0.1:8000/api/cities").then(
         function (response) {
-          this.cities = response.data;
           $(document).ready(function () {
             $("#dataTable").DataTable();
           });
+          this.cities = response.data;
         }.bind(this)
       );
     },
@@ -356,8 +363,8 @@ export default {
     },
   },
   created: function () {
-    this.getProvinsis();
     this.getCities();
+    this.getProvinsis();
   },
   computed: {
     displayedRecords() {

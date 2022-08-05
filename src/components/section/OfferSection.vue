@@ -11,7 +11,6 @@
             <tr>
               <th
                 scope="col"
-                class="bg-dark text-white"
                 v-for="(list, i) in SectionData.registersData
                   .registersTableHead"
                 :key="i"

@@ -25,6 +25,24 @@ const routes = [
     component: () => import('../pages/DPW.vue')
   },
   {
+    path: '/daftar-mitra',
+    name: 'daftar-mitra',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/DaftarMitra.vue')
+  },
+  {
+    path: '/transaksi',
+    name: 'transaksi',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/Transaksi.vue')
+  },
+  {
     path: '/member',
     name: 'member',
     meta: {
@@ -97,6 +115,24 @@ const routes = [
       isAdmin: true
    },
     component: () => import('../pages/Prov.vue')
+  },
+  {
+    path: '/khas',
+    name: 'khas',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/Khas.vue')
+  },
+  {
+    path: '/pengumuman',
+    name: 'pengumuman',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/Pengumuman.vue')
   },
   {
     path: '/bank',
@@ -441,6 +477,11 @@ const routes = [
     path: '/add-contact',
     name: 'add-contact',
     component: () => import('../pages/AddContact.vue')
+  },
+  {
+    path: '/add-transaksi',
+    name: 'add-transaksi',
+    component: () => import('../pages/AddTransaksi.vue')
   },
   {
     path: '/add-kegiatan',

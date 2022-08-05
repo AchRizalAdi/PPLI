@@ -10,7 +10,7 @@
       <button
         @click="resetnama()"
         type="button"
-        class="btn btn-primary btn-sm mb-2"
+        class="btn btn-dark btn-sm mb-2"
         data-bs-toggle="modal"
         data-bs-target="#messageModal"
       >
@@ -124,7 +124,7 @@
                 <label for="email">email</label>
               </div>
               <!-- end form-floating -->
-              <div class="form-group mb-2">
+              <!-- <div class="form-group mb-2">
                 <label>Kota </label>
                 <select v-model="kota" class="form-control" required>
                   <option
@@ -135,6 +135,17 @@
                     {{ data.name }}
                   </option>
                 </select>
+              </div> -->
+              <div class="form-group mb-2">
+                <label>Kota</label>
+                <v-select
+                  v-model="kota"
+                  required
+                  :options="cities"
+                  :reduce="(cities) => cities.value"
+                  label="text"
+                >
+                </v-select>
               </div>
               <!-- end form-floating -->
               <div class="form-floating mb-3 mt-4">
@@ -323,7 +334,7 @@ export default {
       perPage: 6,
       records: "",
       wilayah: "",
-      cities: "",
+      cities: [],
       kota: "",
       name: "",
       email: "",
@@ -432,9 +443,12 @@ export default {
     },
     getCities: function () {
       axios.get("http://127.0.0.1:8000/api/select/city2").then(
-        function (response) {
-          this.cities = response.data;
-        }.bind(this)
+       function (response) {
+          this.cities = response.data.map((cities) => ({
+            value: cities.id,
+            text: cities.name,
+          }));
+        } .bind(this)
       );
     },
     getWilayah: function () {

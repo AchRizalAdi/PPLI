@@ -39,7 +39,7 @@
                       ><em class="ni ni-home me-2"></em>Home</router-link
                     >
                   </li>
-                  <li>
+                  <li class="active">
                     <router-link
                       v-if="checkPrivilege('pengaturan')"
                       to="pengaturan"
@@ -53,16 +53,31 @@
                       ><em class="ni ni-user me-2"></em>Register</router-link
                     >
                   </li>
-                  <li class="active">
+                  <li>
                     <router-link to="member"
                       ><em class="ni ni-users me-2"></em>Member</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link to="daftar-mitra"
+                      ><em class="ni ni-user-check me-2"></em>Mitra</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link to="iuran"
+                      ><em class="ni ni-wallet-saving me-2"></em>iuran</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link to="transaksi"
+                      ><em class="ni ni-swap-alt me-2"></em>Transaksi</router-link
                     >
                   </li>
                   <li>
                     <router-link
                       v-if="checkPrivilege('kontak-index')"
                       to="transactions"
-                      ><em class="ni ni-user-list me-2"></em
+                      ><em class="ni ni-user-round me-2"></em
                       >Contacts</router-link
                     >
                   </li>
@@ -70,6 +85,12 @@
                     <router-link to="kegiatan"
                       ><em class="ni ni-calendar me-2"></em
                       >Kegiatan</router-link
+                    >
+                  </li>
+                  <li >
+                    <router-link to="pengumuman"
+                      ><em class="ni ni-tags me-2"></em
+                      >Pengumuman</router-link
                     >
                   </li>
                 </ul>

@@ -71,14 +71,10 @@
           </div>
           <!-- end form-floating -->
           <div class="form-floating mb-3">
-            <input
+            <editor
+              api-key="mfzmjkvruotbub8pu0xqk8j0h05uiv50w7tp9eo3u8n2rarv"
               v-model="kegiatan.keterangan"
-              type="text"
-              class="form-control"
-              id="keterangan"
-              placeholder="Keterangan"
             />
-            <label for="keterangan">Keterangan</label>
           </div>
           <!-- end form-floating -->
           <!-- BUTTON -->
@@ -102,11 +98,17 @@
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from "@/store/store.js";
 import axios from "axios";
+import Editor from "@tinymce/tinymce-vue";
 // import $ from "jquery";
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
 
 export default {
+  components: {
+    editor: Editor,
+    // Editor,
+    // RichTextEditor,
+  },
   data() {
     return {
       SectionData,

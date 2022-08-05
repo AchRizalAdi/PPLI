@@ -4618,9 +4618,8 @@ faqSidebarData: {
   tipemitraData: {
     mainTitle: 'Tipe Mitra',
     tipemitraTableHead: [
-      'id',
       'Nama',
-      // 'Alamat',
+      'Action',
       // 'No Hp',
       // 'Email',
       // 'Perusahaan',
@@ -4738,6 +4737,59 @@ faqSidebarData: {
       'Action',
     ],
   }, 
+    // transaksi data
+    transaksiData: {
+      mainTitle: 'Transaksi',
+      transaksiTableHead: [
+        'Tanggal',
+        'Kas',
+        'Akun',
+        // 'Jenis Transaksi',
+        'Keterangan',
+        // 'Anggota',
+        'Jumlah',
+        'Tipe',
+        'Action',
+      ],
+    }, 
+    // mitra data
+    mitraData: {
+      mainTitle: 'Kemitraan',
+      mitraTableHead: [
+        'Nama',
+        'Alamat',
+        'No HP',
+        'Email',
+        'Perusahaan',
+        'Status',
+        'Action',
+      ],
+    }, 
+   // khas data
+   khasData: {
+    mainTitle: 'Master Kas',
+    khasTableHead: [
+      'Kode',
+      'Nama',
+      'Saldo Awal',
+      'Saldo Akhir',
+      'Keterangan',
+      'Tanggal Update',
+      'Update Oleh',
+      'Action',
+    ],
+  }, 
+    // pengumuman data
+    pengumumansData: {
+      mainTitle: 'pengumuman',
+      pengumumansTableHead: [
+        'Wilayah',
+        'Tanggal',
+        'Judul',
+        'Status',
+        'Action',
+      ],
+    }, 
     // Bank data
     BanksData: {
       mainTitle: 'Banks',

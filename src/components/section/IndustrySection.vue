@@ -13,7 +13,7 @@
       <button
         @click="resetnama()"
         type="button"
-        class="btn btn-primary btn-sm mb-2"
+        class="btn btn-dark btn-sm mb-2"
         data-bs-toggle="modal"
         data-bs-target="#messageModal"
       >

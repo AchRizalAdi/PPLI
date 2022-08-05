@@ -12,7 +12,7 @@
             <div class="container">
                 <div class="row">
                     <!-- user sidebar -->
-                    <UserSidebar :title="SectionData.transactionsSidebarData.title" :lists="SectionData.transactionsSidebarData.navList" :navs="SectionData.transactionsTabNavMobile"></UserSidebar>
+                    <!-- <UserSidebar :title="SectionData.transactionsSidebarData.title" :lists="SectionData.transactionsSidebarData.navList" :navs="SectionData.transactionsTabNavMobile"></UserSidebar> -->
                     <!-- offer -->
                     <EditKegiatanSection></EditKegiatanSection>
                 </div><!-- end row -->

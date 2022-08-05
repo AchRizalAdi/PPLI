@@ -37,7 +37,7 @@
               <div class="col-lg-6 mb-3">
                 <label for="username" class="form-label">Username</label>
                 <input
-                  v-model="register.username"
+                  v-model="register.Username"
                   type="text"
                   id="username"
                   class="form-control form-control-s1"

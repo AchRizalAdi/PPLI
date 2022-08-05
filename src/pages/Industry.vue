@@ -12,11 +12,11 @@
       <div class="container">
         <div class="row">
           <!-- user sidebar -->
-<div class="col-lg-3">
+          <div class="col-lg-3">
             <div
               class="sidebar-head d-flex flex-wrap align-items-center justify-content-between"
             >
-              <h3 class="sidebar-head-title">Home</h3>
+              <h3 class="sidebar-head-title">Industri</h3>
               <div class="sidebar-head-action d-flex align-items-center">
                 <div class="sidebar-drop dropdown">
                   <a class="icon-btn menu-toggler-user-open" href="#">
@@ -59,10 +59,25 @@
                     >
                   </li>
                   <li>
+                    <router-link to="daftar-mitra"
+                      ><em class="ni ni-user-check me-2"></em>Mitra</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link to="iuran"
+                      ><em class="ni ni-wallet-saving me-2"></em>iuran</router-link
+                    >
+                  </li>
+                  <li>
+                    <router-link to="transaksi"
+                      ><em class="ni ni-swap-alt me-2"></em>Transaksi</router-link
+                    >
+                  </li>
+                  <li>
                     <router-link
                       v-if="checkPrivilege('kontak-index')"
                       to="transactions"
-                      ><em class="ni ni-user-list me-2"></em
+                      ><em class="ni ni-user-round me-2"></em
                       >Contacts</router-link
                     >
                   </li>
@@ -70,6 +85,12 @@
                     <router-link to="kegiatan"
                       ><em class="ni ni-calendar me-2"></em
                       >Kegiatan</router-link
+                    >
+                  </li>
+                  <li >
+                    <router-link to="pengumuman"
+                      ><em class="ni ni-tags me-2"></em
+                      >Pengumuman</router-link
                     >
                   </li>
                 </ul>

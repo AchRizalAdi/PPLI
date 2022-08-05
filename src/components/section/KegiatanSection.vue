@@ -31,7 +31,7 @@
                                             <td>{{item.lokasi_kegiatan}}</td>
                                             <td>{{item.tanggal_rencana}}</td>
                                             <td>{{item.tanggal_realisasi}}</td>
-                                            <td>{{item.keterangan}}</td>
+                                            <td v-html=item.keterangan></td>
                                             <td class="row">
                                                 <!-- <router-link :to="{name: 'show-contact', params: { id: item.id }}" class="col- icon-btn  p-0 m-0" title="Show"><em class="fa fa-eye" ></em></router-link> -->
                                                 <!-- <button  @click="showCities(item.id)" class="col-sm-1 icon-btn " title="Show" data-bs-toggle="modal"  data-bs-target="#editModal"><em class="fa fa-eye" ></em></button> -->

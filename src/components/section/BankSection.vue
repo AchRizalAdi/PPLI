@@ -13,7 +13,7 @@
       <button
         @click="resetnama()"
         type="button"
-        class="btn btn-primary btn-sm mb-2"
+        class="btn btn-dark btn-sm mb-2"
         data-bs-toggle="modal"
         data-bs-target="#messageModal"
       >
@@ -23,7 +23,7 @@
 
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="example">
+        <table class="table mb-0 table-s2" id="dataTable">
           <thead class="fs-14">
             <tr>
               <th
@@ -239,10 +239,10 @@ export default {
     getBank: function () {
       axios.get("http://127.0.0.1:8000/api/bank").then(
         function (response) {
-          this.bank = response.data;
           $(document).ready(function () {
             $("#dataTable").DataTable();
           });
+          this.bank = response.data;
         }.bind(this)
       );
     },

@@ -10,13 +10,13 @@
       <router-link
         to="/add-contact"
         type="button"
-        class="btn btn-primary btn-sm mb-2"
+        class="btn btn-dark btn-sm mb-2"
         >Add Contacts</router-link
       >
       <router-link
         to="/virtual-card"
         type="button"
-        class="btn btn-primary btn-sm mb-2 ms-2"
+        class="btn btn-dark btn-sm mb-2 ms-2"
         >Card Name</router-link
       >
       <!-- <button type="button" class="btn btn-primary btn-sm mb-2 ms-2">Card Name</button>     -->
