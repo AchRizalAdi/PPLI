@@ -21,7 +21,6 @@
                 id="name"
                 placeholder="Nama"
                 v-model="name"
-                required
               />
               <label for="name">Nama</label>
             </div>
@@ -33,7 +32,6 @@
                 id="email"
                 placeholder="Email"
                 v-model="email"
-                required
               />
               <label for="email">Email</label>
             </div>
@@ -45,7 +43,6 @@
                 id="password"
                 placeholder="Password"
                 v-model="password"
-                required
               />
               <label for="password">Password</label>
               <a
@@ -56,6 +53,7 @@
                 <em class="password-shown ni ni-eye-off"></em>
                 <em class="password-hidden ni ni-eye"></em>
               </a>
+              <p class="">*password minimal <strong>8</strong> huruf</p>
             </div>
             <!-- end form-floating -->
             <div class="form-floating mb-3">
@@ -64,8 +62,7 @@
                 class="form-control"
                 id="username"
                 placeholder="Username"
-                v-model="username"
-                required
+                v-model="Username"
               />
               <label for="username">Username</label>
             </div>
@@ -77,7 +74,6 @@
                 id="NamaPerusahaan"
                 placeholder="Nama Perusahaan"
                 v-model="namaPerushaan"
-                required
               />
               <label for="NamaPerusahaan">Nama Perusahaan</label>
             </div>
@@ -94,7 +90,6 @@
                 id="PhoneNumber"
                 placeholder="Phone"
                 v-model="nomor"
-                required
               />
               <label for="PhoneNumber">Phone</label>
             </div>
@@ -122,7 +117,7 @@
             <!-- <div class="form-group mb-2">
               <label>Provinsi </label>
               <v-select
-                required
+                
                 :options="provinsis"
                 :reduce="(provinsis) => provinsis.value"
                 label="text"
@@ -143,9 +138,13 @@
               />
             </div>-->
             <!-- {{ provinsis }} -->
-              <label>Provinsi </label>
-            <select class="form-control" v-model="provinsiId" id="provinsi" @change="getCities()" required>
-            
+            <label>Provinsi </label>
+            <select
+              class="form-control"
+              v-model="provinsiId"
+              id="provinsi"
+              @change="getCities()"
+            >
               <option
                 v-for="item in provinsis"
                 :value="item.id"
@@ -157,25 +156,21 @@
             </select>
             <!-- {{ provinsiId }}  -->
             <!-- <div class="form-group mb-3"> -->
-              <!-- {{cities}} -->
-              <!-- <v-select
+            <!-- {{cities}} -->
+            <!-- <v-select
                 v-model="KotaId"
                 :options="cities"
                 :reduce="(cities) => cities.value"
                 label="text"
               ></v-select>
             </div> -->
-              <label>Kota </label>
-            <select class="form-control" v-model="KotaId" required>
+            <label>Kota </label>
+            <select class="form-control" v-model="KotaId">
               <!-- <option value="dadar">dadar</option> -->
-                <option
-                  v-for="item in cities"
-                  :value="item.id"
-                  :key="item.id"
-                >
-                  {{ item.name }}
-                </option>
-              </select>
+              <option v-for="item in cities" :value="item.id" :key="item.id">
+                {{ item.name }}
+              </option>
+            </select>
             <div class="form-group mb-3">
               <label>Wilayah </label>
               <v-select
@@ -186,7 +181,7 @@
               />
             </div>
 
-            <!-- <select class="form-control" v-model="WilayahId" required>
+            <!-- <select class="form-control" v-model="WilayahId" >
                 <option
                   v-for="item in wilayahs.data"
                   :value="item.id"
@@ -202,7 +197,6 @@
                 id="BentukBadanUsaha"
                 placeholder="Bentuk Badan Usaha"
                 v-model="bentukusaha"
-                required
               />
               <label for="BentukBadanUsaha">Bentuk Badan Usaha</label>
             </div>
@@ -216,7 +210,6 @@
                 id="AlasanBergabung"
                 placeholder="Alasan Untuk Bergabung"
                 v-model="alasan"
-                required
               ></textarea>
             </div>
             <!-- form checkbox  -->
@@ -278,6 +271,7 @@
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from "@/store/store.js";
 import axios from "axios";
+
 export default {
   name: "RegisterSection",
   data() {
@@ -293,7 +287,7 @@ export default {
       name: "",
       email: "",
       password: "",
-      username: "",
+      Username: "",
       namaPerushaan: "",
       nomor: "",
       companyindustry: [],
@@ -311,7 +305,7 @@ export default {
           name: this.name,
           email: this.email,
           password: this.password,
-          username: this.username,
+          Username: this.Username,
           namaPerushaan: this.namaPerushaan,
           nomor: this.nomor,
           companyindustry: this.companyindustry,
@@ -334,7 +328,7 @@ export default {
       this.name = "";
       this.email = "";
       this.password = "";
-      this.username = "";
+      this.Username = "";
       this.namaPerushaan = "";
       this.nomor = "";
       this.companyindustry = "";

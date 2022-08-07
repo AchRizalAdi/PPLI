@@ -173,8 +173,8 @@
             <div class="form-floating mb-3">
               <select class="form-select h-25" v-model="kategori_akun">
                 <!-- <label>I am i</label> -->
-                <option value="Biaya / Pengeluaran">Biaya / Pengeluaran</option>
-                <option value="Pendapatan">Pendapatan</option>
+                <option value="pengeluaran">Biaya / Pengeluaran</option>
+                <option value="pemasukan">Pendapatan</option>
               </select>
             </div>
             <!-- end form-floating -->

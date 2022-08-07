@@ -1,7 +1,7 @@
 <template>
   <div class="col-lg-9 ps-xl-5">
     <div class="user-panel-title-box">
-      <h3>Registrant Profile</h3>
+      <h3>Detail Member</h3>
     </div>
     <!-- end user-panel-title-box -->
     <div class="profile-setting-panel-wrap">

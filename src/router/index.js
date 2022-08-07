@@ -16,6 +16,15 @@ const routes = [
     component: () => import('../pages/HomeAdmin.vue')
   },
   {
+    path: '/iuran',
+    name: 'iuran',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/Iuran.vue')
+  },
+  {
     path: '/dpw',
     name: 'dpw',
     meta: {
@@ -41,6 +50,24 @@ const routes = [
       isAdmin: true
    },
     component: () => import('../pages/Transaksi.vue')
+  },
+  {
+    path: '/laporan-pembukuan',
+    name: 'laporan-pembukuan',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/LaporanPembukuan.vue')
+  },
+  {
+    path: '/edit-transaksi/:id',
+    name: 'edit-transaksi',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/EditTransaksi.vue')
   },
   {
     path: '/member',
@@ -124,6 +151,15 @@ const routes = [
       isAdmin: true
    },
     component: () => import('../pages/Khas.vue')
+  },
+  {
+    path: '/rekap-bulanan',
+    name: 'rekap-bulanan',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/RekapBulanan.vue')
   },
   {
     path: '/pengumuman',

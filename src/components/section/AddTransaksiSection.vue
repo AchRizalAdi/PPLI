@@ -1,10 +1,17 @@
 <template>
   <div class="col-lg-9 ps-xl-5">
-    <div class="user-panel-title-box">
-      <h3>Tambah Transaksi</h3>
+    <div class="user-panel-title-box justify-content-left">
+      <h1>Tambah Transaksi</h1>
     </div>
     <!-- end user-panel-title-box -->
-
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb breadcrumb-s1 justify-content-left mb-3">
+        <li class="breadcrumb-item">
+          <router-link to="/transaksi">Transaksi</router-link>
+        </li>
+        <li class="breadcrumb-item">Tambah Transaksi</li>
+      </ol>
+    </nav>
     <div class="profile-setting-panel-wrap">
       <div class="table-responsive">
         <form @submit.prevent="store()">
@@ -24,7 +31,7 @@
           <div class="form-group mb-3">
             <label>Kas</label>
             <v-select
-              v-model="khas"
+              v-model="KhasId"
               required
               :options="kas"
               :reduce="(kas) => kas.value"
@@ -32,6 +39,7 @@
             >
             </v-select>
           </div>
+          <!-- {{khas }} -->
           <div>
             <label>Jenis Transaksi</label>
             <select class="form-select mb-3" v-model="jenis_transaksi">
@@ -50,6 +58,7 @@
             >
             </v-select>
           </div>
+          <!-- {{ AkunId}} -->
           <div class="form-group mb-3">
             <label>Anggota</label>
             <v-select
@@ -122,7 +131,7 @@ export default {
       perPage: 6,
       records: [],
       tanggal: "",
-      khas: "",
+      KhasId: "",
       kas: [],
       jenis_transaksi: "",
       jenistransaksi: [],
@@ -140,7 +149,7 @@ export default {
       axios
         .post("http://127.0.0.1:8000/api/transaksi", {
           tanggal: this.tanggal,
-          khas: this.khas,
+          KhasId: this.KhasId,
           jenis_transaksi: this.jenis_transaksi,
           AkunId: this.AkunId,
           MemberId: this.MemberId,

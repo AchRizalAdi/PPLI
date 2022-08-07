@@ -4752,6 +4752,30 @@ faqSidebarData: {
         'Action',
       ],
     }, 
+    
+       // laporan data
+       laporanData: {
+        mainTitle: 'Transaksi',
+        laporanTableHead: [
+          'Tanggal',
+          'Kas',
+          // 'Jenis Transaksi',
+          'Keterangan',
+          // 'Anggota',
+          'Debit',
+          'Kredit',
+          'Saldo Akhir',
+        ],
+      },
+    // rekap data
+    rekapData: {
+      mainTitle: 'Rekap Bulanan',
+      rekapTableHead: [
+        'Bulan',
+        'Pemasukan',
+        'Pengeluaran',
+      ],
+    }, 
     // mitra data
     mitraData: {
       mainTitle: 'Kemitraan',

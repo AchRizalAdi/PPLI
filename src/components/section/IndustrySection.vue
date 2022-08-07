@@ -112,7 +112,7 @@
                 <label for="nama">Nama</label>
               </div>
               <!-- end form-floating -->
-              <button class="btn btn-dark w-100" type="submit">Add</button>
+              <button class="btn btn-dark w-100" data-bs-dismiss="modal" type="submit">Add</button>
             </div>
             <!-- end modal-body -->
           </div>

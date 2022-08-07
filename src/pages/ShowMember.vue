@@ -5,14 +5,14 @@
         <!-- Header main -->
         <HeaderDashboard></HeaderDashboard>
         <!-- hero -->
-        <!-- <AuthorHero avatarSize="avatar-3" :coverimg="SectionData.authorPersonalData.coverImg" :img="SectionData.authorPersonalData.img" :title="SectionData.authorPersonalData.title" :username="SectionData.authorPersonalData.userName" :btntext="SectionData.authorPersonalData.btnText" :btnlink="SectionData.authorPersonalData.btnLink"></AuthorHero> -->
-    </header>
+          <AuthorHeroSec class="bg-grey" avatarSize="avatar-3" :isDropdown="true" :isCopyInput="true" :img="SectionData.authorPublicData.img" :title="SectionData.authorPublicData.title" :username="SectionData.authorPublicData.userName" :btntext="SectionData.authorPublicData.btnText" :btnlink="SectionData.authorPublicData.btnLink"></AuthorHeroSec>
+        </header>
     <!-- offer section -->
     <section class="user-panel-section section-space">
             <div class="container">
                 <div class="row">
                     <!-- user sidebar -->
-                    <UserSidebar :title="SectionData.DPWSidebarData.title" :lists="SectionData.DPWSidebarData.navList" :navs="SectionData.DPWTabNavMobile"></UserSidebar>
+                    <!-- <UserSidebar :title="SectionData.DPWSidebarData.title" :lists="SectionData.DPWSidebarData.navList" :navs="SectionData.DPWTabNavMobile"></UserSidebar> -->
                     <!-- DPW -->
                     <ShowMemberSection></ShowMemberSection>
                 </div><!-- end row -->

@@ -5,14 +5,14 @@
     </div>
     <!-- end user-panel-title-box -->
 
-    {{ transaksi }}
+    <!-- {{ transaksi }} -->
     <div class="d-flex flex-row">
       <div
         v-if="checkPrivilege('provinsi-store')"
         class="d-grid gap-2 d-md-block"
       >
         <router-link
-          to="/add-transaksi"
+          to="add-transaksi"
           @click="resetnama()"
           type="button"
           class="btn btn-sm btn-dark mb-2"
@@ -24,35 +24,33 @@
         v-if="checkPrivilege('provinsi-store')"
         class="d-grid ms-1 gap-2 d-md-block"
       >
-        <button
+        <router-link
+          to="rekap-bulanan"
           @click="resetnama()"
           type="button"
           class="btn btn-sm btn-dark mb-2"
-          data-bs-toggle="modal"
-          data-bs-target="#messageModal"
         >
           Rekap Bulanan
-        </button>
+        </router-link>
       </div>
       <div
         v-if="checkPrivilege('provinsi-store')"
         class="d-grid ms-1 gap-2 d-md-block"
       >
-        <button
+        <router-link
+          to="laporan-pembukuan"
           @click="resetnama()"
           type="button"
           class="btn btn-sm btn-dark mb-2"
-          data-bs-toggle="modal"
-          data-bs-target="#messageModal"
         >
           Laporan Pembukuan
-        </button>
+        </router-link>
       </div>
     </div>
 
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="dataTransaksi">
+        <table class="table mb-0 table-s2" id="dataTable">
           <thead class="fs-14">
             <tr>
               <th
@@ -67,21 +65,20 @@
           </thead>
           <tbody class="fs-13">
             <tr v-for="item in transaksi.data" :key="item.id">
-              <td scope="row">
-                <a href="#">{{ item.id }}</a>
-              </td>
-              <td>{{ item.name }}</td>
+              <td>{{ item.tanggal }}</td>
+              <td>{{ item.khas.nama }}</td>
+              <td>{{ item.akun.nama_akun }}</td>
+              <td>{{ item.keterangan }}</td>
+              <td>{{ item.jumlah }}</td>
+              <td>{{ item.jenis_transaksi }}</td>
               <td class="row">
-                <button
-                  v-if="checkPrivilege('provinsi-update')"
-                  @click="showProvinsi(item.id)"
-                  class="col- icon-btn p-0 m-0"
+                <router-link
+                v-if="checkPrivilege('kontak-update')"
+                  :to="{ name: 'edit-transaksi', params: { id: item.id } }"
+                  class="col- p-0 m-0 icon-btn"
                   title="Edit"
-                  data-bs-toggle="modal"
-                  data-bs-target="#updateModal"
-                >
-                  <em class="fa fa-pencil-square-o"></em>
-                </button>
+                  ><em class="fa fa-pencil-square-o"></em
+                ></router-link>
                 <button
                   v-if="checkPrivilege('provinsi-delete')"
                   @click="showDelete(item.id)"
@@ -106,107 +103,6 @@
       </div>
     </div>
     <!-- end profile-setting-panel-wrap-->
-    <!-- Modal store -->
-    <form @submit.prevent="postProvinsis()">
-      <div
-        class="modal fade"
-        id="messageModal"
-        tabindex="-1"
-        aria-labelledby="reportModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="reportModalLabel">Add Provinsi</h4>
-              <button
-                type="button"
-                class="btn-close icon-btn"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              >
-                <em class="ni ni-cross"></em>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="form-floating mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="nama"
-                  placeholder="name"
-                  v-model="name"
-                  required
-                />
-                <label for="nama">Nama</label>
-              </div>
-              <!-- end form-floating -->
-              <button
-                class="btn btn-dark w-100"
-                data-bs-dismiss="modal"
-                type="submit"
-              >
-                Add
-              </button>
-            </div>
-            <!-- end modal-body -->
-          </div>
-          <!-- end modal-content -->
-        </div>
-        <!-- end modal-dialog -->
-      </div>
-      <!-- end modal-->
-    </form>
-    <form @submit.prevent="putProvinsis(edit)">
-      <div
-        class="modal fade"
-        id="updateModal"
-        tabindex="-1"
-        aria-labelledby="reportModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title" id="reportModalLabel">update provinsi</h4>
-              <button
-                type="button"
-                class="btn-close icon-btn"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              >
-                <em class="ni ni-cross"></em>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="form-floating mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="name"
-                  placeholder="name"
-                  v-model="name"
-                  required
-                />
-                <!-- <label for="nama">{{edit.data.name}}</label> -->
-              </div>
-              <!-- end form-floating -->
-              <button
-                class="btn btn-dark w-100"
-                data-bs-dismiss="modal"
-                type="submit"
-              >
-                update
-              </button>
-            </div>
-            <!-- end modal-body -->
-          </div>
-          <!-- end modal-content -->
-        </div>
-        <!-- end modal-dialog -->
-      </div>
-      <!-- end modal-->
-    </form>
   </div>
   <!-- end col-lg-8 -->
 </template>
@@ -258,7 +154,7 @@ export default {
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-          this.deleteProvinsi(id);
+          this.deleteTransak(id);
           Swal.fire("Tersimpan!", "", "success");
         } else if (result.isDenied) {
           Swal.fire("Tidak Tersimpan", "", "info");
@@ -272,19 +168,19 @@ export default {
       axios.get("http://127.0.0.1:8000/api/provinsi").then(
         function (response) {
           this.provinsis = response.data;
-          setTimeout(() => {
-            $("#dataProvinsi").DataTable();
-          }, 3000);
+          // setTimeout(() => {
+          //   $("#dataProvinsi").DataTable();
+          // }, 3000);
         }.bind(this)
       );
     },
     getTransaksi: function () {
-      axios.get("127.0.0.1:8000/api/transaksi/index").then(
+      axios.get("http://127.0.0.1:8000/api/transaksi/index").then(
         function (response) {
           this.transaksi = response.data;
-          setTimeout(() => {
-            $("#dataTransaksi").DataTable();
-          }, 2000);
+          // setTimeout(() => {
+            $("#dataTable").DataTable();
+          // }, 2000);
         }.bind(this)
       );
     },
@@ -295,6 +191,16 @@ export default {
         function () {
           // alert("delete succes");
           this.getProvinsis();
+        }.bind(this)
+      );
+    },
+     deleteTransak(id) {
+      // alert(id);
+
+      axios.delete("http://127.0.0.1:8000/api/transaksi/" + id).then(
+        function () {
+          // alert("delete succes");
+          this.getTransaksi();
         }.bind(this)
       );
     },

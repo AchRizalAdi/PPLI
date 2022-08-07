@@ -23,9 +23,9 @@
     <!-- {{ memberss }} -->
 
     <!-- {{ memberss }} -->
-    <form @submit.prevent="postWilayah()">
       <h6 class>Filter DPD</h6>
-      <select class="form-control w-25" v-model="wilayah" required>
+    <form class="d-flex" @submit.prevent="postWilayah()">
+      <select class="form-control me-2 w-25" v-model="wilayah" required>
         <option value="0">All</option>
         <option v-for="item in wilayahss" :value="item.id" :key="item.id">
           {{ item.name }}

@@ -17,7 +17,7 @@
         Add Wilayah
       </button>
     </div>
-    <!-- {{cities }} -->
+    {{wilayah }}
     <div class="profile-setting-panel-wrap">
       <div class="table">
         <table class="table mb-0 table-s2" id="dataTable">
@@ -142,11 +142,12 @@
                   v-model="kota"
                   required
                   :options="cities"
-                  :reduce="(cities) => cities.value"
+                  :reduce="(cities) => cities.text"
                   label="text"
                 >
                 </v-select>
               </div>
+              <!-- {{ kota }} -->
               <!-- end form-floating -->
               <div class="form-floating mb-3 mt-4">
                 <input

@@ -71,8 +71,8 @@ export default {
       i:1,
       perPage: 6,
       records: [],
-      kontaks: []
-   
+      kontaks: [],
+        
     }
   },
   created() {
