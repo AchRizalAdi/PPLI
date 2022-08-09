@@ -3,78 +3,50 @@
     <div class="user-panel-title-box">
       <h3>Iuran</h3>
     </div>
-    <!-- end user-panel-title-box -->
-
-    <!-- {{ transaksi }} -->
-    <div class="row">
-      <div class="col">
-        <h6 class>Tahun</h6>
-        <form class="d-flex" @submit.prevent="postWilayah()">
-          <select class="form-control me-2 w-50" v-model="wilayah">
-            <option value="0">All</option>
-            <option v-for="item in wilayahss" :value="item.id" :key="item.id">
-              {{ item.name }}
-            </option>
-          </select>
-          <button class="btn btn-sm btn-dark" type="submit">Filter</button>
-        </form>
-      </div>
-      <div class="col">
-        <h6 class>Bulan</h6>
-        <form class="d-flex" @submit.prevent="postWilayah()">
-          <select class="form-control me-2 w-50" v-model="wilayah">
-            <option value="0">All</option>
-            <option v-for="item in wilayahss" :value="item.id" :key="item.id">
-              {{ item.name }}
-            </option>
-          </select>
-          <button class="btn btn-sm btn-dark" type="submit">Filter</button>
-        </form>
-      </div>
+    <div class="d-flex">
+      <h6 class="me-2">Tahun</h6>
+      <form class="d-flex" @submit.prevent="postIuran()">
+        <v-select
+          v-model="tahun"
+          :options="tahuns"
+          :reduce="(tahuns) => tahuns.value"
+          label="text"
+        />
+      <h6 class="ms-3 me-2">Bulan</h6>
+        <v-select
+          v-model="bulan"
+          :options="bulans"
+          :reduce="(bulans) => bulans.value"
+          label="text"
+        />
+        <button class="btn btn-sm btn-dark ms-2" type="submit">Cari</button>
+      </form>
     </div>
-
+    <!-- end user-panel-title-box -->
+    <!-- {{ bulan }} -->
+  <!-- {{memberss}} -->
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="dataTable">
+        <table class="table mb-0 table-s2" id="dataMembers">
           <thead class="fs-14">
             <tr>
               <th
                 scope="col"
-                v-for="(list, i) in SectionData.transaksiData
-                  .transaksiTableHead"
+                v-for="(list, i) in SectionData.iuranData
+                  .iuranTableHead"
                 :key="i"
               >
                 {{ list }}
               </th>
             </tr>
           </thead>
-          <!-- <tbody class="fs-13">
-            <tr v-for="item in transaksi.data" :key="item.id">
-              <td>{{ item.tanggal }}</td>
-              <td>{{ item.khas.nama }}</td>
-              <td>{{ item.akun.nama_akun }}</td>
-              <td>{{ item.keterangan }}</td>
+          <tbody class="fs-13">
+            <tr v-for="item in memberss" :key="item.id">
+              <td>{{ item.member.name }}</td>
               <td>{{ item.jumlah }}</td>
-              <td>{{ item.jenis_transaksi }}</td>
-              <td class="row">
-                <router-link
-                v-if="checkPrivilege('kontak-update')"
-                  :to="{ name: 'edit-transaksi', params: { id: item.id } }"
-                  class="col- p-0 m-0 icon-btn"
-                  title="Edit"
-                  ><em class="fa fa-pencil-square-o"></em
-                ></router-link>
-                <button
-                  v-if="checkPrivilege('provinsi-delete')"
-                  @click="showDelete(item.id)"
-                  class="col- icon-btn p-0 m-0"
-                  title="Delete"
-                >
-                  <em class="ni ni-trash"></em>
-                </button>
-              </td>
+              <td>{{ item.status }}</td>
             </tr>
-          </tbody> -->
+          </tbody>
         </table>
       </div>
       <!-- end table-responsive -->
@@ -96,8 +68,11 @@
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from "@/store/store.js";
 import Pagination from "v-pagination-3";
-// import axios from "axios";
-// import $ from "jquery";
+import axios from "axios";
+import $ from "jquery";
+
+import mitt from "mitt";
+const emitter = mitt();
 // import Swal from "sweetalert2";
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
@@ -114,10 +89,50 @@ export default {
       records: [],
       provinsis: [],
       transaksi: [],
+      memberss: [],
+      tahuns: [],
+      bulans: [],
+      tahun: "",
+      bulan: ""
     };
   },
 
   methods: {
+    getTahun: function () {
+      axios.get("http://127.0.0.1:8000/api/iuran/selectOption").then(
+        function (response) {
+          this.tahuns = response.data.map((tahuns) => ({
+            value: tahuns,
+            text: tahuns,
+          }));
+        }.bind(this)
+      );
+    },
+    getBulan: function () {
+      axios.get("http://127.0.0.1:8000/api/iuran/selectOptionBulan").then(
+        function (response) {
+          this.bulans = response.data.map((bulans) => ({
+            value: bulans,
+            text: bulans,
+          }));
+        }.bind(this)
+      );
+    },
+    postIuran() {
+      axios
+        .post("http://127.0.0.1:8000/api/iuran/index", {
+          tahun: this.tahun,
+          bulan: this.bulan,
+        })
+        .then((response) => {
+          this.memberss = response.data;
+          setTimeout(() => {
+            $("#dataMembers").DataTable();
+          }, 300);
+          $("#dataMembers").DataTable().destroy();
+          emitter.emit("refreshPage");
+        });
+    },
     checkPrivilege(privilege) {
       const permission = localStorage.getItem("permission");
       let status = false;
@@ -130,7 +145,8 @@ export default {
     },
   },
   created: function () {
-    // this.getProvinsis();
+    this.getTahun();
+    this.getBulan();
   },
   computed: {
     displayedRecords() {

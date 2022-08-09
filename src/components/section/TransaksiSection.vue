@@ -73,7 +73,7 @@
               <td>{{ item.jenis_transaksi }}</td>
               <td class="row">
                 <router-link
-                v-if="checkPrivilege('kontak-update')"
+                  v-if="checkPrivilege('kontak-update')"
                   :to="{ name: 'edit-transaksi', params: { id: item.id } }"
                   class="col- p-0 m-0 icon-btn"
                   title="Edit"
@@ -114,6 +114,8 @@ import Pagination from "v-pagination-3";
 import axios from "axios";
 import $ from "jquery";
 import Swal from "sweetalert2";
+import mitt from "mitt";
+const emitter = mitt();
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
 
@@ -155,7 +157,7 @@ export default {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           this.deleteTransak(id);
-          Swal.fire("Tersimpan!", "", "success");
+          Swal.fire("Berhasil Terhapus!", "", "success");
         } else if (result.isDenied) {
           Swal.fire("Tidak Tersimpan", "", "info");
         }
@@ -164,23 +166,13 @@ export default {
     resetnama() {
       this.name = null;
     },
-    getProvinsis: function () {
-      axios.get("http://127.0.0.1:8000/api/provinsi").then(
-        function (response) {
-          this.provinsis = response.data;
-          // setTimeout(() => {
-          //   $("#dataProvinsi").DataTable();
-          // }, 3000);
-        }.bind(this)
-      );
-    },
     getTransaksi: function () {
       axios.get("http://127.0.0.1:8000/api/transaksi/index").then(
         function (response) {
           this.transaksi = response.data;
-          // setTimeout(() => {
+          setTimeout(() => {
             $("#dataTable").DataTable();
-          // }, 2000);
+          }, 100);
         }.bind(this)
       );
     },
@@ -194,7 +186,7 @@ export default {
         }.bind(this)
       );
     },
-     deleteTransak(id) {
+    deleteTransak(id) {
       // alert(id);
 
       axios.delete("http://127.0.0.1:8000/api/transaksi/" + id).then(
@@ -204,49 +196,7 @@ export default {
         }.bind(this)
       );
     },
-    showProvinsi(id) {
-      // alert(id);
-      axios.get("http://127.0.0.1:8000/api/provinsi/" + id).then(
-        function (response) {
-          this.edit = response.data.data.id;
-          this.name = response.data.data.name;
-        }.bind(this)
-      );
-    },
-    putProvinsis(id) {
-      // alert(id);
-      axios
-        .post("http://127.0.0.1:8000/api/provinsi/" + id, {
-          name: this.name,
-        })
-        .then((response) => {
-          this.showPost();
-          this.getProvinsis();
-          // this.$toast.show("berhasil update");
-          console.log(response);
-        })
-        .catch((error) => {
-          this.$toast.error("gagal update");
-          console.log(error);
-        });
-      this.name = "";
-    },
-    postProvinsis() {
-      axios
-        .post("http://127.0.0.1:8000/api/provinsi", {
-          name: this.name,
-        })
-        .then((response) => {
-          this.showPost();
-          this.getProvinsis();
-          console.log(response);
-        })
-        .catch((error) => {
-          alert("provinsi sudah ada");
-          console.log(error);
-        });
-      this.name = "";
-    },
+
     checkPrivilege(privilege) {
       const permission = localStorage.getItem("permission");
       let status = false;
@@ -259,8 +209,10 @@ export default {
     },
   },
   created: function () {
-    this.getProvinsis();
     this.getTransaksi();
+    emitter.on("refreshPage", () => {
+      this.getTransaksi();
+    });
   },
   computed: {
     displayedRecords() {

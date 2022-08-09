@@ -30,6 +30,7 @@
     "jl-datatable": "^1.1.1",
     "jquery": "^3.6.0",
     "lodash": "^4.17.21",
+    "mitt": "^3.0.0",
     "sweetalert2": "^11.4.24",
     "swiper": "^6.8.4",
     "v-pagination-3": "^0.1.7",

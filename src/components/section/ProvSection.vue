@@ -17,7 +17,7 @@
         data-bs-toggle="modal"
         data-bs-target="#messageModal"
       >
-        Add Provinsi
+        Tambah Provinsi
       </button>
     </div>
 
@@ -37,9 +37,9 @@
             </tr>
           </thead>
           <tbody class="fs-13">
-            <tr v-for="item in provinsis.data" :key="item.id">
+            <tr v-for="(item, index) in provinsis.data" :key="item.id">
               <td scope="row">
-                <a href="#">{{ item.id }}</a>
+                {{ index + 1 }}
               </td>
               <td>{{ item.name }}</td>
               <td class="row">
@@ -189,6 +189,8 @@ import Pagination from "v-pagination-3";
 import axios from "axios";
 import $ from "jquery";
 import Swal from "sweetalert2";
+import mitt from "mitt";
+const emitter = mitt();
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
 
@@ -211,7 +213,7 @@ export default {
   methods: {
     showPost() {
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Data telah tersimpan!",
         showConfirmButton: false,
@@ -229,7 +231,7 @@ export default {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           this.deleteProvinsi(id);
-          Swal.fire("Tersimpan!", "", "success");
+          Swal.fire("Berhasil Terhapus!", "", "success");
         } else if (result.isDenied) {
           Swal.fire("Tidak Tersimpan", "", "info");
         }
@@ -238,15 +240,18 @@ export default {
     resetnama() {
       this.name = null;
     },
+    // table() {
+    //   this.$nextTick(() => {
+    //     $("#dataProvinsi").DataTable();
+    //   });
+    // },
     getProvinsis: function () {
       axios.get("http://127.0.0.1:8000/api/provinsi").then(
         function (response) {
           this.provinsis = response.data;
           setTimeout(() => {
-
-              $("#dataProvinsi").DataTable();
-  
-          }, 3000);
+            $("#dataProvinsi").DataTable();
+          }, 100);
         }.bind(this)
       );
     },
@@ -255,8 +260,8 @@ export default {
 
       axios.delete("http://127.0.0.1:8000/api/provinsi/" + id).then(
         function () {
-          // alert("delete succes");
-          this.getProvinsis();
+          $("#dataProvinsi").DataTable().destroy();
+          emitter.emit("refreshPage");
         }.bind(this)
       );
     },
@@ -294,14 +299,14 @@ export default {
         })
         .then((response) => {
           this.showPost();
-          this.getProvinsis();
+          $("#dataProvinsi").DataTable().destroy();
+          emitter.emit("refreshPage");
           console.log(response);
         })
         .catch((error) => {
-          alert("provinsi sudah ada");
+          this.$toast.error("provinsi sudah ada");
           console.log(error);
         });
-      this.name = "";
     },
     checkPrivilege(privilege) {
       const permission = localStorage.getItem("permission");
@@ -316,6 +321,9 @@ export default {
   },
   created: function () {
     this.getProvinsis();
+    emitter.on("refreshPage", () => {
+      this.getProvinsis();
+    });
   },
   computed: {
     displayedRecords() {

@@ -3,6 +3,14 @@
     <div class="user-panel-title-box">
       <h3>Detail Member</h3>
     </div>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb breadcrumb-s1 justify-content-left mb-3">
+        <li class="breadcrumb-item">
+          <router-link to="/member">Member</router-link>
+        </li>
+        <li class="breadcrumb-item">Detail Member</li>
+      </ol>
+    </nav>
     <!-- end user-panel-title-box -->
     <div class="profile-setting-panel-wrap">
       <div class="tab-content mt-4" id="myTabContent">
@@ -150,7 +158,7 @@
                 disabled
               />
             </div>
-            <router-link to="/offers" class="btn btn-dark mt-3" type="button"
+            <router-link to="/member" class="btn btn-dark mt-3" type="button"
               >Kembali</router-link
             >
           </div>

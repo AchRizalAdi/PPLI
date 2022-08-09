@@ -15,7 +15,7 @@
 
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="dataTable">
+        <table class="table mb-0 table-s2" id="dataLaporan">
           <thead class="fs-14">
             <tr>
               <th
@@ -136,7 +136,9 @@ export default {
       axios.get("http://127.0.0.1:8000/api/laporan").then(
         function (response) {
           this.laporan = response.data;
-          $("#dataTable").DataTable();
+          setTimeout(() => {
+            $("#dataLaporan").DataTable();
+          }, 100);
         }.bind(this)
       );
     },

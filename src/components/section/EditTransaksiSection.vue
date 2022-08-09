@@ -70,6 +70,7 @@
             >
             </v-select>
           </div>
+          <!-- {{member}} -->
           <!-- end form-floating -->
           <label>Keterangan</label>
           <div class="form-floating mb-3">

@@ -6,7 +6,7 @@
     <!-- end user-panel-title-box -->
     <div class="profile-setting-panel-wrap">
       <div class="table-responsive">
-        <table class="table mb-0 table-s2" id="dataTable">
+        <table class="table mb-0 table-s2" id="dataReg">
           <thead class="fs-14">
             <tr>
               <th
@@ -38,7 +38,7 @@
               <!-- <td>{{ item.cekWilayah }}</td> -->
               <td>
                 <button
-                  :disabled=item.cekWilayah 
+                  :disabled="item.cekWilayah"
                   class="btn btn-warning btn-sm"
                   @click="update(item.id)"
                   id="statusss"
@@ -50,14 +50,15 @@
               </td>
               <td>
                 <button
-                  :disabled=item.cekWilayah 
+                  :disabled="item.cekWilayah"
                   class="btn btn-primary btn-sm"
                   @click="sendEmail(item.id)"
                   id="pesan"
                   data-bs-toggle="modal"
                   data-bs-target="#pesanModal"
-                  >Kirim Pesan</button
                 >
+                  Kirim Pesan
+                </button>
               </td>
               <td class="row">
                 <!-- v-if="checkPrivilege('kontak-update')" -->
@@ -68,11 +69,11 @@
                   ><em class="fa fa-eye"></em
                 ></router-link>
                 <button
-                  :disabled=item.cekWilayah 
+                  :disabled="item.cekWilayah"
                   type="button"
                   class="col- p-0 m-0 icon-btn btn-sm"
                   title="Delete"
-                  @click="deleteRegisters(item.id)"
+                  @click="showDelete(item.id)"
                 >
                   <em class="ni ni-trash"></em>
                 </button>
@@ -199,6 +200,9 @@ import SectionData from "@/store/store.js";
 import Pagination from "v-pagination-3";
 import axios from "axios";
 import $ from "jquery";
+import Swal from "sweetalert2";
+import mitt from "mitt";
+const emitter = mitt();
 
 export default {
   components: {
@@ -223,6 +227,23 @@ export default {
   },
 
   methods: {
+    showDelete(id) {
+      Swal.fire({
+        title: "Apakah anda ingin menghapus data ini?",
+        showDenyButton: true,
+        // showCancelButton: true,
+        confirmButtonText: "Iya",
+        denyButtonText: `Tidak`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          this.deleteRegisters(id);
+          Swal.fire("Berhasil Terhapus!", "", "success");
+        } else if (result.isDenied) {
+          Swal.fire("Tidak Tersimpan", "", "info");
+        }
+      });
+    },
     // checkWilayah(){
     //   axios.get("http://127.0.0.1:8000/api/userRegister").then(
     //     function (response) {
@@ -245,9 +266,9 @@ export default {
         function (response) {
           this.registers = response.data.data;
           // this.checked = response.data.data;
-          $(document).ready(function () {
-            $("#dataTable").DataTable();
-          });
+          setTimeout(() => {
+            $("#dataReg").DataTable();
+          }, 100);
         }.bind(this)
       );
     },
@@ -268,16 +289,16 @@ export default {
         });
       this.status = "";
     },
-    deleteRegisters(id) {
+    deleteRgisters(id) {
       // alert(id);
-      if (confirm("Apakah Kamu Yakin?")) {
-        axios.delete("http://127.0.0.1:8000/api/register/delete/" + id).then(
-          function () {
-            this.getRegisters();
-            this.$toast.show("berhasil delete");
-          }.bind(this)
-        );
-      }
+
+      axios.delete("http://127.0.0.1:8000/api/register/delete/" + id).then(
+        function () {
+          $("#dataReg").DataTable().destroy();
+          emitter.emit("refreshPage");
+          this.$toast.show("berhasil delete");
+        }.bind(this)
+      );
     },
     sendEmail(id) {
       this.id = id;
@@ -301,6 +322,9 @@ export default {
   },
   created: function () {
     this.getRegisters();
+    emitter.on("refreshPage", () => {
+      this.getRegisters();
+    });
     // this.checkWilayah();
   },
   computed: {

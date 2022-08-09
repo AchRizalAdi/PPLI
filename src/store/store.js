@@ -2997,7 +2997,7 @@ products: [
         id: 1,
         icon: 'ni-home',
         title: 'Home',
-        path: 'homeadmin',
+        path: '/homeadmin',
         if: "checkPrivilege('home')"
       },
       {
@@ -4752,7 +4752,15 @@ faqSidebarData: {
         'Action',
       ],
     }, 
-    
+     // transaksi data
+     iuranData: {
+      mainTitle: 'Iuran',
+      iuranTableHead: [
+        'Nama',
+        'Jumlah',
+        'Status',
+      ],
+    }, 
        // laporan data
        laporanData: {
         mainTitle: 'Transaksi',
@@ -4818,7 +4826,6 @@ faqSidebarData: {
     BanksData: {
       mainTitle: 'Banks',
       BanksTableHead: [
-        '#',
         'Bank',
         'Action',
       ],

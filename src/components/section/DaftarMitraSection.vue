@@ -23,7 +23,7 @@
     <!-- {{ mitra }} -->
     <div class="profile-setting-panel-wrap">
       <div class="table-responsive">
-        <table class="table mb-0 table-s2" id="dataTable">
+        <table class="table mb-0 table-s2" id="dataMitra">
           <thead class="fs-14">
             <tr>
               <th
@@ -249,6 +249,8 @@ import axios from "axios";
 import $ from "jquery";
 import Swal from "sweetalert2";
 import Editor from "@tinymce/tinymce-vue";
+import mitt from "mitt";
+const emitter = mitt();
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
 
@@ -263,9 +265,6 @@ export default {
       page: 1,
       perPage: 6,
       records: [],
-      provinsis: [],
-      //   edit:'',
-      name: "",
       mitra: [],
       kontak: [],
       tipemitra: [],
@@ -309,16 +308,6 @@ export default {
       this.tanggal_bergabung = null;
       this.deskripsi = null;
     },
-    getProvinsis: function () {
-      axios.get("http://127.0.0.1:8000/api/provinsi").then(
-        function (response) {
-          this.provinsis = response.data;
-          $(document).ready(function () {
-            $("#dataTable").DataTable();
-          });
-        }.bind(this)
-      );
-    },
     getKontak: function () {
       axios.get("http://127.0.0.1:8000/api/mitra/selectOption").then(
         function (response) {
@@ -343,19 +332,9 @@ export default {
       axios.get("http://127.0.0.1:8000/api/mitra").then(
         function (response) {
           this.mitra = response.data;
-          $(document).ready(function () {
-            $("#dataTable").DataTable();
-          });
-        }.bind(this)
-      );
-    },
-    deleteProvinsi(id) {
-      // alert(id);
-
-      axios.delete("http://127.0.0.1:8000/api/provinsi/" + id).then(
-        function () {
-          // alert("delete succes");
-          this.getProvinsis();
+          setTimeout(() => {
+            $("#dataMitra").DataTable();
+          }, 100);
         }.bind(this)
       );
     },
@@ -364,17 +343,8 @@ export default {
 
       axios.delete("http://127.0.0.1:8000/api/mitra/" + id).then(
         function () {
-          // alert("delete succes");
-          this.getMitra();
-        }.bind(this)
-      );
-    },
-    showProvinsi(id) {
-      // alert(id);
-      axios.get("http://127.0.0.1:8000/api/provinsi/" + id).then(
-        function (response) {
-          this.edit = response.data.data.id;
-          this.name = response.data.data.name;
+          $("#dataMitra").DataTable().destroy();
+          emitter.emit("refreshPage");
         }.bind(this)
       );
     },
@@ -428,22 +398,6 @@ export default {
           console.log(error);
         });
     },
-    postProvinsis() {
-      axios
-        .post("http://127.0.0.1:8000/api/provinsi", {
-          name: this.name,
-        })
-        .then((response) => {
-          this.showPost();
-          this.getProvinsis();
-          console.log(response);
-        })
-        .catch((error) => {
-          alert("provinsi sudah ada");
-          console.log(error);
-        });
-      this.name = "";
-    },
     postMitra() {
       axios
         .post("http://127.0.0.1:8000/api/mitra", {
@@ -454,7 +408,8 @@ export default {
         })
         .then((response) => {
           this.showPost();
-          this.getMitra();
+          $("#dataMitra").DataTable().destroy();
+          emitter.emit("refreshPage");
           console.log(response);
         })
         .catch((error) => {
@@ -474,10 +429,12 @@ export default {
     },
   },
   created: function () {
-    this.getProvinsis();
     this.getMitra();
     this.getKontak();
     this.getTipeMitra();
+    emitter.on("refreshPage", () => {
+      this.getMitra();
+    });
   },
   computed: {
     displayedRecords() {

@@ -54,7 +54,7 @@
                   >
                     <router-link
                       to="/wilayah"
-                      class="card card-cat text-center h-100 text-grey"
+                      class="card card-cat text-center h-100 text-dark"
                     >
                       <div class="card-body card-body-s1">
                         <span
@@ -112,7 +112,7 @@
                       </div>
                     </router-link>
                   </div>
-                   <div
+                  <div
                     v-if="checkPrivilege('indutry-index')"
                     class="col-lg-3 col-6"
                   >
@@ -128,7 +128,7 @@
                       </div>
                     </router-link>
                   </div>
-                   <div
+                  <div
                     v-if="checkPrivilege('indutry-index')"
                     class="col-lg-3 col-6"
                   >
@@ -141,6 +141,22 @@
                           class="icon fa fa-handshake-o mb-3 mx-auto icon-circle icon-wbg icon-lg"
                         ></span>
                         <h5 class="card-cat-title">Tipe Mitra</h5>
+                      </div>
+                    </router-link>
+                  </div>
+                  <div
+                    v-if="checkPrivilege('indutry-index')"
+                    class="col-lg-3 col-6"
+                  >
+                    <router-link
+                      to="setting-email"
+                      class="card card-cat text-center h-100 text-grey"
+                    >
+                      <div class="card-body card-body-s1">
+                        <span
+                          class="icon fa fa-envelope-open-o mb-3 mx-auto icon-circle icon-wbg icon-lg"
+                        ></span>
+                        <h5 class="card-cat-title">Setting Email</h5>
                       </div>
                     </router-link>
                   </div>
@@ -192,7 +208,7 @@
                     </router-link>
                   </div>
                   <!-- end col -->
-                   <div
+                  <div
                     v-if="checkPrivilege('jabatan-index')"
                     class="col-lg-3 col-6"
                   >
@@ -209,7 +225,7 @@
                     </router-link>
                   </div>
                   <!-- end col -->
-                   <div
+                  <div
                     v-if="checkPrivilege('jabatan-index')"
                     class="col-lg-3 col-6"
                   >
@@ -263,7 +279,7 @@
             <div class="profile-setting-panel-wrap">
               <!-- {{rolesss}} -->
               <div class="table">
-                <table class="table mb-0 table-s2" id="dataTable">
+                <table class="table mb-0 table-s2" id="dataUser">
                   <thead class="fs-14">
                     <tr>
                       <th
@@ -395,6 +411,8 @@ import SectionData from "@/store/store.js";
 import axios from "axios";
 import $ from "jquery";
 import Swal from "sweetalert2";
+import mitt from "mitt";
+const emitter = mitt();
 
 export default {
   name: "AccountSection",
@@ -477,9 +495,9 @@ export default {
       axios.get("http://127.0.0.1:8000/api/userManajemen").then(
         function (response) {
           this.userManajemen = response.data;
-          $(document).ready(function () {
-            $("#dataTable").DataTable();
-          });
+          setTimeout(() => {
+            $("#dataUser").DataTable();
+          }, 100);
         }.bind(this)
       );
     },
@@ -507,6 +525,9 @@ export default {
   created: function () {
     this.getRoles();
     this.getUserManajemen();
+    emitter.on("refreshPage", () => {
+      this.getUserManajemen();
+    });
   },
   mounted() {
     /*===========SHOW UPLOADED IMAGE ================== */

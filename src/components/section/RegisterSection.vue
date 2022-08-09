@@ -166,7 +166,6 @@
             </div> -->
             <label>Kota </label>
             <select class="form-control" v-model="KotaId">
-              <!-- <option value="dadar">dadar</option> -->
               <option v-for="item in cities" :value="item.id" :key="item.id">
                 {{ item.name }}
               </option>
@@ -389,7 +388,6 @@ export default {
             value: industris.id,
             text: industris.name,
           }));
-          console.log(this.industris);
         }.bind(this)
       );
     },

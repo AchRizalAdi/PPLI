@@ -1,7 +1,7 @@
 <template>
   <div class="col-lg-9 ps-xl-5">
     <div class="user-panel-title-box">
-      <h3>Contact</h3>
+      <h3>Kontaks</h3>
     </div>
     <!-- end user-panel-title-box -->
 
@@ -11,19 +11,19 @@
         to="/add-contact"
         type="button"
         class="btn btn-dark btn-sm mb-2"
-        >Add Contacts</router-link
+        >Tambah Kontak</router-link
       >
       <router-link
         to="/virtual-card"
         type="button"
         class="btn btn-dark btn-sm mb-2 ms-2"
-        >Card Name</router-link
+        >Kartu Nama</router-link
       >
       <!-- <button type="button" class="btn btn-primary btn-sm mb-2 ms-2">Card Name</button>     -->
     </div>
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="dataTable">
+        <table class="table mb-0 table-s2" id="dataKontak">
           <thead class="fs-14">
             <tr>
               <th
@@ -47,7 +47,7 @@
               <td>{{ item.status }}</td>
               <td class="row">
                 <router-link
-                v-if="checkPrivilege('kontak-show')"
+                  v-if="checkPrivilege('kontak-show')"
                   :to="{ name: 'show-contact', params: { id: item.id } }"
                   class="col- icon-btn p-0 m-0"
                   title="Show"
@@ -55,15 +55,15 @@
                 ></router-link>
                 <!-- <button  @click="showCities(item.id)" class="col-sm-1 icon-btn " title="Show" data-bs-toggle="modal"  data-bs-target="#editModal"><em class="fa fa-eye" ></em></button> -->
                 <router-link
-                v-if="checkPrivilege('kontak-update')"
+                  v-if="checkPrivilege('kontak-update')"
                   :to="{ name: 'edit-contact', params: { id: item.id } }"
                   class="col- p-0 m-0 icon-btn"
                   title="Edit"
                   ><em class="fa fa-pencil-square-o"></em
                 ></router-link>
                 <button
-                v-if="checkPrivilege('kontak-delete')"
-                  @click="deleteKontak(item.id)"
+                  v-if="checkPrivilege('kontak-delete')"
+                  @click="showDelete(item.id)"
                   class="col- p-0 m-0 icon-btn"
                   title="Delete"
                 >
@@ -95,6 +95,9 @@ import SectionData from "@/store/store.js";
 import Pagination from "v-pagination-3";
 import axios from "axios";
 import $ from "jquery";
+import Swal from "sweetalert2";
+import mitt from "mitt";
+const emitter = mitt();
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
 
@@ -114,6 +117,32 @@ export default {
   },
 
   methods: {
+    showPost() {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Data telah tersimpan!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    },
+    showDelete(id) {
+      Swal.fire({
+        title: "Apakah anda ingin menghapus data ini?",
+        showDenyButton: true,
+        // showCancelButton: true,
+        confirmButtonText: "Iya",
+        denyButtonText: `Tidak`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          this.deleteKontak(id);
+          Swal.fire("Berhasil Terhapus!", "", "success");
+        } else if (result.isDenied) {
+          Swal.fire("Tidak Tersimpan", "", "info");
+        }
+      });
+    },
     resetnama() {
       this.name = null;
     },
@@ -121,21 +150,19 @@ export default {
       axios.get("http://127.0.0.1:8000/api/kontak").then(
         function (response) {
           this.kontak = response.data;
-          $(document).ready(function () {
-            $("#dataTable").DataTable();
-          });
+          setTimeout(() => {
+            $("#dataKontak").DataTable();
+          }, 100);
         }.bind(this)
       );
     },
     deleteKontak(id) {
-      if (confirm("Apakah Kamu Yakin?")) {
-        axios.delete("http://127.0.0.1:8000/api/kontak/" + id).then(
-          function () {
-            this.getKontak();
-            this.$toast.error("Berhasil delete");
-          }.bind(this)
-        );
-      }
+      axios.delete("http://127.0.0.1:8000/api/kontak/" + id).then(
+        function () {
+          $("#dataKontak").DataTable().destroy();
+          emitter.emit("refreshPage");
+        }.bind(this)
+      );
     },
     checkPrivilege(privilege) {
       const permission = localStorage.getItem("permission");
@@ -150,6 +177,9 @@ export default {
   },
   created: function () {
     this.getKontak();
+    emitter.on("refreshPage", () => {
+      this.getKontak();
+    });
   },
   computed: {
     displayedRecords() {

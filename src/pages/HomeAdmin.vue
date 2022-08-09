@@ -35,62 +35,63 @@
               <div class="sidebar-widget">
                 <ul class="user-nav">
                   <li class="active">
-                    <router-link v-if="checkPrivilege('home')" to="homeadmin"
+                    <router-link v-if="checkPrivilege('home')" to="/homeadmin"
                       ><em class="ni ni-home me-2"></em>Home</router-link
                     >
                   </li>
                   <li>
                     <router-link
                       v-if="checkPrivilege('pengaturan')"
-                      to="pengaturan"
+                      to="/pengaturan"
                       ><em class="ni ni-share me-2"></em>Pengaturan</router-link
                     >
                   </li>
                   <li>
                     <router-link
                       v-if="checkPrivilege('register-index')"
-                      to="offers"
+                      to="/offers"
                       ><em class="ni ni-user me-2"></em>Register</router-link
                     >
                   </li>
                   <li>
-                    <router-link to="member"
+                    <router-link to="/member"
                       ><em class="ni ni-users me-2"></em>Member</router-link
                     >
                   </li>
                   <li>
-                    <router-link to="daftar-mitra"
+                    <router-link to="/daftar-mitra"
                       ><em class="ni ni-user-check me-2"></em>Mitra</router-link
                     >
                   </li>
                   <li>
-                    <router-link to="iuran"
-                      ><em class="ni ni-wallet-saving me-2"></em>iuran</router-link
+                    <router-link to="/iuran"
+                      ><em class="ni ni-wallet-saving me-2"></em
+                      >iuran</router-link
                     >
                   </li>
                   <li>
-                    <router-link to="transaksi"
-                      ><em class="ni ni-swap-alt me-2"></em>Transaksi</router-link
+                    <router-link to="/transaksi"
+                      ><em class="ni ni-swap-alt me-2"></em
+                      >Transaksi</router-link
                     >
                   </li>
                   <li>
                     <router-link
                       v-if="checkPrivilege('kontak-index')"
-                      to="transactions"
+                      to="/transactions"
                       ><em class="ni ni-user-round me-2"></em
                       >Contacts</router-link
                     >
                   </li>
                   <li>
-                    <router-link to="kegiatan"
+                    <router-link to="/kegiatan"
                       ><em class="ni ni-calendar me-2"></em
                       >Kegiatan</router-link
                     >
                   </li>
-                  <li >
-                    <router-link to="pengumuman"
-                      ><em class="ni ni-tags me-2"></em
-                      >Pengumuman</router-link
+                  <li>
+                    <router-link to="/pengumuman"
+                      ><em class="ni ni-tags me-2"></em>Pengumuman</router-link
                     >
                   </li>
                 </ul>

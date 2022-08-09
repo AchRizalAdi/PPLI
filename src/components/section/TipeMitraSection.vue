@@ -20,10 +20,10 @@
         Tambah Tipe Mitra
       </button>
     </div>
-<!-- {{mitra}} -->
+    <!-- {{mitra}} -->
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="dataTable">
+        <table class="table mb-0 table-s2" id="dataTipeMitra">
           <thead class="fs-14">
             <tr>
               <th
@@ -109,7 +109,13 @@
                 <label for="nama">Nama</label>
               </div>
               <!-- end form-floating -->
-              <button class="btn btn-dark w-100" data-bs-dismiss="modal" type="submit">Add</button>
+              <button
+                class="btn btn-dark w-100"
+                data-bs-dismiss="modal"
+                type="submit"
+              >
+                Add
+              </button>
             </div>
             <!-- end modal-body -->
           </div>
@@ -153,7 +159,13 @@
                 <!-- <label for="nama">{{edit.data.name}}</label> -->
               </div>
               <!-- end form-floating -->
-              <button class="btn btn-dark w-100" data-bs-dismiss="modal" type="submit">update</button>
+              <button
+                class="btn btn-dark w-100"
+                data-bs-dismiss="modal"
+                type="submit"
+              >
+                update
+              </button>
             </div>
             <!-- end modal-body -->
           </div>
@@ -174,6 +186,8 @@ import Pagination from "v-pagination-3";
 import axios from "axios";
 import $ from "jquery";
 import Swal from "sweetalert2";
+import mitt from "mitt";
+const emitter = mitt();
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
 
@@ -187,8 +201,8 @@ export default {
       page: 1,
       perPage: 6,
       records: [],
-      mitra:[],
-    //   provinsis: [],
+      mitra: [],
+      //   provinsis: [],
       //   edit:'',
       name: "",
     };
@@ -197,7 +211,7 @@ export default {
   methods: {
     showPost() {
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Data telah tersimpan!",
         showConfirmButton: false,
@@ -215,7 +229,7 @@ export default {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           this.deleteMitra(id);
-          Swal.fire("Tersimpan!", "", "success");
+          Swal.fire("Berhasil Terhapus!", "", "success");
         } else if (result.isDenied) {
           Swal.fire("Tidak Tersimpan", "", "info");
         }
@@ -228,9 +242,9 @@ export default {
       axios.get("http://127.0.0.1:8000/api/tipeMitra").then(
         function (response) {
           this.mitra = response.data;
-          $(document).ready(function () {
-            $("#dataTable").DataTable();
-          });
+          setTimeout(() => {
+            $("#dataTipeMitra").DataTable();
+          }, 500);
         }.bind(this)
       );
     },
@@ -239,12 +253,12 @@ export default {
 
       axios.delete("http://127.0.0.1:8000/api/tipeMitra/" + id).then(
         function () {
-          // alert("delete succes");
-          this.getMitra();
+          $("#dataTipeMitra").DataTable().destroy();
+          emitter.emit("refreshPage");
         }.bind(this)
       );
     },
-     showMitra(id) {
+    showMitra(id) {
       // alert(id);
       axios.get("http://127.0.0.1:8000/api/tipeMitra/" + id).then(
         function (response) {
@@ -253,7 +267,7 @@ export default {
         }.bind(this)
       );
     },
-     putMitra(id) {
+    putMitra(id) {
       // alert(id);
       axios
         .post("http://127.0.0.1:8000/api/tipeMitra/" + id, {
@@ -271,14 +285,15 @@ export default {
         });
       this.name = "";
     },
-     postMitra() {
+    postMitra() {
       axios
         .post("http://127.0.0.1:8000/api/tipeMitra", {
           name: this.name,
         })
         .then((response) => {
           this.showPost();
-          this.getMitra();
+          $("#dataTipeMitra").DataTable().destroy();
+          emitter.emit("refreshPage");
           console.log(response);
         })
         .catch((error) => {
@@ -300,6 +315,9 @@ export default {
   created: function () {
     // this.getProvinsis();
     this.getMitra();
+    emitter.on("refreshPage", () => {
+      this.getMitra();
+    });
   },
   computed: {
     displayedRecords() {

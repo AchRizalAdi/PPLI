@@ -20,19 +20,20 @@
     </div>
 
     <!-- {{ memberss }} -->
-    <form @submit.prevent="postWilayah()">
-      <h6 class>Filter DPD</h6>
+    <h6 class="mt-2">Filter DPD</h6>
+    <form class="d-flex" @submit.prevent="postWilayah()">
       <select class="form-control w-25" v-model="wilayah" required>
         <option value="0">All</option>
         <option v-for="item in wilayahss" :value="item.id" :key="item.id">
           {{ item.name }}
         </option>
       </select>
-      <button class="btn btn-sm btn-dark" type="submit">Filter</button>
+      <button class="btn btn-sm btn-dark ms-2" type="submit">Filter</button>
+      <button class="btn btn-dark btn-sm ms-3" @click="refresh()">Refresh</button>
     </form>
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="dataTable">
+        <table class="table mb-0 table-s2" id="dataMembers">
           <thead class="fs-14">
             <tr>
               <th
@@ -308,6 +309,8 @@ import Pagination from "v-pagination-3";
 import axios from "axios";
 import $ from "jquery";
 import Swal from "sweetalert2";
+import mitt from "mitt";
+const emitter = mitt();
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
 
@@ -338,7 +341,7 @@ export default {
   methods: {
     showPost() {
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Data telah tersimpan!",
         showConfirmButton: false,
@@ -362,7 +365,7 @@ export default {
       }).then((result) => {
         if (result.isConfirmed) {
           this.deleteKategori(id);
-          Swal.fire("Tersimpan!", "", "success");
+          Swal.fire("Berhasil Terhapus!", "", "success");
         } else if (result.isDenied) {
           Swal.fire("Tidak Tersimpan", "", "info");
         }
@@ -401,11 +404,17 @@ export default {
           wilayah: this.wilayah,
         })
         .then((response) => {
-          $(document).ready(function () {
-            $("#dataTable").DataTable();
-          });
           this.memberss = response.data.data;
+          setTimeout(() => {
+            $("#dataMembers").DataTable();
+          }, 300);
+          $("#dataMembers").DataTable().destroy();
+          emitter.emit("refreshPage");
         });
+    },
+    refresh(){
+       $("#dataMembers").DataTable().destroy();
+          emitter.emit("refreshPage");
     },
     showKategori(id) {
       axios.get("http://127.0.0.1:8000/api/akun/" + id).then(
@@ -442,7 +451,8 @@ export default {
         })
         .then((response) => {
           this.showPost();
-          // this.$toast.success("berhasil ditambahkan");
+          $("#dataMembers").DataTable().destroy();
+          emitter.emit("refreshPage");
           console.log(response);
         })
         .catch((error) => {
@@ -465,7 +475,8 @@ export default {
     this.getWilayah();
     this.getKategori();
     this.getWilayahs();
-    this.postWilayah();
+    emitter.on("refreshPage", () => {});
+    
   },
   computed: {
     displayedRecords() {

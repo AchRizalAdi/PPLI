@@ -233,6 +233,7 @@ import ShowMemberSection from './components/section/ShowMemberSection.vue';
 import BankSection from './components/section/BankSection.vue';
 import PengumumanSection from './components/section/PengumumanSection.vue';
 import KategoriAkunSection from './components/section/KategoriAkunSection.vue';
+import SettingEmailSection from './components/section/SettingEmailSection.vue';
 
 
 
@@ -242,6 +243,7 @@ app.component('UsersSection', UsersSection);
 app.component('BankSection', BankSection);
 app.component('IuranSection', IuranSection);
 app.component('TransaksiSection', TransaksiSection);
+app.component('SettingEmailSection', SettingEmailSection);
 app.component('KhasSection', KhasSection);
 app.component('LaporanPembukuanSection', LaporanPembukuanSection);
 app.component('RekapBulananSection', RekapBulananSection);

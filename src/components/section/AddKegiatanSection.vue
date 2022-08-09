@@ -4,7 +4,14 @@
       <h3>Tambah Kegiatan</h3>
     </div>
     <!-- end user-panel-title-box -->
-
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb breadcrumb-s1 justify-content-left mb-3">
+        <li class="breadcrumb-item">
+          <router-link to="/kegiatan">Kegiatan</router-link>
+        </li>
+        <li class="breadcrumb-item">Tambah Kegiatan</li>
+      </ol>
+    </nav>
     <div class="profile-setting-panel-wrap">
       <div class="table-responsive">
         <form @submit.prevent="store()">
@@ -23,7 +30,7 @@
           </div>
           <!-- end form-floating -->
           <label for="sifat_kegiatan">Sifat Kegiatan</label>
-          <div class="form-floating mb-3 w-25">
+          <div class="form-floating mb-3">
             <select
               v-model="sifat_kegiatan"
               type="text"
@@ -48,28 +55,31 @@
             <label for="lokasi_kegiatan">Lokasi Kegiatan</label>
           </div>
           <!-- end form-floating -->
-          <div class="form-floating mb-3">
-            <input
-              v-model="tanggal_rencana"
-              type="date"
-              class="form-control"
-              id="tanggal_rencana"
-              placeholder="Tanggal Rencana"
-              required
-            />
-            <label for="tanggal_rencana">Tanggal Rencana</label>
+          <div class="row mt-4">
+            <div class="form-floating col-lg-6 mb-3">
+              <input
+                v-model="tanggal_rencana"
+                type="date"
+                class="form-control"
+                id="tanggal_rencana"
+                placeholder="Tanggal Rencana"
+                required
+              />
+              <label for="tanggal_rencana">Tanggal Rencana</label>
+            </div>
+            <!-- end form-floating -->
+            <div class="form-floating col-lg-6 mb-3">
+              <input
+                v-model="tanggal_realisasi"
+                type="date"
+                class="form-control"
+                id="tanggal_realisasi"
+                placeholder="Tanggal Realisasi"
+              />
+              <label for="tanggal_realisasi">Tanggal Realisasi</label>
+            </div>
           </div>
-          <!-- end form-floating -->
-          <div class="form-floating mb-3">
-            <input
-              v-model="tanggal_realisasi"
-              type="date"
-              class="form-control"
-              id="tanggal_realisasi"
-              placeholder="Tanggal Realisasi"
-            />
-            <label for="tanggal_realisasi">Tanggal Realisasi</label>
-          </div>
+
           <!-- end form-floating -->
           <div class="form-floating mb-3">
             <editor
@@ -104,8 +114,8 @@ import Editor from "@tinymce/tinymce-vue";
 // import { onMounted, ref } from 'vue';
 
 export default {
-    components: {
-    'editor': Editor
+  components: {
+    editor: Editor,
     // Editor,
     // RichTextEditor,
   },

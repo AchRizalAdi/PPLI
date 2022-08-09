@@ -23,7 +23,7 @@
     <!-- {{ khas }} -->
     <div class="profile-setting-panel-wrap">
       <div class="table-responsive">
-        <table class="table mb-0 table-s2" id="dataTable">
+        <table class="table mb-0 table-s2" id="dataKhas">
           <thead class="fs-14">
             <tr>
               <th
@@ -42,7 +42,7 @@
               <td>{{ item.saldo_awal }}</td>
               <td>{{ item.saldo_akhir }}</td>
               <td>{{ item.keterangan }}</td>
-              <td>{{ item.created_at }}</td>
+              <td>{{ item.tanggal }}</td>
               <td>{{ item.edit_by }}</td>
               <td class="row">
                 <button
@@ -279,6 +279,8 @@ import Pagination from "v-pagination-3";
 import axios from "axios";
 import $ from "jquery";
 import Swal from "sweetalert2";
+import mitt from "mitt";
+const emitter = mitt();
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
 
@@ -342,9 +344,9 @@ export default {
       axios.get("http://127.0.0.1:8000/api/khas/index").then(
         function (response) {
           this.khas = response.data;
-          $(document).ready(function () {
-            $("#dataTable").DataTable();
-          });
+           setTimeout(() => {
+            $("#dataKhas").DataTable();
+          }, 100);
         }.bind(this)
       );
     },
@@ -363,8 +365,8 @@ export default {
 
       axios.delete("http://127.0.0.1:8000/api/provinsi/" + id).then(
         function () {
-          // alert("delete succes");
-          this.getProvinsis();
+          $("#dataKhas").DataTable().destroy();
+          emitter.emit("refreshPage");
         }.bind(this)
       );
     },
@@ -429,7 +431,8 @@ export default {
         })
         .then((response) => {
           this.showPost();
-          this.getKhas();
+          $("#dataKhas").DataTable().destroy();
+          emitter.emit("refreshPage");
           console.log(response);
         })
         .catch((error) => {
@@ -451,6 +454,9 @@ export default {
   created: function () {
     this.getKhas();
     this.getKategori();
+     emitter.on("refreshPage", () => {
+      this.getKhas();
+    });
   },
   computed: {
     displayedRecords() {

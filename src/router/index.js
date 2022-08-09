@@ -25,6 +25,15 @@ const routes = [
     component: () => import('../pages/Iuran.vue')
   },
   {
+    path: '/setting-email',
+    name: 'setting-email',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/SettingEmail.vue')
+  },
+  {
     path: '/dpw',
     name: 'dpw',
     meta: {

@@ -6,7 +6,10 @@
     <!-- end user-panel-title-box -->
 
     <!-- {{ cities }} -->
-    <div v-if="checkPrivilege('pengurus-store')" class="d-grid gap-2 d-md-block">
+    <div
+      v-if="checkPrivilege('pengurus-store')"
+      class="d-grid gap-2 d-md-block"
+    >
       <button
         @click="resetnama()"
         type="button"
@@ -20,7 +23,7 @@
     <!-- {{ members }} -->
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="dataTable">
+        <table class="table mb-0 table-s2" id="dataPengurus">
           <thead class="fs-14">
             <tr>
               <th
@@ -133,7 +136,7 @@
                 <label for="username">Username</label>
               </div>
               <!-- <div class="form-floating mb-3 mt-4"> -->
-                <!-- <input
+              <!-- <input
                   type="text"
                   class="form-control"
                   id="status"
@@ -141,12 +144,16 @@
                   v-model="status"
                   required
                 /> -->
-                <label for="status">Status</label>
-                 <select class="form-select mb-3" v-model="status" aria-label="Default select example">
-                                <label>I am i</label>
-                                <option value="Aktif">Aktif</option>
-                                <option value="Tidak Aktif">Tidak Aktif</option>
-                                </select>
+              <label for="status">Status</label>
+              <select
+                class="form-select mb-3"
+                v-model="status"
+                aria-label="Default select example"
+              >
+                <label>I am i</label>
+                <option value="Aktif">Aktif</option>
+                <option value="Tidak Aktif">Tidak Aktif</option>
+              </select>
               <!-- </div> -->
               <!-- end form-floating -->
               <button
@@ -229,12 +236,16 @@
                   v-model="status"
                   required
                 /> -->
-                <label for="status">Status</label>
-                <select class="form-select mb-3" v-model="status" aria-label="Default select example">
-                                <label>I am i</label>
-                                <option value="Aktif">Aktif</option>
-                                <option value="Tidak Aktif">Tidak Aktif</option>
-                                </select>
+              <label for="status">Status</label>
+              <select
+                class="form-select mb-3"
+                v-model="status"
+                aria-label="Default select example"
+              >
+                <label>I am i</label>
+                <option value="Aktif">Aktif</option>
+                <option value="Tidak Aktif">Tidak Aktif</option>
+              </select>
               <!-- </div> -->
               <!-- end form-floating -->
               <button
@@ -264,6 +275,8 @@ import Pagination from "v-pagination-3";
 import axios from "axios";
 import $ from "jquery";
 import Swal from "sweetalert2";
+import mitt from "mitt";
+const emitter = mitt();
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
 
@@ -296,11 +309,14 @@ export default {
 
   methods: {
     resetnama() {
-      this.name = null;
+      this.jabatanId = null;
+      this.memberId = null;
+      this.username = null;
+      this.status = null;
     },
     showPost() {
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Data telah tersimpan!",
         showConfirmButton: false,
@@ -318,7 +334,7 @@ export default {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           this.deletePengurus(id);
-          Swal.fire("Tersimpan!", "", "success");
+          Swal.fire("Berhasil Terhapus!", "", "success");
         } else if (result.isDenied) {
           Swal.fire("Tidak Tersimpan", "", "info");
         }
@@ -329,9 +345,9 @@ export default {
         function (response) {
           this.pengurus = response.data;
           // console.log(this.pengurus);
-          $(document).ready(function () {
-            $("#dataTable").DataTable();
-          });
+          setTimeout(() => {
+            $("#dataPengurus").DataTable();
+          }, 800);
         }.bind(this)
       );
     },
@@ -340,7 +356,7 @@ export default {
         function (response) {
           this.members = response.data.data.map((members) => ({
             value: members.id,
-            text: members.name+" - "+members.cities.name,
+            text: members.name + " - " + members.cities.name,
           }));
         }.bind(this)
       );
@@ -360,8 +376,7 @@ export default {
         function (response) {
           this.jabatans = response.data.data.map((jabatans) => ({
             value: jabatans.id,
-            text: jabatans.name +" - "+jabatans.level ,
-
+            text: jabatans.name + " - " + jabatans.level,
           }));
         }.bind(this)
       );
@@ -376,26 +391,22 @@ export default {
         })
         .then((response) => {
           this.showPost();
-          this.getPengurus();
-          this.$toast.success("berhasil ditambahkan");
+          $("#dataPengurus").DataTable().destroy();
+          emitter.emit("refreshPage");
           console.log(response);
         })
         .catch((error) => {
           this.$toast.error("pengurus sudah ada");
           console.log(error);
         });
-      this.jabatanId = "";
-      this.memberId = "";
-      this.username = "";
-      this.status = "";
     },
 
     deletePengurus(id) {
       // alert(id);
       axios.delete("http://127.0.0.1:8000/api/pengurus/" + id).then(
         function () {
-          this.getPengurus();
-          this.$toast.show("berhasil dihapus");
+          $("#dataPengurus").DataTable().destroy();
+          emitter.emit("refreshPage");
         }.bind(this)
       );
     },
@@ -477,6 +488,9 @@ export default {
     this.getProvinsis();
     this.getCities();
     this.getPengurus();
+    emitter.on("refreshPage", () => {
+      this.getPengurus();
+    });
     this.getMember();
     this.getJabatan();
   },

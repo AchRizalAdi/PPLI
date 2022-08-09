@@ -6,7 +6,10 @@
     <!-- end user-panel-title-box -->
 
     <!-- {{ jabatan}} -->
-    <div v-if="checkPrivilege('provinsi-store')" class="d-grid gap-2 d-md-block">
+    <div
+      v-if="checkPrivilege('provinsi-store')"
+      class="d-grid gap-2 d-md-block"
+    >
       <button
         @click="resetnama()"
         type="button"
@@ -19,7 +22,7 @@
     </div>
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="dataTable">
+        <table class="table mb-0 table-s2" id="dataJabatan">
           <thead class="fs-14">
             <tr>
               <th
@@ -40,7 +43,7 @@
               <td>{{ item.level }}</td>
               <td class="row">
                 <button
-                v-if="checkPrivilege('provinsi-update')"
+                  v-if="checkPrivilege('provinsi-update')"
                   @click="showJabatan(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Edit"
@@ -50,7 +53,7 @@
                   <em class="fa fa-pencil-square-o"></em>
                 </button>
                 <button
-                v-if="checkPrivilege('provinsi-delete')"
+                  v-if="checkPrivilege('provinsi-delete')"
                   @click="showDelete(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Delete"
@@ -120,7 +123,13 @@
               </div>
 
               <!-- end form-floating -->
-              <button class="btn btn-dark w-100" type="submit">Add</button>
+              <button
+                class="btn btn-dark w-100"
+                data-bs-dismiss="modal"
+                type="submit"
+              >
+                Add
+              </button>
             </div>
             <!-- end modal-body -->
           </div>
@@ -203,6 +212,8 @@ import Pagination from "v-pagination-3";
 import axios from "axios";
 import $ from "jquery";
 import Swal from "sweetalert2";
+import mitt from "mitt";
+const emitter = mitt();
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
 
@@ -224,7 +235,7 @@ export default {
   },
 
   methods: {
-      checkPrivilege(privilege) {
+    checkPrivilege(privilege) {
       const permission = localStorage.getItem("permission");
       let status = false;
       JSON.parse(permission).forEach((data) => {
@@ -236,7 +247,7 @@ export default {
     },
     showPost() {
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Data telah tersimpan!",
         showConfirmButton: false,
@@ -254,7 +265,7 @@ export default {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           this.deleteJabatan(id);
-          Swal.fire("Tersimpan!", "", "success");
+          Swal.fire("Berhasil Terhapus!", "", "success");
         } else if (result.isDenied) {
           Swal.fire("Tidak Tersimpan", "", "info");
         }
@@ -268,9 +279,9 @@ export default {
       axios.get("http://127.0.0.1:8000/api/jabatan").then(
         function (response) {
           this.jabatan = response.data;
-          $(document).ready(function () {
-            $("#dataTable").DataTable();
-          });
+          setTimeout(() => {
+            $("#dataJabatan").DataTable();
+          }, 100);
         }.bind(this)
       );
     },
@@ -282,16 +293,14 @@ export default {
         })
         .then((response) => {
           this.showPost();
-          this.getJabatan();
-          this.$toast.show("berhasil ditambahkan");
+          $("#dataJabatan").DataTable().destroy();
+          emitter.emit("refreshPage");
           console.log(response);
         })
         .catch((error) => {
           this.$toast.show("gagal menambahkan");
           console.log(error);
         });
-      this.name = "";
-      this.level = "";
     },
     putJabatan(id) {
       axios
@@ -322,16 +331,19 @@ export default {
       );
     },
     deleteJabatan(id) {
-        axios.delete("http://127.0.0.1:8000/api/jabatan/" + id).then(
-          function () {
-            this.getJabatan();
-            this.$toast.show("berhasil delete");
-          }.bind(this)
-        );
+      axios.delete("http://127.0.0.1:8000/api/jabatan/" + id).then(
+        function () {
+          $("#dataJabatan").DataTable().destroy();
+          emitter.emit("refreshPage");
+        }.bind(this)
+      );
     },
   },
   created: function () {
     this.getJabatan();
+    emitter.on("refreshPage", () => {
+      this.getJabatan();
+    });
   },
   computed: {
     displayedRecords() {

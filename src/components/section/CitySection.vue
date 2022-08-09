@@ -1,7 +1,7 @@
 <template>
   <div class="col-lg-9 ps-xl-5">
     <div class="user-panel-title-box">
-      <h3>{{ SectionData.cityData.mainTitle }}</h3>
+      <h3>Kota</h3>
     </div>
     <!-- end user-panel-title-box -->
 
@@ -19,7 +19,7 @@
     </div>
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="dataTable">
+        <table class="table mb-0 table-s2" id="dataCity">
           <thead class="fs-14">
             <tr>
               <th
@@ -220,6 +220,9 @@ import Pagination from "v-pagination-3";
 import axios from "axios";
 import $ from "jquery";
 import Swal from "sweetalert2";
+
+import mitt from "mitt";
+const emitter = mitt();
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
 
@@ -246,14 +249,20 @@ export default {
   methods: {
     resetnama() {
       this.name = null;
+      this.provinsiId =null;
     },
     showPost() {
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Data telah tersimpan!",
         showConfirmButton: false,
         timer: 1500,
+      });
+    },
+    table() {
+      this.$nextTick(() => {
+        $("#dataCity").DataTable();
       });
     },
     showDelete(id) {
@@ -267,7 +276,7 @@ export default {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           this.deleteCities(id);
-          Swal.fire("Tersimpan!", "", "success");
+          Swal.fire("Berhasil Terhapus!", "", "success");
         } else if (result.isDenied) {
           Swal.fire("Tidak Tersimpan", "", "info");
         }
@@ -281,23 +290,22 @@ export default {
         })
         .then((response) => {
           this.showPost();
-          this.getCities();
-          // this.$toast.success("berhasil ditambahkan");
+          $("#dataCity").DataTable().destroy();
+          emitter.emit("refreshPage");
           console.log(response);
         })
         .catch((error) => {
           this.$toast.error("kota sudah ada");
           console.log(error);
         });
-      this.name = "";
-      this.provinsiId = "";
     },
     deleteCities(id) {
       // alert(id);
       axios.delete("http://127.0.0.1:8000/api/cities/" + id).then(
         function () {
-          this.getCities();
-          this.$toast.show("berhasil delete");
+          $("#dataCity").DataTable().destroy();
+          emitter.emit("refreshPage");
+          // this.$toast.show("berhasil delete");
         }.bind(this)
       );
     },
@@ -344,10 +352,10 @@ export default {
     getCities: function () {
       axios.get("http://127.0.0.1:8000/api/cities").then(
         function (response) {
-          $(document).ready(function () {
-            $("#dataTable").DataTable();
-          });
           this.cities = response.data;
+          setTimeout(() => {
+            $("#dataCity").DataTable();
+          }, 800);
         }.bind(this)
       );
     },
@@ -365,6 +373,9 @@ export default {
   created: function () {
     this.getCities();
     this.getProvinsis();
+    emitter.on("refreshPage", () => {
+      this.getCities();
+    });
   },
   computed: {
     displayedRecords() {

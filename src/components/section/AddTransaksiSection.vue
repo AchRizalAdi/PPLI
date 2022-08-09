@@ -49,29 +49,46 @@
           </div>
           <div class="form-group mb-3">
             <label>Akun</label>
-            <v-select
+            <select
+              class="form-control"
               v-model="AkunId"
-              required
-              :options="akun"
-              :reduce="(akun) => akun.value"
-              label="text"
+              @change="postIuran(AkunId)"
+              id="akunsss"
             >
-            </v-select>
+              <!-- @change="postKeterangan(AkunId)" -->
+              <option
+                v-for="item in akun"
+                :value="item.id"
+                :key="item.id"
+                id="akunsss"
+              >
+                {{ item.nama_akun }}
+              </option>
+            </select>
           </div>
-          <!-- {{ AkunId}} -->
+          <!-- {{ akun}} -->
           <div class="form-group mb-3">
             <label>Anggota</label>
-            <v-select
+            <select
+              class="form-control"
               v-model="MemberId"
-              required
-              :options="member"
-              :reduce="(member) => member.value"
-              label="text"
+              @change="postIuran(MemberId)"
+              id="akunsss"
             >
-            </v-select>
+              <!-- @change="postKeterangan(AkunId)" -->
+              <option
+                v-for="item in member"
+                :value="item.id"
+                :key="item.id"
+                id="membersss"
+              >
+                <!-- @change="postIuran()" -->
+                {{ item.name }}
+              </option>
+            </select>
           </div>
           <!-- end form-floating -->
-            <label>Keterangan</label>
+          <label>Keterangan</label>
           <div class="form-floating mb-3">
             <input
               v-model="keterangan"
@@ -79,10 +96,12 @@
               class="form-control"
               id="keterangan"
               placeholder="Keterangan"
+              label="keterangan"
               required
             />
             <label for="keterangan">Nama Lengkap</label>
           </div>
+          <!-- {{akun.text}} -->
           <!-- end form-floating -->
           <div class="form-floating mb-3">
             <input
@@ -137,10 +156,11 @@ export default {
       jenistransaksi: [],
       AkunId: "",
       akun: [],
-      member:[],
+      member: [],
       MemberId: "",
       keterangan: "",
       jumlah: "",
+      iuran: "",
     };
   },
 
@@ -180,23 +200,35 @@ export default {
     getMember: function () {
       axios.get("http://127.0.0.1:8000/api/transaksi/selectOption/member").then(
         function (response) {
-          this.member = response.data.data.map((member) => ({
-            value: member.id,
-            text: member.name,
-          }));
+          this.member = response.data.data;
         }.bind(this)
       );
     },
     getAkun: function () {
       axios.get("http://127.0.0.1:8000/api/transaksi/selectOption/akun").then(
         function (response) {
-          this.akun = response.data.data.map((akun) => ({
-            value: akun.id,
-            text: akun.nama_akun,
-          }));
+          this.akun = response.data.data;
         }.bind(this)
       );
     },
+    postIuran() {
+      axios
+        .post(
+          "http://127.0.0.1:8000/api/transaksi/iuran/selectOption" , {
+          akun: this.AkunId,
+          MemberId: this.MemberId
+        })
+        .then(
+          function (response) {
+            this.jumlah = response.data;
+            console.log(response)
+          }.bind(this)
+        );
+    },
+    // postKeterangan(AkunId) {
+    //   alert(AkunId)
+    //   this.keterangan = AkunId
+    // },
   },
   created: function () {
     this.getKhas();

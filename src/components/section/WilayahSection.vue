@@ -17,10 +17,10 @@
         Add Wilayah
       </button>
     </div>
-    {{wilayah }}
+    <!-- {{wilayah }} -->
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="dataTable">
+        <table class="table mb-0 table-s2" id="dataWilayah">
           <thead class="fs-14">
             <tr>
               <th
@@ -44,7 +44,7 @@
               <td>{{ item.nomor }}</td>
               <td class="row">
                 <button
-                v-if="checkPrivilege('wilayah-update')"
+                  v-if="checkPrivilege('wilayah-update')"
                   @click="showWilayah(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Edit"
@@ -54,7 +54,7 @@
                   <em class="fa fa-pencil-square-o"></em>
                 </button>
                 <button
-                v-if="checkPrivilege('wilayah-delete')"
+                  v-if="checkPrivilege('wilayah-delete')"
                   @click="showDelete(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Delete"
@@ -248,15 +248,15 @@
               <!-- end form-floating -->
               <div class="form-group mb-2">
                 <label>Kota </label>
-                <select v-model="kota" class="form-control" required>
-                  <option
-                    v-for="data in cities"
-                    :value="data.name"
-                    :key="data.id"
-                  >
-                    {{ data.name }}
-                  </option>
-                </select>
+               
+                <v-select
+                  v-model="kota"
+                  required
+                  :options="cities"
+                  :reduce="(cities) => cities.value"
+                  label="text"
+                >
+                </v-select>
               </div>
               <!-- end form-floating -->
               <div class="form-floating mb-3 mt-4">
@@ -320,6 +320,8 @@ import Pagination from "v-pagination-3";
 import axios from "axios";
 import $ from "jquery";
 import Swal from "sweetalert2";
+import mitt from "mitt";
+const emitter = mitt();
 // import { thisTypeAnnotation } from '@babel/types';
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
@@ -349,13 +351,14 @@ export default {
   methods: {
     showPost() {
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Data telah tersimpan!",
         showConfirmButton: false,
         timer: 1500,
       });
     },
+
     showDelete(id) {
       Swal.fire({
         title: "Apakah anda ingin menghapus data ini?",
@@ -366,8 +369,9 @@ export default {
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
+          // alert(id)
           this.deleteWilayah(id);
-          Swal.fire("Tersimpan!", "", "success");
+          Swal.fire("Berhasil Terhapus!", "", "success");
         } else if (result.isDenied) {
           Swal.fire("Tidak Tersimpan", "", "info");
         }
@@ -386,12 +390,13 @@ export default {
       this.kota = null;
       this.alamat = null;
       this.nomor = null;
+      this.HQ = null;
     },
     deleteWilayah(id) {
       axios.delete("http://127.0.0.1:8000/api/wilayah/" + id).then(
         function () {
-          this.getWilayah();
-          this.$toast.show("berhasil delete");
+          $("#dataWilayah").DataTable().destroy();
+          emitter.emit("refreshPage");
         }.bind(this)
       );
     },
@@ -408,7 +413,8 @@ export default {
         })
         .then((response) => {
           this.showPost();
-          this.getWilayah();
+          $("#dataWilayah").DataTable().destroy();
+          emitter.emit("refreshPage");
           // this.$toast.success("berhasil ditambahkan");
           console.log(response);
         })
@@ -416,8 +422,6 @@ export default {
           this.$toast.error("gagal menambahkan wilayah");
           console.log(error);
         });
-      this.name = "";
-      this.provinsi = "";
     },
     putWilayah(id) {
       axios
@@ -444,12 +448,12 @@ export default {
     },
     getCities: function () {
       axios.get("http://127.0.0.1:8000/api/select/city2").then(
-       function (response) {
+        function (response) {
           this.cities = response.data.map((cities) => ({
             value: cities.id,
             text: cities.name,
           }));
-        } .bind(this)
+        }.bind(this)
       );
     },
     getWilayah: function () {
@@ -457,9 +461,9 @@ export default {
       axios.get("http://127.0.0.1:8000/api/wilayah").then(
         function (response) {
           this.wilayah = response.data;
-          $(document).ready(function () {
-            $("#dataTable").DataTable();
-          });
+          setTimeout(() => {
+            $("#dataWilayah").DataTable();
+          }, 800);
         }.bind(this)
       );
     },
@@ -478,7 +482,7 @@ export default {
         }.bind(this)
       );
     },
-     checkPrivilege(privilege) {
+    checkPrivilege(privilege) {
       const permission = localStorage.getItem("permission");
       let status = false;
       JSON.parse(permission).forEach((data) => {
@@ -490,7 +494,10 @@ export default {
     },
   },
   created: function () {
-    this.getWilayah(), 
+    this.getWilayah(),
+      emitter.on("refreshPage", () => {
+        this.getWilayah();
+      });
     this.getCities();
   },
   computed: {

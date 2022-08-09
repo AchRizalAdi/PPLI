@@ -2,8 +2,16 @@
   <div class="col-lg-9 ps-xl-5">
     <!-- {{ kegiatan }} -->
     <div class="user-panel-title-box">
-      <h3>Tambah Kegiatan</h3>
+      <h3>Edit Kegiatan</h3>
     </div>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb breadcrumb-s1 justify-content-left mb-3">
+        <li class="breadcrumb-item">
+          <router-link to="/kegiatan">Kegiatan</router-link>
+        </li>
+        <li class="breadcrumb-item">Edit Kegiatan</li>
+      </ol>
+    </nav>
     <!-- end user-panel-title-box -->
     <div class="profile-setting-panel-wrap">
       <div class="table-responsive">

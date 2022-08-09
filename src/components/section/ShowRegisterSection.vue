@@ -3,6 +3,14 @@
     <div class="user-panel-title-box">
       <h3>Registrant Profile</h3>
     </div>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb breadcrumb-s1 justify-content-left mb-3">
+        <li class="breadcrumb-item">
+          <router-link to="/offers">Registers</router-link>
+        </li>
+        <li class="breadcrumb-item">Registrant Profile</li>
+      </ol>
+    </nav>
     <!-- end user-panel-title-box -->
     <div class="profile-setting-panel-wrap">
       <div class="tab-content mt-4" id="myTabContent">
@@ -12,7 +20,7 @@
           role="tabpanel"
           aria-labelledby="account-information-tab"
         >
-        <!-- {{register}} -->
+          {{ register }}
           <div class="profile-setting-panel">
             <!-- <h5 class="mb-4">Edit Profile</h5> -->
             <!-- <div class="d-flex align-items-center">
@@ -104,11 +112,16 @@
             </div>
             <div class="mb-3">
               <label for="company" class="form-label">Company Industry</label>
-              <!-- [0].name" -->
-              <!-- {{ industris }} -->
-              <!-- {{ register.company_industry }} -->
-
-              <span></span>
+              <div class="form-group mb-2">
+                <label>Company Industry </label>
+                <v-select
+                  multiple
+                  v-model="companyindustry"
+                  :options="industris"
+                  :reduce="(industris) => industris.value"
+                  label="text"
+                />
+              </div>
             </div>
             <div class="row">
               <div class="col-lg-6 mb-3">

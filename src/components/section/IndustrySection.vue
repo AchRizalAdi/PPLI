@@ -23,7 +23,7 @@
 
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="dataTable">
+        <table class="table mb-0 table-s2" id="dataIndustri">
           <thead class="fs-14">
             <tr>
               <th
@@ -39,7 +39,7 @@
           <tbody class="fs-13">
             <tr v-for="(item, index) in industri.data" :key="item.id">
               <td scope="row">
-                <a href="#">{{ index+1 }}</a>
+                <a href="#">{{ index + 1 }}</a>
               </td>
               <td>{{ item.name }}</td>
               <td class="row">
@@ -112,7 +112,13 @@
                 <label for="nama">Nama</label>
               </div>
               <!-- end form-floating -->
-              <button class="btn btn-dark w-100" data-bs-dismiss="modal" type="submit">Add</button>
+              <button
+                class="btn btn-dark w-100"
+                data-bs-dismiss="modal"
+                type="submit"
+              >
+                Add
+              </button>
             </div>
             <!-- end modal-body -->
           </div>
@@ -156,7 +162,13 @@
                 <!-- <label for="nama">{{edit.data.name}}</label> -->
               </div>
               <!-- end form-floating -->
-              <button class="btn btn-dark w-100" data-bs-dismiss="modal" type="submit">update</button>
+              <button
+                class="btn btn-dark w-100"
+                data-bs-dismiss="modal"
+                type="submit"
+              >
+                update
+              </button>
             </div>
             <!-- end modal-body -->
           </div>
@@ -177,6 +189,8 @@ import Pagination from "v-pagination-3";
 import axios from "axios";
 import $ from "jquery";
 import Swal from "sweetalert2";
+import mitt from "mitt";
+const emitter = mitt();
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
 
@@ -231,19 +245,17 @@ export default {
       axios.get("http://127.0.0.1:8000/api/industry").then(
         function (response) {
           this.industri = response.data;
-          $(document).ready(function () {
-            $("#dataTable").DataTable();
-          });
+          setTimeout(() => {
+            $("#dataIndustri").DataTable();
+          }, 100);
         }.bind(this)
       );
     },
-     deleteIndustri(id) {
-      // alert(id);
-
+    deleteIndustri(id) {
       axios.delete("http://127.0.0.1:8000/api/industry/" + id).then(
         function () {
-          // alert("delete succes");
-          this.getIndustri();
+          $("#dataIndustri").DataTable().destroy();
+          emitter.emit("refreshPage");
         }.bind(this)
       );
     },
@@ -281,14 +293,14 @@ export default {
         })
         .then((response) => {
           this.showPost();
-          this.getIndustri();
+          $("#dataIndustri").DataTable().destroy();
+          emitter.emit("refreshPage");
           console.log(response);
         })
         .catch((error) => {
           alert("industri sudah ada");
           console.log(error);
         });
-      this.name = "";
     },
     checkPrivilege(privilege) {
       const permission = localStorage.getItem("permission");
@@ -303,6 +315,9 @@ export default {
   },
   created: function () {
     this.getIndustri();
+    emitter.on("refreshPage", () => {
+      this.getIndustri();
+    });
   },
   computed: {
     displayedRecords() {

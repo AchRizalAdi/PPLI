@@ -23,7 +23,7 @@
 
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="dataTable">
+        <table class="table mb-0 table-s2" id="dataBank">
           <thead class="fs-14">
             <tr>
               <th
@@ -37,9 +37,6 @@
           </thead>
           <tbody class="fs-13">
             <tr v-for="item in bank.data" :key="item.id">
-              <td scope="row">
-                <a href="#">{{ item.id }}</a>
-              </td>
               <td>{{ item.name }}</td>
               <td class="row">
                 <button
@@ -188,6 +185,8 @@ import Pagination from "v-pagination-3";
 import axios from "axios";
 import $ from "jquery";
 import Swal from "sweetalert2";
+import mitt from "mitt";
+const emitter = mitt();
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
 
@@ -202,14 +201,14 @@ export default {
       perPage: 6,
       records: [],
       bank: [],
-      name: ""
+      name: "",
     };
   },
 
   methods: {
     showPost() {
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Data telah tersimpan!",
         showConfirmButton: false,
@@ -227,7 +226,7 @@ export default {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           this.deleteBank(id);
-          Swal.fire("Tersimpan!", "", "success");
+          Swal.fire("Berhasil Terhapus!", "", "success");
         } else if (result.isDenied) {
           Swal.fire("Tidak Tersimpan", "", "info");
         }
@@ -239,10 +238,11 @@ export default {
     getBank: function () {
       axios.get("http://127.0.0.1:8000/api/bank").then(
         function (response) {
-          $(document).ready(function () {
-            $("#dataTable").DataTable();
-          });
           this.bank = response.data;
+
+          setTimeout(() => {
+            $("#dataBank").DataTable();
+          }, 100);
         }.bind(this)
       );
     },
@@ -251,8 +251,8 @@ export default {
 
       axios.delete("http://127.0.0.1:8000/api/bank/" + id).then(
         function () {
-          // alert("delete succes");
-          this.getBank();
+          $("#dataBank").DataTable().destroy();
+          emitter.emit("refreshPage");
         }.bind(this)
       );
     },
@@ -290,7 +290,8 @@ export default {
         })
         .then((response) => {
           this.showPost();
-          this.getBank();
+          $("#dataBank").DataTable().destroy();
+          emitter.emit("refreshPage");
           console.log(response);
         })
         .catch((error) => {
@@ -312,6 +313,9 @@ export default {
   },
   created: function () {
     this.getBank();
+    emitter.on("refreshPage", () => {
+      this.getBank();
+    });
   },
   computed: {
     displayedRecords() {

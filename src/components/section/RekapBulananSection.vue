@@ -13,7 +13,7 @@
     </nav>
     <!-- end user-panel-title-box -->
     <h6>Tahun</h6>
-    <form class="d-flex" @submit.prevent="postTahun">
+    <form class="d-flex mb-3 mt-1" @submit.prevent="postTahun()">
       <select class="form-control me-2 w-25" v-model="tahun" required>
         <option v-for="item in tahuns" :value="item" :key="item">
           {{ item }}
@@ -84,6 +84,8 @@ import Pagination from "v-pagination-3";
 import axios from "axios";
 import $ from "jquery";
 import Swal from "sweetalert2";
+import mitt from "mitt";
+const emitter = mitt();
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
 
@@ -106,7 +108,7 @@ export default {
   methods: {
     showPost() {
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Data telah tersimpan!",
         showConfirmButton: false,
@@ -124,7 +126,7 @@ export default {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           this.deleteTransak(id);
-          Swal.fire("Tersimpan!", "", "success");
+          Swal.fire("Berhasil Terhapus!", "", "success");
         } else if (result.isDenied) {
           Swal.fire("Tidak Tersimpan", "", "info");
         }
@@ -144,10 +146,12 @@ export default {
         })
         .then((response) => {
           // console.log(response)
-          $(document).ready(function () {
-            $("#dataTable").DataTable();
-          });
           this.rekap = response.data;
+          setTimeout(() => {
+            $("#dataTable").DataTable();
+          }, 300);
+          $("#dataTable").DataTable().destroy();
+          emitter.emit("refreshPage");
         })
         .catch((error) => {
           console.log(error);
@@ -167,6 +171,8 @@ export default {
   created: function () {
     // this.getTransaksi();
     this.getTahun();
+
+    emitter.on("refreshPage", () => {});
     // this.postTahun();
   },
   computed: {

@@ -21,10 +21,10 @@
       </button>
     </div>
     <!-- {{ tanggal }} -->
-    <!-- {{ keterangan }} -->
+    <!-- {{ pengumuman }} -->
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="example">
+        <table class="table mb-0 table-s2" id="dataPeng">
           <thead class="fs-14">
             <tr>
               <th
@@ -159,7 +159,7 @@
                 <option value="Tidak Tampil">Tidak Tampil</option>
               </select>
               <!-- end form-floating -->
-              <button class="btn btn-dark w-100" type="submit">Add</button>
+              <button class="btn btn-dark w-100" data-bs-dismiss="modal" type="submit">Add</button>
             </div>
             <!-- end modal-body -->
           </div>
@@ -193,7 +193,7 @@
             <div class="d-flex flex-row">
               <h4 class="p-2 me-5">Wilayah</h4>
               <h4 class="p-2">:</h4>
-              <p class="p-2 mb-3">{{ wilayah }}</p>
+              <p class="p-2 mb-3">{{ wilayahss }}</p>
             </div>
 
             <div class="d-flex flex-row">
@@ -367,6 +367,9 @@ import axios from "axios";
 import $ from "jquery";
 import Swal from "sweetalert2";
 import Editor from "@tinymce/tinymce-vue";
+
+import mitt from "mitt";
+const emitter = mitt();
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
 
@@ -391,6 +394,7 @@ export default {
       keterangan: "",
       status: "",
       tanggal: "",
+      wilayahss: "",
     };
   },
 
@@ -403,7 +407,7 @@ export default {
     },
     showPost() {
       Swal.fire({
-        position: "top-end",
+        position: "center",
         icon: "success",
         title: "Data telah tersimpan!",
         showConfirmButton: false,
@@ -421,7 +425,7 @@ export default {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
           this.deletePengumuman(id);
-          Swal.fire("Tersimpan!", "", "success");
+          Swal.fire("Berhasil Terhapus!", "", "success");
         } else if (result.isDenied) {
           Swal.fire("Tidak Tersimpan", "", "info");
         }
@@ -441,18 +445,18 @@ export default {
       axios.get("http://127.0.0.1:8000/api/pengumuman").then(
         function (response) {
           this.pengumuman = response.data;
-          $(document).ready(function () {
-            $("#dataTable").DataTable();
-          });
           this.tanggal = response.data.tanggal;
+          setTimeout(() => {
+            $("#dataPeng").DataTable();
+          }, 100);
         }.bind(this)
       );
     },
     deletePengumuman(id) {
       axios.delete("http://127.0.0.1:8000/api/pengumuman/" + id).then(
         function () {
-          // alert("delete succes");
-          this.getPengumuman();
+          $("#dataPeng").DataTable().destroy();
+          emitter.emit("refreshPage");
         }.bind(this)
       );
     },
@@ -486,6 +490,7 @@ export default {
         function (response) {
           this.id = response.data.data.id;
           this.wilayah = response.data.data.wilayah.id;
+          this.wilayahss = response.data.data.wilayah.name
           this.judul = response.data.data.judul;
           this.keterangan = response.data.data.keterangan;
           this.status = response.data.data.status;
@@ -502,7 +507,8 @@ export default {
         })
         .then((response) => {
           this.showPost();
-          this.getPengumuman();
+           $("#dataPeng").DataTable().destroy();
+          emitter.emit("refreshPage");
           console.log(response);
         })
         .catch((error) => {
@@ -524,6 +530,9 @@ export default {
   created: function () {
     this.getPengumuman();
     this.getWilayahs();
+     emitter.on("refreshPage", () => {
+      this.getPengumuman();
+    });
   },
   computed: {
     displayedRecords() {
