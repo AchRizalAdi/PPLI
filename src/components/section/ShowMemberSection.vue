@@ -22,142 +22,49 @@
         >
           <div class="profile-setting-panel">
             <!-- <h5 class="mb-4">Edit Profile</h5> -->
-            <!-- <div class="d-flex align-items-center">
-                            <div class="image-result-area avatar avatar-3">
-                                <img id="image-result" :src="require('@/images/thumb/avatar-9.jpg')" alt="">
-                            </div>  
-                            <input class="upload-image" data-target="image-result" id="upload-image-file" type="file" hidden>
-                            <label for="upload-image-file" class="upload-image-label btn">Update Photo</label>
-                        </div>end d-flex -->
-            <div class="row mt-4">
-              <div class="col-lg-6 mb-3">
-                <label for="displayName" class="form-label">Nama</label>
-                <input
-                  v-model="register.name"
-                  type="text"
-                  id="displayName"
-                  class="form-control form-control-s1"
-                  disabled
+            <div class="d-flex">
+              <div class="img-thumbnail">
+                <img
+                  id="image-result"
+                  :src="require('@/images/thumb/avatar-9.jpg')"
+                  alt=""
                 />
               </div>
-              <!-- end col -->
-              <div class="col-lg-6 mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input
-                  v-model="register.username"
-                  type="text"
-                  id="username"
-                  class="form-control form-control-s1"
-                  disabled
-                />
-              </div>
-              <!-- end col -->
-              <div class="col-lg-6 mb-3">
-                <label for="Email" class="form-label">Email</label>
-                <input
-                  v-model="register.email"
-                  type="email"
-                  id="Email"
-                  class="form-control form-control-s1"
-                  disabled
-                />
-              </div>
-              <!-- end col -->
-              <div class="col-lg-6 mb-3">
-                <label for="nomor" class="form-label">Nomor Handphone</label>
-                <input
-                  v-model="register.PhoneNumber"
-                  type="text"
-                  id="nomor"
-                  class="form-control form-control-s1"
-                  disabled
-                />
-              </div>
-              <!-- end col -->
-            </div>
-            <!-- end row -->
-            <div class="mb-3">
-              <label for="alasan" class="form-label">Alasan</label>
-              <textarea
-                v-model="register.AlasanBergabung"
-                class="form-control form-control-s1"
-                id="alasan"
-                disabled
-              ></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="namaperusahaan" class="form-label"
-                >Nama Perusahaan</label
-              >
               <input
-                v-model="register.NamaPerushaan"
-                type="text"
-                id="namaperusahaan"
-                class="form-control form-control-s1"
-                disabled
+                class="upload-image"
+                data-target="image-result"
+                id="upload-image-file"
+                type="file"
+                hidden
               />
+              <div class="row">
+                <h3 class="ms-3">
+                  {{ register.BentukBadanUsaha }}. {{ register.NamaPerushaan }}
+                </h3>
+                <em class="col-sm icon ni ni-map-pin ms-3"
+                  ><span class="ms-2"
+                    >{{ cities.name }}, {{ prov.name }}</span
+                  ></em
+                >
+                <em class="icon ni ni-call ms-3"
+                  ><span class="ms-2">{{ register.PhoneNumber }}</span></em
+                >
+                <em class="icon ni ni-mail ms-3"
+                  ><span class="ms-2">{{ register.email }}</span></em
+                >
+              </div>
+              <!-- <label for="upload-image-file" class="upload-image-label btn"
+                >Update Photo</label
+              > -->
             </div>
-            <div class="mb-3">
-              <label for="bentukusaha" class="form-label"
-                >Bentuk Badan Usaha</label
-              >
-              <input
-                v-model="register.BentukBadanUsaha"
-                type="text"
-                id="bentukusaha"
-                class="form-control form-control-s1"
-                disabled
-              />
+            <!-- Batas Bawah -->
+            <h4 class="ms-2 mt-3">
+              {{ register.name }}
+            </h4>
+            <div class="ms-2 mt-1">
+              <span class=""> {{ register.AlasanBergabung }}</span>
             </div>
-            <div class="mb-3">
-              <label for="company" class="form-label">Company Industry</label>
-              <!-- [0].name" -->
-              <!-- {{ industris }} -->
-              <!-- {{ register.company_industry }} -->
 
-              <input
-                v-model="industris.name"
-                type="text"
-                id="company"
-                class="form-control form-control-s1"
-                disabled
-              />
-            </div>
-            <div class="row">
-              <div class="col-lg-6 mb-3">
-                <label for="provinsi" class="form-label">Provinsi</label>
-                <input
-                  v-model="prov.name"
-                  type="text"
-                  id="provinsi"
-                  class="form-control form-control-s1"
-                  disabled
-                />
-              </div>
-              <!-- end col -->
-              <div class="col-lg-6 mb-3">
-                <label for="kota" class="form-label">Kota</label>
-                <input
-                  v-model="cities.name"
-                  type="text"
-                  id="kota"
-                  class="form-control form-control-s1"
-                  disabled
-                />
-              </div>
-              <!-- end col -->
-            </div>
-            <!-- end row -->
-            <div class="mb-3">
-              <label for="wilayah" class="form-label">Wilayah</label>
-              <input
-                v-model="wilayahs.name"
-                type="text"
-                id="wilayah"
-                class="form-control form-control-s1"
-                disabled
-              />
-            </div>
             <router-link to="/member" class="btn btn-dark mt-3" type="button"
               >Kembali</router-link
             >

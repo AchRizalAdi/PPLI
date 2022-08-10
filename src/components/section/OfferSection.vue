@@ -114,6 +114,7 @@
                 </button>
               </div>
               <div class="modal-body">
+                <!-- {{status_register}} -->
                 <div class="form-group mb-2">
                   <label>status </label>
                   <select v-model="status" class="form-control" required>
