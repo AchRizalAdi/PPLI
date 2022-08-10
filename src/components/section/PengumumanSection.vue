@@ -402,7 +402,6 @@ export default {
     resetnama() {
       this.wilayah = null;
       this.judul = null;
-      this.keterangan = null;
       this.status = null;
     },
     showPost() {

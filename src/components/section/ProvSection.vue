@@ -3,6 +3,7 @@
     <div class="user-panel-title-box">
       <h3>Provinsi</h3>
     </div>
+    
     <!-- end user-panel-title-box -->
 
     <!-- {{ provinsi }} -->

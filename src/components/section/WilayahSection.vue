@@ -4,7 +4,14 @@
       <h3>{{ SectionData.wilayahData.mainTitle }}</h3>
     </div>
     <!-- end user-panel-title-box -->
-
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb breadcrumb-s1 justify-content-left mb-3">
+        <li class="breadcrumb-item">
+          <router-link to="/pengaturan">Pengaturan</router-link>
+        </li>
+        <li class="breadcrumb-item">Wilayah</li>
+      </ol>
+    </nav>
     <!-- {{ cities}} -->
     <div v-if="checkPrivilege('wilayah-store')" class="d-grid gap-2 d-md-block">
       <button
@@ -248,7 +255,7 @@
               <!-- end form-floating -->
               <div class="form-group mb-2">
                 <label>Kota </label>
-               
+
                 <v-select
                   v-model="kota"
                   required

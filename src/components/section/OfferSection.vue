@@ -3,6 +3,7 @@
     <div class="user-panel-title-box">
       <h3>{{ SectionData.registersData.mainTitle }}</h3>
     </div>
+    <!-- {{kondisi}} -->
     <!-- end user-panel-title-box -->
     <div class="profile-setting-panel-wrap">
       <div class="table-responsive">
@@ -50,7 +51,7 @@
               </td>
               <td>
                 <button
-                  :disabled="item.cekWilayah"
+                  :disabled="item.cekStatus"
                   class="btn btn-primary btn-sm"
                   @click="sendEmail(item.id)"
                   id="pesan"
@@ -179,7 +180,7 @@
                   </div>
                   <!-- end form-floating -->
                 </div>
-                <button class="btn btn-dark w-100" type="submit">Send</button>
+                <button class="btn btn-dark w-100" data-bs-dismiss="modal" type="submit">Send</button>
               </div>
               <!-- end modal-body -->
             </div>
@@ -224,6 +225,7 @@ export default {
       isi_pesan: [],
       data: [],
       cekWilayah: [],
+      // kondisi: ""
     };
   },
 
@@ -266,13 +268,14 @@ export default {
       axios.get("http://127.0.0.1:8000/api/userRegister").then(
         function (response) {
           this.registers = response.data.data;
-          // this.checked = response.data.data;
+          // this.kondisi = response.data.data;
           setTimeout(() => {
             $("#dataReg").DataTable();
           }, 100);
         }.bind(this)
       );
     },
+
     updateStatus(id) {
       // alert(id)
       axios

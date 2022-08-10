@@ -4753,6 +4753,25 @@ faqSidebarData: {
       ],
     }, 
      // transaksi data
+     waterMelonData: {
+      mainTitle: 'Transaksi',
+      waterMelonTableHead: [
+        'Tanggal',
+        'Keterangan',
+        'Jumlah',
+      ],
+    }, 
+      // transaksi data
+      fireMelonData: {
+        mainTitle: 'Iuran',
+        fireMelonTableHead: [
+          'Bulan',
+          'Jumlah',
+          'Status',
+          'Action',
+        ],
+      }, 
+     // transaksi data
      iuranData: {
       mainTitle: 'Iuran',
       iuranTableHead: [

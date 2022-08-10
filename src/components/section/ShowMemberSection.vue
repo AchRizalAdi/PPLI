@@ -15,7 +15,7 @@
     <div class="profile-setting-panel-wrap">
       <div class="tab-content mt-4" id="myTabContent">
         <div
-          class="tab-pane fade show active"
+          class="tab-pane fade show active col-sm"
           id="account-information"
           role="tabpanel"
           aria-labelledby="account-information-tab"
@@ -64,10 +64,154 @@
             <div class="ms-2 mt-1">
               <span class=""> {{ register.AlasanBergabung }}</span>
             </div>
-
-            <router-link to="/member" class="btn btn-dark mt-3" type="button"
-              >Kembali</router-link
+            <!-- Batas Bawah -->
+            <ul
+              class="nav mt-5 nav-tabs nav-tabs-s1 nav-tabs-mobile-size"
+              id="myTab"
+              role="tablist"
             >
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  isActive
+                  id="transaksi-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#transaksi"
+                  type="button"
+                >
+                  Transaksi
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="iuran-tab"
+                  data-bs-toggle="tab"
+                  data-bs-target="#iuran"
+                  type="button"
+                >
+                  Iuran
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content mt-4" id="myTabContent">
+              <div
+                class="tab-pane fade show active"
+                id="transaksi"
+                role="tabpanel"
+                aria-labelledby="transaksi-tab"
+              >
+                <div class="profile-setting-panel">
+                  <section class="category-section" :class="classname">
+                    <div class="container mb-5">
+                      <!-- section heading -->
+                      <h4 class="mb-2">Riwayat Transaksi</h4>
+                      <div class="table">
+                        <table class="table mb-0 table-s2" id="dataTable">
+                          <thead class="fs-14">
+                            <tr>
+                              <th
+                                scope="col"
+                                v-for="(list, i) in SectionData.waterMelonData
+                                  .waterMelonTableHead"
+                                :key="i"
+                              >
+                                {{ list }}
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody class="fs-13">
+                            <tr v-for="item in transaksi" :key="item.id">
+                              <td>{{ item.tanggal }}</td>
+                              <td>{{ item.keterangan }}</td>
+                              <td>{{ item.jumlah }}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+              <div class="tab-content mt-4" id="myTabContent">
+                <!-- {{ iuran }} -->
+                <div
+                  class="tab-pane fade show"
+                  id="iuran"
+                  role="tabpanel"
+                  aria-labelledby="iuran-tab"
+                >
+                  <div class="profile-setting-panel">
+                    <section class="category-section" :class="classname">
+                      <div class="container mb-5">
+                        <!-- section heading -->
+                        <h6 class="me-2">Tahun</h6>
+                        <form
+                          class="d-flex mt-1 mb-3"
+                          @submit.prevent="getIuran()"
+                        >
+                          <v-select
+                            v-model="tahun"
+                            :options="tahuns"
+                            :reduce="(tahuns) => tahuns.value"
+                            label="text"
+                          />
+                          <button
+                            class="btn btn-sm btn-dark ms-2"
+                            type="submit"
+                          >
+                            Cari
+                          </button>
+                        </form>
+                        <h3 class="mb-2">iuran</h3>
+                        <div class="table">
+                          <table class="table mb-0 table-s2" id="dataIuran">
+                            <thead class="fs-14">
+                              <tr>
+                                <th
+                                  scope="col"
+                                  v-for="(list, i) in SectionData.fireMelonData
+                                    .fireMelonTableHead"
+                                  :key="i"
+                                >
+                                  {{ list }}
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody class="fs-13">
+                              <tr v-for="item in iuran" :key="item.id">
+                                <td>{{ item.bulan }}</td>
+                                <td>{{ item.jumlah }}</td>
+                                <td>{{ item.status }}</td>
+                                <!-- <td>{{ item.tanggal }}</td>
+                                <td>{{ item.keterangan }}</td>
+                                <td>{{ item.jumlah }}</td> -->
+                                <!-- <td>{{ item.khas.nama }}</td> -->
+                                <!-- <td>{{ item.akun.nama_akun }}</td> -->
+                                <!-- <td>{{ item.keterangan }}</td>
+                              <td>{{ item.jumlah }}</td> -->
+                                <!-- <td>{{ item.jenis_transaksi }}</td> -->
+                                <td>
+                                  <button
+                                    @click="showIuran(item.id)"
+                                    class="col- icon-btn p-0 m-0"
+                                    title="Edit"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#updateModal"
+                                  >
+                                    <em class="fa fa-pencil-square-o"></em>
+                                  </button>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <!-- end profile-setting-panel -->
         </div>
@@ -76,6 +220,68 @@
       <!-- end tab-content -->
     </div>
     <!-- end profile-setting-panel-wrap-->
+    <form @submit.prevent="putIuran(id)">
+      <div
+        class="modal fade"
+        id="updateModal"
+        tabindex="-1"
+        aria-labelledby="reportModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="reportModalLabel">
+                Update Status Iuran
+              </h4>
+              <button
+                type="button"
+                class="btn-close icon-btn"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                <em class="ni ni-cross"></em>
+              </button>
+            </div>
+            <div class="modal-body">
+              <label>Tanggal Bayar</label>
+              <div class="form-floating mb-3">
+                <input
+                  type="date"
+                  class="form-control"
+                  id="tanggalbayar"
+                  placeholder="Tanggal bayar"
+                  v-model="tanggal_bayar"
+                  required
+                />
+              </div>
+              <!-- {{status}} -->
+              <label for="status">Status</label>
+              <select
+                class="form-select mb-3"
+                v-model="status"
+                aria-label="Default select example"
+              > 
+                <option value="lunas">lunas</option>
+                <option value="belum lunas">belum lunas</option>
+              </select>
+              <!-- end form-floating -->
+              <button
+                class="btn btn-dark w-100"
+                data-bs-dismiss="modal"
+                type="submit"
+              >
+                update
+              </button>
+            </div>
+            <!-- end modal-body -->
+          </div>
+          <!-- end modal-content -->
+        </div>
+        <!-- end modal-dialog -->
+      </div>
+      <!-- end modal-->
+    </form>
   </div>
   <!-- end col-lg-8 -->
 </template>
@@ -84,6 +290,8 @@
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from "@/store/store.js";
 import axios from "axios";
+import $ from "jquery";
+import Swal from "sweetalert2";
 
 export default {
   name: "AccountSection",
@@ -95,6 +303,12 @@ export default {
       cities: [],
       prov: [],
       wilayahs: [],
+      transaksi: [],
+      iuran: [],
+      tahuns: [],
+      tahun: [],
+      tanggal_bayar: "",
+      status: "",
     };
   },
   created() {
@@ -109,18 +323,102 @@ export default {
       });
 
     // this.getIndustris();
+    this.getTransaksi();
+    this.getTahun();
   },
   methods: {
-    // getIndustris: function () {
-    //   axios.get("http://127.0.0.1:8000/api/select/CompanyIndustry").then(
-    //     function (response) {
-    //       this.industris = response.data;
-    //       console.log(this.industris);
-    //     }.bind(this)
-    //   );
+    showPost() {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Data telah tersimpan!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    },
+    getTahun: function () {
+      axios.get("http://127.0.0.1:8000/api/iuran/selectOption").then(
+        function (response) {
+          this.tahuns = response.data.map((tahuns) => ({
+            value: tahuns,
+            text: tahuns,
+          }));
+        }.bind(this)
+      );
+    },
+    getTransaksi: function () {
+      axios
+        .get(
+          `http://127.0.0.1:8000/api/member/transaksi/${this.$route.params.id}`
+        )
+        .then(
+          function (response) {
+            this.transaksi = response.data;
+            setTimeout(() => {
+              $("#dataTable").DataTable();
+            }, 100);
+          }.bind(this)
+        );
+    },
+    getIuran: function () {
+      axios
+        .post(
+          `http://127.0.0.1:8000/api/iuran/updateShow/${this.$route.params.id}`,
+          {
+            tahun: this.tahun,
+          }
+        )
+        .then(
+          function (response) {
+            this.iuran = response.data;
+            setTimeout(() => {
+              $("#dataIuran").DataTable();
+            }, 100);
+          }.bind(this)
+        );
+    },
+    showIuran(id) {
+      axios.get("http://127.0.0.1:8000/api/iuran/showUpdate/" + id).then(
+        function (response) {
+          this.id = response.data.id;
+          this.tanggal_bayar = response.data.tanggal_bayar;
+          this.status = response.data.status;
+        }.bind(this)
+      );
+    },
+    putIuran(id) {
+      // alert(id);
+      axios
+        .post("http://127.0.0.1:8000/api/iuran/update/" + id, {
+          tanggal_bayar: this.tanggal_bayar,
+          status: this.status,
+        })
+        .then((response) => {
+          this.showPost();
+          this.getIuran();
+          // this.$toast.show("berhasil update");
+          console.log(response);
+        })
+        .catch((error) => {
+          this.$toast.error("gagal update");
+          console.log(error);
+        });
+    },
+    // postIuran() {
+    //   axios
+    //     .post("http://127.0.0.1:8000/api/iuran/index", {
+    //       tahun: this.tahun,
+    //     })
+    //     .then((response) => {
+    //       this.memberss = response.data;
+    //       setTimeout(() => {
+    //         $("#dataMembers").DataTable();
+    //       }, 300);
+    //       $("#dataMembers").DataTable().destroy();
+    //       emitter.emit("refreshPage");
+    //     });
     // },
   },
-
   mounted() {
     /*===========SHOW UPLOADED IMAGE ================== */
     function uploadImage(selector) {
