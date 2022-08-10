@@ -4715,6 +4715,27 @@ faqSidebarData: {
       'Action',
     ],
   },
+  // offer register data
+  LogData: {
+    mainTitle: 'Log Register',
+    LogTableHead: [
+      '#',
+      'Name',
+      'Email',
+      // 'Username',
+      'Nama Perusahaan',
+      'Phone Number',
+      'Register Date',
+      // 'Company Industri',
+      // 'Wilayah',
+      // 'Kota',
+      // 'Bentuk Badan Usaha',
+      // 'Alasan Bergabung',
+      // 'Status',
+      // 'Pesan',
+      // 'Action',
+    ],
+  },
   // User Management data
   userMData: {
     mainTitle: 'userM',

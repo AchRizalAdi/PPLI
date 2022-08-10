@@ -55,7 +55,7 @@
           </table>
           <!-- BUTTON -->
           <router-link
-            to="/pengaturan"
+            to="/group"
             type="button"
             class="btn btn-sm btn-dark"
             >Kembali</router-link

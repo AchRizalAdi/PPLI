@@ -3,7 +3,14 @@
     <div class="user-panel-title-box">
       <h3>Provinsi</h3>
     </div>
-    
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb breadcrumb-s1 justify-content-left mb-3">
+        <li class="breadcrumb-item">
+          <router-link to="/pengaturan">Pengaturan</router-link>
+        </li>
+        <li class="breadcrumb-item">Provinsi</li>
+      </ol>
+    </nav>
     <!-- end user-panel-title-box -->
 
     <!-- {{ provinsi }} -->

@@ -24,7 +24,7 @@
     <!-- {{ pengumuman }} -->
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="dataPeng">
+        <table class="table mb-0 table-s2" id="dataPengg">
           <thead class="fs-14">
             <tr>
               <th
@@ -446,7 +446,7 @@ export default {
           this.pengumuman = response.data;
           this.tanggal = response.data.tanggal;
           setTimeout(() => {
-            $("#dataPeng").DataTable();
+            $("#dataPengg").DataTable();
           }, 100);
         }.bind(this)
       );
@@ -454,7 +454,7 @@ export default {
     deletePengumuman(id) {
       axios.delete("http://127.0.0.1:8000/api/pengumuman/" + id).then(
         function () {
-          $("#dataPeng").DataTable().destroy();
+          $("#dataPengg").DataTable().destroy();
           emitter.emit("refreshPage");
         }.bind(this)
       );
@@ -506,7 +506,7 @@ export default {
         })
         .then((response) => {
           this.showPost();
-           $("#dataPeng").DataTable().destroy();
+          $("#dataPengg").DataTable().destroy();
           emitter.emit("refreshPage");
           console.log(response);
         })

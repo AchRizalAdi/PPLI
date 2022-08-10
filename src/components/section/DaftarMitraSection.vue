@@ -306,7 +306,6 @@ export default {
       this.kontakId = null;
       this.tipe_mitra = null;
       this.tanggal_bergabung = null;
-      this.deskripsi = null;
     },
     getKontak: function () {
       axios.get("http://127.0.0.1:8000/api/mitra/selectOption").then(

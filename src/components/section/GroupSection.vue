@@ -4,7 +4,14 @@
       <h3>Group</h3>
     </div>
     <!-- end user-panel-title-box -->
-
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb breadcrumb-s1 justify-content-left mb-3">
+        <li class="breadcrumb-item">
+          <router-link to="/pengaturan">Pengaturan</router-link>
+        </li>
+        <li class="breadcrumb-item">Group</li>
+      </ol>
+    </nav>
     <!-- {{ cities }} -->
     <div class="d-grid gap-2 d-md-block">
       <button
@@ -43,6 +50,7 @@
                 ></router-link>
                 <!-- <button  @click="showRoles(item.id)" class="col- p-0 m-0 icon-btn" title="Edit" data-bs-toggle="modal"  data-bs-target="#editModal"><em class="ni ni-file" ></em></button> -->
                 <button
+                 v-if="item.cekRoles"
                   @click="showDelete(item.id)"
                   class="col- p-0 m-0 icon-btn"
                   title="Delete"
@@ -100,7 +108,13 @@
                 <label for="nama">Name</label>
               </div>
               <!-- end form-floating -->
-              <button class="btn btn-dark w-100" data-bs-dismiss="modal" type="submit">Add</button>
+              <button
+                class="btn btn-dark w-100"
+                data-bs-dismiss="modal"
+                type="submit"
+              >
+                Add
+              </button>
             </div>
             <!-- end modal-body -->
           </div>

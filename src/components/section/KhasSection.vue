@@ -4,7 +4,14 @@
       <h3>Data Kas</h3>
     </div>
     <!-- end user-panel-title-box -->
-
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb breadcrumb-s1 justify-content-left mb-3">
+        <li class="breadcrumb-item">
+          <router-link to="/pengaturan">Pengaturan</router-link>
+        </li>
+        <li class="breadcrumb-item">Data Kas</li>
+      </ol>
+    </nav>
     <!-- {{ provinsi }} -->
     <div
       v-if="checkPrivilege('provinsi-store')"
@@ -44,7 +51,7 @@
               <td>{{ item.keterangan }}</td>
               <td>{{ item.tanggal }}</td>
               <td>{{ item.edit_by }}</td>
-              <td class="row">
+              <td >
                 <button
                   v-if="checkPrivilege('provinsi-update')"
                   @click="showKhas(item.id)"
@@ -55,14 +62,14 @@
                 >
                   <em class="fa fa-pencil-square-o"></em>
                 </button>
-                <button
+                <!-- <button
                   v-if="checkPrivilege('provinsi-delete')"
                   @click="showDelete(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Delete"
                 >
                   <em class="ni ni-trash"></em>
-                </button>
+                </button> -->
               </td>
             </tr>
           </tbody>
@@ -185,7 +192,7 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title" id="reportModalLabel">update provinsi</h4>
+              <h4 class="modal-title" id="reportModalLabel">update khas</h4>
               <button
                 type="button"
                 class="btn-close icon-btn"
@@ -218,7 +225,7 @@
                 />
                 <label for="nama">Nama</label>
               </div>
-              <div class="form-floating mb-3">
+              <!-- <div class="form-floating mb-3">
                 <input
                   type="number"
                   class="form-control"
@@ -228,7 +235,7 @@
                   required
                 />
                 <label for="jumlah">Jumlah</label>
-              </div>
+              </div> -->
               <div class="form-group mb-3">
                 <label>Kode Akun </label>
                 <v-select
@@ -344,7 +351,7 @@ export default {
       axios.get("http://127.0.0.1:8000/api/khas/index").then(
         function (response) {
           this.khas = response.data;
-           setTimeout(() => {
+          setTimeout(() => {
             $("#dataKhas").DataTable();
           }, 100);
         }.bind(this)
@@ -370,7 +377,7 @@ export default {
         }.bind(this)
       );
     },
-      deleteKhas(id) {
+    deleteKhas(id) {
       // alert(id);
 
       axios.delete("http://127.0.0.1:8000/api/khas/" + id).then(
@@ -381,7 +388,7 @@ export default {
       );
     },
 
-     showKhas(id) {
+    showKhas(id) {
       // alert(id);
       axios.get("http://127.0.0.1:8000/api/khas/" + id).then(
         function (response) {
@@ -395,7 +402,7 @@ export default {
         }.bind(this)
       );
     },
- 
+
     putKhas(id) {
       // alert(id);
       axios
@@ -403,8 +410,6 @@ export default {
           kode: this.kode,
           kode_akun: this.kode_akun,
           nama: this.nama,
-          saldo_awal: this.saldo_awal,
-          saldo_akhir: this.saldo_awal,
           keterangan: this.keterangan,
         })
         .then((response) => {
@@ -418,7 +423,7 @@ export default {
           console.log(error);
         });
     },
- 
+
     postKhas() {
       axios
         .post("http://127.0.0.1:8000/api/khas", {
@@ -454,7 +459,7 @@ export default {
   created: function () {
     this.getKhas();
     this.getKategori();
-     emitter.on("refreshPage", () => {
+    emitter.on("refreshPage", () => {
       this.getKhas();
     });
   },

@@ -4,7 +4,14 @@
       <h3>Kota</h3>
     </div>
     <!-- end user-panel-title-box -->
-
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb breadcrumb-s1 justify-content-left mb-3">
+        <li class="breadcrumb-item">
+          <router-link to="/pengaturan">Pengaturan</router-link>
+        </li>
+        <li class="breadcrumb-item">Kota</li>
+      </ol>
+    </nav>
     <!-- {{ cities }} -->
     <div v-if="checkPrivilege('cities-store')" class="d-grid gap-2 d-md-block">
       <button
@@ -14,7 +21,7 @@
         data-bs-toggle="modal"
         data-bs-target="#addModal"
       >
-        Add City
+        Tambah Kota
       </button>
     </div>
     <div class="profile-setting-panel-wrap">
@@ -85,7 +92,7 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title" id="reportModalLabel">Add Provinsi</h4>
+              <h4 class="modal-title" id="reportModalLabel">Tambah Kota</h4>
               <button
                 type="button"
                 class="btn-close icon-btn"
@@ -249,7 +256,7 @@ export default {
   methods: {
     resetnama() {
       this.name = null;
-      this.provinsiId =null;
+      this.provinsiId = null;
     },
     showPost() {
       Swal.fire({

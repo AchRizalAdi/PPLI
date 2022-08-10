@@ -4,7 +4,14 @@
       <h3>Edit Transaksi</h3>
     </div>
     <!-- end user-panel-title-box -->
-
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb breadcrumb-s1 justify-content-left mb-3">
+        <li class="breadcrumb-item">
+          <router-link to="/transaksi">Transaksi</router-link>
+        </li>
+        <li class="breadcrumb-item">Edit Transaksi</li>
+      </ol>
+    </nav>
     <div class="profile-setting-panel-wrap">
       <div class="table-responsive">
         <form @submit.prevent="updateTransaksi">
@@ -152,7 +159,7 @@ export default {
       axios
         .post(
           `http://127.0.0.1:8000/api/transaksi/${this.$route.params.id}`,
-          this.transaksi,
+          this.transaksi
         )
         .then((res) => {
           this.$router.push({ name: "transaksi" });

@@ -4,7 +4,14 @@
       <h3>Kategori Akun</h3>
     </div>
     <!-- end user-panel-title-box -->
-
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb breadcrumb-s1 justify-content-left mb-3">
+        <li class="breadcrumb-item">
+          <router-link to="/pengaturan">Pengaturan</router-link>
+        </li>
+        <li class="breadcrumb-item">Kategori Akun</li>
+      </ol>
+    </nav>
     <!-- {{ provinsi }} -->
     <!-- v-if="checkPrivilege('dpw-store')" -->
     <div class="d-grid gap-2 d-md-block">
@@ -29,7 +36,9 @@
         </option>
       </select>
       <button class="btn btn-sm btn-dark ms-2" type="submit">Filter</button>
-      <button class="btn btn-dark btn-sm ms-3" @click="refresh()">Refresh</button>
+      <button class="btn btn-dark btn-sm ms-3" @click="refresh()">
+        Refresh
+      </button>
     </form>
     <div class="profile-setting-panel-wrap">
       <div class="table">
@@ -412,9 +421,9 @@ export default {
           emitter.emit("refreshPage");
         });
     },
-    refresh(){
-       $("#dataMembers").DataTable().destroy();
-          emitter.emit("refreshPage");
+    refresh() {
+      $("#dataMembers").DataTable().destroy();
+      emitter.emit("refreshPage");
     },
     showKategori(id) {
       axios.get("http://127.0.0.1:8000/api/akun/" + id).then(
@@ -476,7 +485,6 @@ export default {
     this.getKategori();
     this.getWilayahs();
     emitter.on("refreshPage", () => {});
-    
   },
   computed: {
     displayedRecords() {

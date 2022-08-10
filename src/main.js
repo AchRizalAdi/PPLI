@@ -80,6 +80,7 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 import HeaderMain from './components/common/HeaderMain.vue';
 import UsersSection from './components/section/UsersSection.vue';
 import IuranSection from './components/section/IuranSection.vue';
+import LogSection from './components/section/LogSection.vue';
 import EditTransaksiSection from './components/section/EditTransaksiSection.vue';
 import KhasSection from './components/section/KhasSection.vue';
 import LaporanPembukuanSection from './components/section/LaporanPembukuanSection.vue';
@@ -242,6 +243,7 @@ app.component('HeaderMain', HeaderMain);
 app.component('UsersSection', UsersSection);
 app.component('BankSection', BankSection);
 app.component('IuranSection', IuranSection);
+app.component('LogSection', LogSection);
 app.component('TransaksiSection', TransaksiSection);
 app.component('SettingEmailSection', SettingEmailSection);
 app.component('KhasSection', KhasSection);

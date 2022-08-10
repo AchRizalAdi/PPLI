@@ -5,6 +5,18 @@
     </div>
     <!-- {{kondisi}} -->
     <!-- end user-panel-title-box -->
+    <div class="d-flex flex-row">
+      <div class="d-grid ms-1 gap-2 d-md-block">
+        <router-link
+          to="/log"
+          type="button"
+          class="btn btn-sm btn-dark mb-3"
+        >
+          Log Register
+        </router-link>
+      </div>
+    </div>
+
     <div class="profile-setting-panel-wrap">
       <div class="table-responsive">
         <table class="table mb-0 table-s2" id="dataReg">
@@ -180,7 +192,13 @@
                   </div>
                   <!-- end form-floating -->
                 </div>
-                <button class="btn btn-dark w-100" data-bs-dismiss="modal" type="submit">Send</button>
+                <button
+                  class="btn btn-dark w-100"
+                  data-bs-dismiss="modal"
+                  type="submit"
+                >
+                  Send
+                </button>
               </div>
               <!-- end modal-body -->
             </div>

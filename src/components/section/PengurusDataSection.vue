@@ -4,7 +4,14 @@
       <h3>Pengurus</h3>
     </div>
     <!-- end user-panel-title-box -->
-
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb breadcrumb-s1 justify-content-left mb-3">
+        <li class="breadcrumb-item">
+          <router-link to="/pengaturan">Pengaturan</router-link>
+        </li>
+        <li class="breadcrumb-item">Pengurus</li>
+      </ol>
+    </nav>
     <!-- {{ cities }} -->
     <div
       v-if="checkPrivilege('pengurus-store')"
