@@ -12,23 +12,7 @@
       </ol>
     </nav>
     <!-- end user-panel-title-box -->
-    <div>
-      <div
-        class="btn btn-sm btn-dark ms-1"
-        @click="showMember(register.id)"
-        type="button"
-        data-bs-toggle="modal"
-        data-bs-target="#messageModal"
-      >
-        Edit
-      </div>
-      <div>
-        <form @submit.prevent="postGambar()" enctype="multipart/form-data">
-          <input type="file" class="ms-2" @change="editGambar($event)" />
-          <button type="submit" class="btn btn-dark btn-sm">Submit</button>
-        </form>
-      </div>
-    </div>
+    <!-- {{ gambar }} -->
 
     <div class="profile-setting-panel-wrap">
       <div class="tab-content mt-3" id="myTabContent">
@@ -42,19 +26,15 @@
             <!-- <h5 class="mb-4">Edit Profile</h5> -->
             <div class="d-flex">
               <div class="img-thumbnail">
-                <img
-                  id="image-result"
-                  :src="require('@/images/thumb/avatar-9.jpg')"
-                  alt=""
-                />
+                <img :src="path + gambar" width="200" />
               </div>
-              <input
+              <!-- <input
                 class="upload-image"
                 data-target="image-result"
                 id="upload-image-file"
                 type="file"
                 hidden
-              />
+              /> -->
               <div class="row">
                 <h3 class="ms-3">
                   {{ register.BentukBadanUsaha }}. {{ register.NamaPerushaan }}
@@ -84,12 +64,30 @@
             <span class="ms-2 mt-1">
               <strong>Anggota</strong> {{ register.status }}
             </span>
+            <br />
+            <router-link
+              :to="{ name: 'edit-member', params: register.id }"
+              class="btn btn-sm btn-dark mt-5"
+              title="Edit"
+              >Edit</router-link
+            >
+            <!-- <div>
+              <form
+                @submit.prevent="postGambar()"
+                enctype="multipart/form-data"
+              >
+                <input type="file" class="ms-2" @change="editGambar($event)" />
+                <button type="submit" class="btn btn-dark btn-sm">
+                  Submit
+                </button>
+              </form>
+            </div> -->
             <!-- <div class="ms-2 mt-1">
               <span class=""> {{ register.AlasanBergabung }}</span>
             </div> -->
             <!-- Batas Bawah -->
             <ul
-              class="nav mt-5 nav-tabs nav-tabs-s1 nav-tabs-mobile-size"
+              class="nav mt-3 nav-tabs nav-tabs-s1 nav-tabs-mobile-size"
               id="myTab"
               role="tablist"
             >
@@ -341,6 +339,7 @@ export default {
       KotaId: [],
       provinsiId: [],
       email: "",
+      path: "",
     };
   },
   created() {
@@ -368,6 +367,7 @@ export default {
         .get(`http://127.0.0.1:8000/api/member/gambar/${this.$route.params.id}`)
         .then((res) => {
           this.gambar = res.data;
+          this.path = "http://127.0.0.1:8000";
           console.log(res);
         });
     },

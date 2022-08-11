@@ -8,13 +8,26 @@
         <li class="breadcrumb-item">
           <router-link to="/member">Member</router-link>
         </li>
+        <li class="breadcrumb-item">
+          <router-link :to="{ name: 'show-member', params: id }"
+            >Detail Member</router-link
+          >
+        </li>
         <li class="breadcrumb-item">Edit Member</li>
       </ol>
     </nav>
+    <img :src="previewimg" v-if="previewimg" class="mb-2" width="200" />
+
+    <h5 class="mb-1">Foto</h5>
+    <div class="form-floating mb-3">
+      <form @submit.prevent="postGambar()" enctype="multipart/form-data">
+        <input type="file" class="ms-6" @change="editGambar($event)" />
+        <button type="submit" class="btn btn-dark btn-sm">Submit</button>
+      </form>
+    </div>
     <!-- {{ gambar }} -->
     <!-- <label class="form-label" for="logo">Foto</label>
       <div class="mb-4">
-        <img :src="previewimg" v-if="previewimg" class="mb-2" width="200" />
         <input type="file" class="form-control" @change="upload($event)" />
       </div> -->
     <form @submit.prevent="updateMember()">
@@ -93,7 +106,10 @@
       </select>
       <!-- {{status}} -->
       <!-- </div> -->
-      <router-link to="/member" type="button" class="btn btn-sm btn-dark"
+      <router-link
+        :to="{ name: 'show-member', params: id }"
+        type="button"
+        class="btn btn-sm btn-dark"
         >Kembali</router-link
       >
       <button class="btn btn-sm btn-success w-20 ms-2" type="submit">
@@ -134,6 +150,24 @@ export default {
     this.getMember();
   },
   methods: {
+    postGambar() {
+      let formData = new FormData();
+
+      formData.append("gambar", this.gambar);
+      axios
+        .post(
+          `http://127.0.0.1:8000/api/member/gambar/${this.$route.params.id}`,
+          formData
+        )
+        .then((res) => {
+          this.$toast.success("gambar berhasil di update");
+          console.log(res);
+        });
+    },
+    editGambar(e) {
+      this.gambar = e.target.files[0];
+      this.previewimg = URL.createObjectURL(e.target.files[0]);
+    },
     getMember() {
       axios
         .get(`http://127.0.0.1:8000/api/member/show/${this.$route.params.id}`)
@@ -171,7 +205,7 @@ export default {
           }
         )
         .then((res) => {
-          this.$router.push({ name: "member" });
+          this.$router.push({ name: "show-member", params: res.data.id });
           this.$toast.success("Member berhasil di update");
           console.log(res);
         });

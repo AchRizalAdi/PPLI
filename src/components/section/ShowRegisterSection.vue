@@ -110,17 +110,12 @@
                 disabled
               />
             </div>
-            <div class="mb-3">
-              <label for="company" class="form-label">Company Industry</label>
-              <div class="form-group mb-2">
-                <label>Company Industry </label>
-                <v-select
-                  multiple
-                  v-model="companyindustry"
-                  :options="industris"
-                  :reduce="(industris) => industris.value"
-                  label="text"
-                />
+            <div class="">
+              <!-- <label for="company" class="form-label">Company Industry</label> -->
+              <div class="form-group">
+                <h6 class="">Company Industry</h6>
+
+                <p class="form-control mt-1 mb-2" disabled>{{ industris.name }}</p>
               </div>
             </div>
             <div class="row">
@@ -195,7 +190,7 @@ export default {
       .get(`http://127.0.0.1:8000/api/register/show/${this.$route.params.id}`)
       .then((res) => {
         this.register = res.data[0];
-        this.industris = res.data[0].company_industry;
+        this.industris = res.data[0].company_industry[0];
         this.prov = res.data[0].provinsi;
         this.cities = res.data[0].cities;
         this.wilayahs = res.data[0].wilayah;
