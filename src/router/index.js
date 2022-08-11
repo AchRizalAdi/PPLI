@@ -88,6 +88,15 @@ const routes = [
     component: () => import('../pages/EditTransaksi.vue')
   },
   {
+    path: '/edit-member/:id',
+    name: 'edit-member',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+   },
+    component: () => import('../pages/EditMember.vue')
+  },
+  {
     path: '/member',
     name: 'member',
     meta: {

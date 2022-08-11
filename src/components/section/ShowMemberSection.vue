@@ -12,8 +12,17 @@
       </ol>
     </nav>
     <!-- end user-panel-title-box -->
+    <div
+      class="btn btn-sm btn-dark ms-1"
+      @click="showMember(register.id)"
+      type="button"
+      data-bs-toggle="modal"
+      data-bs-target="#messageModal"
+    >
+      Edit
+    </div>
     <div class="profile-setting-panel-wrap">
-      <div class="tab-content mt-4" id="myTabContent">
+      <div class="tab-content mt-3" id="myTabContent">
         <div
           class="tab-pane fade show active col-sm"
           id="account-information"
@@ -43,7 +52,8 @@
                 </h3>
                 <em class="col-sm icon ni ni-map-pin ms-3"
                   ><span class="ms-2"
-                    >{{ cities.name }}, {{ prov.name }}</span
+                    >{{ register.alamat }} {{ cities.name }},
+                    {{ prov.name }}</span
                   ></em
                 >
                 <em class="icon ni ni-call ms-3"
@@ -61,9 +71,13 @@
             <h4 class="ms-2 mt-3">
               {{ register.name }}
             </h4>
-            <div class="ms-2 mt-1">
+
+            <span class="ms-2 mt-1">
+              <strong>Anggota</strong> {{ register.status }}
+            </span>
+            <!-- <div class="ms-2 mt-1">
               <span class=""> {{ register.AlasanBergabung }}</span>
-            </div>
+            </div> -->
             <!-- Batas Bawah -->
             <ul
               class="nav mt-5 nav-tabs nav-tabs-s1 nav-tabs-mobile-size"
@@ -223,7 +237,7 @@
     <form @submit.prevent="putIuran(id)">
       <div
         class="modal fade"
-        id="updateModal"
+        id="messageModal"
         tabindex="-1"
         aria-labelledby="reportModalLabel"
         aria-hidden="true"
@@ -261,7 +275,7 @@
                 class="form-select mb-3"
                 v-model="status"
                 aria-label="Default select example"
-              > 
+              >
                 <option value="lunas">lunas</option>
                 <option value="belum lunas">belum lunas</option>
               </select>
@@ -309,17 +323,24 @@ export default {
       tahun: [],
       tanggal_bayar: "",
       status: "",
+      gambar: "",
+      NamaPerushaan: "",
+      PhoneNumber: "",
+      alamat: "",
+      name: "",
+      BentukBadanUsaha: "",
+      KotaId: [],
+      provinsiId: [],
+      email: "",
     };
   },
   created() {
     axios
-      .get(`http://127.0.0.1:8000/api/register/show/${this.$route.params.id}`)
+      .get(`http://127.0.0.1:8000/api/member/show/${this.$route.params.id}`)
       .then((res) => {
-        this.register = res.data[0];
-        this.industris = res.data[0].company_industry[0];
-        this.prov = res.data[0].provinsi;
-        this.cities = res.data[0].cities;
-        this.wilayahs = res.data[0].wilayah;
+        this.register = res.data.data;
+        this.cities = res.data.data.cities;
+        this.prov = res.data.data.provinsi;
       });
 
     // this.getIndustris();
@@ -327,6 +348,11 @@ export default {
     this.getTahun();
   },
   methods: {
+    // showMember() {
+    //   axios.post("http://127.0.0.1:8000/api/member/wlayah/show", {
+    //     wilayah : this.wilayah
+    //   });
+    // },
     showPost() {
       Swal.fire({
         position: "center",
@@ -383,6 +409,22 @@ export default {
           this.id = response.data.id;
           this.tanggal_bayar = response.data.tanggal_bayar;
           this.status = response.data.status;
+        }.bind(this)
+      );
+    },
+    showMember(id) {
+      // alert(id);a
+      axios.get("http://127.0.0.1:8000/api/member/show/" + id).then(
+        function (response) {
+          this.id = response.data.id;
+          this.gambar = response.data.gambar;
+          this.NamaPerushaan = response.data.NamaPerushaan;
+          this.PhoneNumber = response.data.PhoneNumber;
+          this.status = response.data.status;
+          this.alamat = response.data.alamat;
+          this.name = response.data.name;
+          this.BentukBadanUsaha = response.data.BentukBadanUsaha;
+          this.email = response.data.email;
         }.bind(this)
       );
     },

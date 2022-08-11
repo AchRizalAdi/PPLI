@@ -3,7 +3,7 @@
     <div class="user-panel-title-box">
       <h3>Member</h3>
     </div>
-    
+
     <!-- end user-panel-title-box -->
 
     <!-- {{ provinsi }} -->
@@ -22,8 +22,8 @@
       </button>
     </div> -->
     <!-- {{ memberss }} -->
-
-    <!-- {{ memberss }} -->
+    <!-- {{wilayahss}} -->
+    <!-- {{ membersss }} -->
     <h6 class>Filter DPD</h6>
     <form class="d-flex mb-3 mt-1" @submit.prevent="postWilayah()">
       <select class="form-control me-2 w-25" v-model="wilayah" required>
@@ -50,17 +50,17 @@
             </tr>
           </thead>
           <tbody class="fs-13">
-            <tr v-for="(item, index) in memberss" :key="item.id">
+            <tr v-for="(item, index) in membersss" :key="item.id">
               <td scope="row">
                 <a href="#">{{ index + 1 }}</a>
               </td>
               <td>{{ item.name }}</td>
-              <td>{{ item.wilayah.name }}</td>
-              <td>{{ item.cities.name }}</td>
+              <td>{{ item.wilayah }}</td>
               <td>{{ item.PhoneNumber }}</td>
               <td>{{ item.email }}</td>
               <td>
                 <router-link
+                  v-if="item.cekWilayah"
                   :to="{ name: 'show-member', params: { id: item.id } }"
                   class="col- p-0 m-0 icon-btn btn-sm"
                   title="Edit"
@@ -127,6 +127,7 @@ export default {
       perPage: 6,
       records: [],
       memberss: [],
+      membersss: [],
       wilayahss: [],
       wilayah: [],
     };
@@ -155,7 +156,7 @@ export default {
           wilayah: this.wilayah,
         })
         .then((response) => {
-          this.memberss = response.data.data;
+          this.membersss = response.data.data;
           setTimeout(() => {
             $("#dataTable").DataTable();
           }, 300);
