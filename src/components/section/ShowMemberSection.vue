@@ -57,20 +57,32 @@
               > -->
             </div>
             <!-- Batas Bawah -->
-            <h4 class="ms-2 mt-3">
+            <span class="ms-2 mt-3">
+              <strong>Nama Anggota</strong>
               {{ register.name }}
-            </h4>
-
+            </span>
+            <br />
             <span class="ms-2 mt-1">
               <strong>Anggota</strong> {{ register.status }}
             </span>
             <br />
             <router-link
               :to="{ name: 'edit-member', params: register.id }"
-              class="btn btn-sm btn-dark mt-5"
+              class="btn btn-sm btn-dark mt-3 mb-2"
               title="Edit"
-              >Edit</router-link
+              >Edit Data</router-link
             >
+            <div class="d-grid gap-2 d-md-block">
+              <button
+                @click="resetnama()"
+                type="button"
+                class="btn btn-dark btn-sm mb-2"
+                data-bs-toggle="modal"
+                data-bs-target="#messageModal"
+              >
+                Ubah Foto
+              </button>
+            </div>
             <!-- <div>
               <form
                 @submit.prevent="postGambar()"
@@ -241,7 +253,7 @@
       <!-- end tab-content -->
     </div>
     <!-- end profile-setting-panel-wrap-->
-    <form @submit.prevent="putIuran(id)">
+    <form @submit.prevent="postGambar()" enctype="multipart/form-data">
       <div
         class="modal fade"
         id="messageModal"
@@ -252,9 +264,7 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title" id="reportModalLabel">
-                Update Status Iuran
-              </h4>
+              <h4 class="modal-title" id="reportModalLabel">Upload Gambar</h4>
               <button
                 type="button"
                 class="btn-close icon-btn"
@@ -265,34 +275,22 @@
               </button>
             </div>
             <div class="modal-body">
-              <label>Tanggal Bayar</label>
+              <img
+                :src="previewimg"
+                v-if="previewimg"
+                class="mb-2"
+                width="200"
+              />
               <div class="form-floating mb-3">
-                <input
-                  type="date"
-                  class="form-control"
-                  id="tanggalbayar"
-                  placeholder="Tanggal bayar"
-                  v-model="tanggal_bayar"
-                  required
-                />
+                <input type="file" class="ms-6" @change="editGambar($event)" />
               </div>
-              <!-- {{status}} -->
-              <label for="status">Status</label>
-              <select
-                class="form-select mb-3"
-                v-model="status"
-                aria-label="Default select example"
-              >
-                <option value="lunas">lunas</option>
-                <option value="belum lunas">belum lunas</option>
-              </select>
-              <!-- end form-floating -->
+
               <button
                 class="btn btn-dark w-100"
                 data-bs-dismiss="modal"
                 type="submit"
               >
-                update
+                Submit
               </button>
             </div>
             <!-- end modal-body -->
@@ -387,6 +385,7 @@ export default {
     },
     editGambar(e) {
       this.gambar = e.target.files[0];
+      this.previewimg = URL.createObjectURL(e.target.files[0]);
     },
     showPost() {
       Swal.fire({
