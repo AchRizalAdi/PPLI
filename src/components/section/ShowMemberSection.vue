@@ -12,15 +12,24 @@
       </ol>
     </nav>
     <!-- end user-panel-title-box -->
-    <div
-      class="btn btn-sm btn-dark ms-1"
-      @click="showMember(register.id)"
-      type="button"
-      data-bs-toggle="modal"
-      data-bs-target="#messageModal"
-    >
-      Edit
+    <div>
+      <div
+        class="btn btn-sm btn-dark ms-1"
+        @click="showMember(register.id)"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#messageModal"
+      >
+        Edit
+      </div>
+      <div>
+        <form @submit.prevent="postGambar()" enctype="multipart/form-data">
+          <input type="file" class="ms-2" @change="editGambar($event)" />
+          <button type="submit" class="btn btn-dark btn-sm">Submit</button>
+        </form>
+      </div>
     </div>
+
     <div class="profile-setting-panel-wrap">
       <div class="tab-content mt-3" id="myTabContent">
         <div
@@ -346,6 +355,7 @@ export default {
     // this.getIndustris();
     this.getTransaksi();
     this.getTahun();
+    this.getGambar();
   },
   methods: {
     // showMember() {
@@ -353,6 +363,31 @@ export default {
     //     wilayah : this.wilayah
     //   });
     // },
+    getGambar() {
+      axios
+        .get(`http://127.0.0.1:8000/api/member/gambar/${this.$route.params.id}`)
+        .then((res) => {
+          this.gambar = res.data;
+          console.log(res);
+        });
+    },
+    postGambar() {
+      let formData = new FormData();
+
+      formData.append("gambar", this.gambar);
+      axios
+        .post(
+          `http://127.0.0.1:8000/api/member/gambar/${this.$route.params.id}`,
+          formData
+        )
+        .then((res) => {
+          this.$toast.success("gambar berhasil di update");
+          console.log(res);
+        });
+    },
+    editGambar(e) {
+      this.gambar = e.target.files[0];
+    },
     showPost() {
       Swal.fire({
         position: "center",

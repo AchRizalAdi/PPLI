@@ -11,14 +11,13 @@
         <li class="breadcrumb-item">Edit Member</li>
       </ol>
     </nav>
-    <form @submit.prevent="updateMember()">
-      <label class="form-label" for="logo">Foto</label>
+    <!-- {{ gambar }} -->
+    <!-- <label class="form-label" for="logo">Foto</label>
       <div class="mb-4">
-        <img :src="previewimg" v-if="previewimg" class="mb-2" width="200"  />
-        <input type="file" class="form-control" id="logo" @change="upload" />
-      </div>
-      {{ gambar }}
-      <!-- {{}} -->
+        <img :src="previewimg" v-if="previewimg" class="mb-2" width="200" />
+        <input type="file" class="form-control" @change="upload($event)" />
+      </div> -->
+    <form @submit.prevent="updateMember()">
       <div class="form-floating mb-3">
         <input
           type="text"
@@ -128,7 +127,7 @@ export default {
       BentukBadanUsaha: "",
       email: "",
       previewimg: "",
-      file:[]
+      file: [],
     };
   },
   created() {
@@ -140,7 +139,7 @@ export default {
         .get(`http://127.0.0.1:8000/api/member/show/${this.$route.params.id}`)
         .then((res) => {
           this.NamaPerushaan = res.data.data.NamaPerushaan;
-          this.gambar = res.data.data.gambar;
+          // this.gambar = res.data.data.gambar;
           this.name = res.data.data.name;
           this.PhoneNumber = res.data.data.PhoneNumber;
           this.email = res.data.data.email;
@@ -150,18 +149,25 @@ export default {
         });
     },
     updateMember() {
+      // let formData = new FormData();
+
+      // formData.append("file", this.gambar);
       axios
         .post(
           `http://127.0.0.1:8000/api/member/update/${this.$route.params.id}`,
+          // formData,
           {
-             NamaPerushaan: this.NamaPerushaan,
-             gambar: this.gambar,
-             name: this.name,
-             PhoneNumber: this.PhoneNumber,
-             email: this.email,
-             alamat: this.alamat,
-             BentukBadanUsaha: this.BentukBadanUsaha,
-             status: this.status,
+            // headers: {
+            //   "Content-Type": "multipart/form-data",
+            // },
+            NamaPerushaan: this.NamaPerushaan,
+            // gambar: this.gambar,
+            name: this.name,
+            PhoneNumber: this.PhoneNumber,
+            email: this.email,
+            alamat: this.alamat,
+            BentukBadanUsaha: this.BentukBadanUsaha,
+            status: this.status,
           }
         )
         .then((res) => {
@@ -170,11 +176,14 @@ export default {
           console.log(res);
         });
     },
-    upload(event) {
-      this.gambar = event.target.files[0];
-      this.previewimg = URL.createObjectURL(event.target.files[0]);
-      console.log(this.gambar)
-    },
+    // upload(event) {
+    //   // let gambar = new FormData();
+    //   // gambar.append = event.target.files[0];
+
+    //   this.gambar = event.target.files[0];
+    //   this.previewimg = URL.createObjectURL(event.target.files[0]);
+    //   console.log(this.gambar);
+    // },
   },
   mounted() {
     /* =========== Show/Hide passoword ============== */
