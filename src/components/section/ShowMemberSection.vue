@@ -28,13 +28,6 @@
               <div class="img-thumbnail">
                 <img :src="path + gambar" width="200" />
               </div>
-              <!-- <input
-                class="upload-image"
-                data-target="image-result"
-                id="upload-image-file"
-                type="file"
-                hidden
-              /> -->
               <div class="row">
                 <h3 class="ms-3">
                   {{ register.BentukBadanUsaha }}. {{ register.NamaPerushaan }}
@@ -58,7 +51,7 @@
             </div>
             <!-- Batas Bawah -->
             <span class="ms-2 mt-3">
-              <strong>Nama Anggota</strong>
+              <strong>Nama</strong>
               {{ register.name }}
             </span>
             <br />
@@ -74,7 +67,6 @@
             >
             <div class="d-grid gap-2 d-md-block">
               <button
-                @click="resetnama()"
                 type="button"
                 class="btn btn-dark btn-sm mb-2"
                 data-bs-toggle="modal"
@@ -379,6 +371,7 @@ export default {
           formData
         )
         .then((res) => {
+          this.getGambar();
           this.$toast.success("gambar berhasil di update");
           console.log(res);
         });

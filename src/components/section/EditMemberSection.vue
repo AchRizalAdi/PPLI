@@ -16,15 +16,7 @@
         <li class="breadcrumb-item">Edit Member</li>
       </ol>
     </nav>
-    <img :src="previewimg" v-if="previewimg" class="mb-2" width="200" />
-
-    <h5 class="mb-1">Foto</h5>
-    <div class="form-floating mb-3">
-      <form @submit.prevent="postGambar()" enctype="multipart/form-data">
-        <input type="file" class="ms-6" @change="editGambar($event)" />
-        <button type="submit" class="btn btn-dark btn-sm">Submit</button>
-      </form>
-    </div>
+    
     <!-- {{ gambar }} -->
     <!-- <label class="form-label" for="logo">Foto</label>
       <div class="mb-4">

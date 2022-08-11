@@ -20,7 +20,6 @@
           role="tabpanel"
           aria-labelledby="account-information-tab"
         >
-          {{ register }}
           <div class="profile-setting-panel">
             <!-- <h5 class="mb-4">Edit Profile</h5> -->
             <!-- <div class="d-flex align-items-center">
@@ -32,126 +31,136 @@
                         </div>end d-flex -->
             <div class="row mt-4">
               <div class="col-lg-6 mb-3">
-                <label for="displayName" class="form-label">Nama</label>
-                <input
+                <label for="displayName" class="form-label">Nama :</label>
+                {{ register.name }}
+                <!-- <input
                   v-model="register.name"
                   type="text"
                   id="displayName"
                   class="form-control form-control-s1"
                   disabled
-                />
+                /> -->
               </div>
               <!-- end col -->
               <div class="col-lg-6 mb-3">
-                <label for="username" class="form-label">Username</label>
-                <input
+                <label for="username" class="form-label">Username :</label>
+                {{ register.Username }}
+                <!-- <input
                   v-model="register.Username"
                   type="text"
                   id="username"
                   class="form-control form-control-s1"
                   disabled
-                />
+                /> -->
               </div>
               <!-- end col -->
               <div class="col-lg-6 mb-3">
-                <label for="Email" class="form-label">Email</label>
-                <input
+                <label for="Email" class="form-label">Email :</label>
+                {{ register.email }}
+                <!-- <input
                   v-model="register.email"
                   type="email"
                   id="Email"
                   class="form-control form-control-s1"
                   disabled
-                />
+                /> -->
               </div>
               <!-- end col -->
               <div class="col-lg-6 mb-3">
-                <label for="nomor" class="form-label">Nomor Handphone</label>
-                <input
+                <label for="nomor" class="form-label">Nomor Handphone :</label>
+                {{ register.PhoneNumber }}
+                <!-- <input
                   v-model="register.PhoneNumber"
                   type="text"
                   id="nomor"
                   class="form-control form-control-s1"
                   disabled
-                />
+                /> -->
               </div>
               <!-- end col -->
             </div>
             <!-- end row -->
-            <div class="mb-3">
-              <label for="alasan" class="form-label">Alasan</label>
-              <textarea
-                v-model="register.AlasanBergabung"
-                class="form-control form-control-s1"
-                id="alasan"
-                disabled
-              ></textarea>
-            </div>
+
             <div class="mb-3">
               <label for="namaperusahaan" class="form-label"
-                >Nama Perusahaan</label
+                >Nama Perusahaan :</label
               >
-              <input
+              {{ register.NamaPerushaan }}
+              <!-- <input
                 v-model="register.NamaPerushaan"
                 type="text"
                 id="namaperusahaan"
                 class="form-control form-control-s1"
                 disabled
-              />
+              /> -->
             </div>
             <div class="mb-3">
               <label for="bentukusaha" class="form-label"
-                >Bentuk Badan Usaha</label
+                >Bentuk Badan Usaha :</label
               >
-              <input
+              {{ register.BentukBadanUsaha }}
+              <!-- <input
                 v-model="register.BentukBadanUsaha"
                 type="text"
                 id="bentukusaha"
                 class="form-control form-control-s1"
                 disabled
-              />
+              /> -->
             </div>
-            <div class="">
-              <!-- <label for="company" class="form-label">Company Industry</label> -->
-              <div class="form-group">
-                <h6 class="">Company Industry</h6>
+            <!-- {{ industris }} -->
+            <div class="mb-2">
+              <label for="company" class="form-label">Company Industry : </label>
 
-                <p class="form-control mt-1 mb-2" disabled>{{ industris.name }}</p>
-              </div>
+              <span class="ms-1" v-for="items in industris" :key="items.id"
+                > {{ items.name }}, </span>
             </div>
             <div class="row">
-              <div class="col-lg-6 mb-3">
-                <label for="provinsi" class="form-label">Provinsi</label>
-                <input
+              <div class="col-lg-6 mt-2 mb-3">
+                <label for="provinsi" class="form-label">Provinsi :</label>
+                {{prov.name}}
+                <!-- <input
                   v-model="prov.name"
                   type="text"
                   id="provinsi"
                   class="form-control form-control-s1"
                   disabled
-                />
+                /> -->
               </div>
               <!-- end col -->
               <div class="col-lg-6 mb-3">
-                <label for="kota" class="form-label">Kota</label>
-                <input
+                <label for="kota" class="form-label">Kota :</label>
+                {{cities.name}}
+                <!-- <input
                   v-model="cities.name"
                   type="text"
                   id="kota"
                   class="form-control form-control-s1"
                   disabled
-                />
+                /> -->
               </div>
               <!-- end col -->
             </div>
             <!-- end row -->
             <div class="mb-3">
-              <label for="wilayah" class="form-label">Wilayah</label>
-              <input
+              <label for="wilayah" class="form-label">Wilayah :</label>
+              {{wilayahs.name}}
+              <!-- <input
                 v-model="wilayahs.name"
                 type="text"
                 id="wilayah"
                 class="form-control form-control-s1"
                 disabled
-              />
+              /> -->
+            </div>
+            <div class="mb-3">
+              <label for="alasan" class="form-label">Alasan : </label>
+              {{register.AlasanBergabung}}
+              <!-- <textarea
+                v-model="register.AlasanBergabung"
+                class="form-control form-control-s1"
+                id="alasan"
+                disabled
+              ></textarea> -->
             </div>
             <router-link to="/offers" class="btn btn-dark mt-3" type="button"
               >Kembali</router-link
@@ -190,7 +199,7 @@ export default {
       .get(`http://127.0.0.1:8000/api/register/show/${this.$route.params.id}`)
       .then((res) => {
         this.register = res.data[0];
-        this.industris = res.data[0].company_industry[0];
+        this.industris = res.data[0].company_industry;
         this.prov = res.data[0].provinsi;
         this.cities = res.data[0].cities;
         this.wilayahs = res.data[0].wilayah;
