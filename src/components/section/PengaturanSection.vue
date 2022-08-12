@@ -311,13 +311,13 @@
                       <td class="row">
                         <router-link
                           :to="{ name: 'privilage', params: { id: item.id } }"
-                          class="col- p-0 m-0 icon-btn"
+                          class="col-sm p-0 m-0 icon-btn"
                           title="Show"
                           ><em class="fa-solid fa-gears"></em
                         ></router-link>
                         <button
                           @click="tes(item.id)"
-                          class="col- p-0 m-0 icon-btn"
+                          class="col-sm p-0 m-0 icon-btn"
                           data-bs-toggle="modal"
                           data-bs-target="#updateModal"
                           title="Edit"
@@ -327,7 +327,7 @@
                         <button
                         v-if="item.cekRoles"
                           @click="showDelete(item.id)"
-                          class="col- p-0 m-0 icon-btn"
+                          class="col-sm p-0 m-0 icon-btn"
                           title="Delete"
                         >
                           <em class="ni ni-trash"></em>

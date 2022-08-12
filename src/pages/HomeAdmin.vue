@@ -54,7 +54,7 @@
                     >
                   </li>
                   <li>
-                    <router-link to="/member"
+                    <router-link to="/member" 
                       ><em class="ni ni-users me-2"></em>Member</router-link
                     >
                   </li>
