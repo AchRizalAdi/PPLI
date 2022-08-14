@@ -12,6 +12,23 @@
         <li class="breadcrumb-item">Setting Email</li>
       </ol>
     </nav>
+    <div
+      type="button"
+      class="btn btn-dark btn-sm"
+      data-bs-toggle="modal"
+      data-bs-target="#messageModal"
+    >
+      Show Mail
+    </div>
+    <div
+      type="button"
+      class="btn btn-dark btn-sm ms-2"
+      data-bs-toggle="modal"
+      data-bs-target="#target"
+    >
+      Test Mail
+    </div>
+    <!-- <div class="btn btn-sm btn-dark ms-2">Test Mail</div> -->
     <div class="profile-setting-panel-wrap">
       <div class="table-responsive">
         <form @submit.prevent="store()">
@@ -90,7 +107,7 @@
           <div class="form-floating mb-3">
             <input
               type="password"
-              class="form-control password"
+              class="form-control"
               id="password"
               placeholder="Password"
               v-model="password"
@@ -106,13 +123,10 @@
             </a>
           </div>
           <!-- BUTTON -->
-          <router-link
-            to="pengaturan"
-            type="button"
-            class="btn btn-sm btn-dark"
+          <router-link to="pengaturan" type="button" class="btn btn-sm btn-dark"
             >Back</router-link
           >
-          <button class="btn btn-sm btn-dark w-20 ms-2" type="submit">
+          <button class="btn btn-sm btn-success w-20 ms-2" type="submit">
             Submit
           </button>
         </form>
@@ -121,7 +135,118 @@
     </div>
     <!-- end profile-setting-panel-wrap-->
     <!-- Modal store -->
+    <div
+      class="modal fade"
+      id="messageModal"
+      tabindex="-1"
+      aria-labelledby="reportModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="reportModalLabel">Template Email</h4>
+            <button
+              type="button"
+              class="btn-close icon-btn"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <em class="ni ni-cross"></em>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="d-flex flex-row">
+              <h4 class="p-2 me-5">Nama</h4>
+              <h4 class="p-2">:</h4>
+              <p class="p-2 mb-3">isi</p>
+            </div>
+            <div class="d-flex flex-row">
+              <h4 class="p-2 me-5">Host</h4>
+              <h4 class="p-2">:</h4>
+              <p class="p-2 mb-3">isi</p>
+            </div>
+            <div class="d-flex flex-row">
+              <h4 class="p-2 me-5">Port</h4>
+              <h4 class="p-2">:</h4>
+              <p class="p-2 mb-3">isi</p>
+            </div>
+            <div class="d-flex flex-row">
+              <h4 class="p-2 me-5">Encryption</h4>
+              <h4 class="p-2">:</h4>
+              <p class="p-2 mb-3">isi</p>
+            </div>
+            <div class="d-flex flex-row">
+              <h4 class="p-2 me-5">Username</h4>
+              <h4 class="p-2">:</h4>
+              <p class="p-2 mb-3">isi</p>
+            </div>
+            <div class="d-flex flex-row">
+              <h4 class="p-2 me-5">Password</h4>
+              <h4 class="p-2">:</h4>
+              <p class="p-2 mb-3">isi</p>
+            </div>
+            <!-- end form-floating -->
+            <button class="btn btn-dark w-100" data-bs-dismiss="modal">
+              Close
+            </button>
+          </div>
+          <!-- end modal-body -->
+        </div>
+        <!-- end modal-content -->
+      </div>
+      <!-- end modal-dialog -->
+    </div>
+    <!-- end modal-->
   </div>
+  <div
+    class="modal fade"
+    id="target"
+    tabindex="-1"
+    aria-labelledby="reportModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="reportModalLabel">Test Email</h4>
+          <button
+            type="button"
+            class="btn-close icon-btn"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          >
+            <em class="ni ni-cross"></em>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control"
+              id="name"
+              placeholder="Email"
+              v-model="name"
+              required
+            />
+            <label for="name">Email</label>
+          </div>
+          <!-- end form-floating -->
+          <button
+            class="btn btn-dark w-100"
+            data-bs-dismiss="modal"
+            type="submit"
+          >
+            Test
+          </button>
+        </div>
+        <!-- end modal-body -->
+      </div>
+      <!-- end modal-content -->
+    </div>
+    <!-- end modal-dialog -->
+  </div>
+  <!-- end modal-->
   <!-- end col-lg-8 -->
 </template>
 
@@ -165,7 +290,6 @@ export default {
           this.$toast.success("Setting Email Berhasil");
           this.$router.push({ name: "pengaturan" });
           console.log(response);
-
         })
         .catch((error) => {
           this.$toast.error("Setting Email Gagal");

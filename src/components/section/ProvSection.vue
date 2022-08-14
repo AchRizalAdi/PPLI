@@ -31,7 +31,7 @@
 
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="dataProvinsi">
+        <table class="table mb-0 table-s2" id="dataProv">
           <thead class="fs-14">
             <tr>
               <th
@@ -167,7 +167,6 @@
                   v-model="name"
                   required
                 />
-                <!-- <label for="nama">{{edit.data.name}}</label> -->
               </div>
               <!-- end form-floating -->
               <button
@@ -250,7 +249,7 @@ export default {
     },
     // table() {
     //   this.$nextTick(() => {
-    //     $("#dataProvinsi").DataTable();
+    //     $("#dataProv").DataTable();
     //   });
     // },
     getProvinsis: function () {
@@ -258,7 +257,7 @@ export default {
         function (response) {
           this.provinsis = response.data;
           setTimeout(() => {
-            $("#dataProvinsi").DataTable();
+            $("#dataProv").DataTable();
           }, 100);
         }.bind(this)
       );
@@ -268,7 +267,7 @@ export default {
 
       axios.delete("http://127.0.0.1:8000/api/provinsi/" + id).then(
         function () {
-          $("#dataProvinsi").DataTable().destroy();
+          $("#dataProv").DataTable().destroy();
           emitter.emit("refreshPage");
         }.bind(this)
       );
@@ -307,7 +306,7 @@ export default {
         })
         .then((response) => {
           this.showPost();
-          $("#dataProvinsi").DataTable().destroy();
+          $("#dataProv").DataTable().destroy();
           emitter.emit("refreshPage");
           console.log(response);
         })

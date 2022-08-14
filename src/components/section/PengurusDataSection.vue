@@ -112,6 +112,7 @@
               <div class="form-group mb-2">
                 <label>Jabatan </label>
                 <v-select
+                  class="generic-select"
                   v-model="jabatanId"
                   required
                   :options="jabatans"
@@ -123,6 +124,7 @@
               <div class="form-group mb-2">
                 <label>Member</label>
                 <v-select
+                  class="generic-select"
                   v-model="memberId"
                   required
                   :options="members"
@@ -204,6 +206,7 @@
               <div class="form-group mb-2">
                 <label>Jabatan </label>
                 <v-select
+                  class="generic-select"
                   v-model="jabatanId"
                   required
                   :options="jabatans"
@@ -215,6 +218,7 @@
               <div class="form-group mb-2">
                 <label>Member </label>
                 <v-select
+                  class="generic-select"
                   v-model="memberId"
                   required
                   :options="members"
@@ -388,6 +392,16 @@ export default {
         }.bind(this)
       );
     },
+
+    deletePengurus(id) {
+      // alert(id);
+      axios.delete("http://127.0.0.1:8000/api/pengurus/" + id).then(
+        function () {
+          $("#dataPengurus").DataTable().destroy();
+          emitter.emit("refreshPage");
+        }.bind(this)
+      );
+    },
     postPengurus() {
       axios
         .post("http://127.0.0.1:8000/api/pengurus", {
@@ -408,15 +422,6 @@ export default {
         });
     },
 
-    deletePengurus(id) {
-      // alert(id);
-      axios.delete("http://127.0.0.1:8000/api/pengurus/" + id).then(
-        function () {
-          $("#dataPengurus").DataTable().destroy();
-          emitter.emit("refreshPage");
-        }.bind(this)
-      );
-    },
     putPengurus(id) {
       axios
         .post("http://127.0.0.1:8000/api/pengurus/" + id, {

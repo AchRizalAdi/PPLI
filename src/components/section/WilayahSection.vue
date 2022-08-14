@@ -146,6 +146,7 @@
               <div class="form-group mb-2">
                 <label>Kota</label>
                 <v-select
+                class="generic-select"
                   v-model="kota"
                   required
                   :options="cities"
@@ -257,6 +258,7 @@
                 <label>Kota </label>
 
                 <v-select
+                class="generic-select"
                   v-model="kota"
                   required
                   :options="cities"

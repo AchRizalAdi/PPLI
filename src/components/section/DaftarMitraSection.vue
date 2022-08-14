@@ -20,10 +20,10 @@
         Tambah Mitra
       </button>
     </div>
-    <!-- {{ mitra }} -->
+    <!-- {{ mitra.data }} -->
     <div class="profile-setting-panel-wrap">
       <div class="table-responsive">
-        <table class="table mb-0 table-s2" id="dataMitra">
+        <table class="table mb-0 table-s2" id="dataM">
           <thead class="fs-14">
             <tr>
               <th
@@ -332,7 +332,7 @@ export default {
         function (response) {
           this.mitra = response.data;
           setTimeout(() => {
-            $("#dataMitra").DataTable();
+            $("#dataM").DataTable();
           }, 100);
         }.bind(this)
       );
@@ -342,7 +342,7 @@ export default {
 
       axios.delete("http://127.0.0.1:8000/api/mitra/" + id).then(
         function () {
-          $("#dataMitra").DataTable().destroy();
+          $("#dataM").DataTable().destroy();
           emitter.emit("refreshPage");
         }.bind(this)
       );
@@ -407,7 +407,7 @@ export default {
         })
         .then((response) => {
           this.showPost();
-          $("#dataMitra").DataTable().destroy();
+          $("#dataM").DataTable().destroy();
           emitter.emit("refreshPage");
           console.log(response);
         })

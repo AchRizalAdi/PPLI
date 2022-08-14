@@ -106,6 +106,7 @@
               <div class="form-group mb-2">
                 <label>Provinsi </label>
                 <v-select
+                class="generic-select"
                   v-model="provinsiId"
                   required
                   :options="provinsis"

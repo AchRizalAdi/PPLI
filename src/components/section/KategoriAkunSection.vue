@@ -12,7 +12,7 @@
         <li class="breadcrumb-item">Kategori Akun</li>
       </ol>
     </nav>
-    <!-- {{ provinsi }} -->
+    <!-- {{ index }} -->
     <!-- v-if="checkPrivilege('dpw-store')" -->
     <div class="d-grid gap-2 d-md-block">
       <button
@@ -42,7 +42,7 @@
     </form>
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="dataMembers">
+        <table class="table mb-0 table-s2" id="dataMem">
           <thead class="fs-14">
             <tr>
               <th
@@ -72,7 +72,7 @@
                   class="col- icon-btn p-0 m-0"
                   title="Edit"
                   data-bs-toggle="modal"
-                  data-bs-target="#messageModal"
+                  data-bs-target="#putModal"
                 >
                   <em class="fa fa-pencil-square-o"></em>
                 </button>
@@ -127,6 +127,7 @@
             <div class="form-group mb-2">
               <label>Wilayah </label>
               <v-select
+                class="generic-select"
                 v-model="wilayah"
                 required
                 :options="wilayahs"
@@ -134,18 +135,22 @@
                 label="text"
               >
               </v-select>
+              <!-- {{wilayah}} -->
             </div>
-            <div class="form-group mb-2">
+            <div class="form-group mb-3">
               <label>Kategori </label>
               <v-select
+                class="generic-select"
                 v-model="nama_kategori"
                 required
                 :options="kategori"
-                :reduce="(kategori) => kategori.value"
+                :reduce="(kategori) => kategori.text"
                 label="text"
               >
               </v-select>
+              <!-- {{nama_kategori}} -->
             </div>
+            <!-- {{kategori}} -->
             <div class="form-floating mb-3">
               <input
                 type="text"
@@ -183,10 +188,11 @@
             <div class="form-floating mb-3">
               <select class="form-select h-25" v-model="kategori_akun">
                 <!-- <label>I am i</label> -->
-                <option value="pengeluaran">Biaya / Pengeluaran</option>
-                <option value="pemasukan">Pendapatan</option>
+                <option value="pengeluaran">Pengeluaran</option>
+                <option value="pemasukan">Pemasukan</option>
               </select>
             </div>
+            <!-- {{index}} -->
             <!-- end form-floating -->
             <button
               class="btn btn-dark w-100"
@@ -206,10 +212,10 @@
   </form>
   <!-- end col-lg-8 -->
   <!-- Modal store -->
-  <form @submit.prevent="putKategori()">
+  <form @submit.prevent="putKategori(id)">
     <div
       class="modal fade"
-      id="messageModal"
+      id="putModal"
       tabindex="-1"
       aria-labelledby="reportModalLabel"
       aria-hidden="true"
@@ -217,7 +223,7 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title" id="reportModalLabel">Tambah Akun</h4>
+            <h4 class="modal-title" id="reportModalLabel">Edit Akun</h4>
             <button
               type="button"
               class="btn-close icon-btn"
@@ -228,9 +234,10 @@
             </button>
           </div>
           <div class="modal-body">
-            <div class="form-group mb-2">
+              <div class="form-group mb-2">
               <label>Wilayah </label>
               <v-select
+                class="generic-select"
                 v-model="wilayah"
                 required
                 :options="wilayahs"
@@ -238,14 +245,18 @@
                 label="text"
               >
               </v-select>
+              <!-- {{wilayahs}}
+              <br>
+              {{wilayah}} -->
             </div>
-            <div class="form-group mb-2">
+            <div class="form-group mb-3">
               <label>Kategori </label>
               <v-select
+                class="generic-select"
                 v-model="nama_kategori"
                 required
                 :options="kategori"
-                :reduce="(kategori) => kategori.value"
+                :reduce="(kategori) => kategori.text"
                 label="text"
               >
               </v-select>
@@ -287,8 +298,8 @@
             <div class="form-floating mb-3">
               <select class="form-select h-25" v-model="kategori_akun">
                 <!-- <label>I am i</label> -->
-                <option value="Biaya / Pengeluaran">Biaya / Pengeluaran</option>
-                <option value="Pendapatan">Pendapatan</option>
+                <option value="pengeluaran">Pengeluaran</option>
+                <option value="pemasukan">Pemasukan</option>
               </select>
             </div>
             <!-- end form-floating -->
@@ -344,6 +355,7 @@ export default {
       nama_akun: "",
       induk: "",
       kategori_akun: "",
+      index: [],
     };
   },
 
@@ -407,6 +419,16 @@ export default {
         }.bind(this)
       );
     },
+    getIndex: function () {
+      axios.get("http://127.0.0.1:8000/api/akun/getindex").then(
+        function (response) {
+          this.index = response.data.data;
+           setTimeout(() => {
+            $("#dataMem").DataTable();
+          }, 300);
+        }.bind(this)
+      );
+    },
     postWilayah() {
       axios
         .post("http://127.0.0.1:8000/api/akun/index", {
@@ -415,21 +437,21 @@ export default {
         .then((response) => {
           this.memberss = response.data.data;
           setTimeout(() => {
-            $("#dataMembers").DataTable();
+            $("#dataMem").DataTable();
           }, 300);
-          $("#dataMembers").DataTable().destroy();
+          $("#dataMem").DataTable().destroy();
           emitter.emit("refreshPage");
         });
     },
     refresh() {
-      $("#dataMembers").DataTable().destroy();
+      $("#dataMem").DataTable().destroy();
       emitter.emit("refreshPage");
     },
     showKategori(id) {
       axios.get("http://127.0.0.1:8000/api/akun/" + id).then(
         function (response) {
           this.id = response.data.data.id;
-          this.wilayah = response.data.data.wilayah.name;
+          this.wilayah = response.data.data.wilayah.id;
           this.kode = response.data.data.kode;
           this.nama_kategori = response.data.data.nama_kategori;
           this.nama_akun = response.data.data.nama_akun;
@@ -460,12 +482,29 @@ export default {
         })
         .then((response) => {
           this.showPost();
-          $("#dataMembers").DataTable().destroy();
-          emitter.emit("refreshPage");
           console.log(response);
         })
         .catch((error) => {
-          this.$toast.error("gagal menambahkan wilayah");
+          this.$toast.error("gagal menambahkan kategori");
+          console.log(error);
+        });
+    },
+    putKategori(id) {
+      axios
+        .post("http://127.0.0.1:8000/api/akun/" + id, {
+          wilayah: this.wilayah,
+          kode: this.kode,
+          nama_kategori: this.nama_kategori,
+          nama_akun: this.nama_akun,
+          induk: this.induk,
+          kategori_akun: this.kategori_akun,
+        })
+        .then((response) => {
+          this.refresh();
+          console.log(response);
+        })
+        .catch((error) => {
+          this.$toast.error("gagal Mengubah kategori");
           console.log(error);
         });
     },
@@ -483,6 +522,7 @@ export default {
   created: function () {
     this.getWilayah();
     this.getKategori();
+    this.getIndex();
     this.getWilayahs();
     emitter.on("refreshPage", () => {});
   },
