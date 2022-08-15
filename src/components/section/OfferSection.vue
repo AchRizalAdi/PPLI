@@ -8,6 +8,7 @@
     <div class="d-flex flex-row">
       <div class="d-grid ms-1 gap-2 d-md-block">
         <router-link
+          v-if="checkPrivilege('logregister-index')"
           to="/log"
           type="button"
           class="btn btn-sm btn-dark mb-3"
@@ -76,12 +77,15 @@
               <td class="row">
                 <!-- v-if="checkPrivilege('kontak-update')" -->
                 <router-link
+                  v-if="checkPrivilege('register-show')"
                   :to="{ name: 'show-register', params: { id: item.id } }"
                   class="col- p-0 m-0 icon-btn btn-sm"
-                  title="Edit"
+                  title="Show"
                   ><em class="fa fa-eye"></em
                 ></router-link>
+                <!-- v-if="checkPrivilege('logregister-index')" -->
                 <button
+                  v-if="checkPrivilege('register-delete')"
                   :disabled="item.cekWilayah"
                   type="button"
                   class="col- p-0 m-0 icon-btn btn-sm"
@@ -274,7 +278,6 @@ export default {
     //   );
     // },
     update(id) {
-      // alert(document.getElementById('registers').value)
       axios.get("http://127.0.0.1:8000/api/statusRegister").then(
         function (response) {
           this.id = id;
@@ -286,7 +289,6 @@ export default {
       axios.get("http://127.0.0.1:8000/api/userRegister").then(
         function (response) {
           this.registers = response.data.data;
-          // this.kondisi = response.data.data;
           setTimeout(() => {
             $("#dataReg").DataTable();
           }, 100);
@@ -295,7 +297,6 @@ export default {
     },
 
     updateStatus(id) {
-      // alert(id)
       axios
         .post("http://127.0.0.1:8000/api/update/member/" + id, {
           status: this.status,
@@ -312,8 +313,6 @@ export default {
       this.status = "";
     },
     deleteRgisters(id) {
-      // alert(id);
-
       axios.delete("http://127.0.0.1:8000/api/register/delete/" + id).then(
         function () {
           $("#dataReg").DataTable().destroy();
@@ -341,6 +340,16 @@ export default {
         });
       this.isi_pesan = "";
     },
+    checkPrivilege(privilege) {
+      const permission = localStorage.getItem("permission");
+      let status = false;
+      JSON.parse(permission).forEach((data) => {
+        if (data === privilege) {
+          status = true;
+        }
+      });
+      return status;
+    },
   },
   created: function () {
     this.getRegisters();
@@ -358,14 +367,3 @@ export default {
   },
 };
 </script>
-//
-<!-- <select v-model="status" id="statusss" class='form-control w-100' @change="postStatus(item.id, $event)" >
-//                                                 <option :value="null" disabled>Mail Verified</option>
-//                                                 <option value="Approved by DPP">Approved by DPP</option>
-//                                                 <option value="Approved by DPW">Approved by DPW</option>
-//                                                 <option value="Rejected by DPP">Rejected by DPP</option>
-//                                                 <option value="Rejected by DPW">Rejected by DPW</option>
-//                                             </select> -->
-
-//
-<!-- <td><button class="icon-btn ms-auto" title="Accept" for="status" ><em class="ni ni-check"></em></button></td> -->

@@ -10,22 +10,27 @@
         id="myTab"
         role="tablist"
       >
-        <li
-          class="nav-item"
-          role="presentation"
-          v-for="list in SectionData.pengaturanProfileData
-            .pengaturanProfileTabNav"
-          :key="list.id"
-        >
+        <li class="nav-item" role="presentation">
           <button
-            class="nav-link"
-            :class="list.isActive"
-            :id="list.slug"
+            class="nav-link active"
+            id="pengaturan-umum-tab"
             data-bs-toggle="tab"
-            :data-bs-target="list.bsTarget"
+            data-bs-target="#pengaturan-umum"
             type="button"
           >
-            {{ list.title }}
+            Pengaturan Umum
+          </button>
+        </li>
+        
+        <li v-if="checkPrivilege('usermanagement-index')" class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="change-password-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#change-password"
+            type="button"
+          >
+            User Management
           </button>
         </li>
       </ul>
@@ -65,7 +70,7 @@
                     </router-link>
                   </div>
                   <div
-                    v-if="checkPrivilege('cities-index')"
+                    v-if="checkPrivilege('city-index')"
                     class="col-lg-3 col-6"
                   >
                     <router-link
@@ -97,7 +102,7 @@
                     </router-link>
                   </div>
                   <div
-                    v-if="checkPrivilege('indutry-index')"
+                    v-if="checkPrivilege('industri-index')"
                     class="col-lg-3 col-6"
                   >
                     <router-link
@@ -113,7 +118,7 @@
                     </router-link>
                   </div>
                   <div
-                    v-if="checkPrivilege('indutry-index')"
+                    v-if="checkPrivilege('bank-index')"
                     class="col-lg-3 col-6"
                   >
                     <router-link
@@ -129,7 +134,7 @@
                     </router-link>
                   </div>
                   <div
-                    v-if="checkPrivilege('indutry-index')"
+                    v-if="checkPrivilege('tipemitra-index')"
                     class="col-lg-3 col-6"
                   >
                     <router-link
@@ -145,7 +150,7 @@
                     </router-link>
                   </div>
                   <div
-                    v-if="checkPrivilege('indutry-index')"
+                    v-if="checkPrivilege('settingemail-index')"
                     class="col-lg-3 col-6"
                   >
                     <router-link
@@ -209,7 +214,7 @@
                   </div>
                   <!-- end col -->
                   <div
-                    v-if="checkPrivilege('jabatan-index')"
+                    v-if="checkPrivilege('kategori-index')"
                     class="col-lg-3 col-6"
                   >
                     <router-link
@@ -226,7 +231,7 @@
                   </div>
                   <!-- end col -->
                   <div
-                    v-if="checkPrivilege('jabatan-index')"
+                    v-if="checkPrivilege('daftarkas-index')"
                     class="col-lg-3 col-6"
                   >
                     <router-link
@@ -264,12 +269,14 @@
           <div class="profile-setting-panel">
             <div class="d-grid gap-2 d-md-block">
               <router-link
+                v-if="checkPrivilege('usermanagement-add')"
                 to="/user-mana"
                 type="button"
                 class="btn btn-dark btn-sm mb-2"
                 >Add User Management</router-link
               >
               <router-link
+                v-if="checkPrivilege('group-index')"
                 to="/group"
                 type="button"
                 class="btn btn-dark btn-sm mb-2 ms-2"
@@ -310,12 +317,14 @@
                       <td>{{ item.roles }}</td>
                       <td class="row">
                         <router-link
+                          v-if="checkPrivilege('usermanagement-privilege')"
                           :to="{ name: 'privilage', params: { id: item.id } }"
                           class="col-sm p-0 m-0 icon-btn"
                           title="Show"
                           ><em class="fa-solid fa-gears"></em
                         ></router-link>
                         <button
+                          v-if="checkPrivilege('usermanagement-edit-role')"
                           @click="tes(item.id)"
                           class="col-sm p-0 m-0 icon-btn"
                           data-bs-toggle="modal"
@@ -325,7 +334,8 @@
                           <em class="fa fa-pencil-square-o"></em>
                         </button>
                         <button
-                        v-if="item.cekRoles"
+                          v-if="checkPrivilege('usermanagement-delete')"
+                          v-show="item.cekRoles"
                           @click="showDelete(item.id)"
                           class="col-sm p-0 m-0 icon-btn"
                           title="Delete"

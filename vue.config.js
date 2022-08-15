@@ -1,4 +1,5 @@
 module.exports = {
     publicPath: process.env.NODE_ENV === 'production' ? '' : '/',
-    productionSourceMap: false
+    productionSourceMap: false,
+    chainWebpack: config => config.optimization.minimize(true)
 }

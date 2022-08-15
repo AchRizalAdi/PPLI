@@ -3,6 +3,7 @@
     <div class="user-panel-title-box">
       <h3>Laporan Pembukuan</h3>
     </div>
+          <!-- {{ laporan.data }} -->
     <!-- end user-panel-title-box -->
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb breadcrumb-s1 justify-content-left mb-3">
@@ -27,12 +28,11 @@
               </th>
             </tr>
           </thead>
-          <!-- {{ laporan }} -->
           <!-- {{ provinsis }} -->
 
           <tbody class="fs-13">
             <tr v-for="item in laporan.data" :key="item.id">
-              <td>{{ item.tanggal }}</td>
+              <td>{{ item.khas.tanggal }}</td>
               <td>{{ item.khas.nama }}</td>
               <td>{{ item.khas.keterangan }}</td>
               <td>{{ item.debit }}</td>

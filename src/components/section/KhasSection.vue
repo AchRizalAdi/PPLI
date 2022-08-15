@@ -30,7 +30,7 @@
     <!-- {{ khas }} -->
     <div class="profile-setting-panel-wrap">
       <div class="table-responsive">
-        <table class="table mb-0 table-s2" id="dataKhas">
+        <table class="table mb-0 table-s2" id="datakas">
           <thead class="fs-14">
             <tr>
               <th
@@ -352,7 +352,7 @@ export default {
         function (response) {
           this.khas = response.data;
           setTimeout(() => {
-            $("#dataKhas").DataTable();
+            $("#datakas").DataTable();
           }, 100);
         }.bind(this)
       );
@@ -372,7 +372,7 @@ export default {
 
       axios.delete("http://127.0.0.1:8000/api/provinsi/" + id).then(
         function () {
-          $("#dataKhas").DataTable().destroy();
+          $("#datakas").DataTable().destroy();
           emitter.emit("refreshPage");
         }.bind(this)
       );
@@ -436,7 +436,7 @@ export default {
         })
         .then((response) => {
           this.showPost();
-          $("#dataKhas").DataTable().destroy();
+          $("#datakas").DataTable().destroy();
           emitter.emit("refreshPage");
           console.log(response);
         })

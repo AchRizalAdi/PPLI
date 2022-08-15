@@ -208,14 +208,6 @@
                                 <td>{{ item.bulan }}</td>
                                 <td>{{ item.jumlah }}</td>
                                 <td>{{ item.status }}</td>
-                                <!-- <td>{{ item.tanggal }}</td>
-                                <td>{{ item.keterangan }}</td>
-                                <td>{{ item.jumlah }}</td> -->
-                                <!-- <td>{{ item.khas.nama }}</td> -->
-                                <!-- <td>{{ item.akun.nama_akun }}</td> -->
-                                <!-- <td>{{ item.keterangan }}</td>
-                              <td>{{ item.jumlah }}</td> -->
-                                <!-- <td>{{ item.jenis_transaksi }}</td> -->
                                 <td>
                                   <button
                                     @click="showIuran(item.id)"
@@ -293,6 +285,63 @@
       </div>
       <!-- end modal-->
     </form>
+    <form @submit.prevent="putIuran(id)">
+      <div
+        class="modal fade"
+        id="updateModal"
+        tabindex="-1"
+        aria-labelledby="reportModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" id="reportModalLabel">Update Iuran</h4>
+              <button
+                type="button"
+                class="btn-close icon-btn"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              >
+                <em class="ni ni-cross"></em>
+              </button>
+            </div>
+            <div class="modal-body">
+              <label for="tanggal_bayar">Tanggal Bayar</label>
+              <div class="form-floating mb-3">
+                <input
+                  type="date"
+                  class="form-control"
+                  id="tanggal_bayar"
+                  v-model="tanggal_bayar"
+                  required
+                />
+              </div>
+              <label for="status">Status</label>
+              <select
+                class="form-select mb-3"
+                v-model="status"
+                aria-label="Default select example"
+              >
+                <option value="lunas">lunas</option>
+                <option value="belum lunas">belum lunas</option>
+              </select>
+              <button
+                class="btn btn-dark w-100"
+                data-bs-dismiss="modal"
+                type="submit"
+              >
+                Update
+              </button>
+            </div>
+            <!-- end modal-body -->
+          </div>
+          <!-- end modal-content -->
+        </div>
+        <!-- end modal-dialog -->
+      </div>
+      <!-- end modal-->
+    </form>
   </div>
   <!-- end col-lg-8 -->
 </template>
@@ -347,11 +396,6 @@ export default {
     this.getGambar();
   },
   methods: {
-    // showMember() {
-    //   axios.post("http://127.0.0.1:8000/api/member/wlayah/show", {
-    //     wilayah : this.wilayah
-    //   });
-    // },
     getGambar() {
       axios
         .get(`http://127.0.0.1:8000/api/member/gambar/${this.$route.params.id}`)
@@ -431,6 +475,7 @@ export default {
         );
     },
     showIuran(id) {
+      // alert(id)  
       axios.get("http://127.0.0.1:8000/api/iuran/showUpdate/" + id).then(
         function (response) {
           this.id = response.data.id;
@@ -465,7 +510,6 @@ export default {
         .then((response) => {
           this.showPost();
           this.getIuran();
-          // this.$toast.show("berhasil update");
           console.log(response);
         })
         .catch((error) => {
@@ -473,20 +517,6 @@ export default {
           console.log(error);
         });
     },
-    // postIuran() {
-    //   axios
-    //     .post("http://127.0.0.1:8000/api/iuran/index", {
-    //       tahun: this.tahun,
-    //     })
-    //     .then((response) => {
-    //       this.memberss = response.data;
-    //       setTimeout(() => {
-    //         $("#dataMembers").DataTable();
-    //       }, 300);
-    //       $("#dataMembers").DataTable().destroy();
-    //       emitter.emit("refreshPage");
-    //     });
-    // },
   },
   mounted() {
     /*===========SHOW UPLOADED IMAGE ================== */

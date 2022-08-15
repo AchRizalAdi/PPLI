@@ -5095,13 +5095,13 @@ faqSidebarData: {
        isActive: 'active',
        title: 'Pengaturan Umum',
        slug: 'pengaturan-umum-tab',
-       bsTarget: '#pengaturan-umum'
+       bsTarget: '#pengaturan-umum',
      },
      {
        id: 2,
        title: 'User Management',
        slug: 'change-password-tab',
-       bsTarget: '#change-password'
+       bsTarget: '#change-password',
      },
    ],
   //  // pengaturan profile tab mobile
