@@ -14,7 +14,7 @@
     </nav>
     <!-- {{ provinsi }} -->
     <div
-      v-if="checkPrivilege('provinsi-store')"
+      v-if="checkPrivilege('daftarkas-add')"
       class="d-grid gap-2 d-md-block"
     >
       <button
@@ -53,7 +53,7 @@
               <td>{{ item.edit_by }}</td>
               <td >
                 <button
-                  v-if="checkPrivilege('provinsi-update')"
+                  v-if="checkPrivilege('daftarkas-edit')"
                   @click="showKhas(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Edit"

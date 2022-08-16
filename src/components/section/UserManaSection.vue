@@ -144,6 +144,7 @@ export default {
         })
         .then((response) => {
           // this.getRoles()
+          this.$router.push({ name: "pengaturan" });
           this.$toast.success("berhasil ditambahkan");
           console.log(response);
         })

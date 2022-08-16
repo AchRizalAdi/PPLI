@@ -7,7 +7,7 @@
 
     <!-- {{ provinsi }} -->
     <div
-      v-if="checkPrivilege('provinsi-store')"
+      v-if="checkPrivilege('pengumuman-add')"
       class="d-grid gap-2 d-md-block"
     >
       <button
@@ -46,6 +46,7 @@
               <!-- <td>{{ item.keterangan }}</td> -->
               <td class="row">
                 <button
+                v-if="checkPrivilege('pengumuman-show')"
                   @click="showPengumuman(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Edit"
@@ -55,7 +56,7 @@
                   <em class="fa fa-eye"></em>
                 </button>
                 <button
-                  v-if="checkPrivilege('provinsi-update')"
+                  v-if="checkPrivilege('pengumuman-edit')"
                   @click="showPengumuman(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Edit"
@@ -65,7 +66,7 @@
                   <em class="fa fa-pencil-square-o"></em>
                 </button>
                 <button
-                  v-if="checkPrivilege('provinsi-delete')"
+                  v-if="checkPrivilege('pengumuman-delete')"
                   @click="showDelete(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Delete"

@@ -14,7 +14,7 @@
     </nav>
     <!-- {{ cities }} -->
     <div
-      v-if="checkPrivilege('pengurus-store')"
+      v-if="checkPrivilege('pengurus-add')"
       class="d-grid gap-2 d-md-block"
     >
       <button
@@ -53,7 +53,7 @@
               <td>{{ item.status }}</td>
               <td class="row">
                 <button
-                  v-if="checkPrivilege('pengurus-update')"
+                  v-if="checkPrivilege('pengurus-edit')"
                   @click="showPengurus(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Edit"

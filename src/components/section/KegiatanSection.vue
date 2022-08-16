@@ -9,7 +9,7 @@
     <div class="row">
       <div
         class="col d-grid gap-2 d-md-block"
-        v-if="checkPrivilege('provinsi-store')"
+        v-if="checkPrivilege('kegiatan-add')"
       >
         <router-link
           to="/add-kegiatan"
@@ -53,12 +53,14 @@
                 <!-- <router-link :to="{name: 'show-contact', params: { id: item.id }}" class="col- icon-btn  p-0 m-0" title="Show"><em class="fa fa-eye" ></em></router-link> -->
                 <!-- <button  @click="showCities(item.id)" class="col-sm-1 icon-btn " title="Show" data-bs-toggle="modal"  data-bs-target="#editModal"><em class="fa fa-eye" ></em></button> -->
                 <router-link
+                v-if="checkPrivilege('kegiatan-edit')"
                   :to="{ name: 'edit-kegiatan', params: { id: item.id } }"
                   class="col- p-0 m-0 icon-btn"
                   title="Edit"
                   ><em class="fa fa-pencil-square-o"></em
                 ></router-link>
                 <button
+                v-if="checkPrivilege('kegiatan-delete')"
                   @click="showDelete(item.id)"
                   class="col- p-0 m-0 icon-btn"
                   title="Delete"

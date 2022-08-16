@@ -13,10 +13,7 @@
       </ol>
     </nav>
     <!-- {{ jabatan}} -->
-    <div
-      v-if="checkPrivilege('provinsi-store')"
-      class="d-grid gap-2 d-md-block"
-    >
+    <div v-if="checkPrivilege('jabatan-add')" class="d-grid gap-2 d-md-block">
       <button
         @click="resetnama()"
         type="button"
@@ -24,7 +21,7 @@
         data-bs-toggle="modal"
         data-bs-target="#messageModal"
       >
-        Add jabatan
+        Tambah jabatan
       </button>
     </div>
     <div class="profile-setting-panel-wrap">
@@ -50,7 +47,7 @@
               <td>{{ item.level }}</td>
               <td class="row">
                 <button
-                  v-if="checkPrivilege('provinsi-update')"
+                  v-if="checkPrivilege('jabatan-edit')"
                   @click="showJabatan(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Edit"
@@ -60,7 +57,7 @@
                   <em class="fa fa-pencil-square-o"></em>
                 </button>
                 <button
-                  v-if="checkPrivilege('provinsi-delete')"
+                  v-if="checkPrivilege('jabatan-delete')"
                   @click="showDelete(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Delete"
@@ -305,7 +302,7 @@ export default {
           console.log(response);
         })
         .catch((error) => {
-          this.$toast.show("gagal menambahkan");
+          this.$toast.error("gagal menambahkan");
           console.log(error);
         });
     },
@@ -318,11 +315,10 @@ export default {
         .then((response) => {
           this.showPost();
           this.getJabatan();
-          this.$toast.show("berhasil update");
           console.log(response);
         })
         .catch((error) => {
-          this.$toast.show("gagal update");
+          this.$toast.error("gagal update");
           console.log(error);
         });
       this.name = "";

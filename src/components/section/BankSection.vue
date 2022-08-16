@@ -12,9 +12,9 @@
         <li class="breadcrumb-item">Bank</li>
       </ol>
     </nav>
-    <!-- {{ provinsi }} -->
+    <!-- {{ bank }} -->
     <div
-      v-if="checkPrivilege('provinsi-store')"
+      v-if="checkPrivilege('bank-add')"
       class="d-grid gap-2 d-md-block"
     >
       <button
@@ -47,7 +47,7 @@
               <td>{{ item.name }}</td>
               <td class="row">
                 <button
-                  v-if="checkPrivilege('provinsi-update')"
+                  v-if="checkPrivilege('bank-edit')"
                   @click="showBank(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Edit"
@@ -57,7 +57,7 @@
                   <em class="fa fa-pencil-square-o"></em>
                 </button>
                 <button
-                  v-if="checkPrivilege('provinsi-delete')"
+                  v-if="checkPrivilege('bank-delete')"
                   @click="showDelete(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Delete"
@@ -334,7 +334,7 @@ export default {
 };
 </script>
 
-// setup(){ // const provinsi = reactive({ // name : '', // }); // function
-store() { // axios.post( // 'http://127.0.0.1:8000/api/provinsi', // provinsi //
+// setup(){ // const bank = reactive({ // name : '', // }); // function
+store() { // axios.post( // 'http://127.0.0.1:8000/api/bank', // bank //
 ) // .then((response)=> { // console.log(response); // }).catch((err) => { //
-console.log(err); // }); // } // return { // provinsi, // store // } // },
+console.log(err); // }); // } // return { // bank, // store // } // },

@@ -13,7 +13,7 @@
       </ol>
     </nav>
     <!-- {{ cities }} -->
-    <div v-if="checkPrivilege('cities-store')" class="d-grid gap-2 d-md-block">
+    <div v-if="checkPrivilege('city-add')" class="d-grid gap-2 d-md-block">
       <button
         @click="resetnama()"
         type="button"
@@ -47,7 +47,7 @@
               <td>{{ item.name }}</td>
               <td class="row">
                 <button
-                  v-if="checkPrivilege('cities-update')"
+                  v-if="checkPrivilege('city-edit')"
                   @click="showCities(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Edit"
@@ -57,7 +57,7 @@
                   <em class="fa fa-pencil-square-o"></em>
                 </button>
                 <button
-                  v-if="checkPrivilege('cities-delete')"
+                  v-if="checkPrivilege('city-delete')"
                   @click="showDelete(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Delete"

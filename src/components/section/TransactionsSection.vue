@@ -6,7 +6,7 @@
     <!-- end user-panel-title-box -->
 
     <!-- {{ kontak }} -->
-    <div v-if="checkPrivilege('kontak-store')" class="d-grid gap-2 d-md-block">
+    <div v-if="checkPrivilege('kontak-add')" class="d-grid gap-2 d-md-block">
       <router-link
         to="/add-contact"
         type="button"
@@ -55,7 +55,7 @@
                 ></router-link>
                 <!-- <button  @click="showCities(item.id)" class="col-sm-1 icon-btn " title="Show" data-bs-toggle="modal"  data-bs-target="#editModal"><em class="fa fa-eye" ></em></button> -->
                 <router-link
-                  v-if="checkPrivilege('kontak-update')"
+                  v-if="checkPrivilege('kontak-edit')"
                   :to="{ name: 'edit-contact', params: { id: item.id } }"
                   class="col- p-0 m-0 icon-btn"
                   title="Edit"

@@ -60,30 +60,13 @@
               <td>{{ item.email }}</td>
               <td>
                 <router-link
-                  v-if="item.cekWilayah"
+                  v-if="checkPrivilege('member-show')"
+                  v-show="item.cekWilayah"
                   :to="{ name: 'show-member', params: { id: item.id } }"
                   class="col- p-0 m-0 icon-btn btn-sm"
-                  title="Edit"
+                  title="Show"
                   ><em class="fa fa-eye"></em
                 ></router-link>
-                <!-- <button
-                  v-if="checkPrivilege('dpw-update')"
-                  @click="showDPW(item.id)"
-                  class="col- icon-btn p-0 m-0"
-                  title="Edit"
-                  data-bs-toggle="modal"
-                  data-bs-target="#updateModal"
-                >
-                  <em class="fa fa-pencil-square-o"></em>
-                </button> -->
-                <!-- <button
-                  v-if="checkPrivilege('dpw-delete')"
-                  @click="showDelete(item.id)"
-                  class="col- icon-btn p-0 m-0"
-                  title="Delete"
-                >
-                  <em class="ni ni-trash"></em>
-                </button> -->
               </td>
             </tr>
           </tbody>

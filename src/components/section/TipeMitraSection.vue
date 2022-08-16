@@ -14,7 +14,7 @@
     </nav>
     <!-- {{ provinsi }} -->
     <div
-      v-if="checkPrivilege('provinsi-store')"
+      v-if="checkPrivilege('tipemitra-add')"
       class="d-grid gap-2 d-md-block"
     >
       <button
@@ -48,7 +48,7 @@
               <td>{{ item.name }}</td>
               <td class="row">
                 <button
-                  v-if="checkPrivilege('provinsi-update')"
+                  v-if="checkPrivilege('tipemitra-edit')"
                   @click="showMitra(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Edit"
@@ -58,7 +58,7 @@
                   <em class="fa fa-pencil-square-o"></em>
                 </button>
                 <button
-                  v-if="checkPrivilege('provinsi-delete')"
+                  v-if="checkPrivilege('tipemitra-delete')"
                   @click="showDelete(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Delete"
@@ -209,7 +209,7 @@ export default {
       perPage: 6,
       records: [],
       mitra: [],
-      //   provinsis: [],
+      //   tipemitras: [],
       //   edit:'',
       name: "",
     };
@@ -336,7 +336,7 @@ export default {
 };
 </script>
 
-// setup(){ // const provinsi = reactive({ // name : '', // }); // function
-store() { // axios.post( // 'http://127.0.0.1:8000/api/provinsi', // provinsi //
+// setup(){ // const tipemitra = reactive({ // name : '', // }); // function
+store() { // axios.post( // 'http://127.0.0.1:8000/api/tipemitra', // tipemitra //
 ) // .then((response)=> { // console.log(response); // }).catch((err) => { //
-console.log(err); // }); // } // return { // provinsi, // store // } // },
+console.log(err); // }); // } // return { // tipemitra, // store // } // },

@@ -13,7 +13,7 @@
       </ol>
     </nav>
     <!-- {{ cities}} -->
-    <div v-if="checkPrivilege('wilayah-store')" class="d-grid gap-2 d-md-block">
+    <div v-if="checkPrivilege('wilayah-add')" class="d-grid gap-2 d-md-block">
       <button
         @click="resetnama()"
         type="button"
@@ -51,7 +51,7 @@
               <td>{{ item.nomor }}</td>
               <td class="row">
                 <button
-                  v-if="checkPrivilege('wilayah-update')"
+                  v-if="checkPrivilege('wilayah-edit')"
                   @click="showWilayah(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Edit"

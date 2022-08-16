@@ -3,8 +3,6 @@
     <div class="user-panel-title-box">
       <h3>Home</h3>
     </div>
-    <!-- end user-panel-title-box -->
-    <!-- {{ userManajemen.length }} -->
     <div class="profile-setting-panel-wrap">
       <div class="table">
         <div class="row p-0 m-0">

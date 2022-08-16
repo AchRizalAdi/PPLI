@@ -16,6 +16,7 @@
     <!-- v-if="checkPrivilege('dpw-store')" -->
     <div class="d-grid gap-2 d-md-block">
       <button
+        v-if="checkPrivilege('kategori-add')"
         @click="resetnama()"
         type="button"
         class="btn btn-dark btn-sm mb-2"
@@ -67,7 +68,7 @@
                   ><em class="fa fa-eye"></em
                 ></router-link> -->
                 <button
-                  v-if="checkPrivilege('dpw-update')"
+                  v-if="checkPrivilege('kategori-edit')"
                   @click="showKategori(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Edit"
@@ -77,7 +78,7 @@
                   <em class="fa fa-pencil-square-o"></em>
                 </button>
                 <button
-                  v-if="checkPrivilege('dpw-delete')"
+                  v-if="checkPrivilege('kategori-delete')"
                   @click="showDelete(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Delete"
@@ -234,7 +235,7 @@
             </button>
           </div>
           <div class="modal-body">
-              <div class="form-group mb-2">
+            <div class="form-group mb-2">
               <label>Wilayah </label>
               <v-select
                 class="generic-select"
@@ -423,7 +424,7 @@ export default {
       axios.get("http://127.0.0.1:8000/api/akun/getindex").then(
         function (response) {
           this.index = response.data.data;
-           setTimeout(() => {
+          setTimeout(() => {
             $("#dataMem").DataTable();
           }, 300);
         }.bind(this)
@@ -500,7 +501,7 @@ export default {
           kategori_akun: this.kategori_akun,
         })
         .then((response) => {
-          this.refresh();
+          this.showPost();
           console.log(response);
         })
         .catch((error) => {

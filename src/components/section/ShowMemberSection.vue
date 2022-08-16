@@ -60,6 +60,7 @@
             </span>
             <br />
             <router-link
+              v-if="checkPrivilege('member-edit')"
               :to="{ name: 'edit-member', params: register.id }"
               class="btn btn-sm btn-dark mt-3 mb-2"
               title="Edit"
@@ -67,6 +68,7 @@
             >
             <div class="d-grid gap-2 d-md-block">
               <button
+                v-if="checkPrivilege('member-edit-foto')"
                 type="button"
                 class="btn btn-dark btn-sm mb-2"
                 data-bs-toggle="modal"
@@ -95,7 +97,11 @@
               id="myTab"
               role="tablist"
             >
-              <li class="nav-item" role="presentation">
+              <li
+                v-if="checkPrivilege('member-transaksi-index')"
+                class="nav-item"
+                role="presentation"
+              >
                 <button
                   class="nav-link active"
                   isActive
@@ -107,7 +113,11 @@
                   Transaksi
                 </button>
               </li>
-              <li class="nav-item" role="presentation">
+              <li
+                v-if="checkPrivilege('member-iuran-index')"
+                class="nav-item"
+                role="presentation"
+              >
                 <button
                   class="nav-link"
                   id="iuran-tab"
@@ -210,6 +220,7 @@
                                 <td>{{ item.status }}</td>
                                 <td>
                                   <button
+                                    v-if="checkPrivilege('member-iuran-edit')"
                                     @click="showIuran(item.id)"
                                     class="col- icon-btn p-0 m-0"
                                     title="Edit"
@@ -433,6 +444,16 @@ export default {
         timer: 1500,
       });
     },
+    checkPrivilege(privilege) {
+      const permission = localStorage.getItem("permission");
+      let status = false;
+      JSON.parse(permission).forEach((data) => {
+        if (data === privilege) {
+          status = true;
+        }
+      });
+      return status;
+    },
     getTahun: function () {
       axios.get("http://127.0.0.1:8000/api/iuran/selectOption").then(
         function (response) {
@@ -475,7 +496,7 @@ export default {
         );
     },
     showIuran(id) {
-      // alert(id)  
+      // alert(id)
       axios.get("http://127.0.0.1:8000/api/iuran/showUpdate/" + id).then(
         function (response) {
           this.id = response.data.id;

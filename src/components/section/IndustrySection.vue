@@ -14,7 +14,7 @@
     </nav>
     <!-- {{ provinsi }} -->
     <div
-      v-if="checkPrivilege('industry-store')"
+      v-if="checkPrivilege('industri-add')"
       class="d-grid gap-2 d-md-block"
     >
       <button
@@ -51,7 +51,7 @@
               <td>{{ item.name }}</td>
               <td class="row">
                 <button
-                  v-if="checkPrivilege('industry-update')"
+                  v-if="checkPrivilege('industri-edit')"
                   @click="showIndustri(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Edit"
@@ -61,7 +61,7 @@
                   <em class="fa fa-pencil-square-o"></em>
                 </button>
                 <button
-                  v-if="checkPrivilege('industry-delete')"
+                  v-if="checkPrivilege('industri-delete')"
                   @click="showDelete(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Delete"

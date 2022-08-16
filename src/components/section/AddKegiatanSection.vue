@@ -110,6 +110,7 @@ import SectionData from "@/store/store.js";
 import axios from "axios";
 import Editor from "@tinymce/tinymce-vue";
 // import $ from "jquery";
+import Swal from "sweetalert2";
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
 
@@ -136,6 +137,15 @@ export default {
   },
 
   methods: {
+    showPost() {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Data telah tersimpan!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    },
     store() {
       axios
         .post("http://127.0.0.1:8000/api/kegiatan", {
@@ -147,8 +157,9 @@ export default {
           keterangan: this.keterangan,
         })
         .then((response) => {
+          this.showPost();
           this.$router.push({ name: "kegiatan" });
-          this.$toast.show("berhasil ditambahkan");
+          this.$toast.sucess("berhasil ditambahkan");
           console.log(response);
         })
         .catch((error) => {

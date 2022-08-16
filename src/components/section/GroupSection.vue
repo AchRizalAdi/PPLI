@@ -15,6 +15,7 @@
     <!-- {{ cities }} -->
     <div class="d-grid gap-2 d-md-block">
       <button
+        v-if="checkPrivilege('group-add')"
         @click="resetnama()"
         type="button"
         class="btn btn-dark btn-sm mb-2"
@@ -43,6 +44,7 @@
               <td>{{ item.name }}</td>
               <td class="row">
                 <router-link
+                  v-if="checkPrivilege('group-privilege')"
                   :to="{ name: 'privilege', params: { id: item.id } }"
                   class="col- p-0 m-0 icon-btn"
                   title="Show"
@@ -50,7 +52,8 @@
                 ></router-link>
                 <!-- <button  @click="showRoles(item.id)" class="col- p-0 m-0 icon-btn" title="Edit" data-bs-toggle="modal"  data-bs-target="#editModal"><em class="ni ni-file" ></em></button> -->
                 <button
-                 v-if="item.cekRoles"
+                  v-if="checkPrivilege('group-delete')"
+                  v-show="item.cekRoles"
                   @click="showDelete(item.id)"
                   class="col- p-0 m-0 icon-btn"
                   title="Delete"
@@ -302,7 +305,16 @@ export default {
         }.bind(this)
       );
     },
-
+    checkPrivilege(privilege) {
+      const permission = localStorage.getItem("permission");
+      let status = false;
+      JSON.parse(permission).forEach((data) => {
+        if (data === privilege) {
+          status = true;
+        }
+      });
+      return status;
+    },
     // batas
   },
   created: function () {
