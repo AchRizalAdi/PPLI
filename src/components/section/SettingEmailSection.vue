@@ -21,6 +21,7 @@
       Show Mail
     </div>
     <div
+      @click="resetemail()"
       type="button"
       class="btn btn-dark btn-sm ms-2"
       data-bs-toggle="modal"
@@ -28,7 +29,7 @@
     >
       Test Mail
     </div>
-      <!-- {{ email }} -->
+    <!-- {{ email }} -->
     <!-- <div class="btn btn-sm btn-dark ms-2">Test Mail</div> -->
     <div class="profile-setting-panel-wrap">
       <div class="table-responsive">
@@ -157,34 +158,34 @@
           </div>
           <div class="modal-body">
             <div class="d-flex flex-row">
-              <h4 class="p-2 me-5">Nama</h4>
+              <h4 class="p-2 me-4">Nama</h4>
               <h4 class="p-2">:</h4>
-              <p class="p-2 mb-3">isi</p>
+              <p class="p-2 mb-3">{{ emails.name }}</p>
             </div>
             <div class="d-flex flex-row">
               <h4 class="p-2 me-5">Host</h4>
               <h4 class="p-2">:</h4>
-              <p class="p-2 mb-3">isi</p>
+              <p class="p-2 mb-3">{{ emails.host }}</p>
             </div>
             <div class="d-flex flex-row">
               <h4 class="p-2 me-5">Port</h4>
               <h4 class="p-2">:</h4>
-              <p class="p-2 mb-3">isi</p>
+              <p class="p-2 mb-3">{{ emails.port }}</p>
             </div>
             <div class="d-flex flex-row">
               <h4 class="p-2 me-5">Encryption</h4>
               <h4 class="p-2">:</h4>
-              <p class="p-2 mb-3">isi</p>
+              <p class="p-2 mb-3">{{ emails.encryption }}</p>
             </div>
             <div class="d-flex flex-row">
               <h4 class="p-2 me-5">Username</h4>
               <h4 class="p-2">:</h4>
-              <p class="p-2 mb-3">isi</p>
+              <p class="p-2 mb-3">{{ emails.username }}</p>
             </div>
             <div class="d-flex flex-row">
               <h4 class="p-2 me-5">Password</h4>
               <h4 class="p-2">:</h4>
-              <p class="p-2 mb-3">isi</p>
+              <p class="p-2 mb-3">{{ emails.password }}</p>
             </div>
             <!-- end form-floating -->
             <button class="btn btn-dark w-100" data-bs-dismiss="modal">
@@ -206,44 +207,46 @@
     aria-labelledby="reportModalLabel"
     aria-hidden="true"
   >
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="reportModalLabel">Test Email</h4>
-          <button
-            type="button"
-            class="btn-close icon-btn"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          >
-            <em class="ni ni-cross"></em>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="form-floating mb-3">
-            <input
-              type="email"
-              class="form-control"
-              id="name"
-              placeholder="Email"
-              v-model="name"
-              required
-            />
-            <label for="name">Email</label>
+    <form @submit.prevent="postEmail()">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="reportModalLabel">Test Email</h4>
+            <button
+              type="button"
+              class="btn-close icon-btn"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <em class="ni ni-cross"></em>
+            </button>
           </div>
-          <!-- end form-floating -->
-          <button
-            class="btn btn-dark w-100"
-            data-bs-dismiss="modal"
-            type="submit"
-          >
-            Test
-          </button>
+          <div class="modal-body">
+            <div class="form-floating mb-3">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Email"
+                v-model="email"
+                required
+              />
+              <label for="email">Email</label>
+            </div>
+            <!-- end form-floating -->
+            <button
+              class="btn btn-dark w-100"
+              data-bs-dismiss="modal"
+              type="submit"
+            >
+              Test
+            </button>
+          </div>
+          <!-- end modal-body -->
         </div>
-        <!-- end modal-body -->
+        <!-- end modal-content -->
       </div>
-      <!-- end modal-content -->
-    </div>
+    </form>
     <!-- end modal-dialog -->
   </div>
   <!-- end modal-->
@@ -254,6 +257,7 @@
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from "@/store/store.js";
 import axios from "axios";
+import Swal from "sweetalert2";
 // import $ from "jquery";
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
@@ -266,7 +270,8 @@ export default {
       i: 1,
       perPage: 6,
       records: [],
-      email: [],
+      emails: [],
+      email:"",
       name: "",
       host: "",
       port: "",
@@ -277,6 +282,18 @@ export default {
   },
 
   methods: {
+    showPost() {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Data telah terkirim!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    },
+    resetemail() {
+      this.email = null;
+    },
     store() {
       axios
         .post(process.env.VUE_APP_ROOT_API + "setting/email", {
@@ -300,9 +317,24 @@ export default {
     getEmail: function () {
       axios.get(process.env.VUE_APP_ROOT_API + "setting/email/get").then(
         function (response) {
-          this.email = response.data;
+          this.emails = response.data.data;
         }.bind(this)
       );
+    },
+    postEmail() {
+      axios
+        .post(process.env.VUE_APP_ROOT_API + "setting/email/test", {
+          email: this.email,
+        })
+        .then((response) => {
+          this.showPost();
+          // emitter.emit("refreshPage");
+          console.log(response);
+        })
+        .catch((error) => {
+          this.$toast.error("Email sent failed");
+          console.log(error);
+        });
     },
   },
   created: function () {

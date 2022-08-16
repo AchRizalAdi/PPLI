@@ -13,132 +13,28 @@
         <li class="breadcrumb-item">Detail Kontak</li>
       </ol>
     </nav>
-    <div class="profile-setting-panel-wrap">
-      <div class="table-responsive">
-        <!-- <form @submit.prevent="updateKontaks"> -->
-
-        <div class="form-floating mb-3">
-          <input
-            v-model="kontaks.nama"
-            type="text"
-            class="form-control"
-            id="name"
-            placeholder="Nama"
-            disabled
-          />
-          <label for="name">Nama</label>
+    <div class="container">
+      <div class="d-flex">
+        <div class="me-5">
+          <div><strong class="me-2">Nama :</strong>{{ kontaks.nama }}</div>
+          <div><strong class="me-2">Alamat :</strong>{{ kontaks.alamat }}</div>
+          <div><strong class="me-2">Email :</strong>{{ kontaks.email }}</div>
+          <div><strong class="me-2">Nomor :</strong>{{ kontaks.nomor }}</div>
+          <div><strong class="me-2">Status :</strong>{{ kontaks.status }}</div>
+          <div><strong class="me-2">Agama :</strong>{{ kontaks.agama }}</div>
+          <div><strong class="me-2">Tanggal Lahir :</strong>{{ kontaks.tanggal_lahir }}</div>
+          <div><strong class="me-2">Nomor KTP :</strong>{{ kontaks.no_ktp }}</div>
+          <div><strong class="me-2">NPWP :</strong>{{ kontaks.npwp }}</div>
         </div>
-        <!-- end form-floating -->
-        <div class="form-floating mb-3">
-          <input
-            v-model="kontaks.alamat"
-            type="alamat"
-            class="form-control"
-            id="alamat"
-            placeholder="Alamat"
-            disabled
-          />
-          <label for="alamat">Alamat</label>
+        <div class="ms-5">
+          <h5>Foto Perusahaan</h5>
+           <div class="img-thumbnail">
+                <img :src="path + gambar" width="200" />
+              </div>
         </div>
-        <!-- end form-floating -->
-        <div class="form-floating mb-3">
-          <input
-            v-model="kontaks.email"
-            type="email"
-            class="form-control"
-            id="email"
-            placeholder="Email"
-            disabled
-          />
-          <label for="email">Email</label>
-        </div>
-        <!-- end form-floating -->
-        <div class="form-floating mb-3">
-          <input
-            v-model="kontaks.nomor"
-            type="nomor"
-            class="form-control"
-            id="nomor"
-            placeholder="Nomor"
-            disabled
-          />
-          <label for="nomor">Nomor</label>
-        </div>
-        <!-- end form-floating -->
-        <div class="form-floating mb-3">
-          <input
-            v-model="kontaks.status"
-            type="text"
-            class="form-control"
-            id="status"
-            placeholder="Status"
-            disabled
-          />
-          <label for="status">Status</label>
-        </div>
-        <!-- end form-floating -->
-        <div class="form-floating mb-3">
-          <input
-            v-model="kontaks.agama"
-            type="text"
-            class="form-control"
-            id="agama"
-            placeholder="Agama"
-            disabled
-          />
-          <label for="agama">Agama</label>
-        </div>
-        <!-- end form-floating -->
-        <div class="form-floating mb-3">
-          <input
-            v-model="kontaks.tanggal_lahir"
-            type="text"
-            class="form-control"
-            id="tanggal_lahir"
-            placeholder="Tanggal Lahir"
-            disabled
-          />
-          <label for="tanggal_lahir">Tanggal Lahir</label>
-        </div>
-        <!-- end form-floating -->
-        <div class="form-floating mb-3">
-          <input
-            v-model="kontaks.no_ktp"
-            type="text"
-            class="form-control"
-            id="no_ktp"
-            placeholder="Nomor KTP"
-            disabled
-          />
-          <label for="no_ktp">Nomor KTP</label>
-        </div>
-        <div class="form-floating mb-3">
-          <input
-            v-model="kontaks.npwp"
-            type="text"
-            class="form-control"
-            id="npwp"
-            placeholder="NPWP"
-            disabled
-          />
-          <label for="npwp">NPWP</label>
-        </div>
-        <!-- BUTTON -->
-        <router-link
-          to="/transactions"
-          type="button"
-          class="btn btn-sm btn-dark"
-          >Kembali</router-link
-        >
-        <!-- <button class="btn btn-sm btn-dark w-20 ms-2" type="submit" >Simpan Contact</button> -->
-        <!-- </form> -->
       </div>
-      <!-- end table-responsive -->
     </div>
-    <!-- end profile-setting-panel-wrap-->
-    <!-- Modal store -->
   </div>
-  <!-- end col-lg-8 -->
 </template>
 
 <script>
@@ -162,7 +58,7 @@ export default {
   },
   created() {
     axios
-      .get(process.env.VUE_APP_ROOT_API+`kontak/${this.$route.params.id}`)
+      .get(process.env.VUE_APP_ROOT_API + `kontak/${this.$route.params.id}`)
       .then((res) => {
         this.kontaks = res.data.data;
       });
@@ -171,7 +67,7 @@ export default {
     updateKontaks() {
       axios
         .post(
-          process.env.VUE_APP_ROOT_API+`kontak/${this.$route.params.id}`,
+          process.env.VUE_APP_ROOT_API + `kontak/${this.$route.params.id}`,
           this.kontaks
         )
         .then((res) => {
