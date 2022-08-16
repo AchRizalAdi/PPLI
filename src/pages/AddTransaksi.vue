@@ -54,23 +54,31 @@
                     >
                   </li>
                   <li>
-                    <router-link to="/member"
+                    <router-link
+                      to="/member"
+                      v-if="checkPrivilege('member-index')"
                       ><em class="ni ni-users me-2"></em>Member</router-link
                     >
                   </li>
                   <li>
-                    <router-link to="/daftar-mitra"
+                    <router-link
+                      to="/daftar-mitra"
+                      v-if="checkPrivilege('mitra-index')"
                       ><em class="ni ni-user-check me-2"></em>Mitra</router-link
                     >
                   </li>
                   <li>
-                    <router-link to="/iuran"
+                    <router-link
+                      to="/iuran"
+                      v-if="checkPrivilege('iuran-index')"
                       ><em class="ni ni-wallet-saving me-2"></em
                       >iuran</router-link
                     >
                   </li>
                   <li class="active">
-                    <router-link to="/transaksi"
+                    <router-link
+                      to="/transaksi"
+                      v-if="checkPrivilege('transaksi-index')"
                       ><em class="ni ni-swap-alt me-2"></em
                       >Transaksi</router-link
                     >
@@ -84,13 +92,17 @@
                     >
                   </li>
                   <li>
-                    <router-link to="/kegiatan"
+                    <router-link
+                      to="/kegiatan"
+                      v-if="checkPrivilege('kegiatan-index')"
                       ><em class="ni ni-calendar me-2"></em
                       >Kegiatan</router-link
                     >
                   </li>
                   <li>
-                    <router-link to="/pengumuman"
+                    <router-link
+                      to="/pengumuman"
+                      v-if="checkPrivilege('pengumuman-index')"
                       ><em class="ni ni-tags me-2"></em>Pengumuman</router-link
                     >
                   </li>
