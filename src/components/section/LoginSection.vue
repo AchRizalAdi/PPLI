@@ -76,7 +76,7 @@ export default {
   methods: {
     
     loginForm(){
-        axios.post('http://127.0.0.1:8000/api/login', {
+        axios.post(process.env.VUE_APP_ROOT_API+'login', {
             email: this.email,
             password: this.password
           })
@@ -138,7 +138,7 @@ export default {
 }
 </script>
       // async handleSubmit(){
-      //     const response = await axios.post('http://127.0.0.1:8000/api/login', {
+      //     const response = await axios.post(process.env.VUE_APP_ROOT_API+'login', {
       //         email: this.email,
       //         password: this.password
       //     });
