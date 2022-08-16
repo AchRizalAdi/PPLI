@@ -348,7 +348,7 @@ export default {
       this.keterangan = null;
     },
     getKhas: function () {
-      axios.get("http://127.0.0.1:8000/api/khas/index").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"khas/index").then(
         function (response) {
           this.khas = response.data;
           setTimeout(() => {
@@ -358,7 +358,7 @@ export default {
       );
     },
     getKategori: function () {
-      axios.get("http://127.0.0.1:8000/api/akun/selectOption").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"akun/selectOption").then(
         function (response) {
           this.kategori = response.data.data.map((kategori) => ({
             value: kategori.id,
@@ -370,7 +370,7 @@ export default {
     deleteProvinsi(id) {
       // alert(id);
 
-      axios.delete("http://127.0.0.1:8000/api/provinsi/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"provinsi/" + id).then(
         function () {
           $("#datakas").DataTable().destroy();
           emitter.emit("refreshPage");
@@ -380,7 +380,7 @@ export default {
     deleteKhas(id) {
       // alert(id);
 
-      axios.delete("http://127.0.0.1:8000/api/khas/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"khas/" + id).then(
         function () {
           // alert("delete succes");
           this.getKhas();
@@ -390,7 +390,7 @@ export default {
 
     showKhas(id) {
       // alert(id);
-      axios.get("http://127.0.0.1:8000/api/khas/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API+"khas/" + id).then(
         function (response) {
           this.edit = response.data.data.id;
           this.kode = response.data.data.kode;
@@ -406,7 +406,7 @@ export default {
     putKhas(id) {
       // alert(id);
       axios
-        .post("http://127.0.0.1:8000/api/khas/" + id, {
+        .post(process.env.VUE_APP_ROOT_API+"khas/" + id, {
           kode: this.kode,
           kode_akun: this.kode_akun,
           nama: this.nama,
@@ -426,7 +426,7 @@ export default {
 
     postKhas() {
       axios
-        .post("http://127.0.0.1:8000/api/khas", {
+        .post(process.env.VUE_APP_ROOT_API+"khas", {
           kode: this.kode,
           kode_akun: this.kode_akun,
           nama: this.nama,
@@ -474,6 +474,6 @@ export default {
 </script>
 
 // setup(){ // const provinsi = reactive({ // name : '', // }); // function
-store() { // axios.post( // 'http://127.0.0.1:8000/api/provinsi', // provinsi //
+store() { // axios.post( // process.env.VUE_APP_ROOT_API+'provinsi', // provinsi //
 ) // .then((response)=> { // console.log(response); // }).catch((err) => { //
 console.log(err); // }); // } // return { // provinsi, // store // } // },

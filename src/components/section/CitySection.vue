@@ -12,7 +12,7 @@
         <li class="breadcrumb-item">Kota</li>
       </ol>
     </nav>
-    <!-- {{ cities }} -->
+    <!-- {{ provinsis }} -->
     <div v-if="checkPrivilege('city-add')" class="d-grid gap-2 d-md-block">
       <button
         @click="resetnama()"
@@ -292,7 +292,7 @@ export default {
     },
     postCities() {
       axios
-        .post("http://127.0.0.1:8000/api/cities", {
+        .post(process.env.VUE_APP_ROOT_API+"cities", {
           name: this.name,
           provinsiId: this.provinsiId,
         })
@@ -309,7 +309,7 @@ export default {
     },
     deleteCities(id) {
       // alert(id);
-      axios.delete("http://127.0.0.1:8000/api/cities/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"cities/" + id).then(
         function () {
           $("#dataCity").DataTable().destroy();
           emitter.emit("refreshPage");
@@ -319,7 +319,7 @@ export default {
     },
     putCities(id) {
       axios
-        .post("http://127.0.0.1:8000/api/cities/" + id, {
+        .post(process.env.VUE_APP_ROOT_API+"cities/" + id, {
           name: this.name,
           provinsiId: this.provinsiId,
         })
@@ -338,7 +338,7 @@ export default {
     },
 
     getProvinsis: function () {
-      axios.get("http://127.0.0.1:8000/api/select/provinsi").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"select/provinsi").then(
         function (response) {
           this.provinsis = response.data.map((provinsis) => ({
             value: provinsis.id,
@@ -348,7 +348,7 @@ export default {
       );
     },
     showCities(id) {
-      axios.get("http://127.0.0.1:8000/api/cities/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API+"cities/" + id).then(
         function (response) {
           // console.log(response.data.data.id);
           this.id = response.data.data.id;
@@ -358,7 +358,7 @@ export default {
       );
     },
     getCities: function () {
-      axios.get("http://127.0.0.1:8000/api/cities").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"cities").then(
         function (response) {
           this.cities = response.data;
           setTimeout(() => {

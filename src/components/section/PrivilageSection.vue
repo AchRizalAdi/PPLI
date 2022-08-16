@@ -94,7 +94,7 @@ export default {
   },
   created() {
     axios
-      .get(`http://127.0.0.1:8000/api/user_permission/${this.$route.params.id}`)
+      .get(process.env.VUE_APP_ROOT_API+`user_permission/${this.$route.params.id}`)
       .then((res) => {
         this.privilege = res.data;
       });
@@ -118,7 +118,7 @@ export default {
       this.permission = searchIDs;
       axios
         .post(
-          `http://127.0.0.1:8000/api/update_user_permission/${this.$route.params.id}`,
+          process.env.VUE_APP_ROOT_API+`update_user_permission/${this.$route.params.id}`,
           { permission: this.permission }
         )
         .then((response) => {

@@ -352,7 +352,7 @@ export default {
       });
     },
     getPengurus: function () {
-      axios.get("http://127.0.0.1:8000/api/pengurus").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"pengurus").then(
         function (response) {
           this.pengurus = response.data;
           // console.log(this.pengurus);
@@ -363,7 +363,7 @@ export default {
       );
     },
     getMember: function () {
-      axios.get("http://127.0.0.1:8000/api/member").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"member").then(
         function (response) {
           this.members = response.data.data.map((members) => ({
             value: members.id,
@@ -373,7 +373,7 @@ export default {
       );
     },
     //  getJabatan() {
-    //   axios.get("http://127.0.0.1:8000/api/jabatan").then(
+    //   axios.get(process.env.VUE_APP_ROOT_API+"jabatan").then(
     //     function (response) {
     //       this.jabatan = response.data.map((jabatan) => ({
     //         value: jabatan.id,
@@ -383,7 +383,7 @@ export default {
     //   );
     // },
     getJabatan: function () {
-      axios.get("http://127.0.0.1:8000/api/jabatan").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"jabatan").then(
         function (response) {
           this.jabatans = response.data.data.map((jabatans) => ({
             value: jabatans.id,
@@ -395,7 +395,7 @@ export default {
 
     deletePengurus(id) {
       // alert(id);
-      axios.delete("http://127.0.0.1:8000/api/pengurus/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"pengurus/" + id).then(
         function () {
           $("#dataPengurus").DataTable().destroy();
           emitter.emit("refreshPage");
@@ -404,7 +404,7 @@ export default {
     },
     postPengurus() {
       axios
-        .post("http://127.0.0.1:8000/api/pengurus", {
+        .post(process.env.VUE_APP_ROOT_API+"pengurus", {
           jabatanId: this.jabatanId,
           memberId: this.memberId,
           username: this.username,
@@ -424,7 +424,7 @@ export default {
 
     putPengurus(id) {
       axios
-        .post("http://127.0.0.1:8000/api/pengurus/" + id, {
+        .post(process.env.VUE_APP_ROOT_API+"pengurus/" + id, {
           jabatanId: this.jabatanId,
           memberId: this.memberId,
           username: this.username,
@@ -447,7 +447,7 @@ export default {
     },
 
     getProvinsis: function () {
-      axios.get("http://127.0.0.1:8000/api/select/provinsi").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"select/provinsi").then(
         function (response) {
           this.provinsis = response.data.map((provinsis) => ({
             value: provinsis.id,
@@ -457,7 +457,7 @@ export default {
       );
     },
     showCities(id) {
-      axios.get("http://127.0.0.1:8000/api/cities/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API+"cities/" + id).then(
         function (response) {
           // console.log(response.data.data.id);
           this.id = response.data.data.id;
@@ -467,7 +467,7 @@ export default {
       );
     },
     showPengurus(id) {
-      axios.get("http://127.0.0.1:8000/api/pengurus/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API+"pengurus/" + id).then(
         function (response) {
           // console.log(response.data.data.id);
           this.id = response.data.data.id;
@@ -479,7 +479,7 @@ export default {
       );
     },
     getCities: function () {
-      axios.get("http://127.0.0.1:8000/api/cities").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"cities").then(
         function (response) {
           this.cities = response.data;
         }.bind(this)

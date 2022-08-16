@@ -162,7 +162,7 @@ export default {
   },
   created() {
     axios
-      .get(`http://127.0.0.1:8000/api/kontak/${this.$route.params.id}`)
+      .get(process.env.VUE_APP_ROOT_API+`kontak/${this.$route.params.id}`)
       .then((res) => {
         this.kontaks = res.data.data;
       });
@@ -171,7 +171,7 @@ export default {
     updateKontaks() {
       axios
         .post(
-          `http://127.0.0.1:8000/api/kontak/${this.$route.params.id}`,
+          process.env.VUE_APP_ROOT_API+`kontak/${this.$route.params.id}`,
           this.kontaks
         )
         .then((res) => {
@@ -181,7 +181,7 @@ export default {
         });
     },
     // putKontak(id){
-    //     axios.post('http://127.0.0.1:8000/api/kontak/'+id,{
+    //     axios.post(process.env.VUE_APP_ROOT_API+'kontak/'+id,{
     //          name: this.name
     //          }).then(function () {
     //         //  this.getProvinsis()
@@ -190,7 +190,7 @@ export default {
     // },
     // showKontak (id){
     // // alert(id);
-    //         axios.get('http://127.0.0.1:8000/api/kontak/'+id)
+    //         axios.get(process.env.VUE_APP_ROOT_API+'kontak/'+id)
     //         .then(function (response) {
     //             this.edit = response.data.data.id;
     //             this.nama=response.data.data.nama;

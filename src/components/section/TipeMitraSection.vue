@@ -246,7 +246,7 @@ export default {
       this.name = null;
     },
     getMitra: function () {
-      axios.get("http://127.0.0.1:8000/api/tipeMitra").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"tipeMitra").then(
         function (response) {
           this.mitra = response.data;
           setTimeout(() => {
@@ -258,7 +258,7 @@ export default {
     deleteMitra(id) {
       // alert(id);
 
-      axios.delete("http://127.0.0.1:8000/api/tipeMitra/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"tipeMitra/" + id).then(
         function () {
           $("#dataTipeMitra").DataTable().destroy();
           emitter.emit("refreshPage");
@@ -267,7 +267,7 @@ export default {
     },
     showMitra(id) {
       // alert(id);
-      axios.get("http://127.0.0.1:8000/api/tipeMitra/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API+"tipeMitra/" + id).then(
         function (response) {
           this.edit = response.data.data.id;
           this.name = response.data.data.name;
@@ -277,7 +277,7 @@ export default {
     putMitra(id) {
       // alert(id);
       axios
-        .post("http://127.0.0.1:8000/api/tipeMitra/" + id, {
+        .post(process.env.VUE_APP_ROOT_API+"tipeMitra/" + id, {
           name: this.name,
         })
         .then((response) => {
@@ -294,7 +294,7 @@ export default {
     },
     postMitra() {
       axios
-        .post("http://127.0.0.1:8000/api/tipeMitra", {
+        .post(process.env.VUE_APP_ROOT_API+"tipeMitra", {
           name: this.name,
         })
         .then((response) => {
@@ -337,6 +337,6 @@ export default {
 </script>
 
 // setup(){ // const tipemitra = reactive({ // name : '', // }); // function
-store() { // axios.post( // 'http://127.0.0.1:8000/api/tipemitra', // tipemitra //
+store() { // axios.post( // process.env.VUE_APP_ROOT_API+'tipemitra', // tipemitra //
 ) // .then((response)=> { // console.log(response); // }).catch((err) => { //
 console.log(err); // }); // } // return { // tipemitra, // store // } // },

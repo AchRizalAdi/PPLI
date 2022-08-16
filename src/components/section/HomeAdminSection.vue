@@ -49,7 +49,7 @@ export default {
 
   methods: {
     getUserManajemen: function () {
-      axios.get("http://127.0.0.1:8000/api/member/index").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"member/index").then(
         function (response) {
           this.userManajemen = response.data.data;
         }.bind(this)

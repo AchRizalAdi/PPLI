@@ -49,7 +49,7 @@ export default {
       // axios.defaults.headers.common['Permission'] = 'Bearer ' + localStorage.getItem('permission')
       
 
-      axios.get(`http://127.0.0.1:8000/api/me`)
+      axios.get(process.env.VUE_APP_ROOT_API+`me`)
         .then(response => {
           this.data = response.data
           // this.loginType = response.data.roles[0].name

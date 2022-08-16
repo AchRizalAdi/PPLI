@@ -133,7 +133,7 @@ export default {
       });
     },
     getTahun: function () {
-      axios.get("http://127.0.0.1:8000/api/transaksi/selectOption/tahun").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"transaksi/selectOption/tahun").then(
         function (response) {
           this.tahuns = response.data;
         }.bind(this)
@@ -141,7 +141,7 @@ export default {
     },
     postTahun() {
       axios
-        .post("http://127.0.0.1:8000/api/rekap/transaksi", {
+        .post(process.env.VUE_APP_ROOT_API+"rekap/transaksi", {
           tahun: this.tahuns,
         })
         .then((response) => {
@@ -186,6 +186,6 @@ export default {
 </script>
 
 // setup(){ // const provinsi = reactive({ // name : '', // }); // function
-store() { // axios.post( // 'http://127.0.0.1:8000/api/provinsi', // provinsi //
+store() { // axios.post( // process.env.VUE_APP_ROOT_API+'provinsi', // provinsi //
 ) // .then((response)=> { // console.log(response); // }).catch((err) => { //
 console.log(err); // }); // } // return { // provinsi, // store // } // },

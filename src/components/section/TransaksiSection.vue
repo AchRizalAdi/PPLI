@@ -8,7 +8,7 @@
     <!-- {{ transaksi }} -->
     <div class="d-flex flex-row">
       <div
-        v-if="checkPrivilege('provinsi-store')"
+        v-if="checkPrivilege('transaksi-add')"
         class="d-grid gap-2 d-md-block"
       >
         <router-link
@@ -21,7 +21,7 @@
         </router-link>
       </div>
       <div
-        v-if="checkPrivilege('provinsi-store')"
+        v-if="checkPrivilege('transaksi-rekap-index')"
         class="d-grid ms-1 gap-2 d-md-block"
       >
         <router-link
@@ -34,7 +34,7 @@
         </router-link>
       </div>
       <div
-        v-if="checkPrivilege('provinsi-store')"
+        v-if="checkPrivilege('transaksi-laporan-index')"
         class="d-grid ms-1 gap-2 d-md-block"
       >
         <router-link
@@ -73,14 +73,14 @@
               <td>{{ item.jenis_transaksi }}</td>
               <td class="row">
                 <router-link
-                  v-if="checkPrivilege('kontak-update')"
+                  v-if="checkPrivilege('transaksi-edit')"
                   :to="{ name: 'edit-transaksi', params: { id: item.id } }"
                   class="col- p-0 m-0 icon-btn"
                   title="Edit"
                   ><em class="fa fa-pencil-square-o"></em
                 ></router-link>
                 <button
-                  v-if="checkPrivilege('provinsi-delete')"
+                  v-if="checkPrivilege('transaksi-delete')"
                   @click="showDelete(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Delete"
@@ -167,7 +167,7 @@ export default {
       this.name = null;
     },
     getTransaksi: function () {
-      axios.get("http://127.0.0.1:8000/api/transaksi/index").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"transaksi/index").then(
         function (response) {
           this.transaksi = response.data;
           setTimeout(() => {
@@ -179,7 +179,7 @@ export default {
     deleteProvinsi(id) {
       // alert(id);
 
-      axios.delete("http://127.0.0.1:8000/api/provinsi/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"provinsi/" + id).then(
         function () {
           // alert("delete succes");
           this.getProvinsis();
@@ -189,7 +189,7 @@ export default {
     deleteTransak(id) {
       // alert(id);
 
-      axios.delete("http://127.0.0.1:8000/api/transaksi/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"transaksi/" + id).then(
         function () {
           // alert("delete succes");
           this.getTransaksi();
@@ -225,6 +225,6 @@ export default {
 </script>
 
 // setup(){ // const provinsi = reactive({ // name : '', // }); // function
-store() { // axios.post( // 'http://127.0.0.1:8000/api/provinsi', // provinsi //
+store() { // axios.post( // process.env.VUE_APP_ROOT_API+'provinsi', // provinsi //
 ) // .then((response)=> { // console.log(response); // }).catch((err) => { //
 console.log(err); // }); // } // return { // provinsi, // store // } // },

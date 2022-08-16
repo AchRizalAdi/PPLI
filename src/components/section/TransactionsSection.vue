@@ -147,7 +147,7 @@ export default {
       this.name = null;
     },
     getKontak() {
-      axios.get("http://127.0.0.1:8000/api/kontak").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"kontak").then(
         function (response) {
           this.kontak = response.data;
           setTimeout(() => {
@@ -157,7 +157,7 @@ export default {
       );
     },
     deleteKontak(id) {
-      axios.delete("http://127.0.0.1:8000/api/kontak/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"kontak/" + id).then(
         function () {
           $("#dataKontak").DataTable().destroy();
           emitter.emit("refreshPage");

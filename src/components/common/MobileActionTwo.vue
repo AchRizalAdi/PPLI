@@ -51,7 +51,7 @@ export default {
       axios.defaults.headers.common['Content-Type'] = 'application/json'
       axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token') 
 
-      axios.get(`http://127.0.0.1:8000/api/me`)
+      axios.get(process.env.VUE_APP_ROOT_API+`me`)
         .then(response => {
           this.data = response.data
           // this.loginType = response.data.roles[0].name

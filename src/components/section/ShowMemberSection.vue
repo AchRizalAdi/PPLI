@@ -394,7 +394,7 @@ export default {
   },
   created() {
     axios
-      .get(`http://127.0.0.1:8000/api/member/show/${this.$route.params.id}`)
+      .get(process.env.VUE_APP_ROOT_API+`member/show/${this.$route.params.id}`)
       .then((res) => {
         this.register = res.data.data;
         this.cities = res.data.data.cities;
@@ -409,7 +409,7 @@ export default {
   methods: {
     getGambar() {
       axios
-        .get(`http://127.0.0.1:8000/api/member/gambar/${this.$route.params.id}`)
+        .get(process.env.VUE_APP_ROOT_API+`member/gambar/${this.$route.params.id}`)
         .then((res) => {
           this.gambar = res.data;
           this.path = "http://127.0.0.1:8000";
@@ -422,7 +422,7 @@ export default {
       formData.append("gambar", this.gambar);
       axios
         .post(
-          `http://127.0.0.1:8000/api/member/gambar/${this.$route.params.id}`,
+          process.env.VUE_APP_ROOT_API+`member/gambar/${this.$route.params.id}`,
           formData
         )
         .then((res) => {
@@ -455,7 +455,7 @@ export default {
       return status;
     },
     getTahun: function () {
-      axios.get("http://127.0.0.1:8000/api/iuran/selectOption").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"iuran/selectOption").then(
         function (response) {
           this.tahuns = response.data.map((tahuns) => ({
             value: tahuns,
@@ -467,7 +467,7 @@ export default {
     getTransaksi: function () {
       axios
         .get(
-          `http://127.0.0.1:8000/api/member/transaksi/${this.$route.params.id}`
+          process.env.VUE_APP_ROOT_API+`member/transaksi/${this.$route.params.id}`
         )
         .then(
           function (response) {
@@ -481,7 +481,7 @@ export default {
     getIuran: function () {
       axios
         .post(
-          `http://127.0.0.1:8000/api/iuran/updateShow/${this.$route.params.id}`,
+          process.env.VUE_APP_ROOT_API+`iuran/updateShow/${this.$route.params.id}`,
           {
             tahun: this.tahun,
           }
@@ -497,7 +497,7 @@ export default {
     },
     showIuran(id) {
       // alert(id)
-      axios.get("http://127.0.0.1:8000/api/iuran/showUpdate/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API+"iuran/showUpdate/" + id).then(
         function (response) {
           this.id = response.data.id;
           this.tanggal_bayar = response.data.tanggal_bayar;
@@ -507,7 +507,7 @@ export default {
     },
     showMember(id) {
       // alert(id);a
-      axios.get("http://127.0.0.1:8000/api/member/show/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API+"member/show/" + id).then(
         function (response) {
           this.id = response.data.id;
           this.gambar = response.data.gambar;
@@ -524,7 +524,7 @@ export default {
     putIuran(id) {
       // alert(id);
       axios
-        .post("http://127.0.0.1:8000/api/iuran/update/" + id, {
+        .post(process.env.VUE_APP_ROOT_API+"iuran/update/" + id, {
           tanggal_bayar: this.tanggal_bayar,
           status: this.status,
         })

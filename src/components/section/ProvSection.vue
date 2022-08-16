@@ -253,7 +253,7 @@ export default {
     //   });
     // },
     getProvinsis: function () {
-      axios.get("http://127.0.0.1:8000/api/provinsi").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"provinsi").then(
         function (response) {
           this.provinsis = response.data;
           setTimeout(() => {
@@ -265,7 +265,7 @@ export default {
     deleteProvinsi(id) {
       // alert(id);
 
-      axios.delete("http://127.0.0.1:8000/api/provinsi/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"provinsi/" + id).then(
         function () {
           $("#dataProv").DataTable().destroy();
           emitter.emit("refreshPage");
@@ -274,7 +274,7 @@ export default {
     },
     showProvinsi(id) {
       // alert(id);
-      axios.get("http://127.0.0.1:8000/api/provinsi/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API+"provinsi/" + id).then(
         function (response) {
           this.edit = response.data.data.id;
           this.name = response.data.data.name;
@@ -284,7 +284,7 @@ export default {
     putProvinsis(id) {
       // alert(id);
       axios
-        .post("http://127.0.0.1:8000/api/provinsi/" + id, {
+        .post(process.env.VUE_APP_ROOT_API+"provinsi/" + id, {
           name: this.name,
         })
         .then((response) => {
@@ -297,11 +297,10 @@ export default {
           this.$toast.error("gagal update");
           console.log(error);
         });
-      this.name = "";
     },
     postProvinsis() {
       axios
-        .post("http://127.0.0.1:8000/api/provinsi", {
+        .post(process.env.VUE_APP_ROOT_API+"provinsi", {
           name: this.name,
         })
         .then((response) => {

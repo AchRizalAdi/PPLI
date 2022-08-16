@@ -438,7 +438,7 @@ export default {
   },
   methods: {
     getRoles: function () {
-      axios.get("http://127.0.0.1:8000/api/role/show").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"role/show").then(
         function (response) {
           this.rolesss = response.data.data;
         }.bind(this)
@@ -476,7 +476,7 @@ export default {
     putUser(id) {
       // alert(id);
       axios
-        .post("http://127.0.0.1:8000/api/admin/update/User/" + id, {
+        .post(process.env.VUE_APP_ROOT_API+"admin/update/User/" + id, {
           roles: this.roles,
         })
         .then((response) => {
@@ -493,7 +493,7 @@ export default {
     },
     tes(id) {
       // alert(id);
-      axios.get("http://127.0.0.1:8000/api/admin/show/roles/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API+"admin/show/roles/" + id).then(
         function (response) {
           // console.log(response.data.roles)
           this.id = response.data.id;
@@ -503,7 +503,7 @@ export default {
       );
     },
     getUserManajemen: function () {
-      axios.get("http://127.0.0.1:8000/api/userManajemen").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"userManajemen").then(
         function (response) {
           this.userManajemen = response.data;
           setTimeout(() => {
@@ -515,7 +515,7 @@ export default {
     deleteUser(id) {
       // alert(id);
 
-      axios.delete("http://127.0.0.1:8000/api/admin/delete/User/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"admin/delete/User/" + id).then(
         function () {
           // alert("delete succes");
           this.getUserManajemen();
@@ -598,35 +598,3 @@ export default {
   },
 };
 </script>
-<!-- <h5 class="mb-4">Change Password</h5> -->
-<!-- <div class="mb-3">
-                            <label for="oldPassword" class="form-label">Old Password</label>
-                            <div class="position-relative">
-                                <input type="password" class="form-control form-control-s1" id="oldPassword" placeholder="Old password">
-                                <a href="oldPassword" class="password-toggle" title="Toggle show/hide pasword">
-                                    <em class="password-shown ni ni-eye-off"></em>
-                                    <em class="password-hidden ni ni-eye"></em>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="newPassword" class="form-label">New Password</label>
-                            <div class="position-relative">
-                                <input type="password" class="form-control form-control-s1" id="newPassword" placeholder="New password">
-                                <a href="newPassword" class="password-toggle" title="Toggle show/hide pasword">
-                                    <em class="password-shown ni ni-eye-off"></em>
-                                    <em class="password-hidden ni ni-eye"></em>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="confirmNewPassword" class="form-label">Confirm New Password</label>
-                            <div class="position-relative">
-                                <input type="password" class="form-control form-control-s1" id="confirmNewPassword" placeholder="Confirm new password">
-                                <a href="confirmNewPassword" class="password-toggle" title="Toggle show/hide pasword">
-                                    <em class="password-shown ni ni-eye-off"></em>
-                                    <em class="password-hidden ni ni-eye"></em>
-                                </a>
-                            </div>
-                        </div> -->
-<!-- <button class="btn btn-dark mt-3" type="button">Update Password</button> -->

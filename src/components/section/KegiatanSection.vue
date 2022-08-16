@@ -145,7 +145,7 @@ export default {
       this.name = null;
     },
     getKegiatan() {
-      axios.get("http://127.0.0.1:8000/api/kegiatan").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"kegiatan").then(
         function (response) {
           this.kegiatan = response.data;
           setTimeout(() => {
@@ -155,7 +155,7 @@ export default {
       );
     },
     deleteKegiatan(id) {
-        axios.delete("http://127.0.0.1:8000/api/kegiatan/" + id).then(
+        axios.delete(process.env.VUE_APP_ROOT_API+"kegiatan/" + id).then(
           function () {
             $("#dataKegiatan").DataTable().destroy();
             emitter.emit("refreshPage");

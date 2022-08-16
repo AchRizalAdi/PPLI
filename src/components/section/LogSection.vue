@@ -128,7 +128,7 @@ export default {
       });
     },
     // checkWilayah(){
-    //   axios.get("http://127.0.0.1:8000/api/userRegister").then(
+    //   axios.get(process.env.VUE_APP_ROOT_API+"userRegister").then(
     //     function (response) {
     //       this.cekWilayah = response.data.data;
     //       // this.checked = cekWilayah.cekWilayah;
@@ -137,7 +137,7 @@ export default {
     // },
     update(id) {
       // alert(document.getElementById('registers').value)
-      axios.get("http://127.0.0.1:8000/api/statusRegister").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"statusRegister").then(
         function (response) {
           this.id = id;
           this.status_register = response.data;
@@ -145,7 +145,7 @@ export default {
       );
     },
     getRegisters: function () {
-      axios.get("http://127.0.0.1:8000/api/log/show").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"log/show").then(
         function (response) {
           this.registers = response.data.data;
           // this.kondisi = response.data.data;
@@ -158,7 +158,7 @@ export default {
     updateStatus(id) {
       // alert(id)
       axios
-        .post("http://127.0.0.1:8000/api/update/member/" + id, {
+        .post(process.env.VUE_APP_ROOT_API+"update/member/" + id, {
           status: this.status,
         })
         .then((response) => {
@@ -175,7 +175,7 @@ export default {
     deleteRgisters(id) {
       // alert(id);
 
-      axios.delete("http://127.0.0.1:8000/api/register/delete/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"register/delete/" + id).then(
         function () {
           $("#dataLog").DataTable().destroy();
           emitter.emit("refreshPage");
@@ -188,7 +188,7 @@ export default {
     },
     pesan(id) {
       axios
-        .post("http://127.0.0.1:8000/api/register/email/" + id, {
+        .post(process.env.VUE_APP_ROOT_API+"register/email/" + id, {
           pesan: this.isi_pesan,
         })
         .then((response) => {

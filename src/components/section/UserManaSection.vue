@@ -128,14 +128,14 @@ export default {
       roles: "",
     };
   },
-  //   http://127.0.0.1:8000/api/admin/adduser
+  //  process.env.VUE_APP_ROOT_API+ admin/adduser
   methods: {
     resetnama() {
       this.name = null;
     },
     postUser() {
       axios
-        .post("http://127.0.0.1:8000/api/admin/adduser", {
+        .post(process.env.VUE_APP_ROOT_API+"admin/adduser", {
           name: this.name,
           email: this.email,
           password: this.password,
@@ -159,7 +159,7 @@ export default {
       this.roles = "";
     },
     getRoles() {
-      axios.get("http://127.0.0.1:8000/api/role/show").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"role/show").then(
         function (response) {
           this.roless = response.data;
         }.bind(this)

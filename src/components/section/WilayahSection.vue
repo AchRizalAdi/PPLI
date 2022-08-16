@@ -146,7 +146,7 @@
               <div class="form-group mb-2">
                 <label>Kota</label>
                 <v-select
-                class="generic-select"
+                  class="generic-select"
                   v-model="kota"
                   required
                   :options="cities"
@@ -155,7 +155,6 @@
                 >
                 </v-select>
               </div>
-              <!-- {{ kota }} -->
               <!-- end form-floating -->
               <div class="form-floating mb-3 mt-4">
                 <input
@@ -258,15 +257,17 @@
                 <label>Kota </label>
 
                 <v-select
-                class="generic-select"
+                  class="generic-select"
                   v-model="kota"
                   required
                   :options="cities"
-                  :reduce="(cities) => cities.value"
+                  :reduce="(cities) => cities.text"
                   label="text"
                 >
                 </v-select>
               </div>
+              <!-- {{ kota }} -->
+
               <!-- end form-floating -->
               <div class="form-floating mb-3 mt-4">
                 <input
@@ -402,7 +403,7 @@ export default {
       this.HQ = null;
     },
     deleteWilayah(id) {
-      axios.delete("http://127.0.0.1:8000/api/wilayah/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API + "wilayah/" + id).then(
         function () {
           $("#dataWilayah").DataTable().destroy();
           emitter.emit("refreshPage");
@@ -412,7 +413,7 @@ export default {
     postWilayah() {
       // alert(this.hq);
       axios
-        .post("http://127.0.0.1:8000/api/wilayah", {
+        .post(process.env.VUE_APP_ROOT_API + "wilayah", {
           name: this.name,
           email: this.email,
           kota: this.kota,
@@ -434,7 +435,7 @@ export default {
     },
     putWilayah(id) {
       axios
-        .post("http://127.0.0.1:8000/api/wilayah/" + id, {
+        .post(process.env.VUE_APP_ROOT_API + "wilayah/" + id, {
           name: this.name,
           email: this.email,
           kota: this.kota,
@@ -452,11 +453,9 @@ export default {
           this.$toast.error("update gagal");
           console.log(error);
         });
-      this.name = "";
-      this.provinsi = "";
     },
     getCities: function () {
-      axios.get("http://127.0.0.1:8000/api/select/city2").then(
+      axios.get(process.env.VUE_APP_ROOT_API + "select/city2").then(
         function (response) {
           this.cities = response.data.map((cities) => ({
             value: cities.id,
@@ -467,7 +466,7 @@ export default {
     },
     getWilayah: function () {
       // alert(this.hq);
-      axios.get("http://127.0.0.1:8000/api/wilayah").then(
+      axios.get(process.env.VUE_APP_ROOT_API + "wilayah").then(
         function (response) {
           this.wilayah = response.data;
           setTimeout(() => {
@@ -477,7 +476,7 @@ export default {
       );
     },
     showWilayah(id) {
-      axios.get("http://127.0.0.1:8000/api/wilayah/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API + "wilayah/" + id).then(
         function (response) {
           this.id = response.data.data.id;
           this.name = response.data.data.name;

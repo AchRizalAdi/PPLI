@@ -148,7 +148,7 @@ export default {
       formData.append("gambar", this.gambar);
       axios
         .post(
-          `http://127.0.0.1:8000/api/member/gambar/${this.$route.params.id}`,
+          process.env.VUE_APP_ROOT_API+`member/gambar/${this.$route.params.id}`,
           formData
         )
         .then((res) => {
@@ -162,7 +162,7 @@ export default {
     },
     getMember() {
       axios
-        .get(`http://127.0.0.1:8000/api/member/show/${this.$route.params.id}`)
+        .get(process.env.VUE_APP_ROOT_API+`member/show/${this.$route.params.id}`)
         .then((res) => {
           this.NamaPerushaan = res.data.data.NamaPerushaan;
           // this.gambar = res.data.data.gambar;
@@ -180,7 +180,7 @@ export default {
       // formData.append("file", this.gambar);
       axios
         .post(
-          `http://127.0.0.1:8000/api/member/update/${this.$route.params.id}`,
+          process.env.VUE_APP_ROOT_API+`member/update/${this.$route.params.id}`,
           // formData,
           {
             // headers: {

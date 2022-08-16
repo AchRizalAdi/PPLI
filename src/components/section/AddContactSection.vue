@@ -170,7 +170,7 @@ export default {
   methods: {
     store() {
       axios
-        .post("http://127.0.0.1:8000/api/kontak", {
+        .post(process.env.VUE_APP_ROOT_API+"kontak", {
           nama: this.nama,
           alamat: this.alamat,
           email: this.email,

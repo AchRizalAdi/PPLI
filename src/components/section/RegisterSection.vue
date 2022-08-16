@@ -300,7 +300,7 @@ export default {
   methods: {
     postRegisters: function () {
       axios
-        .post("http://127.0.0.1:8000/api/register", {
+        .post(process.env.VUE_APP_ROOT_API+"register", {
           name: this.name,
           email: this.email,
           password: this.password,
@@ -338,7 +338,7 @@ export default {
       this.alasan = "";
     },
     // getProvinsis: function () {
-    //   axios.get("http://127.0.0.1:8000/api/select/provinsi").then(
+    //   axios.get(process.env.VUE_APP_ROOT_API+"select/provinsi").then(
     //     function (response) {
     //       this.provinsis = response.data.map((provinsis) => ({
     //         value: provinsis.id,
@@ -348,7 +348,7 @@ export default {
     //   );
     // },
     getProvinsis: function () {
-      axios.get("http://127.0.0.1:8000/api/select/provinsi").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"select/provinsi").then(
         function (response) {
           this.provinsis = response.data;
         }.bind(this)
@@ -358,7 +358,7 @@ export default {
     // getCities() {
     //   // alert("bodoh");
     //   axios
-    //     .get("http://127.0.0.1:8000/api/select/city/" + document.getElementById('provinsi'))
+    //     .get(process.env.VUE_APP_ROOT_API+"select/city/" + document.getElementById('provinsi'))
     //     .then(
     //       function (response) {
     //         this.cities = response.data.map((cities) => ({
@@ -372,7 +372,7 @@ export default {
       // alert("bodoh")
       axios
         .get(
-          "http://127.0.0.1:8000/api/select/city/" +
+          process.env.VUE_APP_ROOT_API+"select/city/" +
             document.getElementById("provinsi").value
         )
         .then(
@@ -382,7 +382,7 @@ export default {
         );
     },
     getIndustris: function () {
-      axios.get("http://127.0.0.1:8000/api/select/CompanyIndustry").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"select/CompanyIndustry").then(
         function (response) {
           this.industris = response.data.map((industris) => ({
             value: industris.id,
@@ -392,7 +392,7 @@ export default {
       );
     },
     getWilayahs: function () {
-      axios.get("http://127.0.0.1:8000/api/select/wilayah").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"select/wilayah").then(
         function (response) {
           this.wilayahs = response.data.map((wilayahs) => ({
             value: wilayahs.id,
@@ -452,7 +452,7 @@ export default {
 //     },
 //      methods: {
 //     loadData(){
-//         axios.get('http://127.0.0.1:8000/api/cities').then(({data}) => (this.cities = data));
+//         axios.get(process.env.VUE_APP_ROOT_API+'cities').then(({data}) => (this.cities = data));
 //     }
 //   },
 //   created (){
@@ -479,7 +479,7 @@ export default {
 
 //         function store() {
 //             axios.post(
-//                 'http://127.0.0.1:8000/api/register',
+//                 process.env.VUE_APP_ROOT_API+'register',
 //                 registers
 //             )
 //             .then(()=> {
@@ -533,7 +533,7 @@ export default {
 //                                         </div>end alert -->
 // setup(){ // //data binding // const registers = reactive({ // }); // const
 validation = ref ([]); // function store() { // axios.post( //
-'http://127.0.0.1:8000/api/register', // registers // ) // .then((response)=> {
+process.env.VUE_APP_ROOT_API+'register', // registers // ) // .then((response)=> {
 // this.isSuccess = true, // console.log(response); // }).catch((err) => { //
 this.isDanger = true, // console.log(err) // }); // } // return { // isSuccess:
 false, // isDanger: false, // registers, // validation, // store // } // },

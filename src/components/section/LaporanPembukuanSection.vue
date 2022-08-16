@@ -133,7 +133,7 @@ export default {
       this.name = null;
     },
     getLaporan: function () {
-      axios.get("http://127.0.0.1:8000/api/laporan").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"laporan").then(
         function (response) {
           this.laporan = response.data;
           setTimeout(() => {
@@ -143,7 +143,7 @@ export default {
       );
     },
     getTransaksi: function () {
-      axios.get("http://127.0.0.1:8000/api/transaksi/index").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"transaksi/index").then(
         function (response) {
           this.transaksi = response.data;
           // setTimeout(() => {
@@ -154,7 +154,7 @@ export default {
     deleteProvinsi(id) {
       // alert(id);
 
-      axios.delete("http://127.0.0.1:8000/api/provinsi/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"provinsi/" + id).then(
         function () {
           // alert("delete succes");
           this.getProvinsis();
@@ -164,7 +164,7 @@ export default {
     deleteTransak(id) {
       // alert(id);
 
-      axios.delete("http://127.0.0.1:8000/api/transaksi/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"transaksi/" + id).then(
         function () {
           // alert("delete succes");
           this.getTransaksi();
@@ -173,7 +173,7 @@ export default {
     },
     showProvinsi(id) {
       // alert(id);
-      axios.get("http://127.0.0.1:8000/api/provinsi/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API+"provinsi/" + id).then(
         function (response) {
           this.edit = response.data.data.id;
           this.name = response.data.data.name;
@@ -183,7 +183,7 @@ export default {
     putProvinsis(id) {
       // alert(id);
       axios
-        .post("http://127.0.0.1:8000/api/provinsi/" + id, {
+        .post(process.env.VUE_APP_ROOT_API+"provinsi/" + id, {
           name: this.name,
         })
         .then((response) => {
@@ -200,7 +200,7 @@ export default {
     },
     postProvinsis() {
       axios
-        .post("http://127.0.0.1:8000/api/provinsi", {
+        .post(process.env.VUE_APP_ROOT_API+"provinsi", {
           name: this.name,
         })
         .then((response) => {
@@ -239,6 +239,6 @@ export default {
 </script>
 
 // setup(){ // const provinsi = reactive({ // name : '', // }); // function
-store() { // axios.post( // 'http://127.0.0.1:8000/api/provinsi', // provinsi //
+store() { // axios.post( // process.env.VUE_APP_ROOT_API+'provinsi', // provinsi //
 ) // .then((response)=> { // console.log(response); // }).catch((err) => { //
 console.log(err); // }); // } // return { // provinsi, // store // } // },

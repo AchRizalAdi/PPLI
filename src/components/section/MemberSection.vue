@@ -127,7 +127,7 @@ export default {
       });
     },
     getWilayah: function () {
-      axios.get("http://127.0.0.1:8000/api/select/wilayah").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"select/wilayah").then(
         function (response) {
           this.wilayahss = response.data;
         }.bind(this)
@@ -135,7 +135,7 @@ export default {
     },
     postWilayah() {
       axios
-        .post("http://127.0.0.1:8000/api/member/wlayah/show", {
+        .post(process.env.VUE_APP_ROOT_API+"member/wlayah/show", {
           wilayah: this.wilayah,
         })
         .then((response) => {

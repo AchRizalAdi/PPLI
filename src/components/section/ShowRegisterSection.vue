@@ -196,7 +196,7 @@ export default {
   },
   created() {
     axios
-      .get(`http://127.0.0.1:8000/api/register/show/${this.$route.params.id}`)
+      .get(process.env.VUE_APP_ROOT_API+`register/show/${this.$route.params.id}`)
       .then((res) => {
         this.register = res.data[0];
         this.industris = res.data[0].company_industry;
@@ -209,7 +209,7 @@ export default {
   },
   methods: {
     // getIndustris: function () {
-    //   axios.get("http://127.0.0.1:8000/api/select/CompanyIndustry").then(
+    //   axios.get(process.env.VUE_APP_ROOT_API+"select/CompanyIndustry").then(
     //     function (response) {
     //       this.industris = response.data;
     //       console.log(this.industris);

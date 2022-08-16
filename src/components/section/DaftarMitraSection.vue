@@ -308,7 +308,7 @@ export default {
       this.tanggal_bergabung = null;
     },
     getKontak: function () {
-      axios.get("http://127.0.0.1:8000/api/mitra/selectOption").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"mitra/selectOption").then(
         function (response) {
           this.kontak = response.data.map((kontak) => ({
             value: kontak.id,
@@ -318,7 +318,7 @@ export default {
       );
     },
     getTipeMitra: function () {
-      axios.get("http://127.0.0.1:8000/api/mitra/selectOption/mitra").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"mitra/selectOption/mitra").then(
         function (response) {
           this.tipemitra = response.data.map((tipemitra) => ({
             value: tipemitra.id,
@@ -328,7 +328,7 @@ export default {
       );
     },
     getMitra: function () {
-      axios.get("http://127.0.0.1:8000/api/mitra").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"mitra").then(
         function (response) {
           this.mitra = response.data;
           setTimeout(() => {
@@ -340,7 +340,7 @@ export default {
     deleteMitra(id) {
       // alert(id);
 
-      axios.delete("http://127.0.0.1:8000/api/mitra/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"mitra/" + id).then(
         function () {
           $("#dataM").DataTable().destroy();
           emitter.emit("refreshPage");
@@ -349,7 +349,7 @@ export default {
     },
     showMitra(id) {
       // alert(id);
-      axios.get("http://127.0.0.1:8000/api/mitra/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API+"mitra/" + id).then(
         function (response) {
           this.edit = response.data.data.id;
           this.kontakId = response.data.data.kontakId;
@@ -362,7 +362,7 @@ export default {
     putProvinsis(id) {
       // alert(id);
       axios
-        .post("http://127.0.0.1:8000/api/provinsi/" + id, {
+        .post(process.env.VUE_APP_ROOT_API+"provinsi/" + id, {
           name: this.name,
         })
         .then((response) => {
@@ -380,7 +380,7 @@ export default {
     putMitra(id) {
       // alert(id);
       axios
-        .post("http://127.0.0.1:8000/api/mitra/" + id, {
+        .post(process.env.VUE_APP_ROOT_API+"mitra/" + id, {
           kontakId: this.kontakId,
           tipe_mitra: this.tipe_mitra,
           tanggal_bergabung: this.tanggal_bergabung,
@@ -399,7 +399,7 @@ export default {
     },
     postMitra() {
       axios
-        .post("http://127.0.0.1:8000/api/mitra", {
+        .post(process.env.VUE_APP_ROOT_API+"mitra", {
           kontakId: this.kontakId,
           tipe_mitra: this.tipe_mitra,
           tanggal_bergabung: this.tanggal_bergabung,
@@ -446,6 +446,6 @@ export default {
 </script>
 
 // setup(){ // const provinsi = reactive({ // name : '', // }); // function
-store() { // axios.post( // 'http://127.0.0.1:8000/api/provinsi', // provinsi //
+store() { // axios.post( // process.env.VUE_APP_ROOT_API+'provinsi', // provinsi //
 ) // .then((response)=> { // console.log(response); // }).catch((err) => { //
 console.log(err); // }); // } // return { // provinsi, // store // } // },

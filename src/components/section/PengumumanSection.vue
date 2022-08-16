@@ -46,7 +46,7 @@
               <!-- <td>{{ item.keterangan }}</td> -->
               <td class="row">
                 <button
-                v-if="checkPrivilege('pengumuman-show')"
+                  v-if="checkPrivilege('pengumuman-show')"
                   @click="showPengumuman(item.id)"
                   class="col- icon-btn p-0 m-0"
                   title="Edit"
@@ -160,7 +160,13 @@
                 <option value="Tidak Tampil">Tidak Tampil</option>
               </select>
               <!-- end form-floating -->
-              <button class="btn btn-dark w-100" data-bs-dismiss="modal" type="submit">Add</button>
+              <button
+                class="btn btn-dark w-100"
+                data-bs-dismiss="modal"
+                type="submit"
+              >
+                Add
+              </button>
             </div>
             <!-- end modal-body -->
           </div>
@@ -217,47 +223,6 @@
             <button class="btn btn-sm btn-dark" data-bs-dismiss="modal">
               Kembali
             </button>
-            <!-- <h4 class="text-center">Judul </h4>
-                <p class="text-center mb-3">{{judul}}</p> -->
-            <!-- <v-select
-                  v-model="wilayah"
-                  required
-                  :options="wilayahs"
-                  :reduce="(wilayahs) => wilayahs.value"
-                  label="text"
-                >
-                </v-select> -->
-            <!-- <div class="form-floating mt-3 mb-3">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="judul"
-                  placeholder="judul"
-                  v-model="judul"
-                  required
-                />
-                <label for="judul">Judul</label>
-              </div> -->
-            <!-- <label>Keterangan</label>
-              <div class="form-floating mb-3">
-                <editor
-                  api-key="mfzmjkvruotbub8pu0xqk8j0h05uiv50w7tp9eo3u8n2rarv"
-                  v-model="keterangan"
-                />
-              </div>
-              <label for="status">Status</label>
-              <select
-                class="form-select h-2 mb-3"
-                v-model="status"
-                aria-label="Default select example"
-              > -->
-            <!-- <label>I am i</label> -->
-            <!-- <option value="Tampil">Tampil</option>
-                <option value="Tidak Tampil">Tidak Tampil</option>
-              </select> -->
-            <!-- end form-floating -->
-
-            <!-- <button class="btn btn-dark w-100" type="submit">Add</button> -->
           </div>
           <!-- end modal-body -->
         </div>
@@ -432,7 +397,7 @@ export default {
       });
     },
     getWilayahs: function () {
-      axios.get("http://127.0.0.1:8000/api/select/wilayah").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"select/wilayah").then(
         function (response) {
           this.wilayahs = response.data.map((wilayahs) => ({
             value: wilayahs.id,
@@ -442,7 +407,7 @@ export default {
       );
     },
     getPengumuman: function () {
-      axios.get("http://127.0.0.1:8000/api/pengumuman").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"pengumuman").then(
         function (response) {
           this.pengumuman = response.data;
           this.tanggal = response.data.tanggal;
@@ -453,7 +418,7 @@ export default {
       );
     },
     deletePengumuman(id) {
-      axios.delete("http://127.0.0.1:8000/api/pengumuman/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"pengumuman/" + id).then(
         function () {
           $("#dataPengg").DataTable().destroy();
           emitter.emit("refreshPage");
@@ -463,7 +428,7 @@ export default {
     putPengumuman(id) {
       // alert(this.wilayah);
       axios
-        .post("http://127.0.0.1:8000/api/pengumuman/" + id, {
+        .post(process.env.VUE_APP_ROOT_API+"pengumuman/" + id, {
           wilayah: this.wilayah,
           judul: this.judul,
           keterangan: this.keterangan,
@@ -486,11 +451,11 @@ export default {
     },
     showPengumuman(id) {
       // alert(id);
-      axios.get("http://127.0.0.1:8000/api/pengumuman/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API+"pengumuman/" + id).then(
         function (response) {
           this.id = response.data.data.id;
           this.wilayah = response.data.data.wilayah.id;
-          this.wilayahss = response.data.data.wilayah.name
+          this.wilayahss = response.data.data.wilayah.name;
           this.judul = response.data.data.judul;
           this.keterangan = response.data.data.keterangan;
           this.status = response.data.data.status;
@@ -499,7 +464,7 @@ export default {
     },
     postPengumuman() {
       axios
-        .post("http://127.0.0.1:8000/api/pengumuman", {
+        .post(process.env.VUE_APP_ROOT_API+"pengumuman", {
           wilayah: this.wilayah,
           judul: this.judul,
           keterangan: this.keterangan,
@@ -530,7 +495,7 @@ export default {
   created: function () {
     this.getPengumuman();
     this.getWilayahs();
-     emitter.on("refreshPage", () => {
+    emitter.on("refreshPage", () => {
       this.getPengumuman();
     });
   },

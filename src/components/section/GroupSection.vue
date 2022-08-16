@@ -244,7 +244,7 @@ export default {
     },
     postRoles() {
       axios
-        .post("http://127.0.0.1:8000/api/role/store", {
+        .post(process.env.VUE_APP_ROOT_API+"role/store", {
           name: this.name,
         })
         .then((response) => {
@@ -261,7 +261,7 @@ export default {
       this.name = "";
     },
     getRoles: function () {
-      axios.get("http://127.0.0.1:8000/api/role/show").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"role/show").then(
         function (response) {
           this.roles = response.data;
           setTimeout(() => {
@@ -272,7 +272,7 @@ export default {
     },
     putRoles(id) {
       axios
-        .post("http://127.0.0.1:8000/api/role/update/" + id, {
+        .post(process.env.VUE_APP_ROOT_API+"role/update/" + id, {
           name: this.name,
         })
         .then((response) => {
@@ -288,7 +288,7 @@ export default {
     },
     showRoles(id) {
       // alert(id);
-      axios.get("http://127.0.0.1:8000/api/role/show/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API+"role/show/" + id).then(
         function (response) {
           // alert(response);
           // console.log(response.data.data.id);
@@ -298,7 +298,7 @@ export default {
       );
     },
     deleteRoles(id) {
-      axios.delete("http://127.0.0.1:8000/api/admin/delete/roles/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"admin/delete/roles/" + id).then(
         function () {
           $("#dataRoles").DataTable().destroy();
           emitter.emit("refreshPage");

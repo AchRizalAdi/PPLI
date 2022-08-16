@@ -243,7 +243,7 @@ export default {
       this.name = null;
     },
     getBank: function () {
-      axios.get("http://127.0.0.1:8000/api/bank").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"bank").then(
         function (response) {
           this.bank = response.data;
 
@@ -256,7 +256,7 @@ export default {
     deleteBank(id) {
       // alert(id);
 
-      axios.delete("http://127.0.0.1:8000/api/bank/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"bank/" + id).then(
         function () {
           $("#dataBank").DataTable().destroy();
           emitter.emit("refreshPage");
@@ -265,7 +265,7 @@ export default {
     },
     showBank(id) {
       // alert(id);
-      axios.get("http://127.0.0.1:8000/api/bank/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API+"bank/" + id).then(
         function (response) {
           this.edit = response.data.data.id;
           this.name = response.data.data.name;
@@ -275,7 +275,7 @@ export default {
     putBank(id) {
       // alert(id);
       axios
-        .post("http://127.0.0.1:8000/api/bank/" + id, {
+        .post(process.env.VUE_APP_ROOT_API+"bank/" + id, {
           name: this.name,
         })
         .then((response) => {
@@ -292,7 +292,7 @@ export default {
     },
     postBank() {
       axios
-        .post("http://127.0.0.1:8000/api/bank", {
+        .post(process.env.VUE_APP_ROOT_API+"bank", {
           name: this.name,
         })
         .then((response) => {
@@ -335,6 +335,6 @@ export default {
 </script>
 
 // setup(){ // const bank = reactive({ // name : '', // }); // function
-store() { // axios.post( // 'http://127.0.0.1:8000/api/bank', // bank //
+store() { // axios.post( // process.env.VUE_APP_ROOT_API+'bank', // bank //
 ) // .then((response)=> { // console.log(response); // }).catch((err) => { //
 console.log(err); // }); // } // return { // bank, // store // } // },

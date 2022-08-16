@@ -167,7 +167,7 @@ export default {
   methods: {
     store() {
       axios
-        .post("http://127.0.0.1:8000/api/transaksi", {
+        .post(process.env.VUE_APP_ROOT_API+"transaksi", {
           tanggal: this.tanggal,
           KhasId: this.KhasId,
           jenis_transaksi: this.jenis_transaksi,
@@ -188,7 +188,7 @@ export default {
       // this.name = '';
     },
     getKhas: function () {
-      axios.get("http://127.0.0.1:8000/api/transaksi/selectOption/khas").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"transaksi/selectOption/khas").then(
         function (response) {
           this.kas = response.data.data.map((kas) => ({
             value: kas.id,
@@ -198,14 +198,14 @@ export default {
       );
     },
     getMember: function () {
-      axios.get("http://127.0.0.1:8000/api/transaksi/selectOption/member").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"transaksi/selectOption/member").then(
         function (response) {
           this.member = response.data.data;
         }.bind(this)
       );
     },
     getAkun: function () {
-      axios.get("http://127.0.0.1:8000/api/transaksi/selectOption/akun").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"transaksi/selectOption/akun").then(
         function (response) {
           this.akun = response.data.data;
         }.bind(this)
@@ -214,7 +214,7 @@ export default {
     postIuran() {
       axios
         .post(
-          "http://127.0.0.1:8000/api/transaksi/iuran/selectOption" , {
+          process.env.VUE_APP_ROOT_API+"transaksi/iuran/selectOption" , {
           akun: this.AkunId,
           MemberId: this.MemberId
         })

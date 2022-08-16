@@ -148,7 +148,7 @@ export default {
     this.getAkun();
     this.getMember();
     axios
-      .get(`http://127.0.0.1:8000/api/transaksi/${this.$route.params.id}`)
+      .get(process.env.VUE_APP_ROOT_API+`transaksi/${this.$route.params.id}`)
       .then((res) => {
         this.transaksi = res.data.data;
         // this.khas = res.data.data.KhasId;
@@ -158,7 +158,7 @@ export default {
     updateTransaksi() {
       axios
         .post(
-          `http://127.0.0.1:8000/api/transaksi/${this.$route.params.id}`,
+          process.env.VUE_APP_ROOT_API+`transaksi/${this.$route.params.id}`,
           this.transaksi
         )
         .then((res) => {
@@ -168,7 +168,7 @@ export default {
         });
     },
     getKhas: function () {
-      axios.get("http://127.0.0.1:8000/api/transaksi/selectOption/khas").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"transaksi/selectOption/khas").then(
         function (response) {
           this.kas = response.data.data.map((kas) => ({
             value: kas.id,
@@ -178,7 +178,7 @@ export default {
       );
     },
     getMember: function () {
-      axios.get("http://127.0.0.1:8000/api/transaksi/selectOption/member").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"transaksi/selectOption/member").then(
         function (response) {
           this.member = response.data.data.map((member) => ({
             value: member.id,
@@ -188,7 +188,7 @@ export default {
       );
     },
     getAkun: function () {
-      axios.get("http://127.0.0.1:8000/api/transaksi/selectOption/akun").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"transaksi/selectOption/akun").then(
         function (response) {
           this.akun = response.data.data.map((akun) => ({
             value: akun.id,

@@ -148,7 +148,7 @@ export default {
     },
     store() {
       axios
-        .post("http://127.0.0.1:8000/api/kegiatan", {
+        .post(process.env.VUE_APP_ROOT_API+"kegiatan", {
           nama_kegiatan: this.nama_kegiatan,
           sifat_kegiatan: this.sifat_kegiatan,
           lokasi_kegiatan: this.lokasi_kegiatan,

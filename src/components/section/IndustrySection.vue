@@ -249,7 +249,7 @@ export default {
       this.name = null;
     },
     getIndustri: function () {
-      axios.get("http://127.0.0.1:8000/api/industry").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"industry").then(
         function (response) {
           this.industri = response.data;
           setTimeout(() => {
@@ -259,7 +259,7 @@ export default {
       );
     },
     deleteIndustri(id) {
-      axios.delete("http://127.0.0.1:8000/api/industry/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"industry/" + id).then(
         function () {
           $("#dataIndustri").DataTable().destroy();
           emitter.emit("refreshPage");
@@ -268,7 +268,7 @@ export default {
     },
     showIndustri(id) {
       // alert(id);
-      axios.get("http://127.0.0.1:8000/api/industry/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API+"industry/" + id).then(
         function (response) {
           this.edit = response.data.data.id;
           this.name = response.data.data.name;
@@ -278,7 +278,7 @@ export default {
     putIndustri(id) {
       // alert(id);
       axios
-        .post("http://127.0.0.1:8000/api/industry/" + id, {
+        .post(process.env.VUE_APP_ROOT_API+"industry/" + id, {
           name: this.name,
         })
         .then((response) => {
@@ -295,7 +295,7 @@ export default {
     },
     postIndustri() {
       axios
-        .post("http://127.0.0.1:8000/api/industry", {
+        .post(process.env.VUE_APP_ROOT_API+"industry", {
           name: this.name,
         })
         .then((response) => {
@@ -336,7 +336,3 @@ export default {
 };
 </script>
 
-// setup(){ // const provinsi = reactive({ // name : '', // }); // function
-store() { // axios.post( // 'http://127.0.0.1:8000/api/provinsi', // provinsi //
-) // .then((response)=> { // console.log(response); // }).catch((err) => { //
-console.log(err); // }); // } // return { // provinsi, // store // } // },

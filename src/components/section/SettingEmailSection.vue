@@ -28,11 +28,11 @@
     >
       Test Mail
     </div>
+      <!-- {{ email }} -->
     <!-- <div class="btn btn-sm btn-dark ms-2">Test Mail</div> -->
     <div class="profile-setting-panel-wrap">
       <div class="table-responsive">
         <form @submit.prevent="store()">
-          <!-- {{ registers }} -->
           <div class="row mt-4"></div>
           <div class="form-floating mb-3">
             <input
@@ -266,6 +266,7 @@ export default {
       i: 1,
       perPage: 6,
       records: [],
+      email: [],
       name: "",
       host: "",
       port: "",
@@ -278,7 +279,7 @@ export default {
   methods: {
     store() {
       axios
-        .post("http://127.0.0.1:8000/api/setting/email", {
+        .post(process.env.VUE_APP_ROOT_API + "setting/email", {
           name: this.name,
           host: this.host,
           port: this.port,
@@ -295,10 +296,18 @@ export default {
           this.$toast.error("Setting Email Gagal");
           console.log(error);
         });
-      // this.name = '';
+    },
+    getEmail: function () {
+      axios.get(process.env.VUE_APP_ROOT_API + "setting/email/get").then(
+        function (response) {
+          this.email = response.data;
+        }.bind(this)
+      );
     },
   },
-  created: function () {},
+  created: function () {
+    this.getEmail();
+  },
   computed: {
     displayedRecords() {
       const startIndex = this.perPage * (this.page - 1);

@@ -394,7 +394,7 @@ export default {
       });
     },
     getWilayahs: function () {
-      axios.get("http://127.0.0.1:8000/api/select/wilayah").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"select/wilayah").then(
         function (response) {
           this.wilayahs = response.data.map((wilayahs) => ({
             value: wilayahs.id,
@@ -404,7 +404,7 @@ export default {
       );
     },
     getKategori: function () {
-      axios.get("http://127.0.0.1:8000/api/akun/selectOption").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"akun/selectOption").then(
         function (response) {
           this.kategori = response.data.data.map((kategori) => ({
             value: kategori.id,
@@ -414,14 +414,14 @@ export default {
       );
     },
     getWilayah: function () {
-      axios.get("http://127.0.0.1:8000/api/select/wilayah").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"select/wilayah").then(
         function (response) {
           this.wilayahss = response.data;
         }.bind(this)
       );
     },
     getIndex: function () {
-      axios.get("http://127.0.0.1:8000/api/akun/getindex").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"akun/getindex").then(
         function (response) {
           this.index = response.data.data;
           setTimeout(() => {
@@ -432,7 +432,7 @@ export default {
     },
     postWilayah() {
       axios
-        .post("http://127.0.0.1:8000/api/akun/index", {
+        .post(process.env.VUE_APP_ROOT_API+"akun/index", {
           wilayah: this.wilayah,
         })
         .then((response) => {
@@ -449,7 +449,7 @@ export default {
       emitter.emit("refreshPage");
     },
     showKategori(id) {
-      axios.get("http://127.0.0.1:8000/api/akun/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API+"akun/" + id).then(
         function (response) {
           this.id = response.data.data.id;
           this.wilayah = response.data.data.wilayah.id;
@@ -464,7 +464,7 @@ export default {
       );
     },
     deleteKategori(id) {
-      axios.delete("http://127.0.0.1:8000/api/akun/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"akun/" + id).then(
         function () {
           this.getKategori();
           this.$toast.show("berhasil delete");
@@ -473,7 +473,7 @@ export default {
     },
     postKategori() {
       axios
-        .post("http://127.0.0.1:8000/api/akun", {
+        .post(process.env.VUE_APP_ROOT_API+"akun", {
           wilayah: this.wilayah,
           kode: this.kode,
           nama_kategori: this.nama_kategori,
@@ -492,7 +492,7 @@ export default {
     },
     putKategori(id) {
       axios
-        .post("http://127.0.0.1:8000/api/akun/" + id, {
+        .post(process.env.VUE_APP_ROOT_API+"akun/" + id, {
           wilayah: this.wilayah,
           kode: this.kode,
           nama_kategori: this.nama_kategori,

@@ -280,7 +280,7 @@ export default {
       this.level = null;
     },
     getJabatan: function () {
-      axios.get("http://127.0.0.1:8000/api/jabatan").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"jabatan").then(
         function (response) {
           this.jabatan = response.data;
           setTimeout(() => {
@@ -291,7 +291,7 @@ export default {
     },
     postJabatan() {
       axios
-        .post("http://127.0.0.1:8000/api/jabatan", {
+        .post(process.env.VUE_APP_ROOT_API+"jabatan", {
           name: this.name,
           level: this.level,
         })
@@ -308,7 +308,7 @@ export default {
     },
     putJabatan(id) {
       axios
-        .post("http://127.0.0.1:8000/api/jabatan/" + id, {
+        .post(process.env.VUE_APP_ROOT_API+"jabatan/" + id, {
           name: this.name,
           level: this.level,
         })
@@ -325,7 +325,7 @@ export default {
       this.level = "";
     },
     showJabatan(id) {
-      axios.get("http://127.0.0.1:8000/api/jabatan/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API+"jabatan/" + id).then(
         function (response) {
           this.id = response.data.data.id;
           this.name = response.data.data.name;
@@ -334,7 +334,7 @@ export default {
       );
     },
     deleteJabatan(id) {
-      axios.delete("http://127.0.0.1:8000/api/jabatan/" + id).then(
+      axios.delete(process.env.VUE_APP_ROOT_API+"jabatan/" + id).then(
         function () {
           $("#dataJabatan").DataTable().destroy();
           emitter.emit("refreshPage");

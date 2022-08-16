@@ -142,7 +142,7 @@ export default {
     },
     getKegiatan() {
       axios
-        .get(`http://127.0.0.1:8000/api/kegiatan/${this.$route.params.id}`)
+        .get(process.env.VUE_APP_ROOT_API+`kegiatan/${this.$route.params.id}`)
         .then(
           function (response) {
             this.kegiatan = response.data.data;
@@ -152,7 +152,7 @@ export default {
     updateKegiatan() {
       axios
         .post(
-          `http://127.0.0.1:8000/api/kegiatan/${this.$route.params.id}`,
+          process.env.VUE_APP_ROOT_API+`kegiatan/${this.$route.params.id}`,
           this.kegiatan
         )
         .then((res) => {

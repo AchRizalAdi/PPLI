@@ -99,7 +99,7 @@ export default {
 
   methods: {
     getTahun: function () {
-      axios.get("http://127.0.0.1:8000/api/iuran/selectOption").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"iuran/selectOption").then(
         function (response) {
           this.tahuns = response.data.map((tahuns) => ({
             value: tahuns,
@@ -109,7 +109,7 @@ export default {
       );
     },
     getBulan: function () {
-      axios.get("http://127.0.0.1:8000/api/iuran/selectOptionBulan").then(
+      axios.get(process.env.VUE_APP_ROOT_API+"iuran/selectOptionBulan").then(
         function (response) {
           this.bulans = response.data.map((bulans) => ({
             value: bulans,
@@ -120,7 +120,7 @@ export default {
     },
     postIuran() {
       axios
-        .post("http://127.0.0.1:8000/api/iuran/index", {
+        .post(process.env.VUE_APP_ROOT_API+"iuran/index", {
           tahun: this.tahun,
           bulan: this.bulan,
         })
