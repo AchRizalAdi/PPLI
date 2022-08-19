@@ -426,7 +426,7 @@ export default {
         )
         .then((res) => {
           this.gambar = res.data;
-          this.path = "http://127.0.0.1:8000";
+          this.path = "https://api.direktori.ppliofficial.com";
           console.log(res);
         });
     },

@@ -56,7 +56,7 @@ export default {
       axios.get(process.env.VUE_APP_ROOT_API + "kontak").then(
         function (response) {
           this.kontak = response.data.data;
-          this.path = "http://127.0.0.1:8000";
+          this.path = "https://api.direktori.ppliofficial.com";
         }.bind(this)
       );
     },
