@@ -26,52 +26,52 @@
       gutterBottom="mb-3"
     ></HowItWork2>
 
-    <section
+    <!-- <section
       class="trending-section bg-gray"
       style="padding-top: 30px; padding-bottom: 30px"
-    >
-      <div class="container">
+    > -->
+      <!-- <div class="container"> -->
         <!-- Recent Item Section  -->
-        <RecentItemSection></RecentItemSection>
-      </div>
-    </section>
+        <!-- <RecentItemSection></RecentItemSection> -->
+      <!-- </div> -->
+    <!-- </section> -->
+    <!-- <section
+      class="trending-section bg-white"
+      style="padding-top: 30px; padding-bottom: 30px"
+    >
+      <div class="container"> -->
+        <!-- Recent Item Section  -->
+        <!-- <RecentItemSection1></RecentItemSection1>
+      </div> -->
+      <!-- .container -->
+    <!-- </section> -->
+    <!-- trending-section -->
+
+    <!-- <section -->
+      <!-- class="trending-section bg-gray" -->
+      <!-- style="padding-top: 30px; padding-bottom: 30px" -->
+    <!-- > -->
+      <!-- <div class="container"> -->
+        <!-- Recent Item Section  -->
+        <!-- <RecentItemSection2></RecentItemSection2> -->
+      <!-- </div> -->
+      <!-- .container -->
+    <!-- </section> -->
+    <!-- trending-section -->
+<!-- 
     <section
       class="trending-section bg-white"
       style="padding-top: 30px; padding-bottom: 30px"
     >
-      <div class="container">
+      <div class="container"> -->
         <!-- Recent Item Section  -->
-        <RecentItemSection1></RecentItemSection1>
-      </div>
+        <!-- <RecentItemSection3></RecentItemSection3> -->
+      <!-- </div> -->
       <!-- .container -->
-    </section>
-    <!-- trending-section -->
-
-    <section
-      class="trending-section bg-gray"
-      style="padding-top: 30px; padding-bottom: 30px"
-    >
-      <div class="container">
-        <!-- Recent Item Section  -->
-        <RecentItemSection2></RecentItemSection2>
-      </div>
-      <!-- .container -->
-    </section>
-    <!-- trending-section -->
-
-    <section
-      class="trending-section bg-white"
-      style="padding-top: 30px; padding-bottom: 30px"
-    >
-      <div class="container">
-        <!-- Recent Item Section  -->
-        <RecentItemSection3></RecentItemSection3>
-      </div>
-      <!-- .container -->
-    </section>
+    <!-- </section> -->
     <!-- trending-section -->
     <!-- Category  -->
-    <Category classname="section-space-b"></Category>
+    <!-- <Category classname="section-space-b"></Category> -->
 
     <!-- Newsletter  -->
     <Termletter></Termletter>

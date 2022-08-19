@@ -15,32 +15,161 @@
     </nav>
     <div class="container">
       <div class="d-flex">
-        <div class="me-5">
+        <div class="me-6">
           <div><strong class="me-2">Nama :</strong>{{ kontaks.nama }}</div>
           <div><strong class="me-2">Alamat :</strong>{{ kontaks.alamat }}</div>
           <div><strong class="me-2">Email :</strong>{{ kontaks.email }}</div>
           <div><strong class="me-2">Nomor :</strong>{{ kontaks.nomor }}</div>
           <div><strong class="me-2">Status :</strong>{{ kontaks.status }}</div>
           <div><strong class="me-2">Agama :</strong>{{ kontaks.agama }}</div>
-          <div><strong class="me-2">Tanggal Lahir :</strong>{{ kontaks.tanggal_lahir }}</div>
-          <div><strong class="me-2">Nomor KTP :</strong>{{ kontaks.no_ktp }}</div>
+          <div>
+            <strong class="me-2">Tanggal Lahir :</strong
+            >{{ kontaks.tanggal_lahir }}
+          </div>
+          <br />
+          <div>
+            <strong class="me-2">Nomor KTP :</strong>{{ kontaks.no_ktp }}
+          </div>
           <div><strong class="me-2">NPWP :</strong>{{ kontaks.npwp }}</div>
         </div>
         <div class="ms-5">
-          <h5>Foto Perusahaan</h5>
-           <div class="img-thumbnail">
-                <img :src="path + gambar" width="200" />
-              </div>
+          <h6 class="text-center">Foto Profil</h6>
+          <div class="img-thumbnail">
+            <img :src="path + gambar" width="200" />
+          </div>
+          <div>
+            <button
+              type="button"
+              class="btn btn-sm btn-dark me-2 mt-3 mb-2"
+              data-bs-toggle="modal"
+              data-bs-target="#messageModal"
+            >
+              Ubah Foto Profil
+            </button>
+          </div>
+        </div>
+        <div class="ms-5">
+          <h6 class="text-center">Foto Perusahaan</h6>
+          <div class="img-thumbnail">
+            <img :src="path + logo" width="200" />
+          </div>
+          <div>
+            <button
+              type="button"
+              class="btn btn-sm btn-dark me-2 mt-3 mb-2"
+              data-bs-toggle="modal"
+              data-bs-target="#logoModel"
+            >
+              Ubah Foto Perusahaan
+            </button>
+          </div>
         </div>
       </div>
+      <form @submit.prevent="postMap()">
+        <div id="mapContainer"></div>
+        <div>
+          <button type="submit" class="btn btn-sm btn-dark me-2 mt-3 mb-2">
+            Ubah Lokasi Perusahaan
+          </button>
+        </div>
+      </form>
     </div>
   </div>
+  <form @submit.prevent="postProfil()" enctype="multipart/form-data">
+    <div
+      class="modal fade"
+      id="messageModal"
+      tabindex="-1"
+      aria-labelledby="reportModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="reportModalLabel">Upload Gambar</h4>
+            <button
+              type="button"
+              class="btn-close icon-btn"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <em class="ni ni-cross"></em>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img :src="previewimg" v-if="previewimg" class="mb-2" width="200" />
+            <div class="form-floating mb-3">
+              <input type="file" class="ms-6" @change="editGambar($event)" />
+            </div>
+
+            <button
+              class="btn btn-dark w-100"
+              data-bs-dismiss="modal"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+          <!-- end modal-body -->
+        </div>
+        <!-- end modal-content -->
+      </div>
+      <!-- end modal-dialog -->
+    </div>
+    <!-- end modal-->
+  </form>
+  <form @submit.prevent="postLogo()" enctype="multipart/form-data">
+    <div
+      class="modal fade"
+      id="logoModel"
+      tabindex="-1"
+      aria-labelledby="reportModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="reportModalLabel">Upload Gambar</h4>
+            <button
+              type="button"
+              class="btn-close icon-btn"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <em class="ni ni-cross"></em>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img :src="previewimg" v-if="previewimg" class="mb-2" width="200" />
+            <div class="form-floating mb-3">
+              <input type="file" class="ms-6" @change="editGambar($event)" />
+            </div>
+
+            <button
+              class="btn btn-dark w-100"
+              data-bs-dismiss="modal"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+          <!-- end modal-body -->
+        </div>
+        <!-- end modal-content -->
+      </div>
+      <!-- end modal-dialog -->
+    </div>
+    <!-- end modal-->
+  </form>
 </template>
 
 <script>
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from "@/store/store.js";
 import axios from "axios";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+import Swal from "sweetalert2";
 // import $ from "jquery";
 // import { reactive } from 'vue';
 // import { onMounted, ref } from 'vue';
@@ -48,12 +177,31 @@ import axios from "axios";
 export default {
   data() {
     return {
+      map: null,
+      location: [-7.332884976404556, 112.77579898203327],
       SectionData,
       page: 1,
       i: 1,
       perPage: 6,
       records: [],
       kontaks: [],
+      gambar: "",
+      logo: "",
+      latitude: "",
+      longitude: "",
+      pin: "",
+      markerIcon: {
+        icon: L.icon({
+          iconSize: [25, 41],
+          iconAnchor: [10, 41],
+          popupAnchor: [2, -40],
+          // specify the path here
+          iconUrl:
+            "https://unpkg.com/leaflet@1.5.1/dist/images/marker-icon.png",
+          shadowUrl:
+            "https://unpkg.com/leaflet@1.5.1/dist/images/marker-shadow.png",
+        }),
+      },
     };
   },
   created() {
@@ -62,8 +210,103 @@ export default {
       .then((res) => {
         this.kontaks = res.data.data;
       });
+    this.getProfil();
+    this.getLogo();
   },
   methods: {
+    showPost() {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Data telah tersimpan!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    },
+    generateMap() {
+      this.map = L.map("mapContainer").setView(this.location, 6);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(this.map);
+      this.map.on("click", (e) => {
+        // this.getMaps({
+        //   latitudes: e.latlng.lat,
+        //   longitudes: e.latlng.lng,
+        // });
+        if (typeof this.pin == "object") {
+          this.pin.setLatLng(e.latlng);
+        } else {
+          this.pin = L.marker(
+            [e.latlng.lat, e.latlng.lng],
+            this.markerIcon
+          ).addTo(this.map);
+        }
+      });
+    },
+    postProfil() {
+      let formData = new FormData();
+
+      formData.append("gambar", this.gambar);
+      axios
+        .post(
+          process.env.VUE_APP_ROOT_API +
+            `kontak/gambar/${this.$route.params.id}`,
+          formData
+        )
+        .then((res) => {
+          this.getProfil();
+          this.getLogo();
+          this.$toast.success("gambar berhasil di update");
+          console.log(res);
+        });
+    },
+    postLogo() {
+      let formData = new FormData();
+
+      formData.append("logo", this.logo);
+      axios
+        .post(
+          process.env.VUE_APP_ROOT_API +
+            `kontak/gambarlogo/${this.$route.params.id}`,
+          formData
+        )
+        .then((res) => {
+          this.getProfil();
+          this.getLogo();
+          this.$toast.success("gambar berhasil di update");
+          console.log(res);
+        });
+    },
+    getProfil() {
+      axios
+        .get(
+          process.env.VUE_APP_ROOT_API +
+            `kontak/getgambar/${this.$route.params.id}`
+        )
+        .then((res) => {
+          this.gambar = res.data;
+          this.path = "http://127.0.0.1:8000";
+          console.log(res);
+        });
+    },
+    getLogo() {
+      axios
+        .get(
+          process.env.VUE_APP_ROOT_API +
+            `kontak/getgambarlogo/${this.$route.params.id}`
+        )
+        .then((res) => {
+          this.logo = res.data;
+          this.path = "http://127.0.0.1:8000";
+          console.log(res);
+        });
+    },
+    editGambar(e) {
+      this.gambar = e.target.files[0];
+      this.logo = e.target.files[0];
+      this.previewimg = URL.createObjectURL(e.target.files[0]);
+    },
     updateKontaks() {
       axios
         .post(
@@ -76,28 +319,24 @@ export default {
           console.log(res);
         });
     },
-    // putKontak(id){
-    //     axios.post(process.env.VUE_APP_ROOT_API+'kontak/'+id,{
-    //          name: this.name
-    //          }).then(function () {
-    //         //  this.getProvinsis()
-    //         alert('Kontak berhasil ditambahkan');
-    //          }.bind(this));
-    // },
-    // showKontak (id){
-    // // alert(id);
-    //         axios.get(process.env.VUE_APP_ROOT_API+'kontak/'+id)
-    //         .then(function (response) {
-    //             this.edit = response.data.data.id;
-    //             this.nama=response.data.data.nama;
-    //             this.alamat=response.data.data.alamat;
-    //             this.email=response.data.data.email;
-    //             this.nomor=response.data.data.nomor;
-    //             this.status=response.data.data.status;
-    //          }.bind(this));
-    //     },
-    //         },
-    //  created: function(){
+    postMap() {
+      axios
+        .post(
+          process.env.VUE_APP_ROOT_API + `kontak/map/${this.$route.params.id}`,
+          {
+            latitude: this.latitude,
+            longitude: this.longitude,
+          }
+        )
+        .then((response) => {
+          this.showPost();
+          console.log(response);
+        })
+        .catch((error) => {
+          this.$toast.error("provinsi sudah ada");
+          console.log(error);
+        });
+    },
   },
   computed: {
     displayedRecords() {
@@ -107,6 +346,28 @@ export default {
     },
   },
   mounted() {
+    this.generateMap();
+
+    // this.map = L.map("mapContainer").setView(this.location, 5);
+    // L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
+    //   maxZoom: 17,
+    // }).addTo(this.map);
+
+    // this.map.on("click", (e) => {
+    //   this.form.patchValue({
+    //     latitude: e.latlng.lat,
+    //     longitude: e.latlng.lng,
+    //   });
+    //   if (typeof this.pin == "object") {
+    //     this.pin.setLatLng(e.latlng);
+    //   } else {
+    //     this.pin = L.marker(
+    //       [e.latlng.lat, e.latlng.lng],
+    //       this.markerIcon
+    //     ).addTo(this.map);
+    //   }
+    // });
+
     /*  ======== Show/Hide passoword ======== */
     function showHidePassword(selector) {
       let elem = document.querySelectorAll(selector);
@@ -129,5 +390,17 @@ export default {
 
     showHidePassword(".password-toggle");
   },
+  onBeforeUnmount() {
+    if (this.map) {
+      this.map.remove();
+    }
+  },
 };
 </script>
+<style scoped>
+#mapContainer {
+  margin-top: 10px;
+  width: 50vw;
+  height: 50vh;
+}
+</style>

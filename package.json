@@ -29,6 +29,7 @@
     "datatables.net-dt": "^1.12.1",
     "jl-datatable": "^1.1.1",
     "jquery": "^3.6.0",
+    "leaflet": "^1.8.0",
     "lodash": "^4.17.21",
     "mitt": "^3.0.0",
     "sweetalert2": "^11.4.24",

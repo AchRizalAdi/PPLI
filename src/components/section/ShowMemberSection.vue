@@ -23,59 +23,68 @@
           aria-labelledby="account-information-tab"
         >
           <div class="profile-setting-panel">
-            <!-- <h5 class="mb-4">Edit Profile</h5> -->
-            <div class="d-flex">
-              <div class="img-thumbnail">
-                <img :src="path + gambar" width="200" />
+            <h4 class="p-1">
+              {{ register.BentukBadanUsaha }}.
+              {{ register.NamaPerushaan }}
+            </h4>
+            <div class="d-flex flex-row ">
+              <div class="me-5">
+                <div class="img-thumbnail">
+                  <img :src="path + gambar" width="300" />
+                </div>
               </div>
-              <div class="row">
-                <h3 class="ms-3">
-                  {{ register.BentukBadanUsaha }}. {{ register.NamaPerushaan }}
-                </h3>
-                <em class="col-sm icon ni ni-map-pin ms-3"
-                  ><span class="ms-2"
-                    >{{ register.alamat }} {{ cities.name }},
-                    {{ prov.name }}</span
-                  ></em
-                >
-                <em class="icon ni ni-call ms-3"
-                  ><span class="ms-2">{{ register.PhoneNumber }}</span></em
-                >
-                <em class="icon ni ni-mail ms-3"
-                  ><span class="ms-2">{{ register.email }}</span></em
-                >
+              <div class="">
+                <div>
+                  <h3>
+                    {{ register.name }}
+                  </h3>
+                </div>
+                <div>
+                  <div class="icon ni ni-map-pin p-1">
+                    <span class="ms-2"
+                      >{{ register.alamat }} {{ cities.name }},
+                      {{ prov.name }}</span
+                    >
+                  </div>
+                </div>
+                <div>
+                  <div class="icon ni ni-call p-1">
+                    <span class="ms-2">{{ register.PhoneNumber }}</span>
+                  </div>
+                </div>
+                <div>
+                  <div class="icon ni ni-mail p-1">
+                    <span class="ms-2">{{ register.email }}</span>
+                  </div>
+                </div>
+                <div>
+                  <div class="icon ni ni-account-setting p-1">
+                    <span class="ms-2">{{ register.status }}</span>
+                  </div>
+                </div>
               </div>
-              <!-- <label for="upload-image-file" class="upload-image-label btn"
-                >Update Photo</label
-              > -->
             </div>
-            <!-- Batas Bawah -->
-            <span class="ms-2 mt-3">
-              <strong>Nama</strong>
-              {{ register.name }}
-            </span>
-            <br />
-            <span class="ms-2 mt-1">
-              <strong>Anggota</strong> {{ register.status }}
-            </span>
-            <br />
-            <router-link
-              v-if="checkPrivilege('member-edit')"
-              :to="{ name: 'edit-member', params: register.id }"
-              class="btn btn-sm btn-dark mt-3 mb-2"
-              title="Edit"
-              >Edit Data</router-link
-            >
-            <div class="d-grid gap-2 d-md-block">
-              <button
-                v-if="checkPrivilege('member-edit-foto')"
-                type="button"
-                class="btn btn-dark btn-sm mb-2"
-                data-bs-toggle="modal"
-                data-bs-target="#messageModal"
-              >
-                Ubah Foto
-              </button>
+            <div class="d-flex">
+              <div>
+                <button
+                  v-if="checkPrivilege('member-edit-foto')"
+                  type="button"
+                  class="btn btn-sm btn-dark me-2 mt-3 mb-2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#messageModal"
+                >
+                  Ubah Foto
+                </button>
+              </div>
+              <div>
+                <router-link
+                  v-if="checkPrivilege('member-edit')"
+                  :to="{ name: 'edit-member', params: register.id }"
+                  class="btn btn-sm btn-dark mt-3 mb-2"
+                  title="Edit"
+                  >Edit Data</router-link
+                >
+              </div>
             </div>
             <!-- <div>
               <form
@@ -394,7 +403,9 @@ export default {
   },
   created() {
     axios
-      .get(process.env.VUE_APP_ROOT_API+`member/show/${this.$route.params.id}`)
+      .get(
+        process.env.VUE_APP_ROOT_API + `member/show/${this.$route.params.id}`
+      )
       .then((res) => {
         this.register = res.data.data;
         this.cities = res.data.data.cities;
@@ -409,7 +420,10 @@ export default {
   methods: {
     getGambar() {
       axios
-        .get(process.env.VUE_APP_ROOT_API+`member/gambar/${this.$route.params.id}`)
+        .get(
+          process.env.VUE_APP_ROOT_API +
+            `member/gambar/${this.$route.params.id}`
+        )
         .then((res) => {
           this.gambar = res.data;
           this.path = "http://127.0.0.1:8000";
@@ -422,7 +436,8 @@ export default {
       formData.append("gambar", this.gambar);
       axios
         .post(
-          process.env.VUE_APP_ROOT_API+`member/gambar/${this.$route.params.id}`,
+          process.env.VUE_APP_ROOT_API +
+            `member/gambar/${this.$route.params.id}`,
           formData
         )
         .then((res) => {
@@ -455,7 +470,7 @@ export default {
       return status;
     },
     getTahun: function () {
-      axios.get(process.env.VUE_APP_ROOT_API+"iuran/selectOption").then(
+      axios.get(process.env.VUE_APP_ROOT_API + "iuran/selectOption").then(
         function (response) {
           this.tahuns = response.data.map((tahuns) => ({
             value: tahuns,
@@ -467,7 +482,8 @@ export default {
     getTransaksi: function () {
       axios
         .get(
-          process.env.VUE_APP_ROOT_API+`member/transaksi/${this.$route.params.id}`
+          process.env.VUE_APP_ROOT_API +
+            `member/transaksi/${this.$route.params.id}`
         )
         .then(
           function (response) {
@@ -481,7 +497,8 @@ export default {
     getIuran: function () {
       axios
         .post(
-          process.env.VUE_APP_ROOT_API+`iuran/updateShow/${this.$route.params.id}`,
+          process.env.VUE_APP_ROOT_API +
+            `iuran/updateShow/${this.$route.params.id}`,
           {
             tahun: this.tahun,
           }
@@ -497,7 +514,7 @@ export default {
     },
     showIuran(id) {
       // alert(id)
-      axios.get(process.env.VUE_APP_ROOT_API+"iuran/showUpdate/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API + "iuran/showUpdate/" + id).then(
         function (response) {
           this.id = response.data.id;
           this.tanggal_bayar = response.data.tanggal_bayar;
@@ -507,7 +524,7 @@ export default {
     },
     showMember(id) {
       // alert(id);a
-      axios.get(process.env.VUE_APP_ROOT_API+"member/show/" + id).then(
+      axios.get(process.env.VUE_APP_ROOT_API + "member/show/" + id).then(
         function (response) {
           this.id = response.data.id;
           this.gambar = response.data.gambar;
@@ -524,7 +541,7 @@ export default {
     putIuran(id) {
       // alert(id);
       axios
-        .post(process.env.VUE_APP_ROOT_API+"iuran/update/" + id, {
+        .post(process.env.VUE_APP_ROOT_API + "iuran/update/" + id, {
           tanggal_bayar: this.tanggal_bayar,
           status: this.status,
         })

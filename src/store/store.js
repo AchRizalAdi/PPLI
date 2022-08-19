@@ -184,11 +184,11 @@ let SectionData = {
       title: 'Gabung jadi Anggota PPLI',
       path: '/register'
     },
-    {
-      btnClass: 'btn-lg btn-outline-dark',
-      title: 'Jalin Kemitraan',
-      path: '/mitra'
-    }
+    // {
+    //   btnClass: 'btn-lg btn-outline-dark',
+    //   title: 'Jalin Kemitraan',
+    //   path: '/mitra'
+    // }
   ],
   // Hero btn data
   btnDataFour: [
