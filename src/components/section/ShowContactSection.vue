@@ -4,7 +4,9 @@
       <h3>Detail Kontak</h3>
     </div>
     <!-- end user-panel-title-box -->
-    <!-- {{kontaks }} -->
+    <!-- {{ latitudes }} -->
+
+    <!-- {{ longitudes }} -->
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb breadcrumb-s1 justify-content-left mb-3">
         <li class="breadcrumb-item">
@@ -182,6 +184,7 @@ export default {
   data() {
     return {
       map: null,
+      maps: [],
       location: [-7.332884976404556, 112.77579898203327],
       SectionData,
       page: 1,
@@ -193,6 +196,8 @@ export default {
       logo: "",
       latitude: "",
       longitude: "",
+      latitudes: "",
+      longitudes: "",
       pin: "",
       markerIcon: {
         icon: L.icon({
@@ -216,6 +221,7 @@ export default {
       });
     this.getProfil();
     this.getLogo();
+    this.getMaps();
   },
   methods: {
     showPost() {
@@ -228,15 +234,19 @@ export default {
       });
     },
     generateMap() {
-      this.map = L.map("mapContainer").setView(this.location, 6);
+      this.map = L.map("mapContainer").setView(
+        [-7.2708569217015, 112.55045671345],
+        6
+      );
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution:
           '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }).addTo(this.map);
       this.map.on("click", (e) => {
+        console.log(e);
         // this.getMaps({
-        //   latitudes: e.latlng.lat,
-        //   longitudes: e.latlng.lng,
+        this.latitude = e.latlng.lat;
+        this.longitude = e.latlng.lng;
         // });
         if (typeof this.pin == "object") {
           this.pin.setLatLng(e.latlng);
@@ -290,7 +300,7 @@ export default {
         )
         .then((res) => {
           this.gambar = res.data;
-          this.path = "http://127.0.0.1:8000";
+          this.path = "https://api.direktori.ppliofficial.com";
           console.log(res);
         });
     },
@@ -302,7 +312,7 @@ export default {
         )
         .then((res) => {
           this.logo = res.data;
-          this.path = "http://127.0.0.1:8000";
+          this.path = "https://api.direktori.ppliofficial.com";
           console.log(res);
         });
     },
@@ -339,6 +349,24 @@ export default {
         .catch((error) => {
           this.$toast.error("provinsi sudah ada");
           console.log(error);
+        });
+    },
+    getMaps() {
+      axios
+        .get(
+          process.env.VUE_APP_ROOT_API +
+            `kontak/getmap/${this.$route.params.id}`
+        )
+        .then((res) => {
+          this.maps = res.data;
+          this.latitudes = res.data.latitude;
+          this.longitudes = res.data.longitude;
+          this.map.flyTo([res.data.latitude, res.data.longitude], 14);
+          this.pin = L.marker(
+            [res.data.latitude, res.data.longitude],
+            this.markerIcon
+          ).addTo(this.map);
+          // console.log(this.latitude);
         });
     },
   },
@@ -412,6 +440,5 @@ export default {
   width: 200px;
   height: 200px;
   border-radius: 100%;
-  background-image: url("");
 }
 </style>
