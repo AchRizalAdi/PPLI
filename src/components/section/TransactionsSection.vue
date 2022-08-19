@@ -45,7 +45,7 @@
               <td>{{ item.email }}</td>
               <td>{{ item.nomor }}</td>
               <td>{{ item.status }}</td>
-              <td class="row">
+              <td class="d-flex">
                 <router-link
                   v-if="checkPrivilege('kontak-show')"
                   :to="{ name: 'show-contact', params: { id: item.id } }"

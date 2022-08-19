@@ -387,13 +387,13 @@ export default {
         }
       });
     },
-    isChecked(data) {
-      if (data) {
-        return (this.hq = true);
-      } else {
-        return (this.hq = false);
-      }
-    },
+    // isChecked(data) {
+    //   if (data) {
+    //     return (this.hq = true);
+    //   } else {
+    //     return (this.hq = false);
+    //   }
+    // },
     resetnama() {
       this.name = null;
       this.email = null;

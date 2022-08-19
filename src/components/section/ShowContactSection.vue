@@ -34,13 +34,17 @@
         </div>
         <div class="ms-5">
           <h6 class="text-center">Foto Profil</h6>
-          <div class="img-thumbnail">
-            <img :src="path + gambar" width="200" />
+          <div>
+            <img
+              :src="path + gambar"
+              width="200"
+              class="img-responsive circle"
+            />
           </div>
           <div>
             <button
               type="button"
-              class="btn btn-sm btn-dark me-2 mt-3 mb-2"
+              class="btn btn-sm btn-dark me-2 mt-3 mb-2 text-center"
               data-bs-toggle="modal"
               data-bs-target="#messageModal"
             >
@@ -50,13 +54,13 @@
         </div>
         <div class="ms-5">
           <h6 class="text-center">Foto Perusahaan</h6>
-          <div class="img-thumbnail">
-            <img :src="path + logo" width="200" />
+          <div>
+            <img :src="path + logo" width="200" class="img-responsive circle" />
           </div>
           <div>
             <button
               type="button"
-              class="btn btn-sm btn-dark me-2 mt-3 mb-2"
+              class="btn btn-sm btn-dark me-2 mt-3 mb-2 text-center"
               data-bs-toggle="modal"
               data-bs-target="#logoModel"
             >
@@ -66,7 +70,7 @@
         </div>
       </div>
       <form @submit.prevent="postMap()">
-        <div id="mapContainer"></div>
+        <div class="mt-4" id="mapContainer"></div>
         <div>
           <button type="submit" class="btn btn-sm btn-dark me-2 mt-3 mb-2">
             Ubah Lokasi Perusahaan
@@ -402,5 +406,12 @@ export default {
   margin-top: 10px;
   width: 50vw;
   height: 50vh;
+}
+.circle {
+  border: 2px solid rgb(0, 0, 0);
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  background-image: url("");
 }
 </style>
