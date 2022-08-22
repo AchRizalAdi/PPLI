@@ -5444,9 +5444,9 @@ faqSidebarData: {
   // about hero data
   aboutData: {
     title: 'PPLI',
-    content: "At EnftyMart, we're excited about a brand new type of digital good called a non-fungible token, or NFT. NFTs have exciting new properties: they’re unique, provably scarce, tradeable, and usable across multiple applications. Just like physical goods, you can do whatever you want with them! You could throw them in the trash, gift them to a friend a",
-    contentTwo: "A core part of our vision is that open protocols like Ethereum and interoperable standards like ERC-721 and ERC-1155 will enable vibrant new economies. We're building tools that allow consumers to trade their assets freely",
-    contentThree: 'We’re proud to be the first and largest marketplace for NFTs.',
+    content: "PPLI adalah organisasi di bidang Supply Chain & Logistics Management khususnya UKM Logistik di Indonesia. Keanggotaan PPLI terbuka bagi individu Warga Negara Indonesia yang berkarya sbg Praktisi, Akademisi, Pembuat Regulasi, Owner, IT, logistik konsultan, financial logistik, operational Logistik lainnya.",
+    contentTwo: "PPLI didirikan pada Tahun 2019 & mulai diperkenalkan ke publik pada Januari 2020. Situs web ini (www.ppliofficial.com) adalah situs resmi milik PPLI yang berfungsi sebagai media komunikasi PPLI ke publik di dalam maupun eksternal.",
+    contentThree: 'Besar harapan kami untuk anda dapat berpartisipasi dalam turut menyebarkan informasi tentang PPLI ini ke rekan dan relasi anda.',
     img: require('@/images/thumb/nft-img-2.png')
   },
   aboutDataTwo: {

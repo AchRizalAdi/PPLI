@@ -10,7 +10,6 @@
     <!-- funFact  -->
     <funFactSection
       classname="col-xl-4 col-sm-2 col-4"
-      :items="SectionData.funfactData.funfactListTwo"
     ></funFactSection>
     <!-- HowItWork  -->
     <HowItWork
