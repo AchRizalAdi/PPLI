@@ -120,8 +120,7 @@ export default {
           password: this.password,
         })
         .then((response) => {
-          // isSuccess: true,
-
+      
           console.log(response.data.authorisation.token);
           localStorage.setItem("user", JSON.stringify(response.data.user));
           localStorage.setItem("token", response.data.authorisation.token);
@@ -174,8 +173,3 @@ export default {
   },
 };
 </script>
-// async handleSubmit(){ // const response = await
-axios.post(process.env.VUE_APP_ROOT_API+'login', { // email: this.email, //
-password: this.password // }); // this.$router.push(this.$route.query.redirect
-|| '/dashboard') // console.log(response); // // localStorage.setItem('token',
-response.data.token) // }

@@ -138,6 +138,7 @@
                 </button>
               </li>
             </ul>
+            <!-- Riwayat Transaksi -->
             <div class="tab-content mt-4" id="myTabContent">
               <div
                 class="tab-pane fade show active"
@@ -177,8 +178,8 @@
                   </section>
                 </div>
               </div>
+                <!-- Iuran -->
               <div class="tab-content mt-4" id="myTabContent">
-                <!-- {{ iuran }} -->
                 <div
                   class="tab-pane fade show"
                   id="iuran"

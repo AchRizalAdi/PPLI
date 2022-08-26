@@ -47,23 +47,7 @@ export default {
       isLoggedIn: false
     }
   },
-  created() {
-      axios.defaults.headers.common['Content-Type'] = 'application/json'
-      axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token') 
-
-      axios.get(process.env.VUE_APP_ROOT_API+`me`)
-        .then(response => {
-          this.data = response.data
-          // this.loginType = response.data.roles[0].name
-        })
-        .catch(error => {
-          if (error.response.status === 401) {
-            localStorage.clear();
-            this.$router.push('/login')
-          }
-          console.error(error);
-        })
-    },
+ 
   mounted () {
     this.setUser()
     // slideUp
@@ -278,6 +262,29 @@ export default {
     stickyMenu('.is-sticky')
     
   },
+   created() {
+    if(!localStorage.getItem('userme')){
+        axios.defaults.headers.common['Content-Type'] = 'application/json'
+        axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token') 
+        // axios.defaults.headers.common['Permission'] = 'Bearer ' + localStorage.getItem('permission')
+        axios.get(process.env.VUE_APP_ROOT_API+`me`)
+          .then(response => {
+            this.data = response.data
+            localStorage.setItem('userme',JSON.   stringify(response.data))
+            // this.loginType = response.data.roles[0].name
+          })
+          .catch(error => {
+            if (error.response.status === 401) {
+              localStorage.clear();
+              this.$router.push('/login')
+            }
+            console.error(error);
+          })
+    }else{
+      this.data =JSON.parse(localStorage.getItem('userme'))
+    } 
+  },
+    
   methods: {
       setUser() {
           this.user = JSON.parse(localStorage.getItem('user'))
@@ -288,8 +295,8 @@ export default {
           localStorage.removeItem('token')
           localStorage.removeItem('user')
           localStorage.removeItem('permission')
+          localStorage.removeItem('userme')
           this.setUser()
-
           this.$router.push('/login')
         }
     }
