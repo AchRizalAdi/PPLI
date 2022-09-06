@@ -4,91 +4,52 @@
             <h3>Privacy policy</h3>
         </div><!-- end user-panel-title-box -->
         <div class="profile-setting-panel-wrap">
-            <p class="fs-14 mb-4" > Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus hic beatae eveniet nesciunt laborum consequatur doloremque vel neque. Perspiciatis voluptatibus dolores numquam assumenda, ex vel veritatis delectus nisi unde maiores.</p>
-            <p class="fs-14 my-3">In cases where authy cannot be installed, sms messaging can be used for 2fa. <strong>This is a last case scenario </strong> as sms provides a <strong>less secure</strong> experience and will prevent you from enabling advanced 2fa settings within the site. </p>
-            <h6 class="mb-3 fw-semibold">Definitions:</h6>
-            <li>
-                <ul>Tera Logistics is a site owned by PT. Tera Logistik Internasional located in Jakarta, Indonesia. This site facilitiates the shippers to obtain various quotations from registered logistics provider.</ul>
+            <p class="fs-14 mb-4" > PPLI Official memperlakukan privasi Anda dengan sungguh-sungguh. Bacalah uraian berikut untuk mengetahui lebih jauh mengenai kebijakan privasi kami.</p>
+            <h3 class="mb-3 fw-semibold">Yang Dicakup oleh Kebijakan Privasi ini:</h3>
+            <li class="mb-2">
+                <ul>Kebijakan Privasi ini mencakup perlakuan kami atas informasi yang dapat mengidentifikasi diri (data pribadi) Anda saat sedang berada di situs ppliofficial.com, dan saat Anda menggunakan layanan kami. Kebijakan ini juga mencakup perlakukan kami atas data pribadi yang digunakan bersama oleh kami.</ul>
             </li>
             <li>
-                <ul>Website is https://www.teralogistics.com</ul>
+                <ul>Kebijakan ini tidak berlaku pada praktik perusahaan yang bukan grup unit usaha milik kami atau di luar kendali kami atau pada orang-orang yang bukan karyawan kami atau di luar pengelolaan kami.</ul>
+            </li>
+            <h5 class="mb-3 fw-semibold mt-3">Pengumpulan dan Penggunaan Informasi</h5>
+            <li class="mb-2">
+                <ul>Saat Anda mendaftar pada kami, kami menanyakan nama, alamat email, alamat tempat tinggal, tanggal lahir, kode pos, dan nomor telepon. Setelah Anda mendaftar dan masuk ke layanan kami, Anda bukanlah orang yang anonim bagi kami.</ul>
             </li>
             <li>
-                <ul>Users are logistics provider, shippers, and other parties who access the content of the website, or any parties that any material contained in the website directly and/or indirectly.</ul>
+                <ul>Kami menggunakan informasi untuk memenuhi permintaan Anda akan produk dan layanan tertentu, dan untuk menghubungi Anda mengenai tawaran khusus dan produk baru.</ul>
+            </li>
+            <h5 class="mb-3 fw-semibold mt-3">Perubahan terhadap Kebijakan Privasi ini</h5>
+            <li class="mb-2">
+                <ul>Kami dapat mengubah kebijakan ini dari waktu ke waktu. Jika kami melakukan perubahan besar dalam cara penggunaan data pribadi Anda, kami akan memberi tahu Anda dengan memasang pengumuman yang tampak jelas di halaman kami. Anda setuju bahwa pemasangan pengumuman itu sudah cukup dan memadai untuk memberi tahu Anda mengenai perubahan tersebut.</ul>
             </li>
             <li>
-                <ul>Logistics Provider is a registered company that can be freight forwarder who responsible for delivering the cargo from one place to another (by using land, sea, or air transportation), and/or wareshouses company who have their own warehouses for rent, and/or trucking company who have their own trucks for charter.</ul>
+                <ul>Anda setuju bahwa dengan terus menggunakan produk atau layanan kami setelah dilakukannya perubahan tersebut, Anda menerima dan setuju untuk terikat dengan ketentuan dalam kebijakan yang baru.</ul>
+            </li>
+            <h5 class="mb-3 fw-semibold mt-3">Pengungkapan informasi anda</h5>
+            <li class="mb-2">
+                <ul>Untuk memastikan bahwa isi dari situs kami disajikan dengan cara yang paling efektif untuk anda dan untuk komputer anda.</ul>
             </li>
             <li>
-                <ul>Shipper is the owner of the cargo or interested parties for the delivery of the cargo who access, signs up, and utilizes the service provided by this website to obtain various quotations from several logistics provider.</ul>
+                <ul>Untuk memberikan kepada anda informasi, produk atau layanan yang anda minta dari kami atau yang kami rasa mungkin penting bagi anda, dimana anda setuju untuk dihubungi untuk tujuan tersebut.</ul>
             </li>
             <li>
-                <ul>Cargo is a physical tangible object and has a value that can be shipped legally in accordance with the applicable provisions where the object is located and/or will be delivered.</ul>
+                <ul>Untuk melaksanakan kewajiban kami yang timbul dari suatu kontrak yang diadakan antara anda dan kami.</ul>
             </li>
             <li>
-                <ul>Services is any action or effort made by logistics provider to deliver the cargo in accordance with the instructions provided by the shippers.</ul>
-            </li>
-
-            <h6 class="mb-3 mt-3 fw-semibold">Intellectual Property:</h6>
-
-            <li>
-                <ul>Users are prohibited to modify and use the intellectual properties on the website without prior consent from Tera Logistics as the owners of the copyrights, trademarks, and other intellectual properties.</ul>
+                <ul>Untuk memungkinkan anda ambil bagian dalam fitur interaktif layanan kami, sewaktu anda memilih demikian.</ul>
             </li>
             <li>
-                <ul >The name and logo used are registered trademarks protected by law</ul>
+                <ul>Untuk memberitahu anda mengenai perubahan terhadap layanan kami.</ul>
             </li>
-
-             <h6 class="mb-3 mt-3 fw-semibold">Shippers General Provisions:</h6>
-
-             <li>
-                <ul>Shippers are required to register by providing a valid and accurate information of company name, address, telephone number, email, and other information correctly and accurately.</ul>
-             </li>
-             <li>
-                <ul>Shippers are required to provide information of the type to be used, origin and destination of delivery, date of shipment, cargo specification, and other accurate and valid information prior to requesting the quotation to the logistics provider.</ul>
-             </li>
-             <li>
-                <ul>Shippers agree to understand in advance the terms and conditions stipulated by logistics provider that prescribe the limitation of liability and maximum compensation to the shippers for any deprivation, damage, or any loss due to logistics provider’ negligence and omission. The shippers agree to comply with the terms and conditions of the appointed logistics provider. Shippers acknowledges the risks that may happen.</ul>
-             </li>
-             <li>
-                <ul>Shippers understand the risk that may occur for not insuring the cargo to be shipped.</ul>
-             </li>
-             <li>
-                <ul>Shippers have the right to review the logistics provider that can be seen by other shippers as a consideration when choosing the logistics provider in the future.</ul>
-             </li>
-
-              <h6 class="mb-3 mt-3 fw-semibold">Logistics Provider General Provisions:</h6>
-
-              <li>
-                <ul></ul>
-              </li>
-
-              <li>
-                <ul></ul>
-              </li>
-
-              <li>
-                <ul></ul>
-              </li>
-
-              <li>
-                <ul></ul>
-              </li>
-
-              <h6 class="mb-3 mt-3 fw-semibold">Prohibited Cargo:</h6>
-
-            <li>
-                <ul></ul>
-              </li>
-              <li>
-                <ul></ul>
-              </li>
-              <li>
-                <ul></ul>
-              </li>
-
-            
-            
-        </div><!-- end profile-setting-panel-wrap-->
+            <h5 class="mb-3 fw-semibold mt-3">Hak anda</h5>  
+            <p class="fs-14 mb-4" >Anda berhak meminta kami untuk tidak memproses data pribadi anda untuk tujuan pemasaran. Kami biasanya akan memberitahu anda (sebelum mengumpulkan data anda) apabila kami bermaksud menggunakan data anda untuk tujuan tersebut atau apabila kami bermaksud mengungkapkan informasi anda kepada pihak ketiga untuk tujuan tersebut. Anda dapat menggunakan hak anda untuk mencegah pemrosesan tersebut dengan menghubungi kami di <strong>support@ppliofficial.com</strong></p>
+            <p class="fs-14 mb-4" >Situs kami, dari waktu ke waktu, dapat berisi link ke dan/atau dari situs web jaringan mitra, pengiklan dan afiliasi kami. Apabila anda mengikuti link ke salah satu dari situs-situs web ini, perlu diperhatikan bahwa situs-situs web ini memiliki kebijakan hak-pribadinya sendiri dan kami tidak memiliki tanggung jawab atau menanggung kewajiban atas kebijakan tersebut. Silakan periksa kebijakan ini sebelum anda menyerahkan data pribadi ke situs-situs web ini.</p>
+            <h5 class="mb-3 fw-semibold mt-3">Perubahan atas kebijakan hak-pribadi kami</h5>  
+            <p class="fs-14 mb-4" >Perubahan yang dapat kami lakukan atas kebijakan hak-pribadi kami di masa mendatang akan ditempatkan di halaman ini dan, bilamana dipandang tepat, akan diberitahukan kepada anda melalui e-mail.</p>
+            <h5 class="mb-3 fw-semibold mt-3">Pihak yang dapat dihubungi</h5>
+            <p class="fs-14 mb-4" >Pertanyaan, komentar dan permintaan mengenai kebijakan hak-pribadi ini akan disambut baik dan harus dialamatkan ke <strong>info@ppliofficial.com</strong></p>
+          </div><!-- end profile-setting-panel-wrap-->
     </div><!-- end col-lg-8 -->
     <Privacyletter></Privacyletter>
 </template>

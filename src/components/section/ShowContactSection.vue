@@ -45,7 +45,7 @@
           </div>
           <div>
             <button
-              v-if="checkPrivilege('kontak-edit-foto-profil')"
+              
               type="button"
               class="btn btn-sm btn-dark me-2 mt-3 mb-2 text-center"
               data-bs-toggle="modal"
@@ -62,7 +62,6 @@
           </div>
           <div>
             <button
-              v-if="checkPrivilege('kontak-edit-foto-perusahaan')"
               type="button"
               class="btn btn-sm btn-dark me-2 mt-3 mb-2 text-center"
               data-bs-toggle="modal"
@@ -76,7 +75,7 @@
       <form @submit.prevent="postMap()">
         <div class="mt-4" id="mapContainer"></div>
         <div>
-          <button v-if="checkPrivilege('kontak-map')" type="submit" class="btn btn-sm btn-dark me-2 mt-3 mb-2">
+          <button  type="submit" class="btn btn-sm btn-dark me-2 mt-3 mb-2">
             Ubah Lokasi Perusahaan
           </button>
         </div>

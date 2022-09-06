@@ -306,7 +306,6 @@ export default {
         })
         .then((response) => {
           this.$toast.success("Setting Email Berhasil");
-          this.$router.push({ name: "pengaturan" });
           console.log(response);
         })
         .catch((error) => {

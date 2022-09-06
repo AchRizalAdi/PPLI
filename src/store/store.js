@@ -19,16 +19,40 @@ let SectionData = {
       heading: 'headingOne',
       nama: 'satu',
       target: '#satu',
-      title: 'Question Number 1',
-      text: 'lipsumdk abdksadj sdasjdasdjasdkjasjkkk kwkwkwkkwkq lq q'
+      title: 'Bagaimana Cara Menjadi Anggota PPLI?',
+      text: 'Anda cukup mendaftarkan diri melalui Join Member PPLI. Isikan semua data-data perusahaan Anda dengan lengkap dan benar. Semua pendaftaran dilakukan secara online.'
     },
     {
       id: 2,
       heading: 'headingTwo',
       nama: 'dua',
       target: '#dua',
-      title: 'QddddE 2',
-      text: 'sadahsd sdjasdjaskldjkl jasdkljaskldqwoeqwoeh qwesdbhbh'
+      title: 'Bagaimana jika saya mendaftarkan diri sebagai MITRA PPLI Non Member PPLI?',
+      text: 'Anda dapat pula mendaftarkan sebagai MITRA PPLI tanpa harus menjadi member PPLI melalui situs Mitra PPLI ? Dan sebagai Mitra diwajibkan atas nama Perusahaan baik itu UD, CV maupun PT. Mitra tidak akan mendapatkan fitur sebagai Membership PPLI.'
+    },
+    {
+      id: 3,
+      heading: 'headingTwo',
+      nama: 'tiga',
+      target: '#tiga',
+      title: 'Apakah bisa saya mendaftarkan diri secara personal pada Member PPLI ?',
+      text: 'PPLI didirikan pula bagi UKM yang bergerak dibidang usaha Logistics, jika Personal tersebut memiliki suatu usaha dibidang Logistics atau UKM maka akan ada field yang wajib di isi hingga di status validasi dari admin kami disetujui.'
+    },
+    {
+      id: 4,
+      heading: 'headingTwo',
+      nama: 'empat',
+      target: '#empat',
+      title: 'Apakah Member juga dapat menjadi MITRA?',
+      text: 'Iya, member akan dapat fasilitas juga sebagai Mitra dengan menawarkan jasa atau project mereka kepada para Member.'
+    },
+    {
+      id: 5,
+      heading: 'headingTwo',
+      nama: 'lima',
+      target: '#lima',
+      title: 'Fitur apa yang kami dapatkan sebagai Member? dan apakah saya dapat menikmati semua fitur tersebut?',
+      text: 'Fitur seperti Data Kendaraan dan Iuran merupakan fitur utama dan dapat diakses oleh semua anggota. Aktivasi fitur disesuaikan dengan kebutuhan masing-masing Dewan Perwakilan Daerah/Cabang. Untuk fitur lain dapat pula menjadi satu integrasi sistem Job Order sesama Member.'
     },
   ],
   // Hero data
@@ -142,10 +166,10 @@ let SectionData = {
       ]
     },
     breadcrumbListSeven: {
-      title: 'How can we help?',
+      title: 'Ada yang bisa di bantu',
       navList: [
         {
-          title: 'Contact'
+          title: 'Kontak Kami'
         }
       ]
     }
@@ -274,7 +298,7 @@ let SectionData = {
         {
           id: 1,
           title: 'Tentang PPLI',
-          path: '/about-us',
+          path: 'https://www.ppliofficial.com/about-ppli/',
           
         },
         {
@@ -2414,7 +2438,7 @@ products: [
   },
   // termletter Data
   termletterData: {
-    title: 'Are you Interesting?'
+    title: 'Ingin Menjadi Anggota PPLI?'
   },
   // news data
   blogData: {
@@ -5912,19 +5936,19 @@ faqSidebarData: {
         id: 1,
         icon: 'ni-mobile',
         title: 'Phone:',
-        subTitle: '(123) 123-456'
+        subTitle: '+62 813 7087 3894'
       },
-      {
-        id: 2,
-        icon: 'ni-globe',
-        title: 'Web:',
-        subTitle: 'www.softnio.com'
-      },
+      // {
+      //   id: 2,
+      //   icon: 'ni-globe',
+      //   title: 'Alamat:',
+      //   subTitle: 'Terminal Cargo T2 Internasional Bandara Juanda Sidoarjo.'
+      // },
       {
         id: 3,
         icon: 'ni-mail',
         title: 'Email:',
-        subTitle: 'office@softnio.com'
+        subTitle: 'info@ppliofficial.com'
       }
     ]
   },
@@ -6882,7 +6906,7 @@ faqSidebarData: {
       }
     ],
   },
-  copyTitle: 'Copyright © 2022 Pilar Media.'
+  copyTitle: '© 2019 PPLI Official – All Rights Reserved. Made by Pilarmedia'
 }
 
 

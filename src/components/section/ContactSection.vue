@@ -1,5 +1,5 @@
 <template>
-    <section class="contact-section section-space-b">
+    <section class="contact-section section-space-b mt-4">
             <div class="container">
                 <div class="row section-space-b">
                     <div class="col-lg-7">
