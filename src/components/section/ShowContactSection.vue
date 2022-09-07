@@ -43,7 +43,7 @@
               class="img-responsive circle"
             />
           </div>
-          <div>
+          <div class="justify-content-center">
             <button
               
               type="button"

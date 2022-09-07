@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div class="col-lg-9 ps-xl-5">
     <div class="user-panel-title-box">
       <h3>{{ SectionData.registersData.mainTitle }}</h3>
@@ -120,7 +120,7 @@
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
-                <h4 class="modal-title" id="reportModalLabel">Permission</h4>
+                <h4 class="modal-title" id="reportModalLabel">Status Acc</h4>
                 <button
                   type="button"
                   class="btn-close icon-btn"

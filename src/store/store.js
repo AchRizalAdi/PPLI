@@ -298,7 +298,7 @@ let SectionData = {
         {
           id: 1,
           title: 'Tentang PPLI',
-          path: 'https://www.ppliofficial.com/about-ppli/',
+          path: '/about-us',
           
         },
         {
@@ -2186,7 +2186,7 @@ products: [
         id: 3,
         class: 'text-blue',
         icon: 'icon fa fa-building-o mb-3 mx-auto icon-circle icon-wbg icon-lg',
-        title: 'City',
+        title: 'Kota',
         path: '/city'
       },
       {
@@ -4961,7 +4961,7 @@ faqSidebarData: {
     cityTableHead: [
       'ID',
       'Nama',
-      'City',
+      'Kota',
       'Action',
     ],
     

@@ -26,7 +26,7 @@
     </div>
     <div class="profile-setting-panel-wrap">
       <div class="table">
-        <table class="table mb-0 table-s2" id="dataJabatan">
+        <table class="table mb-0 table-s2" id="jabatantable">
           <thead class="fs-14">
             <tr>
               <th
@@ -284,8 +284,8 @@ export default {
         function (response) {
           this.jabatan = response.data;
           setTimeout(() => {
-            $("#dataJabatan").DataTable();
-          }, 100);
+            $("#jabatantable").DataTable();
+          }, 300);
         }.bind(this)
       );
     },
@@ -297,7 +297,7 @@ export default {
         })
         .then((response) => {
           this.showPost();
-          $("#dataJabatan").DataTable().destroy();
+          $("#jabatantable").DataTable().destroy();
           emitter.emit("refreshPage");
           console.log(response);
         })
@@ -336,7 +336,7 @@ export default {
     deleteJabatan(id) {
       axios.delete(process.env.VUE_APP_ROOT_API+"jabatan/" + id).then(
         function () {
-          $("#dataJabatan").DataTable().destroy();
+          $("#jabatantable").DataTable().destroy();
           emitter.emit("refreshPage");
         }.bind(this)
       );

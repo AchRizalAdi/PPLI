@@ -93,7 +93,7 @@
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title" id="reportModalLabel">Tambah Mitra</h4>
+              <h4 class="modal-title" id="reportModalLabel">Tambah Tipe Mitra</h4>
               <button
                 type="button"
                 class="btn-close icon-btn"

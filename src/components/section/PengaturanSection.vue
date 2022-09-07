@@ -81,7 +81,7 @@
                         <span
                           class="icon fa fa-building-o mb-3 mx-auto icon-circle icon-wbg icon-lg"
                         ></span>
-                        <h5 class="card-cat-title">City</h5>
+                        <h5 class="card-cat-title">Kota</h5>
                       </div>
                     </router-link>
                   </div>

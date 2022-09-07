@@ -23,7 +23,7 @@
     <!-- {{ mitra.data }} -->
     <div class="profile-setting-panel-wrap">
       <div class="table-responsive">
-        <table class="table mb-0 table-s2" id="dataMitra">
+        <table class="table mb-0 table-s2" id="mitradata">
           <thead class="fs-14">
             <tr>
               <th
@@ -306,6 +306,7 @@ export default {
       this.kontakId = null;
       this.tipe_mitra = null;
       this.tanggal_bergabung = null;
+      this.deskripsi = null;
     },
     getKontak: function () {
       axios.get(process.env.VUE_APP_ROOT_API+"mitra/selectOption").then(
@@ -322,7 +323,7 @@ export default {
         function (response) {
           this.tipemitra = response.data.map((tipemitra) => ({
             value: tipemitra.id,
-            text: tipemitra.name,
+            text: tipemitra.name, 
           }));
         }.bind(this)
       );
@@ -332,8 +333,8 @@ export default {
         function (response) {
           this.mitra = response.data;
           setTimeout(() => {
-            $("#dataMitra").DataTable();
-          }, 100);
+            $("#mitradata").DataTable();
+          }, 400);
         }.bind(this)
       );
     },
@@ -342,7 +343,7 @@ export default {
 
       axios.delete(process.env.VUE_APP_ROOT_API+"mitra/" + id).then(
         function () {
-          $("#dataMitra").DataTable().destroy();
+          $("#mitradata").DataTable().destroy();
           emitter.emit("refreshPage");
         }.bind(this)
       );
@@ -407,7 +408,7 @@ export default {
         })
         .then((response) => {
           this.showPost();
-          $("#dataMitra").DataTable().destroy();
+          $("#mitradata").DataTable().destroy();
           emitter.emit("refreshPage");
           console.log(response);
         })

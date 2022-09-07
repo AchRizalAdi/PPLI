@@ -19,6 +19,19 @@
               </div>
             </span>
           </div>
+          <div class="col-lg-3 col-6">
+            <span class="card card-cat text-center h-100 text-cyan">
+              <div class="card-body card-body-s1">
+                <span
+                  class="icon fa fa-handshake-o mb-3 mx-auto icon-circle icon-wbg icon-lg"
+                ></span>
+                <h5 class="card-cat-title">Mitra</h5>
+                <p class="card-cat-title">
+                  {{ mitra.length }}
+                </p>
+              </div>
+            </span>
+          </div>
           <!-- end col -->
         </div>
         <!-- end row -->
@@ -44,6 +57,7 @@ export default {
       perPage: 6,
       records: [],
       userManajemen: [],
+      mitra: [],
     };
   },
 
@@ -55,9 +69,17 @@ export default {
         }.bind(this)
       );
     },
+    getMitra: function () {
+      axios.get(process.env.VUE_APP_ROOT_API+"mitra").then(
+        function (response) {
+          this.mitra = response.data;
+        }.bind(this)
+      );
+    },
   },
   created: function () {
     this.getUserManajemen();
+    this.getMitra();
   },
   computed: {
     displayedRecords() {

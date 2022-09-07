@@ -16,7 +16,7 @@
             <div
               class="sidebar-head d-flex flex-wrap align-items-center justify-content-between"
             >
-              <h3 class="sidebar-head-title">Wilayah</h3>
+              <h3 class="sidebar-head-title">Edit Transaksi</h3>
               <div class="sidebar-head-action d-flex align-items-center">
                 <div class="sidebar-drop dropdown">
                   <a class="icon-btn menu-toggler-user-open" href="#">

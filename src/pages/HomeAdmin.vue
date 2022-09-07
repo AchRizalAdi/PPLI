@@ -29,7 +29,7 @@
             </div>
             <!-- end sidebar-head -->
             <div class="sidebar sidebar-user-mobile">
-              <a href="#" class="icon-btn menu-toggler-user-close">
+              <a router-link="#" class="icon-btn menu-toggler-user-close">
                 <em class="ni ni-cross"></em>
               </a>
               <div class="sidebar-widget">
