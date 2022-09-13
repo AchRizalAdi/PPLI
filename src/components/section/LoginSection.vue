@@ -103,7 +103,7 @@
     background-color: rgb(255, 255, 255);
   }
 .login-section .container {
-  background-color: ;
+  /* background-color: ; */
   /* padding: 20px; */
   border-radius: 15px;
   box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.1);
