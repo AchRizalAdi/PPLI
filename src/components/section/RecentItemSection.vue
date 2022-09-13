@@ -1,7 +1,7 @@
 <template>
     <section class="recent-section">
             <div class="container">
-                <SectionHeading classname="text-center" :text="SectionData.recentItemData.title" isMargin="mb-1"></SectionHeading>
+                <SectionHeading classname="text-center" text="Sponsorship" isMargin="mb-1"></SectionHeading>
                 <!-- Recent item slider -->
                 <RecentItemSlider></RecentItemSlider>
             </div>

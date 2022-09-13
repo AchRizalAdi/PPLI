@@ -3,7 +3,7 @@
         <!-- header  -->
         <header class="header-section has-header-main">
           <!-- Header main -->
-          <HeaderMainSec></HeaderMainSec>
+          <HeaderDashboard></HeaderDashboard>
           <!-- hero -->
           <AuthorHeroSec class="bg-grey" avatarSize="avatar-3" :isDropdown="true" :isCopyInput="true" :img="SectionData.authorPublicData.img" :title="SectionData.authorPublicData.title" :username="SectionData.authorPublicData.userName" :btntext="SectionData.authorPublicData.btnText" :btnlink="SectionData.authorPublicData.btnLink"></AuthorHeroSec>
         </header>

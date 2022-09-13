@@ -7,26 +7,56 @@
       <div class="table">
         <div class="row p-0 m-0">
           <div class="col-lg-3 col-6">
-            <span class="card card-cat text-center h-100 text-green">
+            <span class="card card-cat text-center h-100 text-green bg-green">
               <div class="card-body card-body-s1">
                 <span
                   class="icon fa fa-user-circle mb-3 mx-auto icon-circle icon-wbg icon-lg"
                 ></span>
-                <h5 class="card-cat-title">Member</h5>
-                <p class="card-cat-title">
+                <h5 class="card-cat-title text-white">Member</h5>
+                <p class="card-cat-title text-white">
                   {{ userManajemen.length }}
                 </p>
               </div>
             </span>
           </div>
           <div class="col-lg-3 col-6">
-            <span class="card card-cat text-center h-100 text-cyan">
+            <span class="card card-cat text-center h-100 text-cyan bg-cyan">
+              <div class="card-body card-body-s1 ">
+                <span
+                  class="icon fa fa-handshake-o mb-3 mx-auto icon-circle icon-wbg icon-lg "
+                ></span>
+                <h5 class="card-cat-title text-white">Mitra</h5>
+                <p class="card-cat-title text-white">
+                  {{ mitra.length }}
+                </p>
+              </div>
+            </span>
+          </div>
+          <div class="col-lg-5 col-6">
+            <span class="card card-cat text-center h-100 text-indigo bg-indigo">
               <div class="card-body card-body-s1">
                 <span
-                  class="icon fa fa-handshake-o mb-3 mx-auto icon-circle icon-wbg icon-lg"
+                  class="icon fa-solid fa-money-check-dollar mb-3 mx-auto icon-circle icon-wbg icon-lg"
                 ></span>
-                <h5 class="card-cat-title">Mitra</h5>
-                <p class="card-cat-title">
+                <h5 class="card-cat-title text-white">Iuran</h5>
+                <p class="card-cat-title text-white">
+                  Rp. {{ mitra.length }}
+                </p>
+              </div>
+            </span>
+          </div>
+          <!-- end col -->
+        </div>
+        <!-- end row -->
+        <div class="row p-0 m-0 mt-4">
+          <div class="col-lg-5 col-6">
+            <span class="card card-cat text-center h-100 text-orange bg-orange">
+              <div class="card-body card-body-s1">
+                <span
+                  class="icon fa-solid fa-building mb-3 mx-auto icon-circle icon-wbg icon-lg"
+                ></span>
+                <h5 class="card-cat-title text-white">Perusahaan</h5>
+                <p class="card-cat-title text-white">
                   {{ mitra.length }}
                 </p>
               </div>
@@ -72,7 +102,7 @@ export default {
     getMitra: function () {
       axios.get(process.env.VUE_APP_ROOT_API+"mitra").then(
         function (response) {
-          this.mitra = response.data;
+          this.mitra = response.data.data;
         }.bind(this)
       );
     },

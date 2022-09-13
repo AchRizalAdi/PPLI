@@ -37,10 +37,7 @@
           aria-labelledby="balances-tab"
         >
           <div class="profile-setting-panel">
-            <!-- Isi Review -->
-            <!-- <h5 class="mb-2">Review</h5> -->
-            <!-- isi Konten -->
-            <div class="alert alert-danger d-flex mb-4" role="alert">
+            <div v-if="true" class="alert alert-danger d-flex mb-4" role="alert">
               <svg
                 class="flex-shrink-0 me-3"
                 width="30"
@@ -53,12 +50,12 @@
                 ></path>
               </svg>
               <p class="fs-14">
-                Silahkan Lengkapi Data Diri Anda<router-link to="" type="button" class="btn-link"> Disini!</router-link>
+                Silahkan Lengkapi Data Diri Anda<router-link to="/legalitas" type="button" class="btn-link"> Disini!</router-link>
               </p>
             </div>
             <!-- end alert -->
             <p class="mb-3 fs-14">
-              <!-- Majapahit Logistics is a company with the completeness of services
+              Majapahit Logistics is a company with the completeness of services
               offered provide solutions best service for its customers,
               supported by their network / agents both within and outside the
               country as a means of information and communication will create a
@@ -77,7 +74,7 @@
               the hopes of its cooperation and mutual support and benefit , then
               we would expect the opportunity given to us as well as the ”
               Company Profile” is hopefully can make a material consideration in
-              trying services ” Majapahit Logistics” Surabaya -->
+              trying services ” Majapahit Logistics” Surabaya
             </p>
           </div>
           <!-- end profile-setting-panel -->

@@ -311,7 +311,8 @@ export default {
         )
         .then((res) => {
           this.gambar = res.data;
-          this.path = "https://api.direktori.ppliofficial.com";
+          // this.path = "https://api.direktori.ppliofficial.com";
+          this.path = "http://127.0.0.1:8000";
           console.log(res);
         });
     },
@@ -323,7 +324,8 @@ export default {
         )
         .then((res) => {
           this.logo = res.data;
-          this.path = "https://api.direktori.ppliofficial.com";
+          // this.path = "https://api.direktori.ppliofficial.com";
+          this.path = "http://127.0.0.1:8000";
           console.log(res);
         });
     },
@@ -445,6 +447,7 @@ export default {
   margin-top: 10px;
   width: 50vw;
   height: 50vh;
+  position: static;
 }
 .circle {
   border: 2px solid rgb(0, 0, 0);

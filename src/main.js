@@ -236,6 +236,8 @@ import BankSection from './components/section/BankSection.vue';
 import PengumumanSection from './components/section/PengumumanSection.vue';
 import KategoriAkunSection from './components/section/KategoriAkunSection.vue';
 import SettingEmailSection from './components/section/SettingEmailSection.vue';
+import ListMemberSection from './components/section/ListMemberSection.vue';
+import LegalitasSection from './components/section/LegalitasSection.vue';
 
 
 
@@ -399,6 +401,8 @@ app.component('PrivacySection', PrivacySection)
 app.component('FaqSection', FaqSection)
 app.component('MembersSection', MembersSection)
 app.component('TipeMitraSection', TipeMitraSection)
+app.component('ListMemberSection', ListMemberSection)
+app.component('LegalitasSection', LegalitasSection)
 
 // vue app
 app.use(router).mount('#app')

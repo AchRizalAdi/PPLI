@@ -14,16 +14,19 @@
       }}</a>
       <div class="menu-sub">
         <ul class="menu-list">
-          <li
-            class="menu-item"
-            v-for="nav in SectionData.headerData.menuList2.navList"
-            :key="nav.id"
-          >
-            <router-link :to="nav.path" class="menu-link"
-              >{{ nav.title }}
-              <span :class="nav.badgeClass" v-if="nav.badge">{{
-                nav.badge
-              }}</span></router-link
+          <li class="menu-item">
+            <router-link to="/contact" class="menu-link">Kontak</router-link>
+            <a href="https://www.ppliofficial.com/faqs/" class="menu-link"
+              >F A Q
+              </a
+            >
+            <a href="https://www.ppliofficial.com/syarat-keanggotaan/" class="menu-link"
+              >Term and Condition
+              </a
+            >
+            <a href="https://www.ppliofficial.com/kebijakan-privasi/" class="menu-link"
+              >Privacy & Policy
+              </a
             >
           </li>
         </ul>

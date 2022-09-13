@@ -2,259 +2,307 @@
   <section class="register-section section-space-b pt-4 pt-md-5 mt-md-3">
     <div class="container">
       <div class="row align-items-center justify-content-center">
-        <div class="col-lg-6 mb-lg-0 d-none d-lg-block">
-          <img :src="SectionData.registerData.img" alt="" class="img-fluid" />
+        <div class="col-lg-6 mb-lg-0 d-none d-lg-block p-0 pe-4">
+          <img
+            src="@/images/ppli.png"
+            alt=""
+            class="img-fluid"
+            style="width: 100%; height: 600px; border-radius: 15px 0 0 15px"
+          />
         </div>
         <!-- end col-lg-6 -->
         <div class="col-lg-6 col-md-9">
           <div class="section-head-sm">
             <h2 class="mb-2" v-html="SectionData.registerData.title"></h2>
-            <p>{{ SectionData.registerData.subTitle }}</p>
+            <p>Silahkan isi Form Pendaftaran berikut dengan benar</p>
           </div>
-          <form @submit.prevent="postRegisters()">
-            <!-- {{ registers }} -->
-
-            <div class="form-floating mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="name"
-                placeholder="Nama"
-                v-model="name"
-              />
-              <label for="name">Nama</label>
-            </div>
-            <!-- end form-floating -->
-            <div class="form-floating mb-3">
-              <input
-                type="email"
-                class="form-control"
-                id="email"
-                placeholder="Email"
-                v-model="email"
-              />
-              <label for="email">Email</label>
-            </div>
-            <!-- end form-floating -->
-            <div class="form-floating mb-3">
-              <input
-                type="password"
-                class="form-control password"
-                id="password"
-                placeholder="Password"
-                v-model="password"
-              />
-              <label for="password">Password</label>
-              <a
-                href="password"
-                class="password-toggle"
-                title="Toggle show/hide pasword"
-              >
-                <em class="password-shown ni ni-eye-off"></em>
-                <em class="password-hidden ni ni-eye"></em>
-              </a>
-              <p class="">*password minimal <strong>8</strong> huruf</p>
-            </div>
-            <!-- end form-floating -->
-            <div class="form-floating mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="username"
-                placeholder="Username"
-                v-model="Username"
-              />
-              <label for="username">Username</label>
-            </div>
-            <!-- end form-floating -->
-            <div class="form-floating mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="NamaPerusahaan"
-                placeholder="Nama Perusahaan"
-                v-model="namaPerushaan"
-              />
-              <label for="NamaPerusahaan">Nama Perusahaan</label>
-            </div>
-            <!-- end form-floating -->
-            <!-- <select class="form-select mb-3" aria-label="Default select example">
-                                <label>I am i</label>
-                                <option value="shipper">Shipper</option>
-                                <option value="provider">Logistic Provider</option>
-                                </select> -->
-            <div class="form-floating mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="PhoneNumber"
-                placeholder="Phone"
-                v-model="nomor"
-              />
-              <label for="PhoneNumber">Phone</label>
-            </div>
-            <!-- end form-floating -->
-            <div class="form-group mb-2">
-              <label>Company Industry </label>
-              <v-select
-                multiple
-                v-model="companyindustry"
-                :options="industris"
-                :reduce="(industris) => industris.value"
-                label="text"
-              />
-            </div>
-            <!-- <div class="form-group mb-2">
-                            <v-select label="name" 
-                                v-model="companyindustry" 
-                                :reduce="companyindustry => country.id" 
-                                :options="industris" 
-                                @search="fetchOptions" 
-                                @input="selectedOption" >
-                            </v-select>
-                            </div> -->
-            <!-- {{provinsis }} -->
-            <!-- <div class="form-group mb-2">
+          <div class="isi">
+            <form @submit.prevent="postRegisters()">
+              <!-- {{ registers }} -->
+  
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  placeholder="Nama"
+                  v-model="name"
+                />
+                <label for="name">Nama</label>
+              </div>
+              <!-- end form-floating -->
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Email"
+                  v-model="email"
+                />
+                <label for="email">Email</label>
+              </div>
+              <!-- end form-floating -->
+              <div class="form-floating mb-3">
+                <input
+                  type="password"
+                  class="form-control password"
+                  id="password"
+                  placeholder="Password"
+                  v-model="password"
+                />
+                <label for="password">Password</label>
+                <a
+                  href="password"
+                  class="password-toggle"
+                  title="Toggle show/hide pasword"
+                >
+                  <em class="password-shown ni ni-eye-off"></em>
+                  <em class="password-hidden ni ni-eye"></em>
+                </a>
+                <p style="font-size:10px;">*password minimal <strong>8</strong> huruf</p>
+              </div>
+              <!-- end form-floating -->
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  placeholder="Username"
+                  v-model="Username"
+                />
+                <label for="username">Username</label>
+              </div>
+              <div class="form-item mb-3">
+                <div class="switch-wrap">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <div class="me-2">
+                      <h5 class="mb-1">Cabang?</h5>
+                      <p class="form-text">
+                        *jika perusahaan pusat yang mendaftar tidak perlu di
+                        aktifkan!
+                      </p>
+                    </div>
+                    <div class="form-check form-switch form-switch-s1">
+                      <input
+                        class="form-check-input checkbox-switcher"
+                        data-target="switch-content-unlock"
+                        type="checkbox"
+                      />
+                    </div>
+                    <!-- end form-check -->
+                  </div>
+                  <!-- end d-flex -->
+                  <div
+                    class="switch-content-unlock mt-4"
+                    id="switch-content-unlock"
+                  >
+                    <div class="form-group mb-2">
+                      <label>Pilih Perusahaan Pusat</label>
+                      <v-select
+                        class="mb-2"
+                        multiple
+                        :options="industris"
+                        :reduce="(industris) => industris.value"
+                        label="text"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <!-- end switch-wrap -->
+              </div>
+              <!-- end form-item -->
+              <!-- end form-floating -->
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="NamaPerusahaan"
+                  placeholder="Nama Perusahaan"
+                  v-model="namaPerushaan"
+                />
+                <label for="NamaPerusahaan">Nama Perusahaan</label>
+              </div>
+              <!-- end form-floating -->
+              <!-- <select class="form-select mb-3" aria-label="Default select example">
+                                  <label>I am i</label>
+                                  <option value="shipper">Shipper</option>
+                                  <option value="provider">Logistic Provider</option>
+                                  </select> -->
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="PhoneNumber"
+                  placeholder="Phone"
+                  v-model="nomor"
+                />
+                <label for="PhoneNumber">Phone</label>
+              </div>
+              <!-- end form-floating -->
+              <div class="form-group mb-2">
+                <label>Company Industry </label>
+                <v-select
+                  class="mb-2"
+                  multiple
+                  v-model="companyindustry"
+                  :options="industris"
+                  :reduce="(industris) => industris.value"
+                  label="text"
+                />
+              </div>
+              <!-- <div class="form-group mb-2">
+                              <v-select label="name" 
+                                  v-model="companyindustry" 
+                                  :reduce="companyindustry => country.id" 
+                                  :options="industris" 
+                                  @search="fetchOptions" 
+                                  @input="selectedOption" >
+                              </v-select>
+                              </div> -->
+              <!-- {{provinsis }} -->
+              <!-- <div class="form-group mb-2">
+                <label>Provinsi </label>
+                <v-select
+                  
+                  :options="provinsis"
+                  :reduce="(provinsis) => provinsis.value"
+                  label="text"
+                  @update:modelValue="getCities"
+                  v-model="provinsiId"
+                >
+                </v-select>
+              </div> -->
+              <!-- <div class="form-group mb-2">
+                <label>Provinsi </label>
+                <v-select
+                  @input="getCities()"
+                  v-model="provinsiId"
+                  :options="provinsis"
+                  :reduce="(provinsis) => provinsis.value"
+                  label="text"
+                  id="provinsis"
+                />
+              </div>-->
+              <!-- {{ provinsis }} -->
               <label>Provinsi </label>
-              <v-select
-                
-                :options="provinsis"
-                :reduce="(provinsis) => provinsis.value"
-                label="text"
-                @update:modelValue="getCities"
+              <select
+                class="form-control mb-2"
                 v-model="provinsiId"
-              >
-              </v-select>
-            </div> -->
-            <!-- <div class="form-group mb-2">
-              <label>Provinsi </label>
-              <v-select
-                @input="getCities()"
-                v-model="provinsiId"
-                :options="provinsis"
-                :reduce="(provinsis) => provinsis.value"
-                label="text"
-                id="provinsis"
-              />
-            </div>-->
-            <!-- {{ provinsis }} -->
-            <label>Provinsi </label>
-            <select
-              class="form-control"
-              v-model="provinsiId"
-              id="provinsi"
-              @change="getCities()"
-            >
-              <option
-                v-for="item in provinsis"
-                :value="item.id"
-                :key="item.id"
                 id="provinsi"
+                @change="getCities()"
               >
-                {{ item.name }}
-              </option>
-            </select>
-            <!-- {{ provinsiId }}  -->
-            <!-- <div class="form-group mb-3"> -->
-            <!-- {{cities}} -->
-            <!-- <v-select
-                v-model="KotaId"
-                :options="cities"
-                :reduce="(cities) => cities.value"
-                label="text"
-              ></v-select>
-            </div> -->
-            <label>Kota </label>
-            <select class="form-control" v-model="KotaId">
-              <option v-for="item in cities" :value="item.id" :key="item.id">
-                {{ item.name }}
-              </option>
-            </select>
-            <div class="form-group mb-3">
-              <label>Wilayah </label>
-              <v-select
-                v-model="WilayahId"
-                :options="wilayahs"
-                :reduce="(wilayahs) => wilayahs.value"
-                label="text"
-              />
-            </div>
-
-            <!-- <select class="form-control" v-model="WilayahId" >
                 <option
-                  v-for="item in wilayahs.data"
+                  v-for="item in provinsis"
                   :value="item.id"
                   :key="item.id"
+                  id="provinsi"
                 >
                   {{ item.name }}
                 </option>
-              </select> -->
-            <div class="form-floating mb-3">
-              <input
-                type="text"
-                class="form-control"
-                id="BentukBadanUsaha"
-                placeholder="Bentuk Badan Usaha"
-                v-model="bentukusaha"
-              />
-              <label for="BentukBadanUsaha">Bentuk Badan Usaha</label>
-            </div>
-            <!-- end form-floating -->
-            <div class="mb-4">
-              <label class="mb-2 form-label">Pesan</label>
-              <textarea
-                type="input"
-                name="pesan"
-                class="form-control form-control-s1"
-                id="AlasanBergabung"
-                placeholder="Alasan Untuk Bergabung"
-                v-model="alasan"
-              ></textarea>
-            </div>
-            <!-- form checkbox  -->
-            <div class="form-check mb-2">
-              <input
-                id="agree"
-                type="checkbox"
-                value="agree"
-                v-model="checked"
-              />
-              <span class="form-check-label mb-1 ms-2 form-text" for="terms">
-                {{ SectionData.registerData.termText }}
-                <a><router-link to="/terms">terms of service</router-link></a>
-                and
-                <a
-                  ><router-link to="/privacy"
-                    >privacy and policy</router-link
-                  ></a
-                ></span
-              >
-            </div>
-            <!-- end form checkbox -->
-            <button :disabled="!checked" class="btn btn-dark w-100">
-              {{ SectionData.registerData.btnText }}
-            </button>
-            <!-- <span class="d-block my-3">— or sign up with —</span>
-                            <ul class="btns-group d-flex">
-                                <li class="flex-grow-1" v-for="(list, i) in SectionData.registerData.btns" :key="i"><router-link :to="list.path" class="btn d-block" :class="list.btnClass"><em class="ni" :class="list.icon"></em> {{ list.title }} </router-link></li>
-                            </ul> -->
-
-            <p class="mt-3 form-text mb-2">
-              {{ SectionData.registerData.haveAccountText }}
-              <router-link
-                :to="SectionData.registerData.btnTextLink"
-                class="btn-link"
-                >{{ SectionData.registerData.btnTextTwo }}</router-link
-              >
-            </p>
-            <div class="alert alert-success" v-if="isSuccess">
-              Registrasi Member Berhasil, Tunggu beberapa saat untuk di
-              konfirmasi
-            </div>
-            <div class="alert alert-danger" v-if="isDanger">
-              Silahkan isi Form Pendaftaran Dengan Benar!
-            </div>
-          </form>
+              </select>
+              <!-- {{ provinsiId }}  -->
+              <!-- <div class="form-group mb-3"> -->
+              <!-- {{cities}} -->
+              <!-- <v-select
+                  v-model="KotaId"
+                  :options="cities"
+                  :reduce="(cities) => cities.value"
+                  label="text"
+                ></v-select>
+              </div> -->
+              <label>Kota </label>
+              <select class="form-control mb-2" v-model="KotaId">
+                <option v-for="item in cities" :value="item.id" :key="item.id">
+                  {{ item.name }}
+                </option>
+              </select>
+              <div class="form-group mb-3">
+                <label>Wilayah </label>
+                <v-select
+                  class="mb-2"
+                  v-model="WilayahId"
+                  :options="wilayahs"
+                  :reduce="(wilayahs) => wilayahs.value"
+                  label="text"
+                />
+              </div>
+  
+              <!-- <select class="form-control" v-model="WilayahId" >
+                  <option
+                    v-for="item in wilayahs.data"
+                    :value="item.id"
+                    :key="item.id"
+                  >
+                    {{ item.name }}
+                  </option>
+                </select> -->
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="BentukBadanUsaha"
+                  placeholder="Bentuk Badan Usaha"
+                  v-model="bentukusaha"
+                />
+                <label for="BentukBadanUsaha">Bentuk Badan Usaha</label>
+              </div>
+              <!-- end form-floating -->
+              <div class="mb-4">
+                <!-- <label class="mb-2 form-label">Pesan</label> -->
+                <textarea
+                  type="input"
+                  name="pesan"
+                  class="form-control form-control-s1"
+                  id="AlasanBergabung"
+                  placeholder="Alasan Untuk Bergabung"
+                  v-model="alasan"
+                ></textarea>
+              </div>
+              <!-- form checkbox  -->
+              <div class="form-check mb-2">
+                <input
+                  id="agree"
+                  type="checkbox"
+                  value="agree"
+                  v-model="checked"
+                />
+                <span class="form-check-label mb-1 ms-2 form-text" for="terms">
+                  dengan mengisi form Pendaftaran di atas, Anda setuju dengan
+                  <a href="https://www.ppliofficial.com/syarat-keanggotaan/"
+                    >Syarat Keanggotaan Kami</a
+                  >
+                  Dan
+                  <a href="https://www.ppliofficial.com/kebijakan-privasi/"
+                    >Kebijakan Privasi Kami</a
+                  ></span
+                >
+              </div>
+              <!-- end form checkbox -->
+              <button :disabled="!checked" class="btn btn-dark w-100">
+                Pengajuan Anggota
+              </button>
+              <!-- <span class="d-block my-3">— or sign up with —</span>
+                              <ul class="btns-group d-flex">
+                                  <li class="flex-grow-1" v-for="(list, i) in SectionData.registerData.btns" :key="i"><router-link :to="list.path" class="btn d-block" :class="list.btnClass"><em class="ni" :class="list.icon"></em> {{ list.title }} </router-link></li>
+                              </ul> -->
+  
+                            </form>
+                          </div>
+                          <p class="mt-3 form-text mb-2">
+                            Sudah punya Akun? Silahkan
+                            <router-link
+                              :to="SectionData.registerData.btnTextLink"
+                              class="btn-link"
+                              >{{ SectionData.registerData.btnTextTwo }}</router-link
+                            >
+                          </p>
+          <div class="alert alert-success mt-5" v-if="isSuccess" >
+            Registrasi Anggota telah diterima, Tunggu beberapa saat untuk di
+            konfirmasi
+          </div>
+          <div class="alert alert-danger" v-if="isDanger">
+            Silahkan isi Form Pendaftaran Dengan Benar!
+          </div>
         </div>
         <!-- end col-lg-6 -->
       </div>
@@ -265,6 +313,18 @@
   <!-- end register-section -->
   <!-- <ModalSection1></ModalSection1> -->
 </template>
+
+<style>
+  body {
+    background-color: rgb(255, 255, 255);
+  }
+  .register-section .container {
+    background-color: white;
+    /* padding: 20px; */
+    border-radius: 15px;
+    box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.1);
+  }
+  </style>
 
 <script>
 // Import component data. You can change the data in the store to reflect in all component
@@ -300,7 +360,7 @@ export default {
   methods: {
     postRegisters: function () {
       axios
-        .post(process.env.VUE_APP_ROOT_API+"register", {
+        .post(process.env.VUE_APP_ROOT_API + "register", {
           name: this.name,
           email: this.email,
           password: this.password,
@@ -316,12 +376,18 @@ export default {
         })
         .then((response) => {
           this.isSuccess = true;
-          this.$toast.success("berhasil ditambahkan");
+          setTimeout(() => {
+            this.isSuccess = false
+          }, 10000)
+          // this.$toast.success("berhasil ditambahkan");
           console.log(response);
         })
         .catch((error) => {
           this.isDanger = true;
-          this.$toast.error("Registrasi Gagal");
+          setTimeout(() => {
+            this.isDanger = false
+          }, 10000)
+          // this.$toast.error("Registrasi Gagal");
           console.log(error.response.status);
         });
       this.name = "";
@@ -348,7 +414,7 @@ export default {
     //   );
     // },
     getProvinsis: function () {
-      axios.get(process.env.VUE_APP_ROOT_API+"select/provinsi").then(
+      axios.get(process.env.VUE_APP_ROOT_API + "select/provinsi").then(
         function (response) {
           this.provinsis = response.data;
         }.bind(this)
@@ -372,7 +438,8 @@ export default {
       // alert("bodoh")
       axios
         .get(
-          process.env.VUE_APP_ROOT_API+"select/city/" +
+          process.env.VUE_APP_ROOT_API +
+            "select/city/" +
             document.getElementById("provinsi").value
         )
         .then(
@@ -382,7 +449,7 @@ export default {
         );
     },
     getIndustris: function () {
-      axios.get(process.env.VUE_APP_ROOT_API+"select/CompanyIndustry").then(
+      axios.get(process.env.VUE_APP_ROOT_API + "select/CompanyIndustry").then(
         function (response) {
           this.industris = response.data.map((industris) => ({
             value: industris.id,
@@ -392,7 +459,7 @@ export default {
       );
     },
     getWilayahs: function () {
-      axios.get(process.env.VUE_APP_ROOT_API+"select/wilayah").then(
+      axios.get(process.env.VUE_APP_ROOT_API + "select/wilayah").then(
         function (response) {
           this.wilayahs = response.data.map((wilayahs) => ({
             value: wilayahs.id,
@@ -429,111 +496,33 @@ export default {
       }
     }
 
+    /*  ============== Unlock once purchased Checkbox switcher ============= */
+    function checkboxSwitcher(selector) {
+      let elem = document.querySelectorAll(selector);
+      if (elem.length > 0) {
+        elem.forEach((item) => {
+          item.addEventListener("change", function () {
+            let target = document.getElementById(item.dataset.target);
+            if (this.checked) {
+              target.classList.add("is-shown");
+            } else {
+              target.classList.remove("is-shown");
+            }
+          });
+        });
+      }
+    }
+    checkboxSwitcher(".checkbox-switcher");
     showHidePassword(".password-toggle");
   },
 };
 </script>
 
-//
-<!-- <script>
-// // Import component data. You can change the data in the store to reflect in all component
-// import SectionData from '@/store/store.js'
-// import { reactive, ref } from 'vue';
-// import axios from 'axios'
-
-// export default {
-//     name: 'RegisterSection',
-//     data () {
-//       return {
-//         SectionData,
-//         checked : false,
-//         cities: []
-//       };
-//     },
-//      methods: {
-//     loadData(){
-//         axios.get(process.env.VUE_APP_ROOT_API+'cities').then(({data}) => (this.cities = data));
-//     }
-//   },
-//   created (){
-//     this.loadData();
-//   },
-//     setup(){
-//         //data binding 
-//         const registers = reactive({
-//             name : '',
-//             email : '',
-//             password: '',
-//             username: '',
-//             namaPerushaan: '',
-//             nomor: '',
-//             companyindustry:'',
-//             provinsiId: '',
-//             KotaId: '',
-//             WilayahId:'',
-//             bentukusaha: '',
-//             alasan: '',
-//         });
-
-//         const validation = ref ([]);
-
-//         function store() {
-//             axios.post(
-//                 process.env.VUE_APP_ROOT_API+'register',
-//                 registers
-//             )
-//             .then(()=> {
-//                 console.log('Sudah BeNAR');
-//             }).catch((err) => {
-//                 validation.value = err.response.data
-//         });
-
-//         }
-//         return {
-//             isSuccess: false,
-//             registers,
-//             validation,
-//             store
-//         }
-//     },
-//   mounted () {
-//     /*  ======== Show/Hide passoword ======== */
-//     function showHidePassword(selector){
-//         let elem = document.querySelectorAll(selector);
-//         if(elem.length > 0){
-//             elem.forEach(item => {
-//             item.addEventListener("click", function(e){
-//                 e.preventDefault();
-//                 let target = document.getElementById(item.getAttribute("href"));
-//                 if(target.type == "password") {
-//                 target.type = "text";
-//                 item.classList.add("is-shown");
-//                 }else{
-//                 target.type = "password";
-//                 item.classList.remove("is-shown");
-//                 }
-//             });
-
-//             });
-//         }
-//     }
-
-//     showHidePassword(".password-toggle");
-
-//   }
-// }
-// </script> -->
-
-//
-<!-- <div class="alert alert-danger d-flex mb-4" role="alert">
-//                                             <svg class="flex-shrink-0 me-3" width="30" height="30" viewBox="0 0 24 24" fill="#ff6a8e">
-//                                                 <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20, 12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10, 10 0 0,0 12,2M11,17H13V11H11V17Z"></path>
-//                                             </svg>
-//                                             <p class="fs-14" v-html="SectionData.offerData.alertText"></p>
-//                                         </div>end alert -->
-// setup(){ // //data binding // const registers = reactive({ // }); // const
-validation = ref ([]); // function store() { // axios.post( //
-process.env.VUE_APP_ROOT_API+'register', // registers // ) // .then((response)=> {
-// this.isSuccess = true, // console.log(response); // }).catch((err) => { //
-this.isDanger = true, // console.log(err) // }); // } // return { // isSuccess:
-false, // isDanger: false, // registers, // validation, // store // } // },
+<style>
+.container .isi{
+  width: 100%;
+  height: 350px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+</style>

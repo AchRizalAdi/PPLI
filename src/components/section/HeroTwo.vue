@@ -4,7 +4,7 @@
             <div class="row align-items-center flex-md-row-reverse justify-content-between">
                 <div class="col-lg-5 col-sm-9 col-md-6">
                     <div class="hero-image">
-                        <img :src="SectionData.heroDataTwo.img" alt="" class="w-100">
+                        <img src="@/images/banner1.png" alt="" class="w-100">
                     </div>
                 </div><!-- end col-lg-5 -->
                 <div class="col-lg-6 col-md-6">

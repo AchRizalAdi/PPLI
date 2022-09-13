@@ -24,7 +24,7 @@
     <!-- {{ memberss }} -->
     <!-- {{wilayahss}} -->
     <!-- {{ membersss }} -->
-    <h6 class>Filter DPD</h6>
+    <h6 class>Filter DPW</h6>
     <form class="d-flex mb-3 mt-1" @submit.prevent="postWilayah()">
       <select class="form-control me-2 w-25" v-model="wilayah" required>
         <option value="0">All</option>

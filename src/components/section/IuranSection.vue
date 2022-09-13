@@ -4,8 +4,8 @@
       <h3>Iuran</h3>
     </div>
     <div class="d-flex">
-      <h6 class="me-2">Tahun</h6>
       <form class="d-flex" @submit.prevent="postIuran()">
+        <h6 class="me-2">Tahun</h6>
         <v-select
           v-model="tahun"
           :options="tahuns"

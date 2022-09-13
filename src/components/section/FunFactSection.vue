@@ -5,9 +5,9 @@
         <div class="col-md-4" :class="classname">
           <div class="card card-counter text-center">
             <div class="card-body card-body-s1">
-              <img src="@/images/thumb/icon-timeline.svg" alt="" class="mb-3" />
+              <i class="fa-regular fa-building"></i>
               <h3 class="mb-1">{{ userManajemen.length }}</h3>
-              <p>Company</p>
+              <p>Perusahaan</p>
             </div>
             <!-- card-body -->
           </div>
@@ -17,13 +17,9 @@
         <div class="col-md-4" :class="classname">
           <div class="card card-counter text-center">
             <div class="card-body card-body-s1">
-              <img
-                src="@/images/thumb/icon-employees.svg"
-                alt=""
-                class="mb-3"
-              />
+              <i class="fa-solid fa-person"></i>
               <h3 class="mb-1">{{ userManajemen.length }}</h3>
-              <p>Members</p>
+              <p>Anggota</p>
             </div>
             <!-- card-body -->
           </div>
@@ -33,9 +29,9 @@
         <div class="col-md-4" :class="classname">
           <div class="card card-counter text-center">
             <div class="card-body card-body-s1">
-              <img src="@/images/thumb/icon-users.svg" alt="" class="mb-3" />
+              <i class="fa-regular fa-handshake"></i>
               <h3 class="mb-1">{{ mitra.length }}</h3>
-              <p>Mitra</p>
+              <p>Kemitraan</p>
             </div>
             <!-- card-body -->
           </div>
@@ -76,7 +72,7 @@ export default {
     getMitra: function () {
       axios.get(process.env.VUE_APP_ROOT_API + "mitra").then(
         function (response) {
-          this.mitra = response.data;
+          this.mitra = response.data.data;
         }.bind(this)
       );
     },
@@ -87,3 +83,10 @@ export default {
   },
 };
 </script>
+
+<style>
+.container i{
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+</style>

@@ -4,34 +4,10 @@
             <img :src="product.img" class="card-img-top" alt="art image">
         </div>
         <div class="card-body p-4">
-            <h5 class="card-title text-truncate mb-0">{{ product.title }}</h5>
-            <div class="card-author mb-1 d-flex align-items-center">
-                <span class="icon ni ni-map-pin mb-4">{{ product.alamat }}</span>
-                <!-- <div class="custom-tooltip-wrap">
-                    <router-link :to="product.authorLink" class="custom-tooltip author-link">{{ product.author }}</router-link> -->
-                    <!-- <div class="card-generic custom-tooltip-dropdown">
-                        <div class="author-action d-flex flex-wrap align-items-center">
-                            <div class="flex-shrink-0 avatar">
-                                <img :src="product.avatar" alt="avatar">
-                            </div>
-                            <div class="ms-2"> -->
-                                <!-- <span class="author-username">{{ product.userName }}</span> -->
-                                <!-- <span class="author-follow-text">{{ product.followersText }}</span> -->
-                            <!-- </div>
-                        </div>
-                        <h6 class="author-name mb-1">{{ product.authorName }}</h6>
-                        <p class="author-desc smaller mb-3">{{ product.desc }}</p>
-                        <div class="follow-wrap mb-3">
-                            <h6 class="mb-1 smaller text-uppercase">Followed by</h6>
-                            <div class="avatar-group"> -->
-                                <!-- <router-link :to="avatar.path" v-for="avatar in product.avatars" :key="avatar.id">
-                                    <img :src="avatar.img" alt="avatar">
-                                </router-link> -->
-                            <!-- </div> -->
-                        <!-- </div>end follow-wrap  -->
-                        <!-- <router-link :to="product.authorLink" class="btn btn-sm bg-dark-dim">Follow</router-link> -->
-                    <!-- </div>end dropdown-menu -->
-                <!-- </div>end custom-tooltip-wrap -->
+            <h5 class="card-title text-truncate mb-2">{{ product.title }}</h5>
+            <div class="card-author mb-3 d-flex">
+                <span class="icon ni ni-map-pin mt-1 me-2"></span>
+                <p>{{ product.alamat }}</p>
             </div><!-- end card-author -->
             <!-- <div class="card-price-wrap d-flex align-items-center  mb-3"> -->
                 <!-- <div class="me-5 me-sm-2">
@@ -105,4 +81,7 @@ export default {
    z-index: 2;
    position: relative;
  }
+.card-author p{
+    font-size: 12px;
+}
 </style>

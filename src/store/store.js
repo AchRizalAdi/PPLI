@@ -315,8 +315,8 @@ let SectionData = {
     title: 'Trending Auctions',
     content: 'This is just a simple text made for this unique and awesome template, you can replace it with any text. It is a long established fact.',
     contentTwo: "Explore on the world's best NFT marketplace with our beautiful NFT products. We want to be a part of your smile.",
-    btnText: 'View all auctions',
-    btnLink: '/explore',
+    btnText: 'Semua Anggota PPLI',
+    btnLink: '/list-member',
     btnLinkTwo: '/explore-v3',
     btnLinkThree: '/explore-v4',
     btnLinkFour: '/explore-v5',
@@ -2201,7 +2201,7 @@ products: [
   },
   // Setting Umum Data
   settingOrgData: {
-    title: 'Organization',
+    title: 'Organisasi',
     content: 'Lihat dan cari perusahaan logistik yang sesuai dengan kebutuhan layanan yang anda cari.',
     settingOrgList: [
       {
@@ -5190,12 +5190,12 @@ faqSidebarData: {
       slug: 'balances-tab',
       bsTarget: '#balances'
     },
-    {
-      id: 2,
-      title: 'Review',
-      slug: 'credit-cards-tab',
-      bsTarget: '#credit-cards'
-    },
+    // {
+    //   id: 2,
+    //   title: 'Review',
+    //   slug: 'credit-cards-tab',
+    //   bsTarget: '#credit-cards'
+    // },
   ],
   // edit profile tab mobile
    paymentMethodTabNavMobile: [

@@ -7,7 +7,7 @@
                     <h3 class="form-title">{{ SectionData.termletterData.title }}</h3>
                 </div><!-- end col -->
                 <div class="col-lg-3 col-md-4">
-                    <a class="btn d-md-block" href=""><router-link to="/register" class="btn btn-dark d-md-block">Join Now</router-link></a>
+                    <a class="btn d-md-block" href=""><router-link to="/register" class="btn btn-dark d-md-block">Gabung Sekarang</router-link></a>
                 </div><!-- end col -->
             </div><!-- row -->
         </div><!-- end join-form-wrap -->

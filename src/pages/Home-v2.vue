@@ -12,28 +12,40 @@
       classname="col-xl-4 col-sm-2 col-4"
     ></funFactSection>
     <!-- HowItWork  -->
-    <HowItWork
+    <!-- <HowItWork
       classname="col-lg-3"
       :title="SectionData.howItWorkData.titleTwo"
       :subtitle="SectionData.howItWorkData.titleThree"
       gutterBottom="mb-3"
-    ></HowItWork>
+    ></HowItWork> -->
     <!-- HowItWork  -->
-    <HowItWork2
+    <!-- <HowItWork2
       classname="col-lg-3"
       :subtitle="SectionData.howItWorkData.content"
       gutterBottom="mb-3"
-    ></HowItWork2>
+    ></HowItWork2> -->
 
-    <!-- <section
+    <section
       class="trending-section bg-gray"
       style="padding-top: 30px; padding-bottom: 30px"
-    > -->
-      <!-- <div class="container"> -->
+    >
+      <div class="container">
         <!-- Recent Item Section  -->
-        <!-- <RecentItemSection></RecentItemSection> -->
-      <!-- </div> -->
-    <!-- </section> -->
+        <RecentItemSection></RecentItemSection>
+      </div>
+    </section>
+    <!-- product  -->
+    <section class="section-space trending-section bg-white">
+            <div class="container">
+                <!-- section heading -->
+                <SectionHeading classname="text-center" text="Anggota PPLI" isMargin="mb-3"></SectionHeading>
+                <!-- product -->
+                <ProductsContainer></ProductsContainer>
+                <div class="text-center mt-4 mt-md-5">
+                    <ButtonLink :text="SectionData.productData.btnText" :link="SectionData.productData.btnLink" classname="btn-link btn-link-s1"></ButtonLink>
+                </div>
+            </div><!-- .container -->
+        </section><!-- trending-section -->
     <!-- <section
       class="trending-section bg-white"
       style="padding-top: 30px; padding-bottom: 30px"

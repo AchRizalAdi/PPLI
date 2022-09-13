@@ -19,12 +19,12 @@
           <li>
             <h6 class="dropdown-header">{{ data.name }}</h6>
           </li>
-          <li v-for="list in SectionData.authorNav" :key="list.id">
+          <!-- <li v-for="list in SectionData.authorNav" :key="list.id">
             <router-link class="dropdown-item card-generic-item" :to="list.path"
               ><em class="ni me-2" :class="list.icon"></em
               >{{ list.title }}</router-link
             >
-          </li>
+          </li> -->
           <li>
             <a
               href="#"

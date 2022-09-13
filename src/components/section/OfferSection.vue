@@ -312,7 +312,7 @@ export default {
         });
       this.status = "";
     },
-    deleteRgisters(id) {
+    deleteRegisters(id) {
       axios.delete(process.env.VUE_APP_ROOT_API+"register/delete/" + id).then(
         function () {
           $("#dataReg").DataTable().destroy();

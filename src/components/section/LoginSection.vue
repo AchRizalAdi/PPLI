@@ -2,8 +2,13 @@
   <section class="login-section section-space-b pt-4 pt-md-5 mt-md-3">
     <div class="container">
       <div class="row align-items-center justify-content-center">
-        <div class="col-lg-6 mb-5 mb-lg-0 d-none d-lg-block">
-          <img :src="SectionData.loginData.img" alt="" class="img-fluid" />
+        <div class="col-lg-6 mb-5 mb-lg-0 d-none d-lg-block p-0 pe-3">
+          <img
+            src="@/images/ppli.png"
+            alt=""
+            class="img-fluid"
+            style="width: 100%; height: 600px; border-radius: 15px 0 0 15px"
+          />
         </div>
         <!-- end col-lg-6 -->
         <div class="col-lg-6">
@@ -11,8 +16,8 @@
             {{ message }}
           </div>
           <div class="section-head-sm">
-            <h2 class="mb-1">{{ SectionData.loginData.title }}</h2>
-            <p>{{ SectionData.loginData.subTitle }}</p>
+            <h2 class="mb-1">Selamat Datang</h2>
+            <p>Silahkan Login jika sudah terdaftar di Membership kami</p>
           </div>
 
           <div class="alert alert-success" v-if="isSuccess">
@@ -50,7 +55,7 @@
             </div>
             <!-- end form-floating -->
             <div
-              class="d-flex flex-wrap align-items-center justify-content-between mb-4"
+              class="d-flex flex-wrap align-items-right justify-content-right mb-4"
             >
               <!-- <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="logMeIn">
@@ -59,26 +64,28 @@
               <router-link
                 to="/forgot-password"
                 class="btn-link form-forget-password"
-                >Forgot Password</router-link
+                >Lupa Password</router-link
               >
             </div>
-            <button class="btn btn-dark w-100" type="submit">
-              {{ SectionData.loginData.btnText }}
-            </button>
+            <button class="btn btn-dark w-100" type="submit">Masuk</button>
 
             <!-- <span class="d-block my-4">— or login with —</span>
                             <ul class="btns-group d-flex">
                                 <li class="flex-grow-1" v-for="(list, i) in SectionData.loginData.btns" :key="i"><router-link :to="list.path" class="btn d-block" :class="list.btnClass"><em class="ni" :class="list.icon"></em> {{ list.title }} </router-link></li>
                             </ul> -->
             <p class="mt-3 form-text">
-              {{ SectionData.loginData.haveAccountText }}
+              Belum menjadi anggota PPLI? Silahkan Daftar
               <router-link
                 :to="SectionData.loginData.btnTextLink"
                 class="btn-link"
-                >{{ SectionData.loginData.btnTextTwo }}</router-link
+                >Disini</router-link
               >
             </p>
-            <div v-if="salah" class="alert bg-danger text-white text-center">
+            <router-link class="mt-4 justify-content-right" to="/">Kembali</router-link>
+            <div
+              v-if="salah"
+              class="alert bg-danger text-white text-center mt-4"
+            >
               Email atau Password Salah
             </div>
           </form>
@@ -90,6 +97,19 @@
     <!-- end container -->
   </section>
 </template>
+
+<style>
+  body {
+    background-color: rgb(255, 255, 255);
+  }
+.login-section .container {
+  background-color: ;
+  /* padding: 20px; */
+  border-radius: 15px;
+  box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.1);
+}
+</style>
+
 <script>
 // Import component data. You can change the data in the store to reflect in all component
 import SectionData from "@/store/store.js";
@@ -120,7 +140,6 @@ export default {
           password: this.password,
         })
         .then((response) => {
-      
           console.log(response.data.authorisation.token);
           localStorage.setItem("user", JSON.stringify(response.data.user));
           localStorage.setItem("token", response.data.authorisation.token);
@@ -143,7 +162,11 @@ export default {
           this.$emit("loggedIn");
         })
         .catch((error) => {
-          (this.salah = true), this.$toast.error("Email atau Password Salah");
+          this.salah = true  
+          setTimeout(() => {
+            this.salah = false
+          }, 10000)
+          this.$toast.error("Email atau Password Salah");
           this.error = error.response.data.error;
         });
     },

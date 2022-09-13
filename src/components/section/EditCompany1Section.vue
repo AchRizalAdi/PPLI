@@ -13,7 +13,7 @@
                             </div>
                               <input class="upload-image" data-target="image-result" id="upload-image-file" type="file" hidden>
                               <label for="upload-image-file" class="upload-image-label btn">Upload Logo Perusahaan</label>
-                              <button class="btn btn-sm btn-dark ms-2">Delete</button>
+                              <!-- <button class="btn btn-sm btn-dark ms-2">Delete</button> -->
                             </div><!-- end d-flex -->
                             <p class="form-text mt-1 mb-3">* file foto harus berformat .jpg, .png, dan .svg dengan maksimum size 3MB.</p>
                             <label class="form-label mt-1 mb-2">Nama Perusahaan</label>

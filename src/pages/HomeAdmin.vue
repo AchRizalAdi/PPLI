@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div class="page-wrap">
     <!-- header  -->
     <header class="header-section has-header-main bg-pattern-3">
@@ -29,7 +29,7 @@
             </div>
             <!-- end sidebar-head -->
             <div class="sidebar sidebar-user-mobile">
-              <a router-link="#" class="icon-btn menu-toggler-user-close">
+              <a router="#" class="icon-btn menu-toggler-user-close">
                 <em class="ni ni-cross"></em>
               </a>
               <div class="sidebar-widget">

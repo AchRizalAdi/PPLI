@@ -52,6 +52,11 @@ const routes = [
     component: () => import('../pages/DPW.vue')
   },
   {
+    path: '/list-member',
+    name: 'list-member',
+    component: () => import('../pages/ListMember.vue')
+  },
+  {
     path: '/daftar-mitra',
     name: 'daftar-mitra',
     meta: {
@@ -126,16 +131,28 @@ const routes = [
   {
     path: '/show-contact/:id',
     name: 'show-contact',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+    }, 
     component: () => import('../pages/ShowContact.vue')
   },
   {
     path: '/show-register/:id',
     name: 'show-register',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+    }, 
     component: () => import('../pages/ShowRegister.vue')
   },
   {
     path: '/show-member/:id',
     name: 'show-member',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+    }, 
     component: () => import('../pages/ShowMember.vue')
   },
   {
@@ -143,9 +160,20 @@ const routes = [
     name: 'dashboard',
     meta: {
       requiresAuth: true,
-      isUser: true
+      // isUser: true
+      isAdmin: true
     }, 
     component: () => import('../pages/Dashboard.vue')
+  },
+  {
+    path: '/legalitas',
+    name: 'legalitas',
+    meta: {
+      requiresAuth: true,
+      // isUser: true
+      isAdmin: true
+    }, 
+    component: () => import('../pages/Legalitas.vue')
   },
   {
     path: '/users',
@@ -241,6 +269,10 @@ const routes = [
   {
     path: '/tipe-mitra',
     name: 'tipe-mitra',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+    }, 
     component: () => import('../pages/TipeMitra.vue')
   },
   {
@@ -348,6 +380,10 @@ const routes = [
   {
     path: '/pengurusdata',
     name: 'pengurusdata',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+    }, 
     component: () => import('../pages/PengurusData.vue')
   },
   {
@@ -529,41 +565,73 @@ const routes = [
   {
     path: '/user-mana',
     name: 'user-mana',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+    }, 
     component: () => import('../pages/UserMana.vue')
   },  
   {
     path: '/group',
     name: 'group',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+    }, 
     component: () => import('../pages/Group.vue')
   },
   {
     path: '/add-contact',
     name: 'add-contact',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+    }, 
     component: () => import('../pages/AddContact.vue')
   },
   {
     path: '/add-transaksi',
     name: 'add-transaksi',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+    }, 
     component: () => import('../pages/AddTransaksi.vue')
   },
   {
     path: '/add-kegiatan',
     name: 'add-kegiatan',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+    }, 
     component: () => import('../pages/AddKegiatan.vue')
   },
   {
     path: '/edit-kegiatan/:id',
     name: 'edit-kegiatan',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+    }, 
     component: () => import('../pages/EditKegiatan.vue')
   },
   {
     path: '/privilage/:id',
     name: 'privilage',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+    }, 
     component: () => import('../pages/Privilage.vue')
   },
   {
     path: '/privilege/:id',
     name: 'privilege',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+    }, 
     component: () => import('../pages/Privilege.vue')
   },
   {
@@ -571,7 +639,7 @@ const routes = [
     name: 'edit-acc',
     meta: {
       requiresAuth: true,
-      isUser: true
+      isAdmin: true
     }, 
     component: () => import('../pages/EditAcc.vue')
   },
@@ -580,13 +648,17 @@ const routes = [
     name: 'edit-company1',
     meta: {
       requiresAuth: true,
-      isUser: true
+      isAdmin: true
     }, 
     component: () => import('../pages/EditCompany1.vue')
   },
   {
     path: '/edit-contact/:id',
     name: 'edit-contact',
+    meta: {
+      requiresAuth: true,
+      isAdmin: true
+    }, 
     component: () => import('../pages/EditContact.vue')
   },
 ];
