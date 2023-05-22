@@ -292,6 +292,28 @@
                 />
                 <label for="nomor">Nomor</label>
               </div>
+              <div class="form-floating mb-3 mt-4">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="pic"
+                  placeholder="pic"
+                  v-model="pic"
+                  required
+                />
+                <label for="pic">Pic</label>
+              </div>
+              <div class="form-floating mb-3 mt-4">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="jabatan"
+                  placeholder="jabatan"
+                  v-model="jabatan"
+                  required
+                />
+                <label for="jabatan">Jabatan</label>
+              </div>
               <!-- end form-floating -->
               <div class="form-check mb-3 mt-2">
                 <input
@@ -353,6 +375,8 @@ export default {
       email: "",
       alamat: "",
       nomor: "",
+      jabatan: "",
+      pic: "",
       hq: "",
       //   data:""
     };
@@ -400,6 +424,8 @@ export default {
       this.kota = null;
       this.alamat = null;
       this.nomor = null;
+      this.jabatan = null;
+      this.pic = null;
       this.HQ = null;
     },
     deleteWilayah(id) {
@@ -419,6 +445,8 @@ export default {
           kota: this.kota,
           alamat: this.alamat,
           nomor: this.nomor,
+          jabatan: this.jabatan,
+          pic: this.pic,
           HQ: this.hq,
         })
         .then((response) => {
@@ -441,6 +469,8 @@ export default {
           kota: this.kota,
           alamat: this.alamat,
           nomor: this.nomor,
+          jabatan: this.jabatan,
+          pic: this.pic,
           HQ: this.hq,
         })
         .then((response) => {
