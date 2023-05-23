@@ -542,6 +542,7 @@ export default {
           this.jabatan = response.data.data.jabatan;
           this.data = response.data.data.HQ;
           this.hq = response.data.data.HQ === 1 ? true : false;
+          console.log('test');
         }.bind(this)
       );
     },
