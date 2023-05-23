@@ -5037,6 +5037,8 @@ faqSidebarData: {
       'Kota',
       'Alamat',
       'Nomor',
+      'PIC',
+      'Jabatan',
       'Action',
     ],
   },

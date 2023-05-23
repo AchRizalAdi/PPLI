@@ -49,6 +49,8 @@
               <td>{{ item.kota }}</td>
               <td>{{ item.alamat }}</td>
               <td>{{ item.nomor }}</td>
+              <td>{{ item.pic ?? '-' }}</td>
+              <td>{{ item.jabatan ?? '-' }}</td>
               <td class="row">
                 <button
                   v-if="checkPrivilege('wilayah-edit')"
@@ -178,6 +180,28 @@
                   required
                 />
                 <label for="nomor">Nomor</label>
+              </div>
+              <div class="form-floating mb-3 mt-4">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="pic"
+                  placeholder="pic"
+                  v-model="pic"
+                  required
+                />
+                <label for="pic">Pic</label>
+              </div>
+              <div class="form-floating mb-3 mt-4">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="jabatan"
+                  placeholder="jabatan"
+                  v-model="jabatan"
+                  required
+                />
+                <label for="jabatan">Jabatan</label>
               </div>
               <!-- end form-floating -->
               <div class="form-check mb-3 mt-2">
@@ -426,7 +450,7 @@ export default {
       this.nomor = null;
       this.jabatan = null;
       this.pic = null;
-      this.HQ = null;
+      this.hq = null;
     },
     deleteWilayah(id) {
       axios.delete(process.env.VUE_APP_ROOT_API + "wilayah/" + id).then(
@@ -514,9 +538,10 @@ export default {
           this.kota = response.data.data.kota;
           this.alamat = response.data.data.alamat;
           this.nomor = response.data.data.nomor;
+          this.pic = response.data.data.pic;
+          this.jabatan = response.data.data.jabatan;
           this.data = response.data.data.HQ;
           this.hq = response.data.data.HQ === 1 ? true : false;
-          // alert(this.data);
         }.bind(this)
       );
     },
